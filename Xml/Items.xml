@@ -3,7 +3,7 @@
   <!-- Tools Start -->
   <Item name="Entrenching Tool" identifier="trenchingtool" category="Equipment" Tags="smallitem,tool,simpletool,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,0,150,91" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,0,150,111" depth="0.55" origin="0.5,0.5" />
     <Body width="150" height="30" density="30" />
     <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="10,0" holdangle="60" reload="1" range="100" combatpriority="20" msg="itemmsgpickupselect">
       <Attack structuredamage="20" itemdamage="20" targetimpulse="10">
