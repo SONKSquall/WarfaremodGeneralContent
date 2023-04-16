@@ -53,26 +53,26 @@
   </Item>
   <!-- Gear End -->
   <!-- Helmets Start -->
-  <Item name="Coalition Helmet" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.25">
-    <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="588,0,108,90" depth="0.6" origin="0.5,0.6" />
+  <Item name="Coalition Helmet" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+    <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,0,89,67" depth="0.6" origin="0.5,0.6" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="" deflectprojectiles="true" />
       <SkillModifier skillidentifier="weapons" skillvalue="5" />
-      <sprite name="Coalition Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.5" hidewearablesoftype="Hair" sourcerect="588,0,108,138" origin="0.535,0.65" />
+      <sprite name="Coalition Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,0,89,102" origin="0.535,0.65" />
     </Wearable>
   </Item>
-  <Item name="Coalition Medical Helmet" identifier="coalitionmedichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.25">
-    <Sprite name="Coalition Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="588,138,108,57" depth="0.6" origin="0.5,0.5" />
+  <Item name="Coalition Medical Helmet" identifier="coalitionmedichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+    <Sprite name="Coalition Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,102,89,43" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="gunshotwound, bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.2" damagesound="" deflectprojectiles="true" />
       <SkillModifier skillidentifier="medical" skillvalue="5" />
-      <sprite name="Coalition Medic Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.5" hidewearablesoftype="Hair" sourcerect="588,138,108,105" origin="0.535,0.54" />
+      <sprite name="Coalition Medic Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,102,89,79" origin="0.535,0.54" />
     </Wearable>
   </Item>
   <Item name="Renegade Helmet" identifier="renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.25">
