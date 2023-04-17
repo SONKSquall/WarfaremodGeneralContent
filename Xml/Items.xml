@@ -54,7 +54,7 @@
   <!-- Gear End -->
   <!-- Helmets Start -->
   <Item name="Coalition Helmet" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
-    <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,0,89,67" depth="0.6" origin="0.5,0.6" />
+    <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,0,89,67" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
