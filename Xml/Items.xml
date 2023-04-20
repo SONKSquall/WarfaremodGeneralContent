@@ -64,7 +64,7 @@
       <sprite name="Coalition Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,0,89,102" origin="0.535,0.65" />
     </Wearable>
   </Item>
-  <Item name="Coalition Medical Helmet" identifier="coalitionmedichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="Coalition Medical Helmet" identifier="coalitionmedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Coalition Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,102,89,43" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -86,7 +86,7 @@
       <sprite name="Renegade Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,0,102,83" origin="0.5,0.53" />
     </Wearable>
   </Item>
-  <Item name="Renegade medic Helmet" identifier="renegademedichelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="Renegade medic Helmet" identifier="renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Renegade Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,83,102,41" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -104,12 +104,25 @@
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="380,162,69,94" depth="0.6" origin="0.5,0.35" />
     <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Coalitionchestrig" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="380,162,69,94" inherittexturescale="true" origin="0.45,0.65" />
+      <sprite name="Coalition Chest Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="380,162,69,94" inherittexturescale="true" origin="0.45,0.65" />
       <SkillModifier skillidentifier="weapons" skillvalue="25" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
       <Containable items="smallitem" />
+    </ItemContainer>
+  </Item>
+  <Item name="Coalition Medic Rig" identifier="coalitionmedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="320,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="380,70,58,89" depth="0.6" origin="0.5,0.35" />
+    <Body radius="30" height="30" density="15" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Coalition Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="380,70,58,89" inherittexturescale="true" origin="0.55,0.64" />
+      <SkillModifier skillidentifier="medical" skillvalue="20" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="4">
+      <Containable items="medical" />
     </ItemContainer>
   </Item>
   <!-- Infantry gear End -->
