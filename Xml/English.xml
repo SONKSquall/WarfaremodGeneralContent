@@ -1,2 +1,30 @@
 <infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- Tools Start -->
+<entityname.trenchingtool>Entrenching Tool</entityname.trenchingtool>
+<entitydescription.trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.trenchingtool>
+  <!-- Tools End -->
+  <!-- Gear Start -->
+<entityname.medkit>First Aid Kit</entityname.medkit>
+<entitydescription.medkit>A small metal container designed to carry medical supplies.</entitydescription.medkit>
+<entityname.medbag>Trauma Kit</entityname.medbag>
+<entitydescription.medbag>A medical kit that carries large medical items. Can wore as a bag.</entitydescription.medbag>
+<entityname.revolverammoholder>.38 ammunition carrier</entityname.revolverammoholder>
+<entitydescription.revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.revolverammoholder>
+  <!-- Gear End -->
+  <!-- Helmets Start -->
+<entityname.coalitionhelmet>Coalition Pickelhelm</entityname.coalitionhelmet>
+<entitydescription.coalitionhelmet>Standard issue steel helmet. Protective against artillery shells, but not fire-arms.</entitydescription.coalitionhelmet>
+<entityname.coalitionmedhelmet>Coalition Medic Helmet</entityname.coalitionmedhelmet>
+<entitydescription.coalitionmedhelmet>Same as a normal helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.coalitionmedhelmet>
+<entityname.renegadehelmet>Renegade Steel Helmet</entityname.renegadehelmet>
+<entitydescription.renegadehelmet>A brodie like helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.renegadehelmet>
+<entityname.renegademedhelmet>Renegade Medic Helmet</entityname.renegademedhelmet>
+<entitydescription.renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.renegademedhelmet>
+  <!-- Helmets End -->
+  <!-- Infantry gear Start -->
+<entityname.coalitiongear>Coalition Infantry Rig</entityname.coalitiongear>
+<entitydescription.coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.coalitiongear>
+<entityname.coalitionmedgear>Coalition Medic Rig</entityname.coalitionmedgear>
+<entitydescription.coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.coalitionmedgear>
+  <!-- Infantry gear End -->
 </infotexts>

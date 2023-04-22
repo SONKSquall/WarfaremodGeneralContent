@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- Tools Start -->
-  <Item name="Entrenching Tool" identifier="trenchingtool" category="Equipment" Tags="smallitem,tool,simpletool,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+  <Item name="" identifier="trenchingtool" category="Equipment" Tags="smallitem,tool,simpletool,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,0,150,111" depth="0.55" origin="0.5,0.5" />
     <Body width="150" height="30" density="30" />
@@ -21,7 +21,7 @@
   </Item>
   <!-- Tools End -->
   <!-- Gear Start -->
-  <Item name="frist aid kit" identifier="medkit" category="Medical" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="medkit" category="Medical" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="128,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,217,43,17" depth="0.6" origin="0.5,0.5" />
     <Body width="43" height="17" density="20" />
@@ -30,7 +30,7 @@
       <Containable items="medical,chem" excludeditems="antibloodloss1,antibloodloss2,alienblood" />
     </ItemContainer>
   </Item>
-  <Item name="Trauma Kit" identifier="medbag" category="Medical" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="medbag" category="Medical" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="192,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="452,212,60,44" depth="0.6" origin="0.5,0.5" />
     <Body width="100" height="45" density="20" />
@@ -42,7 +42,7 @@
       <Containable items="medical,chem" excludeditems="" />
     </ItemContainer>
   </Item>
-  <Item name="Revolver ammo holder" identifier="revolverammoholder" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="revolverammoholder" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,237,106,19" depth="0.6" origin="0.5,0.5" />
     <Body width="43" height="17" density="20" />
@@ -53,7 +53,7 @@
   </Item>
   <!-- Gear End -->
   <!-- Helmets Start -->
-  <Item name="Coalition Helmet" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,0,89,67" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -64,7 +64,7 @@
       <sprite name="Coalition Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,0,89,102" origin="0.535,0.65" />
     </Wearable>
   </Item>
-  <Item name="Coalition Medical Helmet" identifier="coalitionmedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="coalitionmedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Coalition Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,102,89,43" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -75,7 +75,7 @@
       <sprite name="Coalition Medic Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,102,89,79" origin="0.535,0.54" />
     </Wearable>
   </Item>
-  <Item name="Renegade Helmet" identifier="renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Renegade Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,0,102,42" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -86,7 +86,7 @@
       <sprite name="Renegade Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,0,102,83" origin="0.5,0.53" />
     </Wearable>
   </Item>
-  <Item name="Renegade medic Helmet" identifier="renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Renegade Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,83,102,41" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -99,7 +99,7 @@
   </Item>
   <!-- Helmets End -->
   <!-- Infantry gear Start -->
-  <Item name="Coalition Chest Rig" identifier="coalitiongear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="coalitiongear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="256,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="380,162,69,94" depth="0.6" origin="0.5,0.35" />
     <Body radius="30" height="30" density="15" />
@@ -112,7 +112,7 @@
       <Containable items="smallitem" />
     </ItemContainer>
   </Item>
-  <Item name="Coalition Medic Rig" identifier="coalitionmedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="coalitionmedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="320,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="380,70,58,89" depth="0.6" origin="0.5,0.35" />
     <Body radius="30" height="30" density="15" />
