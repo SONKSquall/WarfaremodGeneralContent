@@ -127,8 +127,8 @@
   </Item>
   <Item name="" identifier="renegadegear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="384,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="358,242,82,14" depth="0.6" origin="0.5,0.35" />
-    <Body radius="10" height="30" density="15" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="358,242,82,14" depth="0.6" origin="0.5,0.5" />
+    <Body radius="6" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="370,169,70,70" inherittexturescale="true" origin="0.6,0.9" />
       <SkillModifier skillidentifier="weapons" skillvalue="25" />
