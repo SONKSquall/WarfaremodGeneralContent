@@ -130,7 +130,7 @@
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="382,133,58,30" depth="0.6" origin="0.5,0.5" />
     <Body radius="6" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,70,64,93" inherittexturescale="true" origin="0.55,0.64" />
+      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="382,70,58,93" inherittexturescale="true" origin="0.5,0.64" />
       <SkillModifier skillidentifier="weapons" skillvalue="25" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
