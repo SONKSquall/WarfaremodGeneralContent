@@ -26,7 +26,7 @@
 <entitydescription.coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.coalitiongear>
 <entityname.coalitionmedgear>Coalition Medic Rig</entityname.coalitionmedgear>
 <entitydescription.coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.coalitionmedgear>
-<entityname.renegadegear>Renegade Bandolier</entityname.renegadegear>
-<entitydescription.renegadegear>Standard gear for Renegades. Has two packs that can hold pretty much anything.</entitydescription.renegadegear>
+<entityname.renegadegear>Renegade Rig</entityname.renegadegear>
+<entitydescription.renegadegear>Renegades' gear: a waist belt with pockets, tied together with a bandolier.</entitydescription.renegadegear>
   <!-- Infantry gear End -->
 </infotexts>
