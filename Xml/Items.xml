@@ -127,15 +127,28 @@
   </Item>
   <Item name="" identifier="renegadegear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="384,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="382,133,58,30" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,145,64,30" depth="0.6" origin="0.5,0.5" />
     <Body radius="6" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="382,70,58,93" inherittexturescale="true" origin="0.5,0.64" />
+      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,91,64,84" inherittexturescale="true" origin="0.45,0.73" />
       <SkillModifier skillidentifier="weapons" skillvalue="25" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
       <Containable items="smallitem" />
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="renegademedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="448,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,233,57,23" depth="0.6" origin="0.5,0.35" />
+    <Body radius="30" height="30" density="15" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Renegade Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,178,60,78" inherittexturescale="true" origin="0.45,0.79" />
+      <SkillModifier skillidentifier="medical" skillvalue="20" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="4">
+      <Containable items="medical" />
     </ItemContainer>
   </Item>
   <!-- Infantry gear End -->
