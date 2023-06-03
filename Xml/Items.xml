@@ -50,7 +50,7 @@
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="0,237,106,19" depth="0.6" origin="0.5,0.5" />
     <Body width="43" height="17" density="20" />
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
-    <ItemContainer capacity="4" maxstacksize="3" hideitems="true" depth="0.5">
+    <ItemContainer capacity="12" maxstacksize="1" hideitems="true" ContainedStateIndicatorStyle="bullet" depth="0.5">
       <Containable items="revolverammo" excludeditems="" />
     </ItemContainer>
   </Item>
