@@ -108,7 +108,7 @@
     <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Coalition Chest Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="443,162,69,94" inherittexturescale="true" origin="0.45,0.65" />
-      <SkillModifier skillidentifier="weapons" skillvalue="25" />
+      <SkillModifier skillidentifier="weapons" skillvalue="30" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
@@ -121,7 +121,9 @@
     <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Coalition Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="443,70,58,89" inherittexturescale="true" origin="0.55,0.64" />
-      <SkillModifier skillidentifier="medical" skillvalue="20" />
+      <SkillModifier skillidentifier="medical" skillvalue="30" />
+	  <StatValue stattype="BuffItemApplyingMultiplier" value="0.5" />
+	  <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
@@ -134,7 +136,7 @@
     <Body width="64" height="5" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,91,64,84" inherittexturescale="true" origin="0.45,0.73" />
-      <SkillModifier skillidentifier="weapons" skillvalue="25" />
+      <SkillModifier skillidentifier="weapons" skillvalue="30" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
@@ -147,7 +149,9 @@
     <Body width="57" height="5" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Renegade Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,178,60,78" inherittexturescale="true" origin="0.45,0.79" />
-      <SkillModifier skillidentifier="medical" skillvalue="20" />
+      <SkillModifier skillidentifier="medical" skillvalue="30" />
+	  <StatValue stattype="BuffItemApplyingMultiplier" value="0.5" />
+	  <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="4">
