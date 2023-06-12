@@ -10,6 +10,8 @@
 <entitydescription.medbag>A medical kit that carries large medical items. Can be wore as a bag.</entitydescription.medbag>
 <entityname.revolverammoholder>.38 ammunition carrier</entityname.revolverammoholder>
 <entitydescription.revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.revolverammoholder>
+<entityname.shotgunammoholder>12 Gauge ammunition carrier</entityname.shotgunammoholder>
+<entitydescription.shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.shotgunammoholder>
   <!-- Gear End -->
   <!-- Helmets Start -->
 <entityname.coalitionhelmet>Coalition Pickelhelm</entityname.coalitionhelmet>
