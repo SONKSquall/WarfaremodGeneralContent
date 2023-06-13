@@ -12,6 +12,8 @@
 <entitydescription.revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.revolverammoholder>
 <entityname.shotgunammoholder>12 Gauge ammunition carrier</entityname.shotgunammoholder>
 <entitydescription.shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.shotgunammoholder>
+<entityname.rifleammoholder>30-06 ammunition carrier</entityname.rifleammoholder>
+<entitydescription.rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.rifleammoholder>
   <!-- Gear End -->
   <!-- Helmets Start -->
 <entityname.coalitionhelmet>Coalition Pickelhelm</entityname.coalitionhelmet>
