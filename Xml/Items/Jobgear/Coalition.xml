@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- Helmets Start -->
+  <Item name="" identifier="coalitionhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+    <Sprite name="Coalition Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,0,89,67" depth="0.6" origin="0.5,0.5" />
+    <Body radius="30" density="25" />
+    <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="Coalition Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,0,89,102" origin="0.535,0.65" />
+    </Wearable>
+  </Item>
+  <Item name="" identifier="coalitionmedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+    <Sprite name="Coalition Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="607,102,89,43" depth="0.6" origin="0.5,0.5" />
+    <Body radius="30" density="25" />
+    <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="gunshotwound, bitewounds" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <sprite name="Coalition Medic Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,102,89,79" origin="0.535,0.54" />
+    </Wearable>
+  </Item>
+  <!-- Helmets End -->
+  <!-- Infantry gear Start -->
+  <Item name="" identifier="coalitiongear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="256,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="443,162,69,94" depth="0.6" origin="0.5,0.35" />
+    <Body radius="30" height="30" density="15" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Coalition Chest Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="443,162,69,94" inherittexturescale="true" origin="0.45,0.65" />
+      <SkillModifier skillidentifier="weapons" skillvalue="30" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="4">
+      <Containable items="smallitem" />
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="coalitionmedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="320,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="443,70,58,89" depth="0.6" origin="0.5,0.35" />
+    <Body radius="30" height="30" density="15" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Coalition Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="443,70,58,89" inherittexturescale="true" origin="0.55,0.64" />
+      <SkillModifier skillidentifier="medical" skillvalue="30" />
+      <StatValue stattype="BuffItemApplyingMultiplier" value="0.5" />
+      <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="4">
+      <Containable items="medical" />
+    </ItemContainer>
+  </Item>
+  <!-- Infantry gear End -->
+</Items>
