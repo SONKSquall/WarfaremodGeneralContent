@@ -1,38 +1,38 @@
 <infotexts language="English" nowhitespace="false" translatedname="English">
   <!-- Tools Start -->
-<entityname.trenchingtool>Entrenching Tool</entityname.trenchingtool>
-<entitydescription.trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.trenchingtool>
+<entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
+<entitydescription.WR_trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.WR_trenchingtool>
   <!-- Tools End -->
   <!-- Gear Start -->
-<entityname.medkit>First Aid Kit</entityname.medkit>
-<entitydescription.medkit>A small metal container designed to carry medical supplies.</entitydescription.medkit>
-<entityname.medbag>Trauma Kit</entityname.medbag>
-<entitydescription.medbag>A medical kit that carries large medical items. Can be wore as a bag.</entitydescription.medbag>
-<entityname.revolverammoholder>.38 ammunition carrier</entityname.revolverammoholder>
-<entitydescription.revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.revolverammoholder>
-<entityname.shotgunammoholder>12 Gauge ammunition carrier</entityname.shotgunammoholder>
-<entitydescription.shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.shotgunammoholder>
-<entityname.rifleammoholder>30-06 ammunition carrier</entityname.rifleammoholder>
-<entitydescription.rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.rifleammoholder>
+<entityname.WR_medkit>First Aid Kit</entityname.WR_medkit>
+<entitydescription.WR_medkit>A small metal container designed to carry medical supplies.</entitydescription.WR_medkit>
+<entityname.WR_medbag>Trauma Kit</entityname.WR_medbag>
+<entitydescription.WR_medbag>A medical kit that carries large medical items. Can be wore as a bag.</entitydescription.WR_medbag>
+<entityname.WR_revolverammoholder>.38 ammunition carrier</entityname.WR_revolverammoholder>
+<entitydescription.WR_revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.WR_revolverammoholder>
+<entityname.WR_shotgunammoholder>12 Gauge ammunition carrier</entityname.WR_shotgunammoholder>
+<entitydescription.WR_shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.WR_shotgunammoholder>
+<entityname.WR_rifleammoholder>30-06 ammunition carrier</entityname.WR_rifleammoholder>
+<entitydescription.WR_rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.WR_rifleammoholder>
   <!-- Gear End -->
   <!-- Helmets Start -->
-<entityname.coalitionhelmet>Coalition Pickelhelm</entityname.coalitionhelmet>
-<entitydescription.coalitionhelmet>Standard issue steel helmet. Protective against artillery shells, but not fire-arms.</entitydescription.coalitionhelmet>
-<entityname.coalitionmedhelmet>Coalition Medic Helmet</entityname.coalitionmedhelmet>
-<entitydescription.coalitionmedhelmet>Same as a normal helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.coalitionmedhelmet>
-<entityname.renegadehelmet>Renegade Steel Helmet</entityname.renegadehelmet>
-<entitydescription.renegadehelmet>A flat rim helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.renegadehelmet>
-<entityname.renegademedhelmet>Renegade Medic Helmet</entityname.renegademedhelmet>
-<entitydescription.renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.renegademedhelmet>
+<entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
+<entitydescription.WR_coalitionhelmet>Standard issue steel helmet. Protective against artillery shells, but not fire-arms.</entitydescription.WR_coalitionhelmet>
+<entityname.WR_coalitionmedhelmet>Coalition Medic Helmet</entityname.WR_coalitionmedhelmet>
+<entitydescription.WR_coalitionmedhelmet>Same as a normal helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.WR_coalitionmedhelmet>
+<entityname.WR_renegadehelmet>Renegade Steel Helmet</entityname.WR_renegadehelmet>
+<entitydescription.WR_renegadehelmet>A flat rim helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.WR_renegadehelmet>
+<entityname.WR_renegademedhelmet>Renegade Medic Helmet</entityname.WR_renegademedhelmet>
+<entitydescription.WR_renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.WR_renegademedhelmet>
   <!-- Helmets End -->
   <!-- Infantry gear Start -->
-<entityname.coalitiongear>Coalition Infantry Rig</entityname.coalitiongear>
-<entitydescription.coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.coalitiongear>
-<entityname.coalitionmedgear>Coalition Medic Rig</entityname.coalitionmedgear>
-<entitydescription.coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.coalitionmedgear>
-<entityname.renegadegear>Renegade Infantry Rig</entityname.renegadegear>
-<entitydescription.renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.renegadegear>
-<entityname.renegademedgear>Renegade Medic Rig</entityname.renegademedgear>
-<entitydescription.renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.renegademedgear>
+<entityname.WR_coalitiongear>Coalition Infantry Rig</entityname.WR_coalitiongear>
+<entitydescription.WR_coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.WR_coalitiongear>
+<entityname.WR_coalitionmedgear>Coalition Medic Rig</entityname.WR_coalitionmedgear>
+<entitydescription.WR_coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.WR_coalitionmedgear>
+<entityname.WR_renegadegear>Renegade Infantry Rig</entityname.WR_renegadegear>
+<entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
+<entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>
+<entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
   <!-- Infantry gear End -->
 </infotexts>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- Helmets Start -->
-  <Item name="" identifier="renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="WR_renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Renegade Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,0,102,42" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -12,7 +12,7 @@
       <sprite name="Renegade Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,0,102,83" origin="0.5,0.53" />
     </Wearable>
   </Item>
-  <Item name="" identifier="renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
+  <Item name="" identifier="WR_renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
     <Sprite name="Renegade Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,83,102,41" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
@@ -25,7 +25,7 @@
   </Item>
   <!-- Helmets End -->
   <!-- Infantry gear Start -->
-  <Item name="" identifier="renegadegear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_renegadegear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="384,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,145,64,30" depth="0.6" origin="0.5,0.5" />
     <Body width="64" height="5" density="15" />
@@ -38,7 +38,7 @@
       <Containable items="smallitem" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="renegademedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_renegademedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="448,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,233,57,23" depth="0.6" origin="0.5,0.5" />
     <Body width="57" height="5" density="15" />
