@@ -39,6 +39,15 @@
       <Containable items="revolverammo" />
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_rifleammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="704,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="93,202,64,32" depth="0.6" origin="0.5,0.5" />
+    <Body width="64" height="32" density="20" />
+    <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
+    <ItemContainer capacity="20" depth="0.5">
+      <Containable items="rifleammo" />
+    </ItemContainer>
+  </Item>
   <Item name="" identifier="WR_revolverammoholder" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,237,98,12" depth="0.6" origin="0.5,0.5" />
