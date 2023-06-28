@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- Helmets Start -->
   <Item name="" identifier="WR_renegadehelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
-    <Sprite name="Renegade Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,0,102,42" depth="0.6" origin="0.5,0.5" />
+    <Sprite name="Renegade Helmet" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" sourcerect="505,0,102,42" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="" deflectprojectiles="true" />
       <SkillModifier skillidentifier="weapons" skillvalue="10" />
-      <sprite name="Renegade Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,0,102,83" origin="0.5,0.53" />
+      <sprite name="Renegade Helmet Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,0,102,83" origin="0.5,0.53" />
     </Wearable>
   </Item>
   <Item name="" identifier="WR_renegademedhelmet" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.325">
-    <Sprite name="Renegade Medic Helmet" texture="%ModDir%/Sprites/Headgear.png" sourcerect="505,83,102,41" depth="0.6" origin="0.5,0.5" />
+    <Sprite name="Renegade Medic Helmet" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" sourcerect="505,83,102,41" depth="0.6" origin="0.5,0.5" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="gunshotwound, bitewounds" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="concussion" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="" deflectprojectiles="true" />
       <SkillModifier skillidentifier="medical" skillvalue="10" />
-      <sprite name="Renegade Medic Helmet Wearable" texture="%ModDir%/Sprites/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,83,102,81" origin="0.5,0.53" />
+      <sprite name="Renegade Medic Helmet Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="505,83,102,81" origin="0.5,0.53" />
     </Wearable>
   </Item>
   <!-- Helmets End -->
   <!-- Infantry gear Start -->
   <Item name="" identifier="WR_renegadegear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="384,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,145,64,30" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" sourcerect="448,145,64,30" depth="0.6" origin="0.5,0.5" />
     <Body width="64" height="5" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,91,64,84" inherittexturescale="true" origin="0.45,0.73" />
+      <sprite name="Renegade bandolier Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" limb="Torso" hidelimb="false" sourcerect="448,91,64,84" inherittexturescale="true" origin="0.45,0.73" />
       <SkillModifier skillidentifier="weapons" skillvalue="30" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
@@ -39,11 +39,11 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_renegademedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Inventory Icons.png" sourcerect="448,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Equipment.png" sourcerect="376,233,57,23" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="448,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" sourcerect="448,233,57,23" depth="0.6" origin="0.5,0.5" />
     <Body width="57" height="5" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Renegade Med Rig Wearable" texture="%ModDir%/Sprites/Equipment.png" limb="Torso" hidelimb="false" sourcerect="376,178,60,78" inherittexturescale="true" origin="0.45,0.79" />
+      <sprite name="Renegade Med Rig Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" limb="Torso" hidelimb="false" sourcerect="448,178,60,78" inherittexturescale="true" origin="0.45,0.79" />
       <SkillModifier skillidentifier="medical" skillvalue="30" />
       <StatValue stattype="BuffItemApplyingMultiplier" value="0.5" />
       <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
