@@ -10,6 +10,8 @@
 <entitydescription.WR_medbag>A medical kit that carries large medical items. Can be wore as a bag.</entitydescription.WR_medbag>
 <entityname.WR_revolverammoholder>.38 ammunition carrier</entityname.WR_revolverammoholder>
 <entitydescription.WR_revolverammoholder>Holds 12 rounds of revolver ammo.</entitydescription.WR_revolverammoholder>
+<entityname.WR_revolverammobox>.38 ammunition box</entityname.WR_revolverammobox>
+<entitydescription.WR_revolverammobox>A small box that holds 60 rounds of revolver ammo.</entitydescription.WR_revolverammobox>
 <entityname.WR_shotgunammoholder>12 Gauge ammunition carrier</entityname.WR_shotgunammoholder>
 <entitydescription.WR_shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.WR_shotgunammoholder>
 <entityname.WR_rifleammoholder>30-06 ammunition carrier</entityname.WR_rifleammoholder>
