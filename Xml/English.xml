@@ -19,7 +19,7 @@
 <entityname.WR_rifleammoholder>30-06 ammunition carrier</entityname.WR_rifleammoholder>
 <entitydescription.WR_rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.WR_rifleammoholder>
   <!-- Gear End -->
-  <!-- Helmets Start -->
+  <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
 <entitydescription.WR_coalitionhelmet>Standard issue steel helmet. Protective against artillery shells, but not fire-arms.</entitydescription.WR_coalitionhelmet>
 <entityname.WR_coalitionmedhelmet>Coalition Medic Helmet</entityname.WR_coalitionmedhelmet>
@@ -28,7 +28,9 @@
 <entitydescription.WR_renegadehelmet>A flat rim helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.WR_renegadehelmet>
 <entityname.WR_renegademedhelmet>Renegade Medic Helmet</entityname.WR_renegademedhelmet>
 <entitydescription.WR_renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.WR_renegademedhelmet>
-  <!-- Helmets End -->
+<entityname.WR_renegadecomhat>Renegade's beret</entityname.WR_renegadecomhat>
+<entitydescription.WR_renegadecomhat>A fine piece of Separatist headgear. Simply wearing this can inspire confidence in those around you.</entitydescription.WR_renegadecomhat>
+  <!-- Headgear End -->
   <!-- Infantry gear Start -->
 <entityname.WR_coalitiongear>Coalition Infantry Rig</entityname.WR_coalitiongear>
 <entitydescription.WR_coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.WR_coalitiongear>
