@@ -29,7 +29,7 @@
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
       <SkillModifier skillidentifier="weapons" skillvalue="10" />
-      <sprite name="Renegade Commander Hat Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.5" hidewearablesoftype="Hair" sourcerect="395,0,110,58" origin="0.65,0.95" />
+      <sprite name="Renegade Commander Hat Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.5" sourcerect="395,0,110,58" origin="0.65,0.95" />
     </Wearable>
   </Item>
   <!-- Headgear End -->
