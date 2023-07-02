@@ -43,8 +43,13 @@
       <SkillModifier skillidentifier="weapons" skillvalue="30" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
-    <ItemContainer capacity="4">
-      <Containable items="smallitem" />
+    <ItemContainer capacity="2">
+      <Containable items="smallitem"  excludeditems="packable" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="2" maxstacksize="2">
+        <Containable items="packable,smallitem" />
+      </SubContainer>
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_coalitionmedgear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
@@ -58,8 +63,13 @@
       <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
-    <ItemContainer capacity="4">
-      <Containable items="medical" />
+    <ItemContainer capacity="2">
+      <Containable items="medical,chem"  excludeditems="medpackable" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="2" maxstacksize="2">
+        <Containable items="medpackable,medical,chem" />
+      </SubContainer>
     </ItemContainer>
   </Item>
   <!-- Infantry gear End -->
