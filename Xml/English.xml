@@ -23,11 +23,11 @@
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
 <entitydescription.WR_coalitionhelmet>Standard issue steel helmet. Protective against artillery shells, but not fire-arms.</entitydescription.WR_coalitionhelmet>
 <entityname.WR_coalitionmedhelmet>Coalition Medic Helmet</entityname.WR_coalitionmedhelmet>
-<entitydescription.WR_coalitionmedhelmet>Same as a normal helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.WR_coalitionmedhelmet>
+<entitydescription.WR_coalitionmedhelmet>Same as a normal helmet, but red with a white cross for medic identification.</entitydescription.WR_coalitionmedhelmet>
 <entityname.WR_renegadehelmet>Renegade Steel Helmet</entityname.WR_renegadehelmet>
 <entitydescription.WR_renegadehelmet>A flat rim helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.WR_renegadehelmet>
 <entityname.WR_renegademedhelmet>Renegade Medic Helmet</entityname.WR_renegademedhelmet>
-<entitydescription.WR_renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification. (WARNING: Wearing this helmet while being a active combatant is a war crime.)</entitydescription.WR_renegademedhelmet>
+<entitydescription.WR_renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification.</entitydescription.WR_renegademedhelmet>
 <entityname.WR_renegadecomhat>Renegade's beret</entityname.WR_renegadecomhat>
 <entitydescription.WR_renegadecomhat>A fine piece of Separatist headgear. Simply wearing this can inspire confidence in those around you.</entitydescription.WR_renegadecomhat>
 <entityname.WR_coalitioncomhat>Coalition commander cap</entityname.WR_coalitioncomhat>
