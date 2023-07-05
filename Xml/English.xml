@@ -14,6 +14,8 @@
 <entitydescription.WR_revolverammobox>A small box that holds 60 rounds of revolver ammo.</entitydescription.WR_revolverammobox>
 <entityname.WR_rifleammobox>30-06 ammunition box</entityname.WR_rifleammobox>
 <entitydescription.WR_rifleammobox>A box that holds 40 rounds of rifle ammo.</entitydescription.WR_rifleammobox>
+<entityname.WR_shotgunammobox>12 Gauge ammunition box</entityname.WR_shotgunammobox>
+<entitydescription.WR_shotgunammobox>A box that holds 40 rounds of shotgun ammo.</entitydescription.WR_shotgunammobox>
 <entityname.WR_shotgunammoholder>12 Gauge ammunition carrier</entityname.WR_shotgunammoholder>
 <entitydescription.WR_shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.WR_shotgunammoholder>
 <entityname.WR_rifleammoholder>30-06 ammunition carrier</entityname.WR_rifleammoholder>
