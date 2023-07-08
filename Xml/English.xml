@@ -1,4 +1,8 @@
 <infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- Weapon Start -->
+<entityname.WR_baton>Baton</entityname.WR_baton>
+<entitydescription.WR_baton>Often seen in the hands of officers and wardens; useful for discipline or moving prisoners.</entitydescription.WR_baton>
+  <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
 <entitydescription.WR_trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.WR_trenchingtool>
