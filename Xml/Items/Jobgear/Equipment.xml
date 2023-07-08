@@ -13,7 +13,13 @@
       <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" disabledeltatime="true" />
     </Holdable>
     <ItemContainer capacity="6" MaxStackSize="1" hideitems="true" depth="0.5">
-      <Containable items="medical,chem" excludeditems="" />
+      <Containable items="medical,chem,medpackable" excludeditems="" />
+      <SlotIcon slotindex="0" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+	  <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
  <!-- Gear End -->
