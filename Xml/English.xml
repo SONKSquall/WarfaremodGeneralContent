@@ -34,9 +34,9 @@
 <entitydescription.WR_renegadehelmet>A flat rim helmet with netting over the top. Protective against artillery shells, but not gun-fire.</entitydescription.WR_renegadehelmet>
 <entityname.WR_renegademedhelmet>Renegade Medic Helmet</entityname.WR_renegademedhelmet>
 <entitydescription.WR_renegademedhelmet>Similar to a standard helmet, but red with a white cross for medic identification.</entitydescription.WR_renegademedhelmet>
-<entityname.WR_renegadecomhat>Renegade's beret</entityname.WR_renegadecomhat>
+<entityname.WR_renegadecomhat>Renegade's Beret</entityname.WR_renegadecomhat>
 <entitydescription.WR_renegadecomhat>A fine piece of Separatist headgear. Simply wearing this can inspire confidence in those around you.</entitydescription.WR_renegadecomhat>
-<entityname.WR_coalitioncomhat>Coalition commander cap</entityname.WR_coalitioncomhat>
+<entityname.WR_coalitioncomhat>Coalition Commander Cap</entityname.WR_coalitioncomhat>
 <entitydescription.WR_coalitioncomhat>Headdress for any stalwart Coalition officer.</entitydescription.WR_coalitioncomhat>
   <!-- Headgear End -->
   <!-- Infantry gear Start -->
