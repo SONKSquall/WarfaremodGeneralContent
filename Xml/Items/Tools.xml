@@ -84,5 +84,15 @@
       <Containable items="rifleammo" excludeditems="" />
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_cuffs" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,handlocker" scale="0.5" impactsoundtag="impact_soft" equipconfirmationtext="handcuffequipconfirmation">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,134,52,24" depth="0.6" origin="0.5,0.5" />
+    <Body width="52" height="24" density="30" />
+    <Wearable slots="Any,RightHand+LeftHand" msg="ItemMsgPickUpSelect" autoequipwhenfull="false">
+      <sprite texture="%ModDir%/Sprites/Items/Equipment.png" limb="RightHand" sourcerect="55,134,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <sprite texture="%ModDir%/Sprites/Items/Equipment.png" limb="LeftHand" sourcerect="55,134,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
+    </Wearable>
+  </Item>
   <!-- Gear End -->
 </Items>

@@ -24,6 +24,8 @@
 <entitydescription.WR_shotgunammoholder>Holds 6 rounds of shotgun ammo.</entitydescription.WR_shotgunammoholder>
 <entityname.WR_rifleammoholder>30-06 ammunition carrier</entityname.WR_rifleammoholder>
 <entitydescription.WR_rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.WR_rifleammoholder>
+<entityname.WR_cuffs>Binding</entityname.WR_cuffs>
+<entitydescription.WR_cuffs>Rope handcuffs, crude but effective at restraining prisoners.</entitydescription.WR_cuffs>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
