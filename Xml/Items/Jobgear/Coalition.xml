@@ -23,8 +23,8 @@
       <sprite name="Coalition Medic Helmet Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="607,102,89,79" origin="0.535,0.54" />
     </Wearable>
   </Item>
-  <Item name="" identifier="WR_coalitioncomhat" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.25">
-    <Sprite name="Coalition Commander Hat" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" sourcerect="385,58,120,47" depth="0.6" origin="0.5,0.5" />
+  <Item name="" identifier="WR_coalitioncomhat" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft" scale="0.25">
+    <Sprite name="Coalition Commander Hat" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" sourcerect="385,58,120,47" depth="0.6" origin="0.5,0.14" />
     <Body radius="30" density="25" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="lacerations, blunttrauma, explosiondamage, bleeding" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
