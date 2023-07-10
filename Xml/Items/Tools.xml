@@ -27,7 +27,7 @@
     <Body width="43" height="17" density="20" />
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
     <ItemContainer capacity="8" maxstacksize="1" depth="0.5">
-      <Containable items="medical,chem" excludeditems="antibloodloss1,antibloodloss2,alienblood,medkit,medbag" />
+      <Containable items="medical,chem" excludeditems="antibloodloss1,antibloodloss2,alienblood,WR_medkit,WR_medbag" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_revolverammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
