@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- Melee Weapons Start -->
-  <Item name="" identifier="WR_baton" category="Weapon" Tags="smallitem,stunner,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,141,17" depth="0.55" origin="0.5,0.5" />
-    <Body width="141" height="17" density="30" />
-    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-25,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
-      <Attack structuredamage="0" itemdamage="0" targetimpulse="10" comparison="or">
-        <StatusEffect type="OnUse" target="Limb">
-          <LuaHook name="baton_attack" />
-          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
-          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
-        </StatusEffect>
-      </Attack>
-    </MeleeWeapon>
-    <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
-  </Item>
   <!-- Melee Weapons End -->
 </Items>

@@ -1,6 +1,7 @@
 <contentpackage name="Warfare: General" modversion="0.1.4" gameversion="0.21.6.0" corepackage="false">
     <Item file="%ModDir%/Xml/Items/Tools.xml" />
     <Item file="%ModDir%/Xml/Items/Weapons.xml" />
+    <Item file="%ModDir%/Xml/Items/PrisonerItems.xml" />
     <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
     <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
     <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />

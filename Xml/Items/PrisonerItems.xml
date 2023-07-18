@@ -1,0 +1,50 @@
+<Items>
+  <Item name="" identifier="WR_baton" category="Weapon" Tags="smallitem,stunner,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,141,17" depth="0.55" origin="0.5,0.5" />
+    <Body width="141" height="17" density="30" />
+    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-25,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
+      <Attack structuredamage="0" itemdamage="0" targetimpulse="10" comparison="or">
+        <StatusEffect type="OnUse" target="Limb">
+          <LuaHook name="baton_attack" />
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
+  </Item>
+  <Item name="" identifier="WR_cuffs" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,handlocker" scale="0.5" impactsoundtag="impact_soft" equipconfirmationtext="handcuffequipconfirmation">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,134,52,24" depth="0.6" origin="0.5,0.5" />
+    <Body width="52" height="24" density="30" />
+    <Wearable slots="Any,RightHand+LeftHand" msg="ItemMsgPickUpSelect" autoequipwhenfull="false">
+      <sprite texture="%ModDir%/Sprites/Items/Equipment.png" limb="RightHand" sourcerect="55,134,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <sprite texture="%ModDir%/Sprites/Items/Equipment.png" limb="LeftHand" sourcerect="55,134,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
+    </Wearable>
+  </Item>
+  <Item name="coolness" identifier="WR_powhandler" category="Electrical" tags="smallitem,button" allowedlinks="door" linkable="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" maxstacksize="8">
+    <Sprite texture="Content/Items/Button/button.png" sourcerect="28,70,34,51" depth="0.8" origin="0.5,0.5" />
+    <Body width="36" height="40" density="20" />
+    <Controller direction="None" canbepicked="true" msg="ItemMsgPressSelect">
+      <RequiredItem identifier="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" />
+      <sound file="Content/Items/Button/Button.ogg" type="OnUse" range="500.0" />
+	  <!-- Use a delay here so Lua doesn't shit itself -->
+      <StatusEffect type="OnPicked" target="NearbyCharacters" delay="1" range="1000.0" >
+	    <LuaHook name="pow_handle" />
+	  </StatusEffect>
+	  <StatusEffect type="OnPicked" target="Character" >
+	    <LuaHook name="pow_frendlyteam" />
+	  </StatusEffect>
+    </Controller>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem identifier="screwdriver" type="Equipped" />
+      <output name="signal_out" displayname="connection.signalout" />
+    </ConnectionPanel>
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="35,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+      <requireditem identifier="wrench" type="Equipped" />
+    </Holdable>
+  </Item>
+</Items>
