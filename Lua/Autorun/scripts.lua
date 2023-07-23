@@ -37,9 +37,9 @@ end)
 Hook.Add("pow_handle", "despawnpow", function(effect, deltaTime, item, targets, worldPosition)
     for character in targets do
         if IsEnemyPOW(character, POW_Press_FrendlyTeam) == true then
-            local CratePrefab = ItemPrefab.GetItemPrefab("metalcrate")
+            local Footlocker = ItemPrefab.GetItemPrefab("WR_footlocker")
             local AllItems = character.Inventory.FindAllItems(predicate, false, list)
-            Entity.Spawner.AddItemToSpawnQueue(CratePrefab, character.WorldPosition, nil, nil, function(Container)
+            Entity.Spawner.AddItemToSpawnQueue(Footlocker, character.WorldPosition, nil, nil, function(Container)
                 for Item in AllItems do
                     local ItemPrefab = Item.Prefab
                     Entity.Spawner.AddItemToSpawnQueue(ItemPrefab, Container.OwnInventory, nil, nil, function(item)
