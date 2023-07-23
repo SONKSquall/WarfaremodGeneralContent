@@ -25,7 +25,7 @@
       <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
     </Wearable>
   </Item>
-  <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" >
+  <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="230,54,28,204" depth="0.8" origin="0.5,0.5" />
     <Body width="28" height="204" density="20" />
     <Controller direction="None" canbepicked="true" msg="ItemMsgPressSelect">
@@ -40,8 +40,22 @@
         <LuaHook name="pow_frendlyteam" />
       </StatusEffect>
     </Controller>
-	<!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->
-    <Holdable attachable="true" attachedbydefault="true" AllowInGameEditing="false" PickingTime="1000" CanBePicked="false" >
-    </Holdable>
+    <!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->
+    <Holdable attachable="true" attachedbydefault="true" AllowInGameEditing="false" PickingTime="1000" CanBePicked="false" />
+  </Item>
+  <Item name="" identifier="WR_currency" category="Misc" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="199,230,28,28" depth="0.6" origin="0.5,0.5" />
+    <Body width="28" height="28" density="30" />
+    <Holdable slots="Any,RightHand,LeftHand" UseHandRotationForHoldAngle="true" CanBeCombined="true" RemoveOnCombined="true" />
+  </Item>
+  <Item name="" identifier="WR_strategicexchange" tags="stratshop,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,0,200,172" depth="0.8" origin="0.5,0.5" />
+    <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
+      <StatusEffect type="InWater" target="This" condition="-0.5" />
+    </Fabricator>
+    <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
+    <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
   </Item>
 </Items>

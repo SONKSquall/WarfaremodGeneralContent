@@ -54,5 +54,11 @@
   <!-- Structure Start -->
 <entityname.WR_powhandler>Pull Switch (Despawns POWs)</entityname.WR_powhandler>
 <entitydescription.WR_powhandler>A chain switch that removes POWs.</entitydescription.WR_powhandler>
+<entityname.WR_strategicexchange>Strategic Exchange</entityname.WR_strategicexchange>
+<entitydescription.WR_strategicexchange>A place were ammo and weapons from the home front are sent and, with the right amount money, can be bought.</entitydescription.WR_strategicexchange>
   <!-- Structure End -->
+  <!-- Misc start -->
+<entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>
+<entitydescription.WR_currency>A brass coin made as a alternative to the Mark to better withstand battlefield conditions. Respected, produced and used by both the Coalition and Renegades.</entitydescription.WR_currency>
+  <!-- Misc end -->
 </infotexts>
