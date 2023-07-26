@@ -66,6 +66,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,0,200,172" depth="0.8" origin="0.5,0.5" />
     <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
+	  <sound file="%ModDir%/Sounds/Exchange.ogg" type="OnActive" volume="1.5" range="250.0" loop="true" />
     </Fabricator>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
