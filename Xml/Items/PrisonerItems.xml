@@ -53,6 +53,7 @@
 	  <SubContainer capacity="1" maxstacksize="1">
          <Containable items="WR_currency" hide="false" itempos="-15,-3" />
       </SubContainer>
+	  <SlotIcon slotindex="19" texture="%ModDir%/UI/Sloticons.png" sourcerect="128,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_currency" category="Misc" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_metal_light">
