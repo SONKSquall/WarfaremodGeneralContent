@@ -30,31 +30,55 @@
       <Containable items="medical,chem" excludeditems="antibloodloss1,antibloodloss2,alienblood,WR_medkit,WR_medbag" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_revolverammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_revolverammobox" category="Equipment" tags="smallitem,mobilecontainer" Health="60" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" >
+      <RequiredItem identifier="WR_currency" />
+    </Fabricate>
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="640,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="46,217,43,17" depth="0.6" origin="0.5,0.5" />
     <Body width="43" height="16" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
     <ItemContainer capacity="20" depth="0.5">
       <Containable items="revolverammo" />
+	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
+        <Conditional HasStatusTag="neq WR_ammospawn" />
+        <SpawnItem identifiers="revolverround" Count="60" spawnposition="ThisInventory" spawnifinventoryfull="false" />
+      </StatusEffect>
+	  <StatusEffect type="Always" target="This" tags="WR_ammospawn" CheckConditionalAlways="true" delay="1" comparison="and" disabledeltatime="true" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_rifleammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="704,0,64,64" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" >
+      <RequiredItem identifier="WR_currency" />
+    </Fabricate>
+	<InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="704,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="93,202,64,32" depth="0.6" origin="0.5,0.5" />
     <Body width="64" height="32" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
     <ItemContainer capacity="20" depth="0.5">
       <Containable items="rifleammo" />
+	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
+        <Conditional HasStatusTag="neq WR_ammospawn" />
+        <SpawnItem identifiers="riflebullet" Count="40" spawnposition="ThisInventory" spawnifinventoryfull="false" />
+      </StatusEffect>
+	  <StatusEffect type="Always" target="This" tags="WR_ammospawn" CheckConditionalAlways="true" delay="1" comparison="and" disabledeltatime="true" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_shotgunammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,0,64,64" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" >
+      <RequiredItem identifier="WR_currency" />
+    </Fabricate>
+	<InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="95,177,60,22" depth="0.6" origin="0.5,0.5" />
     <Body width="60" height="22" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
     <ItemContainer capacity="20" depth="0.5">
       <Containable items="shotgunammo" />
+	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
+        <Conditional HasStatusTag="neq WR_ammospawn" />
+        <SpawnItem identifiers="shotgunshell" Count="40" spawnposition="ThisInventory" spawnifinventoryfull="false" />
+      </StatusEffect>
+	  <StatusEffect type="Always" target="This" tags="WR_ammospawn" CheckConditionalAlways="true" delay="1" comparison="and" disabledeltatime="true" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_revolverammoholder" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
