@@ -30,7 +30,7 @@
       <Containable items="medical,chem" excludeditems="antibloodloss1,antibloodloss2,alienblood,WR_medkit,WR_medbag" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_revolverammobox" category="Equipment" tags="smallitem,mobilecontainer" Health="60" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_revolverammobox" category="Equipment" tags="mediumitem,mobilecontainer" Health="60" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" >
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
@@ -47,7 +47,7 @@
 	  <StatusEffect type="Always" target="This" tags="WR_ammospawn" CheckConditionalAlways="true" delay="1" comparison="and" disabledeltatime="true" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_rifleammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_rifleammobox" category="Equipment" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" >
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
@@ -64,7 +64,7 @@
 	  <StatusEffect type="Always" target="This" tags="WR_ammospawn" CheckConditionalAlways="true" delay="1" comparison="and" disabledeltatime="true" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_shotgunammobox" category="Equipment" tags="smallitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_shotgunammobox" category="Equipment" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" >
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
