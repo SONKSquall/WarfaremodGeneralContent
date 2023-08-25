@@ -11,7 +11,25 @@ function IsEnemyPOW(character, FriendlyTeam)
         return false
     end
 end
+
+function SpawnInventoryItems(Items, TargetInventory)
+    for Item in Items do
+        local ItemPrefab = Item.Prefab
+        local ItemInventory = Item.OwnInventory
+        -- Spawn items inside inventory of its container
+        Entity.Spawner.AddItemToSpawnQueue(ItemPrefab, TargetInventory, nil, nil, function(WorldItem)
+            -- Spawn item inside other items
+            if ItemInventory ~= nil then
+                ItemsInInventory = Item.OwnInventory.FindAllItems(predicate, false, list)
+                SpawnInventoryItems(ItemsInInventory, WorldItem.OwnInventory)
+            end
+        end)
+    end
+end
 -- Function list end
+-- Var list start
+local POW_Press_FrendlyTeam
+-- Var list end
 
 Hook.Add("baton_attack", "batonhit", function(effect, deltaTime, item, targets, worldPosition)
     local limb = targets[1]
@@ -26,8 +44,6 @@ Hook.Add("baton_attack", "batonhit", function(effect, deltaTime, item, targets, 
     end
 end)
 
---TODO: rewrite with functions
---To anyone reading, DO NOT COPY this is REALLY bad code
 Hook.Add("pow_frendlyteam", "powpress", function(effect, deltaTime, item, targets, worldPosition)
     for character in targets do
         POW_Press_FrendlyTeam = character.JobIdentifier 
@@ -40,20 +56,7 @@ Hook.Add("pow_handle", "despawnpow", function(effect, deltaTime, item, targets, 
             local Footlocker = ItemPrefab.GetItemPrefab("WR_footlocker")
             local AllItems = character.Inventory.FindAllItems(predicate, false, list)
             Entity.Spawner.AddItemToSpawnQueue(Footlocker, character.WorldPosition, nil, nil, function(Container)
-                for Item in AllItems do
-                    local ItemPrefab = Item.Prefab
-                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab, Container.OwnInventory, nil, nil, function(item)
-                        local ItemInventory = Item.OwnInventory
-                        if ItemInventory ~= nil then
-                            local ItemInventory = Item.OwnInventory.FindAllItems(predicate, false, list)
-                            for Item in ItemInventory do
-                                local ItemPrefab = Item.Prefab
-                                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab, item.OwnInventory, nil, nil, function(item3)
-                                end)
-                            end
-                        end
-                    end)
-                end
+                SpawnInventoryItems(AllItems, Container.OwnInventory)
             end)
             Entity.Spawner.AddEntityToRemoveQueue(character)
         end
