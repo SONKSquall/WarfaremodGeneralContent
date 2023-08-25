@@ -28,7 +28,7 @@ function SpawnInventoryItems(Items, TargetInventory)
 end
 -- Function list end
 -- Var list start
-local POW_Press_FrendlyTeam
+local POW_Press_FrendlyTeam = ""
 -- Var list end
 
 Hook.Add("baton_attack", "batonhit", function(effect, deltaTime, item, targets, worldPosition)
@@ -36,11 +36,13 @@ Hook.Add("baton_attack", "batonhit", function(effect, deltaTime, item, targets, 
     local character = limb.character
     local blunttrauma = AfflictionPrefab.Prefabs["blunttrauma"]
     local stun = AfflictionPrefab.Prefabs["incrementalstun"]
-    -- TODO: make this use damagemodifiers
+    -- Applies stun if the target is handcuffed, otherwise it will apply damage
     if character.LockHands == true then
-        limb.character.CharacterHealth.ApplyAffliction(limb, stun.Instantiate(40))
+        local AttackResult = limb.AddDamage(limb.SimPosition, {stun.Instantiate(40)}, true, 1, 0, nil)
+        limb.character.CharacterHealth.ApplyDamage(limb, AttackResult, true)
     else
-        limb.character.CharacterHealth.ApplyAffliction(limb, blunttrauma.Instantiate(30))
+        local AttackResult = limb.AddDamage(limb.SimPosition, {blunttrauma.Instantiate(40)}, true, 1, 0, nil)
+        limb.character.CharacterHealth.ApplyDamage(limb, AttackResult, true)
     end
 end)
 
