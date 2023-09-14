@@ -54,6 +54,8 @@
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>
 <entitydescription.WR_coalitionuniform>Standard issue uniform consisting of a horizon blue tunic, trousers and ankle boots topped with puttees.</entitydescription.WR_coalitionuniform>
+<entityname.WR_renegadeuniform>Renegade Battledress</entityname.WR_renegadeuniform>
+<entitydescription.WR_renegadeuniform>A uniform consisting of a army green trench coat, trousers and boots topped with leg wraps.</entitydescription.WR_renegadeuniform>
   <!-- Uniform End -->
   <!-- Structure Start -->
 <entityname.WR_powhandler>Pull Switch (Despawns POWs)</entityname.WR_powhandler>
