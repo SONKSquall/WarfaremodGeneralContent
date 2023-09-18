@@ -4,7 +4,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,185,141,17" depth="0.55" origin="0.5,0.5" />
     <Body width="141" height="17" density="30" />
-    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-25,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
+    <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-30,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
       <Attack structuredamage="0" itemdamage="0" targetimpulse="10" comparison="or">
         <StatusEffect type="OnUse" target="Limb">
           <LuaHook name="baton_attack" />

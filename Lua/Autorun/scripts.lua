@@ -12,6 +12,7 @@ function IsEnemyPOW(character, FriendlyTeam)
     end
 end
 
+-- Thanks Mellon <3
 function SpawnInventoryItems(Items, TargetInventory)
     for Item in Items do
         local ItemPrefab = Item.Prefab
@@ -41,7 +42,7 @@ Hook.Add("baton_attack", "batonhit", function(effect, deltaTime, item, targets, 
         local AttackResult = limb.AddDamage(limb.SimPosition, {stun.Instantiate(40)}, true, 1, 0, nil)
         limb.character.CharacterHealth.ApplyDamage(limb, AttackResult, true)
     else
-        local AttackResult = limb.AddDamage(limb.SimPosition, {blunttrauma.Instantiate(40)}, true, 1, 0, nil)
+        local AttackResult = limb.AddDamage(limb.SimPosition, {blunttrauma.Instantiate(70)}, true, 1, 0.33, nil)
         limb.character.CharacterHealth.ApplyDamage(limb, AttackResult, true)
     end
 end)
