@@ -5,6 +5,7 @@
     <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
     <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
     <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />
+	<Afflictions file="%ModDir%/Xml/Afflictions.xml" />
     <Sounds file="%ModDir%/Xml/Sounds.xml" />
 	<Text file="%ModDir%/Xml/English.xml" />
 </contentpackage>
