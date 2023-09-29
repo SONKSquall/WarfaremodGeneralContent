@@ -8,10 +8,12 @@
     limbspecific="false"
     indicatorlimb="Torso"
     maxstrength="10"
+    ShowIconThreshold="3"
+	ShowIconToOthersThreshold="3"
     affectmachines="false"
-    grainburst="3">
+    grainburst="1">
     <Effect minstrength="0" maxstrength="10" mingrainstrength="0.0" maxgrainstrength="4.0" graincolor="0,0,0,255" MinScreenBlur="0.0" MaxScreenBlur="0.125" MinSkillMultiplier="1" MaxSkillMultiplier="0.25" strengthchange="-1" minspeedmultiplier="1.0" maxspeedmultiplier="0.5">
     </Effect>
-    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0"/>
+    <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="0,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
 </Afflictions>
