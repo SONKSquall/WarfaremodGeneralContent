@@ -69,4 +69,9 @@
 <entityname.WR_footlocker>Footlocker</entityname.WR_footlocker>
 <entitydescription.WR_footlocker>Stores the belongings of a captive.</entitydescription.WR_footlocker>
   <!-- Misc end -->
+  <!-- Affliction start -->
+  <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
+  <afflictiondescription.WR_suppression>The soldier is reluctant to move.</afflictiondescription.WR_suppression>
+  <afflictiondescription.WR_suppression.self>Your mobility and composure is compromised by fear, after all its best not to drown in a sea of rounds.</afflictiondescription.WR_suppression.self>
+  <!-- Affliction end -->
 </infotexts>
