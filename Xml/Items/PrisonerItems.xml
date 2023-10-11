@@ -32,12 +32,8 @@
       <sound file="%ModDir%/Sounds/Pull1.ogg" type="OnUse" range="500.0" selectionmode="Random" />
       <sound file="%ModDir%/Sounds/Pull2.ogg" type="OnUse" range="500.0" />
       <sound file="%ModDir%/Sounds/Pull3.ogg" type="OnUse" range="500.0" />
-      <!-- Use a delay here so Lua doesn't shit itself -->
-      <StatusEffect type="OnPicked" target="NearbyCharacters" delay="1" range="500.0">
-        <LuaHook name="pow_handle" />
-      </StatusEffect>
-      <StatusEffect type="OnPicked" target="Character">
-        <LuaHook name="pow_frendlyteam" />
+      <StatusEffect type="OnPicked" target="Character,NearbyCharacters" range="500.0">
+        <LuaHook name="WR.powhandle.xmlhook" />
       </StatusEffect>
     </Controller>
     <!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->

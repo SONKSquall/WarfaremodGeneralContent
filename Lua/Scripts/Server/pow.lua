@@ -1,16 +1,23 @@
 if Game.IsMultiplayer and CLIENT then return end
 
-local POW_Press_FrendlyTeam = ""
-
-Hook.Add("pow_frendlyteam", "WR_GetFrendlyTeam", function(effect, deltaTime, item, targets, worldPosition)
-    for character in targets do
-        POW_Press_FrendlyTeam = character.JobIdentifier 
+Hook.Add("WR.powhandle.xmlhook", "WR.powhandle", function(effect, deltaTime, item, targets, worldPosition)
+    local CurrentFrendlyTeam = ""
+    -- checks if there is a dupe player in the targets (there are two target types), if so then that player's team is the frendly team
+    for player in targets do
+        local instancesofplayer = 0
+        for otherplayer in targets do
+            if player.name == otherplayer.name then
+                instancesofplayer = instancesofplayer + 1
+            end
+        end
+        if instancesofplayer >= 2 then
+            CurrentFrendlyTeam = player.JobIdentifier
+            break
+        end
     end
-end)
-
-Hook.Add("pow_handle", "WR_DespawnPOW", function(effect, deltaTime, item, targets, worldPosition)
+    -- removes pows and places their items in a footlocker
     for character in targets do
-        if WR.IsEnemyPOW(character, POW_Press_FrendlyTeam) == true then
+        if WR.IsEnemyPOW(character, CurrentFrendlyTeam) == true then
             local Footlocker = ItemPrefab.GetItemPrefab("WR_footlocker")
             local AllItems = character.Inventory.FindAllItems(predicate, false, list)
             Entity.Spawner.AddItemToSpawnQueue(Footlocker, character.WorldPosition, nil, nil, function(Container)
