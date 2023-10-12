@@ -12,6 +12,23 @@ function WR.IsEnemyPOW(character, FriendlyTeam)
     end
 end
 
+function WR.TableFindBool(table, findval)
+    for value in table do
+        if value == findval then
+            return true
+        end
+    end
+    return false
+end
+
+function WR.StringFindBool(string, findstring)
+    if string.find(string, "findstring") ~= nil then
+        return true
+    else
+        return false
+    end
+end
+
 -- Thanks Mellon <3
 function WR.SpawnInventoryItems(Items, TargetInventory)
     for Item in Items do
