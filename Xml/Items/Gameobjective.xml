@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+  <Item name="" identifier="WR_objective" tags="" category="Machine" description="" scale="1" width="56" height="46" allowedlinks="" linkable="false" health="50" HideConditionBar="true" damagedbyexplosions="true" explosiondamagemultiplier="2.0" DamagedByMeleeWeapons="true" DamagedByProjectiles="true" >
+    <sprite texture="Content/Map/Outposts/Art/EngineerColonyModule.png" sourcerect="968,315,56,46" depth="0.9" origin="0.5,0.5" />
+	<Body radius="25" bodytype="Static"/>
+    <ItemComponent AllowInGameEditing="false">
+      <StatusEffect type="OnBroken" target="This">
+        <Sound file="Content/Sounds/Ambient/Thunder1.ogg" range="1000" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
 </Items>
