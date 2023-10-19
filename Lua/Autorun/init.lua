@@ -7,4 +7,5 @@ WR.Version = "0.1.6.1"
 dofile(WR.Path .. "/Lua/Scripts/helperfunctions.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/weapons.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
+dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/welcomemessage.lua")
