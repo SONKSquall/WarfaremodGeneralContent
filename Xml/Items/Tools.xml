@@ -37,7 +37,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="46,217,43,17" depth="0.6" origin="0.5,0.5" />
     <Body width="43" height="16" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
-    <ItemContainer capacity="20" depth="0.5">
+    <ItemContainer capacity="2" maxstacksize="30" depth="0.5">
       <Containable items="revolverammo" />
 	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
         <Conditional HasStatusTag="neq WR_ammospawn" />
@@ -54,7 +54,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="93,202,64,32" depth="0.6" origin="0.5,0.5" />
     <Body width="64" height="32" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
-    <ItemContainer capacity="20" depth="0.5">
+    <ItemContainer capacity="2" maxstacksize="20" depth="0.5">
       <Containable items="rifleammo" />
 	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
         <Conditional HasStatusTag="neq WR_ammospawn" />
@@ -71,7 +71,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="95,177,60,22" depth="0.6" origin="0.5,0.5" />
     <Body width="60" height="22" density="20" />
     <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="0,0" handle2="0,0" holdangle="0" msg="itemmsgpickupselect" canbepicked="true" />
-    <ItemContainer capacity="20" depth="0.5">
+    <ItemContainer capacity="2" maxstacksize="20" depth="0.5">
       <Containable items="shotgunammo" />
 	  <StatusEffect type="Always" target="This" CheckConditionalAlways="true" interval="60" comparison="and" disabledeltatime="true">
         <Conditional HasStatusTag="neq WR_ammospawn" />
