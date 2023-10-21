@@ -4,7 +4,7 @@
     <sprite texture="Content/Map/Outposts/Art/EngineerColonyModule.png" sourcerect="968,315,56,46" depth="0.9" origin="0.5,0.5" />
 	<Body radius="25" bodytype="Static"/>
     <ItemComponent AllowInGameEditing="false">
-      <StatusEffect type="OnBroken" target="This">
+      <StatusEffect type="Always" Interval="5" target="NearbyCharacters" Range="1000" >
         <Sound file="Content/Sounds/Ambient/Thunder1.ogg" range="1000" />
         <Remove />
         <LuaHook name="WR.gameobjective.xmlhook" />
