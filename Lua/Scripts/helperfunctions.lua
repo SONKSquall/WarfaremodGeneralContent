@@ -11,7 +11,7 @@ function WR.IsEnemyPOW(character, FriendlyTeam)
         return false
     end
 end
-
+--[[ unused functions
 function WR.TableFindBool(table, findval)
     for value in table do
         if value == findval then
@@ -28,7 +28,7 @@ function WR.StringFindBool(string, findstring)
         return false
     end
 end
-
+]]
 -- Thanks Mellon <3
 function WR.SpawnInventoryItems(Items, TargetInventory)
     for Item in Items do
@@ -46,7 +46,7 @@ function WR.SpawnInventoryItems(Items, TargetInventory)
 end
 
 function WR.IsValidPlayer(player)
-    
+
     if player == nil then return false end
 
     if player.InGame and not player.SpectateOnly then
@@ -58,7 +58,7 @@ function WR.IsValidPlayer(player)
 end
 
 function WR.GetPointers(valuetable, pointertable, field)
-    
+
     local pointers = {}
 
     for key,value in pairs(valuetable) do
@@ -88,4 +88,12 @@ function WR.GetDifference(number1, number2)
 
     return result
 
+end
+
+function WR.SendMessageToAllClients(messagestring)
+    for key,client in pairs(Client.ClientList) do
+        local chatMessage = ChatMessage.Create("Server", messagestring, ChatMessageType.ServerMessageBox, nil, nil)
+        chatMessage.Color = Color(255, 255, 0, 255)
+        Game.SendDirectChatMessage(chatMessage, client)
+    end
 end

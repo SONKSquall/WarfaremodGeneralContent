@@ -59,8 +59,11 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
 end)
 
 Hook.add("roundEnd", "WR.RoundEndScreen", function()
+    local winnermessage = WR.Game.roundwinner .. " is the winner!"
 
-    print(WR.Game.roundwinner .. " is the winner!")
+    Timer.Wait(function()
+        WR.SendMessageToAllClients(winnermessage)
 
-    WR.Game.roundwinner = "..."
+        WR.Game.roundwinner = "..."
+    end, 3*1000)
 end)
