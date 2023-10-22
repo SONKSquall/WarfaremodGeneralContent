@@ -2,7 +2,7 @@ WR = {} -- Warfare General Content Pack
 
 WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
-WR.Version = "0.1.6.2"
+WR.Version = "0.1.6.3"
 
 dofile(WR.Path .. "/Lua/Scripts/helperfunctions.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/weapons.lua")
