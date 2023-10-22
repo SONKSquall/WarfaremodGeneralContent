@@ -68,6 +68,8 @@
 <entitydescription.WR_currency>A brass coin made as a alternative to the Mark to better withstand battlefield conditions. Respected, produced and used by both the Coalition and Renegades.</entitydescription.WR_currency>
 <entityname.WR_footlocker>Footlocker</entityname.WR_footlocker>
 <entitydescription.WR_footlocker>Stores the belongings of a captive.</entitydescription.WR_footlocker>
+<entityname.WR_objective>Area objective</entityname.WR_objective>
+<entitydescription.WR_objective>A 10mx10m that defines a area objective. Tags: defender="" attacker="" winnerifcaptured="" - defender and attacker are job identifiers for Lua, while winnerifcaptured is just the name of the attacker team in the end messsage (if you wish to have spaces in the winner tag please use '_').</entitydescription.WR_objective>
   <!-- Misc end -->
   <!-- Affliction start -->
   <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
