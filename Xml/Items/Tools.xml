@@ -108,4 +108,19 @@
     </ItemContainer>
   </Item>
   <!-- Gear End -->
+  <!-- Misc Start -->
+  <Item name="" identifier="WR_guide" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="218,195,37,55" origin="0.5,0.5" />
+    <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="367,194,12,44"  origin="0.5,0.5" depth="0.8" />
+    <Body width="35" height="40" density="8" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+	  <StatusEffect type="OnNotContained" target="This" >
+	    <Remove /> 
+	  </StatusEffect>
+	</Holdable>
+    <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="securityofficer.traitor.guidelines" textcolor="50,50,50,255">
+      <GuiFrame relativesize="0.3,0.5" anchor="Center" style="Paper" hidedragicons="true" />
+    </Terminal>
+  </Item>
+  <!-- Misc End -->
 </Items>
