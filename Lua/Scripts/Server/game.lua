@@ -33,12 +33,14 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     -- the first two '_' are dummy vars
     local _, _, defendertag = string.find(tags, 'defender="(%a*)"')
     local _, _, attackertag = string.find(tags, 'attacker="(%a*)"')
+    local _, _, winnertag = string.find(tags, 'winnerifcaptured="(%a*)"')
 
     -- gets the total number of attackers on the team
     for key,player in pairs(Client.ClientList) do
         if player.Character.JobIdentifier == attackertag and not player.Character.IsDead then
             Teams.attackerteam[#Teams.attackerteam+1] = player
         end
+        if #Teams.attackerteam <= 0 then return end
     end
     -- gets the number of players present
     for key,player in pairs(targets) do
@@ -50,6 +52,7 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     end
     -- if there is more then 50% of the alive attacker team present and no defender then the round ends with attacker victory
     if math.abs(#Teams.attacker/#Teams.attackerteam) > 0.5 and #Teams.defender == 0 then
+        WR.Game.roundwinner = winnertag or "Unknown winner"
         WR.Game.roundend = true
     end
 
