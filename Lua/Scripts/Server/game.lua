@@ -37,16 +37,16 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
 
     -- gets the total number of attackers on the team
     for key,player in pairs(Client.ClientList) do
-        if player.Character.JobIdentifier == attackertag and not player.Character.IsDead then
+        if player.Character and (player.Character.JobIdentifier == attackertag and not player.Character.IsDead) then
             Teams.attackerteam[#Teams.attackerteam+1] = player
         end
-        if #Teams.attackerteam <= 0 then return end
     end
+    if #Teams.attackerteam <= 0 then return end
     -- gets the number of players present
     for key,player in pairs(targets) do
-        if player.JobIdentifier == defendertag and not player.IsDead then
+        if player and (player.JobIdentifier == defendertag and not player.IsDead) then
             Teams.defender[#Teams.defender+1] = player
-        elseif player.JobIdentifier == attackertag and not player.IsDead then
+        elseif player and (player.JobIdentifier == attackertag and not player.IsDead) then
             Teams.attacker[#Teams.attacker+1] = player
         end
     end
