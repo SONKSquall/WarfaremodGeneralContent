@@ -74,6 +74,7 @@ function WR.GetPointers(valuetable, pointertable, field)
 
 end
 
+--[[
 function WR.GetDifference(number1, number2)
 
     if number1 == number2 then return 0 end
@@ -88,6 +89,24 @@ function WR.GetDifference(number1, number2)
 
     return result
 
+end
+--]]
+
+function WR.NumberToEqualize(number1, number2)
+
+    if number1 == number2 then return 0 end
+
+    local result = 0
+
+    if number1 > number2 then
+        number1 = number1 - number2
+        result = number1/2
+    elseif number2 > number1 then
+        number2 = number2 - number1
+        result = number2/2
+    end
+
+    return result
 end
 
 function WR.SendMessageToAllClients(messagestring)
