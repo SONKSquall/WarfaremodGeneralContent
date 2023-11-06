@@ -25,6 +25,7 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     if WR.Game.roundend == true then return end
 
     local tags = item.Tags
+    local rect = item.WorldRect
     local Teams = {}
     Teams.attacker = {}
     Teams.attackerteam = {}
@@ -43,11 +44,13 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     end
     if #Teams.attackerteam <= 0 then return end
     -- gets the number of players present
-    for key,player in pairs(targets) do
-        if player and (player.JobIdentifier == defendertag and not player.IsDead) then
-            Teams.defender[#Teams.defender+1] = player
-        elseif player and (player.JobIdentifier == attackertag and not player.IsDead) then
-            Teams.attacker[#Teams.attacker+1] = player
+    for key,player in pairs(Client.ClientList) do
+        if math.abs(player.Character.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(player.Character.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2 then
+            if player and (player.Character.JobIdentifier == defendertag and not player.Character.IsDead) then
+                Teams.defender[#Teams.defender+1] = player
+            elseif player and (player.Character.JobIdentifier == attackertag and not player.Character.IsDead) then
+                Teams.attacker[#Teams.attacker+1] = player
+            end
         end
     end
     -- if there is more then 50% of the alive attacker team present and no defender then the round ends with attacker victory
