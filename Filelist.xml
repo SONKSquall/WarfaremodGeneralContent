@@ -9,4 +9,5 @@
 	<Afflictions file="%ModDir%/Xml/Afflictions.xml" />
     <Sounds file="%ModDir%/Xml/Sounds.xml" />
 	<Text file="%ModDir%/Xml/English.xml" />
+	<UIStyle file="%ModDir%/Xml/Style.xml" />
 </contentpackage>
