@@ -120,7 +120,7 @@
 	  </StatusEffect>
 	</Holdable>
     <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="WR_guide_contents" textcolor="50,50,50,255">
-      <GuiFrame relativesize="0.3,0.5" anchor="Center" style="Paper" hidedragicons="true" />
+      <GuiFrame relativesize="0.3,0.5" anchor="Center" style="WR_book" hidedragicons="true" />
     </Terminal>
   </Item>
   <!-- Misc End -->
