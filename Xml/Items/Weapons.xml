@@ -4,10 +4,8 @@
   <!-- Melee Weapons End -->
   <!-- Explosives Start -->
   <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert" Health="15.0" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">
-    <Fabricate suitablefabricators="fabricator" requiredtime="20">
-      <RequiredSkill identifier="weapons" level="60" />
-      <RequiredItem identifier="sodium" />
-      <RequiredItem identifier="phosphorus" />
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
+      <RequiredItem identifier="WR_currency" />
     </Fabricate>
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="489,158,23,98" depth="0.55" origin="0.5,0.5" />
