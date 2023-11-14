@@ -27,3 +27,16 @@ Hook.Add("WR.powhandle.xmlhook", "WR.powhandle", function(effect, deltaTime, ite
         end
     end
 end)
+
+Hook.Add("WR.cuffs.xmlhook", "WR.cuffs", function(effect, deltaTime, item, targets, worldPosition)
+
+    local nospeedpenalty = AfflictionPrefab.Prefabs["WR_normalwalkspeed"]
+    for character in targets do
+        print(character.name)
+        local carrierteam = tostring(character.JobIdentifier)
+
+        if character.SelectedCharacter and WR.IsEnemyPOW(character.SelectedCharacter, carrierteam) then
+            character.CharacterHealth.ApplyAffliction(nil, nospeedpenalty.Instantiate(100))
+        end
+    end
+end)

@@ -23,6 +23,9 @@
       <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="RightHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
       <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="LeftHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
       <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
+	  <StatusEffect type="OnWearing" target="NearbyCharacters" Interval="0.5" Range="200" >
+	    <LuaHook name="WR.cuffs.xmlhook" />
+	  </StatusEffect>
     </Wearable>
   </Item>
   <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
