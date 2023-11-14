@@ -1,9 +1,9 @@
 if Game.IsMultiplayer and CLIENT then return end
 
-function WR.IsEnemyPOW(character, FriendlyTeam)
+function WR.IsEnemyPOW(character, TeamIdentifier)
     if character.isHuman == true
     and character.IsDead == false
-    and character.JobIdentifier ~= FriendlyTeam
+    and character.JobIdentifier ~= TeamIdentifier
     and character.LockHands == true
     then
         return true
