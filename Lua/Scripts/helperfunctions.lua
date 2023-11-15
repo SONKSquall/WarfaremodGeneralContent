@@ -116,3 +116,8 @@ function WR.SendMessageToAllClients(messagestring)
         Game.SendDirectChatMessage(chatMessage, client)
     end
 end
+
+-- written by Sharp-Shark
+function WR.GiveAfflictionCharacter (character, identifier, amount)
+    character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
+end
