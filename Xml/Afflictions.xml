@@ -37,4 +37,28 @@
     </Effect>
     <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
   </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_cardiacarrest"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="60"
+    ShowIconThreshold="0"
+	ShowIconToOthersThreshold="0"
+    affectmachines="false" >
+	<Effect minstrength="0" maxstrength="1" strengthchange="-1" >
+    </Effect>
+    <Effect minstrength="1" maxstrength="59" strengthchange="1" >
+	  <StatusEffect target="Character" CheckConditionalAlways="true" >
+		<Conditional IsUnconscious="false" />
+		<LuaHook name="WR.removecardiacarrest.xmlhook" />
+	  </StatusEffect>
+    </Effect>
+	<Effect minstrength="59" maxstrength="60" strengthchange="1" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
+    </Effect>
+    <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
 </Afflictions>
