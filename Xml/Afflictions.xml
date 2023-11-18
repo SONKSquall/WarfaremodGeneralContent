@@ -49,6 +49,8 @@
     ShowIconThreshold="0"
 	ShowIconToOthersThreshold="0"
     affectmachines="false" >
+	<Description textidentifier="afflictiondescription.WR_cardiacarrest" minstrength="0" maxstrength="40" />
+    <Description textidentifier="afflictiondescription.WR_cardiacarrest.high" minstrength="40" maxstrength="60" />
 	<Effect minstrength="0" maxstrength="1" strengthchange="-1" >
     </Effect>
     <Effect minstrength="1" maxstrength="59" strengthchange="1" >
@@ -59,6 +61,6 @@
     </Effect>
 	<Effect minstrength="59" maxstrength="60" strengthchange="1" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
     </Effect>
-    <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
+    <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
 </Afflictions>
