@@ -2,7 +2,7 @@ WR = {} -- Warfare General Content Pack
 
 WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
-WR.Version = "0.1.6.4"
+WR.Version = "0.1.6.5"
 WR.DeltaTime = 0
 
 
