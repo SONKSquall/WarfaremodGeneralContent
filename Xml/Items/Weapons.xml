@@ -19,7 +19,7 @@
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
-        <Explosion range="750.0" structuredamage="75.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="0.25">
+        <Explosion range="750.0" structuredamage="100.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="0.25">
           <Affliction identifier="explosiondamage" strength="300" />
           <Affliction identifier="bleeding" strength="100" />
           <Affliction identifier="stun" strength="7" />
