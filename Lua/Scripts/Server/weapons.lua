@@ -32,7 +32,7 @@ Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaT
     end
 end)
 
-Hook.Add("item.equip", "WR.gunrecoilgainfromreload", function (item, character)
+Hook.Add("item.equip", "WR.gunrecoilgainfromequip", function (item, character)
     if character == nil then return end
 
     playerrecoil[character.Inventory] = 1
