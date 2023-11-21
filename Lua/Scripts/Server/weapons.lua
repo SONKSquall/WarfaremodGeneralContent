@@ -19,14 +19,16 @@ local playerrecoil = {}
 
 Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaTime, item, targets, worldPosition)
     if item.HasTag("gun") then
+        playerrecoil[item.ParentInventory] = playerrecoil[item.ParentInventory] or 1
         local id = tostring(item.Prefab.Identifier)
-        local spreadtoadd = WR.Config.WeaponRecoil[id].spreadpershot
+        local spreadpershot = WR.Config.WeaponRecoil[id].spreadpershot
         local maxspread = WR.Config.WeaponRecoil[id].maxspread
+        local minspread = WR.Config.WeaponRecoil[id].minspread
         local rangedweapon = item.GetComponentString("RangedWeapon")
 
-        playerrecoil[item.ParentInventory] = (playerrecoil[item.ParentInventory] or 0) + spreadtoadd
+        playerrecoil[item.ParentInventory] = math.min(1, WR.InvLerp(WR.Lerp(playerrecoil[item.ParentInventory], minspread, maxspread) + spreadpershot, minspread, maxspread))
 
-        rangedweapon.Spread = math.min((playerrecoil[item.ParentInventory]), maxspread)
+        rangedweapon.Spread = math.max(maxspread * playerrecoil[item.ParentInventory], minspread)
     end
 end)
 
@@ -44,13 +46,15 @@ Hook.add("think", "WR.gunrecoillose", function()
             -- the id for objects in the json config is the identifier of the item in question
             local id = tostring(item.Prefab.Identifier)
             if item.HasTag("gun") and WR.Config.WeaponRecoil[id] then
+                playerrecoil[character.Inventory] = playerrecoil[character.Inventory] or 1
+                local maxspread = WR.Config.WeaponRecoil[id].maxspread
                 local minspread = WR.Config.WeaponRecoil[id].minspread
+                local spreadloss = WR.Config.WeaponRecoil[id].spreaddecreasepersecond
                 local rangedweapon = item.GetComponentString("RangedWeapon")
-                playerrecoil[character.Inventory] = math.max(((playerrecoil[character.Inventory] or 0) - WR.Config.WeaponRecoil[id].spreaddecreasepersecond * (WR.DeltaTime * recoiltimerdelay)), minspread)
-                -- only decrease if needed
-                if rangedweapon.Spread > minspread then
-                    rangedweapon.Spread = math.max((playerrecoil[character.Inventory]), minspread)
-                end
+
+                playerrecoil[character.Inventory] = math.max(0, WR.InvLerp(WR.Lerp(playerrecoil[character.Inventory], minspread, maxspread) - spreadloss * WR.DeltaTime * recoiltimerdelay, minspread, maxspread))
+
+                rangedweapon.Spread = math.max(maxspread * playerrecoil[item.ParentInventory], minspread)
             end
         end
     end
