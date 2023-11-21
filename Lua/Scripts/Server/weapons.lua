@@ -32,14 +32,13 @@ Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaT
     end
 end)
 
-local recoiltimerdelay = 15
-local recoiltimertick = 15
+Hook.Add("item.equip", "WR.gunrecoilgainfromreload", function (item, character)
+    if character == nil then return end
+
+    playerrecoil[character.Inventory] = 1
+end)
 
 Hook.add("think", "WR.gunrecoillose", function()
-
-    recoiltimertick = recoiltimertick - 1
-
-    if recoiltimertick > 0 then return elseif recoiltimertick <= 0 then recoiltimertick = recoiltimerdelay end
 
     for key,character in pairs(Character.CharacterList) do
         for item in character.HeldItems do
@@ -52,7 +51,7 @@ Hook.add("think", "WR.gunrecoillose", function()
                 local spreadloss = WR.Config.WeaponRecoil[id].spreaddecreasepersecond
                 local rangedweapon = item.GetComponentString("RangedWeapon")
 
-                playerrecoil[character.Inventory] = math.max(0, WR.InvLerp(WR.Lerp(playerrecoil[character.Inventory], minspread, maxspread) - spreadloss * WR.DeltaTime * recoiltimerdelay, minspread, maxspread))
+                playerrecoil[character.Inventory] = math.max(0, WR.InvLerp(WR.Lerp(playerrecoil[character.Inventory], minspread, maxspread) - spreadloss * WR.DeltaTime, minspread, maxspread))
 
                 rangedweapon.Spread = math.max(maxspread * playerrecoil[item.ParentInventory], minspread)
             end
