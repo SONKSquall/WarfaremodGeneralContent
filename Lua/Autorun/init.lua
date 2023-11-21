@@ -4,6 +4,7 @@ WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
 WR.Version = "0.1.6.5"
 WR.DeltaTime = 0
+WR.Config = json.parse(File.Read(WR.Path .. "/config.json"))
 
 
 -- get delta time here so we don't have to calculate it every time we need it
