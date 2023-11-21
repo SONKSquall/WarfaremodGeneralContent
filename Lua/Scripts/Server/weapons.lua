@@ -15,17 +15,18 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
     end
 end)
 
+local playerrecoil = {}
+
 Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaTime, item, targets, worldPosition)
     if item.HasTag("gun") then
         local id = tostring(item.Prefab.Identifier)
         local spreadtoadd = WR.Config.WeaponRecoil[id].spreadpershot
         local maxspread = WR.Config.WeaponRecoil[id].maxspread
         local rangedweapon = item.GetComponentString("RangedWeapon")
-        rangedweapon.Spread = rangedweapon.Spread + spreadtoadd
 
-        if rangedweapon.Spread > maxspread then
-            rangedweapon.Spread = maxspread
-        end
+        playerrecoil[item.ParentInventory] = (playerrecoil[item.ParentInventory] or 0) + spreadtoadd
+
+        rangedweapon.Spread = math.min((playerrecoil[item.ParentInventory]), maxspread)
     end
 end)
 
@@ -45,12 +46,10 @@ Hook.add("think", "WR.gunrecoillose", function()
             if item.HasTag("gun") and WR.Config.WeaponRecoil[id] then
                 local minspread = WR.Config.WeaponRecoil[id].minspread
                 local rangedweapon = item.GetComponentString("RangedWeapon")
-                if rangedweapon.Spread < minspread then
-                    rangedweapon.Spread = minspread
-                end
+                playerrecoil[character.Inventory] = math.max(((playerrecoil[character.Inventory] or 0) - WR.Config.WeaponRecoil[id].spreaddecreasepersecond * (WR.DeltaTime * recoiltimerdelay)), minspread)
                 -- only decrease if needed
                 if rangedweapon.Spread > minspread then
-                    rangedweapon.Spread = rangedweapon.Spread - WR.Config.WeaponRecoil[id].spreaddecreasepersecond * (WR.DeltaTime * recoiltimerdelay)
+                    rangedweapon.Spread = math.max((playerrecoil[character.Inventory]), minspread)
                 end
             end
         end
