@@ -1,3 +1,11 @@
+function WR.Lerp (n, a, b)
+    return a*(1-n) + b*n
+end
+
+function WR.InvLerp (n, a, b)
+    return (n-a)/(b-a)
+end
+
 if Game.IsMultiplayer and CLIENT then return end
 
 function WR.IsEnemyPOW(character, TeamIdentifier)
@@ -120,12 +128,4 @@ end
 -- written by Sharp-Shark
 function WR.GiveAfflictionCharacter (character, identifier, amount)
     character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
-end
-
-function WR.Lerp (n, a, b)
-    return a*(1-n) + b*n
-end
-
-function WR.InvLerp (n, a, b)
-    return (n-a)/(b-a)
 end
