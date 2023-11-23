@@ -34,7 +34,7 @@ Hook.add("think", "WR.gunrecoillose", function()
                 local movementmodifier = WR.Config.WeaponRecoil[id].movementspreadmodifier
                 local suppression = character.CharacterHealth.GetAfflictionStrengthByIdentifier("WR_suppression", false)
                 -- make sure that this modifier stays below 3
-                local reductionmodifier = math.max(1, math.min(1 + (WR.InvLerp(movement*movementmodifier, 0, 3) + WR.InvLerp(suppression, 5, 15)), 3))
+                local reductionmodifier = math.max(1, math.min(1 + (WR.InvLerp(movement*movementmodifier, 0, 3) + WR.InvLerp(suppression, 5, 10)), 3))
 
                 playerrecoil[character.Inventory] = playerrecoil[character.Inventory] or 1
                 local maxspread = WR.Config.WeaponRecoil[id].maxspread
