@@ -9,14 +9,13 @@
     indicatorlimb="Torso"
     maxstrength="15"
     ShowIconThreshold="5"
-	ShowIconToOthersThreshold="5"
+	ShowIconToOthersThreshold="500"
     affectmachines="false"
     grainburst="1"> 
-	<Description textidentifier="afflictiondescription.WR_suppression" minstrength="0" maxstrength="15" Target="OtherCharacter" />
-	<Description textidentifier="afflictiondescription.WR_suppression.self" minstrength="0" maxstrength="20" Target="Self" />
+	<Description textidentifier="afflictiondescription.WR_suppression" minstrength="0" maxstrength="15" Target="Self" />
     <Effect minstrength="0" maxstrength="5" strengthchange="-1" resistancefor="WR_suppression" MinResistance="0" MaxResistance="0.75">
     </Effect>
-    <Effect minstrength="5" maxstrength="15" mingrainstrength="0.0" maxgrainstrength="4.0" graincolor="0,0,0,255" MinScreenBlur="0.0" MaxScreenBlur="0.125" MinSkillMultiplier="1" MaxSkillMultiplier="0.25" strengthchange="-1" minspeedmultiplier="1.0" maxspeedmultiplier="0.5">
+    <Effect minstrength="5" maxstrength="15" mingrainstrength="0.0" maxgrainstrength="4.0" graincolor="0,0,0,255" MinScreenBlur="0.0" MaxScreenBlur="0.125" MinSkillMultiplier="1" MaxSkillMultiplier="0.25" strengthchange="-1">
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="0,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>

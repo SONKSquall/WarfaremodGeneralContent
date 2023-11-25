@@ -79,8 +79,7 @@
   <!-- Misc end -->
   <!-- Affliction start -->
   <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
-  <afflictiondescription.WR_suppression>The soldier is reluctant to move.</afflictiondescription.WR_suppression>
-  <afflictiondescription.WR_suppression.self>Your mobility and composure is compromised by fear, after all its best not to drown in a sea of rounds.</afflictiondescription.WR_suppression.self>
+  <afflictiondescription.WR_suppression>Your accuracy and composure is compromised by fear.</afflictiondescription.WR_suppression>
   <afflictionname.WR_cardiacarrest>Cardiac arrest</afflictionname.WR_cardiacarrest>
   <afflictiondescription.WR_cardiacarrest>The patient's heart is beating in a unusual pattern and their skin is getting paler.</afflictiondescription.WR_cardiacarrest>
   <afflictiondescription.WR_cardiacarrest.high>You find no pulse and the patient's skin is ice cold.</afflictiondescription.WR_cardiacarrest.high>
