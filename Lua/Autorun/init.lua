@@ -2,7 +2,7 @@ WR = {} -- Warfare General Content Pack
 
 WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
-WR.Version = "0.1.6.5"
+WR.Version = "0.1.6.6"
 WR.DeltaTime = 0
 WR.Config = json.parse(File.Read(WR.Path .. "/config.json"))
 
