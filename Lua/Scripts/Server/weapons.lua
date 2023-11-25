@@ -1,3 +1,5 @@
+if Game.IsMultiplayer and CLIENT then return end
+
 local playerrecoil = {}
 
 Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaTime, item, targets, worldPosition)
@@ -21,6 +23,9 @@ Hook.Add("item.equip", "WR.gunrecoilgainfromequip", function (item, character)
 
     playerrecoil[character.Inventory] = 1
 end)
+
+local networkingdelay = 30
+local networkingtick = networkingdelay
 
 Hook.add("think", "WR.gunrecoillose", function()
 
@@ -48,9 +53,25 @@ Hook.add("think", "WR.gunrecoillose", function()
             end
         end
     end
-end)
 
-if Game.IsMultiplayer and CLIENT then return end
+    -- networking
+    if networkingtick >= 1 then
+        networkingtick=networkingtick-1
+        return
+    else
+        networkingtick=networkingdelay
+    end
+
+    for key,client in pairs(Client.ClientList) do
+        local message = Networking.Start("updaterecoil")
+        if client.Character and playerrecoil[client.Character.Inventory] then
+            message.WriteDouble(playerrecoil[client.Character.Inventory])
+            message.WriteDouble(key)
+            Networking.Send(message, client.Connection)
+        end
+    end
+
+end)
 
 Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, targets, worldPosition)
     local limb = targets[1]

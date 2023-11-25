@@ -26,3 +26,7 @@ dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/welcomemessage.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/oxygen.lua")
+
+if CLIENT then
+  dofile(WR.Path .. "/Lua/Scripts/Client/recoildisplay.lua")
+end
