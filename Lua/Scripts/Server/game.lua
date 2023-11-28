@@ -46,9 +46,9 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     -- gets the number of players present
     for key,player in pairs(Client.ClientList) do
         if player.Character and (math.abs(player.Character.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(player.Character.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
-            if player and (player.Character.JobIdentifier == defendertag and not player.Character.IsDead) then
+            if player and (player.Character.JobIdentifier == defendertag and not (player.Character.IsDead or player.Character.IsUnconscious)) then
                 Teams.defender[#Teams.defender+1] = player
-            elseif player and (player.Character.JobIdentifier == attackertag and not player.Character.IsDead) then
+            elseif player and (player.Character.JobIdentifier == attackertag and not (player.Character.IsDead or player.Character.IsUnconscious)) then
                 Teams.attacker[#Teams.attacker+1] = player
             end
         end
