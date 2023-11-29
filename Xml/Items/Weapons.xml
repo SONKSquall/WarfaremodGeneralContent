@@ -38,5 +38,42 @@
     </CustomInterface>
     <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect"></Throwable>
   </Item>
+  <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="340,2,65,48" origin="0.5,0.5" />
+    <sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="2,110,53,30" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="20" density="12" />
+    <MotionSensor range="5" target="Human,Monster" minimumvelocity="1" detectownmotion="false" canbeselected="false">
+	  <!-- decreases condition by 20 every second until it reachs 50 -->
+	  <StatusEffect type="OnNotContained" targettype="This" Condition="-20" >
+	    <Conditional Condition="gt 50.0" />
+	  </StatusEffect>
+	  <!-- turns transparent when its condition hits 50 -->
+	  <StatusEffect type="OnNotContained" targettype="This" spritecolor="255,255,255,63" disabledeltatime="true" >
+		<Conditional Condition="lte 50.0" />
+	  </StatusEffect>
+	  <!-- resets condition and color when in a inventory -->
+      <StatusEffect type="OnContained" targettype="This" setValue="true" Condition="100.0" spritecolor="255,255,255,255" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" duration="1" Stackable="false" conditionalcomparison="And">
+		<Conditional Condition="lte 50.0" />
+        <sound file="Content/Items/Button/Switch1.ogg" range="250.0" FrequencyMultiplier="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" delay="0.25" CheckConditionalAlways="true" conditionalcomparison="And">
+		<Conditional Condition="lte 50.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="shrapnel" anglemin="0" anglemax="360" particleamount="3" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.5" colormultiplier="255,255,255" />
+		<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <Explosion range="300.0" structuredamage="50.0" itemdamage="250" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.75" penetration="0.25">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="bleeding" strength="100" />
+          <Affliction identifier="stun" strength="7" />
+        </Explosion>
+        <RemoveItem />
+      </StatusEffect>
+    </MotionSensor>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  </Item>
   <!-- Explosives End -->
 </Items>
