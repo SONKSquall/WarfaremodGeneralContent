@@ -4,6 +4,8 @@
 <entitydescription.WR_baton>Often seen in the hands of officers and wardens; useful for discipline or moving prisoners.</entitydescription.WR_baton>
 <entityname.WR_dynamite>Dynamite</entityname.WR_dynamite>
 <entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications. (Press E to light)</entitydescription.WR_dynamite>
+<entityname.WR_landmine>Landmine</entityname.WR_landmine>
+<entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
