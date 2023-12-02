@@ -39,7 +39,10 @@
     <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect"></Throwable>
   </Item>
   <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" damagedbyprojectiles="true" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
+      <RequiredItem identifier="WR_currency" />
+    </Fabricate>
+	<InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,231,80,25" depth="0.55" origin="0.5,0.5" />
     <Body width="80" height="20" density="12" />
     <MotionSensor range="15" target="Human,Monster" minimumvelocity="1" detectownmotion="false" canbeselected="false">
