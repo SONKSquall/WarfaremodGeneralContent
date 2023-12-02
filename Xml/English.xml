@@ -4,6 +4,8 @@
 <entitydescription.WR_baton>Often seen in the hands of officers and wardens; useful for discipline or moving prisoners.</entitydescription.WR_baton>
 <entityname.WR_dynamite>Dynamite</entityname.WR_dynamite>
 <entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications. (Press E to light)</entitydescription.WR_dynamite>
+<entityname.WR_landmine>Landmine</entityname.WR_landmine>
+<entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -75,7 +77,7 @@
 <entityname.WR_guide>Soldier's Guide</entityname.WR_guide>
 <entitydescription.WR_guide>Contains useful info for NML's mechanics.</entitydescription.WR_guide>
 <WR_guide_contents>THIS GUIDE IS A WORK IN PROGRESS AND AS SUCH IS NON-COMPREHENSIVE\n\nThis guide provides a detailed breakdown of NML’s mechanics and rules.\n==================================================\nThe rules of war:\n -Do not kill those who can't fight (POWs, surrendering soldiers and wounded):\nThis does NOT mean you can’t hurt those in the provided list; killing is the only punishable offense.\n -False surrender is prohibited:\nHostilities (stealing and combat) after surrendering, to avoid being injured cuffing yourself is recommended.\n==================================================\nHealing refactor:\nMorphine and blood have an affliction for healing meaning pass the max capacity, medicine will be wasted.\nBleeding will drain healing afflictions and make medicine less efficient; bleeding should be patched FIRST before other treatment.\n==================================================\nInventory rebalance:\nItems such as ammo and meds will have a small stack size when not in a medkit or carrier.\nLarge items (bloodpacks, grenades and magazines) have to be placed in special slots in your chest rig (marked with an icon), soldier rigs can hold grenades and magazines but not blood packs and vice versa for medical rigs and trauma kits.\n==================================================\nPOW mechanics:\nA prisoner is define as: someone who is cuffed, not dead and not on the same team.\nCaptured prisoners can be turned to currency via a pull switch located in landmarks (landmarks have signs) and the bunker brig (the prisoner does not need to be fully healed). Money can be used at a shop called the Strategic Exchange located above the spawn bunker.</WR_guide_contents>
-<WR_cutfuse>Cut fuse (shortens delay by 5 seconds)</WR_cutfuse>
+<WR_cutfuse>Shorten fuse (by 5 seconds)</WR_cutfuse>
   <!-- Misc end -->
   <!-- Affliction start -->
   <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
