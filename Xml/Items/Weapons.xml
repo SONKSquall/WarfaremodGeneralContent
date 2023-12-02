@@ -38,7 +38,7 @@
     </CustomInterface>
     <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect"></Throwable>
   </Item>
-  <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" damagedbyprojectiles="true" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,231,80,25" depth="0.55" origin="0.5,0.5" />
     <Body width="80" height="20" density="12" />
@@ -65,7 +65,7 @@
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" FrequencyMultiplier="1.5" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" FrequencyMultiplier="1.5" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" FrequencyMultiplier="1.5" />
-        <Explosion range="300.0" structuredamage="50.0" itemdamage="250" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.75" penetration="0.25">
+        <Explosion range="300.0" structuredamage="50.0" itemdamage="5" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.75" penetration="0.25">
           <Affliction identifier="explosiondamage" strength="400" />
           <Affliction identifier="bleeding" strength="200" />
           <Affliction identifier="stun" strength="7" />
