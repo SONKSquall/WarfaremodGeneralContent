@@ -22,6 +22,7 @@ end)
 
 dofile(WR.Path .. "/Lua/Scripts/helperfunctions.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/weapons.lua")
+dofile(WR.Path .. "/Lua/Scripts/Server/tools.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/welcomemessage.lua")
