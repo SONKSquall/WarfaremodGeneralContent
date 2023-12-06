@@ -76,9 +76,12 @@
         <RemoveItem />
       </StatusEffect>
     </MotionSensor>
-	<LightComponent IsOn="false" CastShadows="false" lightcolor="1.0,0.0,0.0,1" Range="125" PulseAmount="0.8" PulseFrequency="2" PowerConsumption="0.0">
-	  <LightTexture texture="%ModDir%/Sprites/ParticleAtlas.png" sourcerect="0,0,86,30" origin="0.5,0.5" depth="0.01" />
-      <StatusEffect type="OnActive" target="This" disabledeltatime="true" delay="4" Stackable="false" IsOn="false"/>
+	<LightComponent IsOn="false" Range="0" PowerConsumption="0.0">
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" delay="4" Stackable="false" IsOn="false" />
+	  <StatusEffect type="OnActive" target="This" disabledeltatime="true" duration="4" Stackable="false" >
+	  	<ParticleEmitter particle="minedetect" AngleMax="360" ScaleMultiplier="0.5,0.5" ParticlesPerSecond="1" CopyEntityAngle="True" ColorMultiplier="255,255,255,255" />
+		<Conditional IsContained="false" />
+	  </StatusEffect>
 	</LightComponent>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
   </Item>
