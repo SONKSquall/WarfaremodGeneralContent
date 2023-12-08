@@ -21,9 +21,3 @@ Hook.Add("afflictionUpdate", "WR.unconsciousbreathing", function(affliction, cha
     end
 
 end)
-
-Hook.Add("WR.removecardiacarrest.xmlhook", "WR.removecardiacarrest", function(effect, deltaTime, item, character, worldPosition)
-
-    character[1].CharacterHealth.GetAffliction("WR_cardiacarrest", false).SetStrength(0.5)
-
-end)

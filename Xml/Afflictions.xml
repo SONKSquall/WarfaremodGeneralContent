@@ -50,12 +50,10 @@
     affectmachines="false" >
 	<Description textidentifier="afflictiondescription.WR_cardiacarrest" minstrength="0" maxstrength="40" />
     <Description textidentifier="afflictiondescription.WR_cardiacarrest.high" minstrength="40" maxstrength="60" />
-	<Effect minstrength="0" maxstrength="1" strengthchange="-1" >
-    </Effect>
-    <Effect minstrength="1" maxstrength="59" MinFaceTint="255,255,255,0" MaxFaceTint="255,255,255,100" strengthchange="1" >
+    <Effect minstrength="0" maxstrength="59" MinFaceTint="255,255,255,0" MaxFaceTint="255,255,255,100" strengthchange="1" >
 	  <StatusEffect target="Character" CheckConditionalAlways="true" >
 		<Conditional IsUnconscious="false" />
-		<LuaHook name="WR.removecardiacarrest.xmlhook" />
+		<ReduceAffliction type="WR_cardiacarrest" strength="100" />
 	  </StatusEffect>
     </Effect>
 	<Effect minstrength="59" maxstrength="60" MinFaceTint="255,255,255,100" MaxFaceTint="255,255,255,100" strengthchange="1" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
