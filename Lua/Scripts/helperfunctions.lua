@@ -6,8 +6,6 @@ function WR.InvLerp (n, a, b)
     return (n-a)/(b-a)
 end
 
-if Game.IsMultiplayer and CLIENT then return end
-
 function WR.IsEnemyPOW(character, TeamIdentifier)
     if character.isHuman == true
     and character.IsDead == false
