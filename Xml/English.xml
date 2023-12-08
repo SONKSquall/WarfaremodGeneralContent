@@ -10,6 +10,8 @@
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
 <entitydescription.WR_trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.WR_trenchingtool>
+<entityname.WR_minedetector>Mine detector</entityname.WR_minedetector>
+<entitydescription.WR_minedetector>Military grade metal detector built for the purpose of finding mines. Reveals mines in five second intervals.</entitydescription.WR_minedetector>
   <!-- Tools End -->
   <!-- Gear Start -->
 <entityname.WR_medkit>First Aid Kit</entityname.WR_medkit>
