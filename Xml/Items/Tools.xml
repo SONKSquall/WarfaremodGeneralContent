@@ -23,10 +23,12 @@
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,368,50" depth="0.55" origin="0.3,0.5" />
     <Body width="150" height="30" density="30" />
     <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect">
-      <StatusEffect type="OnSecondaryUse" target="This" Condition="-20.0">
+      <StatusEffect type="OnActive" target="This" Condition="-30.0">
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="NearbyItems" Condition="100" disabledeltatime="true" range="500">
+	  <StatusEffect type="OnContained" target="This" Condition="10" />
+	  <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
+      <StatusEffect type="OnBroken" target="NearbyItems" disabledeltatime="true" range="500">
         <LuaHook name="WR.minedetector.xmlhook" />
       </StatusEffect>
     </Holdable>
