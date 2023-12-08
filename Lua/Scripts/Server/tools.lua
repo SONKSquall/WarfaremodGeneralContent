@@ -9,8 +9,10 @@ Hook.Add("WR.minedetector.xmlhook", "WR.minedetector", function(effect, deltaTim
                 light.IsOn = true
 
                 -- networking
-                local property = light.SerializableProperties[Identifier("IsOn")]
-                Networking.CreateEntityEvent(value, Item.ChangePropertyEventData(property, light))
+                if SERVER then
+                    local property = light.SerializableProperties[Identifier("IsOn")]
+                    Networking.CreateEntityEvent(value, Item.ChangePropertyEventData(property, light))
+                end
 
                 break
             end
