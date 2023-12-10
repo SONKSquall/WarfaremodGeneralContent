@@ -1,3 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
+  <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_mine" damagedbyprojectiles="true" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
+      <RequiredItem identifier="WR_currency" />
+    </Fabricate>
+	<InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,231,80,25" depth="0.55" origin="0.5,0.5" />
+    <Body width="80" height="20" density="12" />
+    <MotionSensor range="15" target="Human,Monster" minimumvelocity="1" detectownmotion="false" canbeselected="false">
+      <!-- decreases condition by 20 every second until it reachs 50 -->
+      <StatusEffect type="OnNotContained" targettype="This" Condition="-20">
+        <Conditional Condition="gt 50.0" />
+      </StatusEffect>
+      <!-- turns transparent when its condition hits 50 -->
+      <StatusEffect type="OnNotContained" targettype="This" spritecolor="255,255,255,63" disabledeltatime="true">
+        <Conditional Condition="lte 50.0" />
+      </StatusEffect>
+      <!-- resets condition and color when in a inventory -->
+      <StatusEffect type="OnContained" targettype="This" setValue="true" Condition="100.0" spritecolor="255,255,255,255" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" duration="1" Stackable="false" conditionalcomparison="And">
+        <Conditional Condition="lte 50.0" />
+        <sound file="Content/Items/Button/Switch1.ogg" range="250.0" FrequencyMultiplier="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" delay="0.125" CheckConditionalAlways="true" conditionalcomparison="And">
+        <Conditional Condition="lte 50.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="shrapnel" anglemin="0" anglemax="360" particleamount="3" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.5" colormultiplier="255,255,255" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" FrequencyMultiplier="1.5" />
+        <Explosion range="300.0" structuredamage="50.0" itemdamage="5" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.75" penetration="0.25">
+          <Affliction identifier="explosiondamage" strength="400" />
+          <Affliction identifier="bleeding" strength="200" />
+          <Affliction identifier="stun" strength="7" />
+        </Explosion>
+        <RemoveItem />
+      </StatusEffect>
+    </MotionSensor>
+	<LightComponent IsOn="false" Range="0" PowerConsumption="0.0">
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" delay="4" Stackable="false" IsOn="false" />
+	  <StatusEffect type="OnActive" target="This" disabledeltatime="true" duration="4" Stackable="false" >
+	  	<ParticleEmitter particle="minedetect" AngleMax="360" ScaleMultiplier="0.5,0.5" ParticlesPerSecond="1" CopyEntityAngle="True" ColorMultiplier="255,255,255,255" />
+		<Conditional IsContained="false" />
+	  </StatusEffect>
+	</LightComponent>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  </Item>
 </Items>
