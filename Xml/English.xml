@@ -13,6 +13,11 @@
 <entityname.WR_minedetector>Mine detector</entityname.WR_minedetector>
 <entitydescription.WR_minedetector>Military grade metal detector built for the purpose of finding mines. Reveals mines in five second intervals.</entitydescription.WR_minedetector>
   <!-- Tools End -->
+  <!-- Defenses Start -->
+<entityname.WR_barbedwire>Barb wire</entityname.WR_barbedwire>
+<entityname.WR_barbedwire_setup>Barb wire spool</entityname.WR_barbedwire_setup>
+<entitydescription.WR_barbedwire_setup>Metal beams with barb wire wrapped around. Can be placed down by pressing E while holding down right click to create a barb wire fortification.</entitydescription.WR_barbedwire_setup>
+  <!-- Defenses End -->
   <!-- Gear Start -->
 <entityname.WR_medkit>First Aid Kit</entityname.WR_medkit>
 <entitydescription.WR_medkit>A small metal container designed to carry medical supplies.</entitydescription.WR_medkit>

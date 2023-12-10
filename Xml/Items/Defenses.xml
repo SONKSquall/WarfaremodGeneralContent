@@ -51,10 +51,10 @@
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
-	<InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="0.55" origin="0.5,0.5" />
-    <Body width="80" height="20" density="12" />
-    <Holdable selectkey="Select" slots="Any,RightHand+LeftHand" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" aimpos="85,-10" handle1="0,0" aimable="true" >
+	<InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,0,254,78" depth="0.55" origin="0.5,0.5" />
+    <Body width="254" height="55" density="12" />
+    <Holdable selectkey="Select" slots="Any,RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="0,20" handle1="50,-20" handle2="40,-20" >
 	  <!-- the same system as the beartrap mod (credits to whosyourdaddy) -->
 	  <StatusEffect type="OnNotContained" targettype="This" duration="1" Stackable="false" >
         <Conditional IsAttached="true" />
@@ -63,14 +63,29 @@
       </StatusEffect>
 	</Holdable>
   </Item>
-  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" Scale="0.5" impactsoundtag="impact_metal_light">
 	<InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
-    <MotionSensor range="15" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
+    <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
       <StatusEffect type="OnUse" targettype="NearbyCharacters" range="150" >
-		<Affliction identifier="lacerations" strength="5" />
+		<Affliction identifier="lacerations" strength="2.5" />
 		<Affliction identifier="slow" strength="150" />
+      </StatusEffect>
+	  <StatusEffect type="OnDamaged" targettype="This" >
+        <sound file="Content/Sounds/Damage/HitMetal1.ogg" range="500" selectionmode="Random" />
+        <sound file="Content/Sounds/Damage/HitMetal2.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal3.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal4.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal5.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal6.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" >
+	    <sound file="Content/Sounds/Damage/StructureBlunt4.ogg" range="500" selectionmode="Random" />
+        <sound file="Content/Sounds/Damage/StructureBlunt5.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/StructureBlunt6.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/StructureBlunt7.ogg" range="500" />
+        <RemoveItem />
       </StatusEffect>
     </MotionSensor>
   </Item>
