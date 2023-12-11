@@ -63,7 +63,7 @@
       </StatusEffect>
 	</Holdable>
   </Item>
-  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
 	<InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
@@ -88,5 +88,11 @@
         <RemoveItem />
       </StatusEffect>
     </MotionSensor>
+	<Pickable slots="Any" msg="itemmsgpickupselect" pickkey="Select" PickingTime="15.0" >
+	  <StatusEffect type="OnPicked" targettype="This" >
+        <SpawnItem identifier="WR_barbedwire_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
+		<RemoveItem />
+      </StatusEffect>
+	</Pickable>
   </Item>
 </Items>
