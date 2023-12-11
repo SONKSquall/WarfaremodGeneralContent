@@ -30,7 +30,7 @@
     </LightComponent>
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
-      <Button text="WR_cutfuse" connection="signal_out1">
+      <Button text="WRcutfuse" connection="signal_out1">
         <StatusEffect type="OnUse" targettype="This" Condition="-5.0" disabledeltatime="true">
           <Conditional Condition="gt 5" />
         </StatusEffect>
