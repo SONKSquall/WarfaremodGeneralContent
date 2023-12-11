@@ -6,6 +6,8 @@ Networking.Receive("updaterecoil", function (message, client)
     local key = message.ReadDouble()
     local client = Client.ClientList[key]
 
+    if not client.Character then return end
+
     for item in client.Character.HeldItems do
         local id = tostring(item.Prefab.Identifier)
         -- if the item has a object in the json then execute       
