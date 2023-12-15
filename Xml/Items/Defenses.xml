@@ -120,6 +120,12 @@
         <SpawnItem identifier="WR_sandbag_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
         <RemoveItem />
       </StatusEffect>
+      <StatusEffect type="OnDamaged" targettype="This">
+        <sound file="Content/Sounds/Damage/HitArmor1.ogg" range="500" selectionmode="Random" />
+        <sound file="Content/Sounds/Damage/HitArmor2.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitArmor3.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitArmor4.ogg" range="500" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This">
         <RemoveItem />
       </StatusEffect>
