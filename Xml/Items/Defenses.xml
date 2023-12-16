@@ -64,9 +64,10 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
   </Item>
   <Item name="" identifier="WR_barbedwire_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
-    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
+	<Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,0,254,78" depth="0.55" origin="0.5,0.5" />
     <Body width="254" height="55" density="12" />
@@ -112,9 +113,10 @@
     </Pickable>
   </Item>
   <Item name="" identifier="WR_sandbag_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
-    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
+	<Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,153,128,99" depth="0.55" origin="0.5,0.5" />
     <Body width="128" height="90" density="12" />
