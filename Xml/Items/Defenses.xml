@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+  <Item name="" identifier="WR_townfabricator" tags="defencefabricator,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" damagedbyexplosions="true" description="" scale="0.5">
+    <Sprite texture="%ModDir%/Sprites/Items/Townfabricator.png" sourcerect="0,0,300,226" depth="0.8" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/Townfabricator.png" sourcerect="0,229,300,226" depth="0.8" maxcondition="80" fadein="true" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/Townfabricator.png" sourcerect="0,458,301,228" depth="0.8" maxcondition="0" origin="0.5,0.5" />
+    <Fabricator canbeselected="true" powerconsumption="0" FabricationSpeed="0.5" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
+      <sound file="Content/Items/Fabricators/Fabricator.ogg" type="OnActive" range="250.0" loop="true"/>
+    </Fabricator>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.33" MinDeteriorationCondition="0" RepairThreshold="80" FixDurationHighSkill="20" msg="WRItemMsgRepairTrenchingtool" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="0" />
+	  <RequiredItem items="WR_trenchingtool" type="Equipped" />
+    </Repairable>
+    <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
+    <ItemContainer capacity="1" maxstacksize="3" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
+  </Item>
   <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_mine" damagedbyprojectiles="true" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
       <RequiredItem identifier="WR_currency" />
