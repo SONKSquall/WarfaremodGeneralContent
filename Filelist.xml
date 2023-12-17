@@ -12,4 +12,9 @@
 	<Particles file="%ModDir%/Xml/Particles.xml" />
 	<Text file="%ModDir%/Xml/English.xml" />
 	<UIStyle file="%ModDir%/Xml/Style.xml" />
+	
+	<!-- Christmas stuff -->
+	<Item file="%ModDir%/Christmascontent/Deco.xml" />
+	<Item file="%ModDir%/Christmascontent/Gifts.xml" />
+    <Item file="%ModDir%/Christmascontent/Food.xml" />
 </contentpackage>
