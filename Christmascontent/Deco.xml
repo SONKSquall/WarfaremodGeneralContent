@@ -1,3 +1,5 @@
 <Items>
-
+  <Item name="" identifier="WR_christmastree" width="159" height="346" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Christmas">
+    <sprite texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="0,0,159,346" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+  </Item>
 </Items>
