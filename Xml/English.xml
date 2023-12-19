@@ -107,4 +107,6 @@
 <entityname.WR_ornament>Ornament</entityname.WR_ornament>
 <entityname.WR_decopresent>Present</entityname.WR_decopresent>
 <entitydescription.WR_present>A box containing a unknown object, how festive! Wrapped in old world newspaper.</entitydescription.WR_present>
+<entityname.WR_germanshoulderstrap>Torn shoulder straps</entityname.WR_germanshoulderstrap>
+<entitydescription.WR_germanshoulderstrap>These straps do not match any pattern of greatcoat on the surface of Europa. Lieutenant rank.</entitydescription.WR_germanshoulderstrap>
 </infotexts>

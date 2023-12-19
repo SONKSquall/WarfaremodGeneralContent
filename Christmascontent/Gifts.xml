@@ -6,4 +6,14 @@
     <Body width="68" height="61" density="12" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect" />
   </Item>
+  <Item name="" identifier="WR_germanshoulderstrap" category="Equipment" tags="smallitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="false" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
+    <sprite texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="948,0,50,12" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="12" density="12" />
+    <Wearable slots="OuterClothes" canbeselected="false" >
+      <sprite name="Shoulder strap wearable" texture="%ModDir%/Christmascontent/Christmasdeco.png" limb="Torso" hidelimb="false" sourcerect="1001,0,23,12" inherittexturescale="true" origin="0.9,5" depth="0.01" />
+      <SkillModifier skillidentifier="helm" skillvalue="200" />
+    </Wearable>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  </Item>
 </Items>
