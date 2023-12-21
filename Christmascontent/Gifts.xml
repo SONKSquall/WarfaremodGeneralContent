@@ -10,10 +10,22 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
     <sprite texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="948,0,50,12" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="12" density="12" />
-    <Wearable slots="OuterClothes" canbeselected="false" >
+    <Wearable slots="OuterClothes" canbeselected="false">
       <sprite name="Shoulder strap wearable" texture="%ModDir%/Christmascontent/Christmasdeco.png" limb="Torso" hidelimb="false" sourcerect="1001,0,23,12" inherittexturescale="true" origin="0.9,5" depth="0.01" />
       <SkillModifier skillidentifier="helm" skillvalue="200" />
     </Wearable>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="WR_flyboyboots" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_soft">
+    <InventoryIcon name="Flyboy boots Icon" texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="640,64,64,64" origin="0.5,0.5" />
+    <Sprite name="Flyboy boots" texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="944,15,80,139" depth="0.6" origin="0.5,0.49" />
+    <Body width="80" height="139" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Bag" msg="ItemMsgPickUpSelect" >
+      <sprite name="Flyboy boots Right Leg" texture="%ModDir%/Christmascontent/Flyboyboots.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" HideOtherWearables="true" />
+      <sprite name="Flyboy boots Left Leg" texture="%ModDir%/Christmascontent/Flyboyboots.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" HideOtherWearables="true" />
+      <sprite name="Flyboy boots Right Boot" texture="%ModDir%/Christmascontent/Flyboyboots.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" HideOtherWearables="true" />
+      <sprite name="Flyboy boots Left Boot" texture="%ModDir%/Christmascontent/Flyboyboots.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" HideOtherWearables="true" />
+	  <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="WR_trenchfoot" damagemultiplier="0.0" />
+    </Wearable>
   </Item>
 </Items>

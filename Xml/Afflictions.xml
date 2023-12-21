@@ -60,4 +60,22 @@
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
+  
+  
+  <!-- Joke affliction -->
+  <Affliction
+    name="Trench foot"
+    identifier="WR_trenchfoot"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="1000"
+	ShowIconToOthersThreshold="1000"
+    affectmachines="false" > 
+    <Effect minstrength="0" maxstrength="100" minspeedmultiplier="1.0" maxspeedmultiplier="0.1" strengthchange="-0.1" >
+    </Effect>
+    <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
 </Afflictions>
