@@ -5,8 +5,8 @@ if CLIENT and Game.IsMultiplayer then return end
 
 local specialitemfunctions = {}
 
-local gifts = {"WR_barbedwire_setup", "WR_sandbag_setup"}
-local uniquegifts = {"nuclearshell", "exosuit"}
+local gifts = {"fuelrod","oxygentank","batterycell","assaultriflemagazine","fraggrenade","boardingaxe","flakcannonammoboxphysicorium","hyperzine","meth","steroids","antidama2","liquidoxygenite","cyanide","combatstimulantsyringe","syringegun","guitar","harmonica","accordion","WR_dynamite","WR_landmine","WR_currency","WR_rifleammobox","WR_shotgunammobox","WR_revolverammobox"}
+local uniquegifts = {"nuclearshell","exosuit","WR_germanshoulderstrap","WR_flyboyboots","autoshotgun","assaultrifle","thermalgoggles","nucleargun","radiojammer"}
 
 
 specialitemfunctions["WR_present"] = function(item, callingPlayer)
@@ -45,5 +45,5 @@ Hook.Add("item.equip", "funnyItem", function(item, callingPlayer)
 end)
 
 Hook.add("roundStart", "WR.ResetUniquegifts", function()
-    uniquegifts = {"nuclearshell", "exosuit"}
+    uniquegifts = {"nuclearshell","exosuit","WR_germanshoulderstrap","WR_flyboyboots","autoshotgun","assaultrifle","thermalgoggles","nucleargun","radiojammer"}
 end)
