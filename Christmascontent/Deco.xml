@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="" identifier="WR_christmastree" width="159" height="346" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Christmas">
+  <Item name="" identifier="WR_christmastree" scale="0.5" noninteractable="false" category="Decorative" Subcategory="Christmas">
     <sprite texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="0,0,159,346" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+	<Body radius="120" bodytype="Static"/>
+	<EntitySpawnerComponent ItemIdentifier="WR_present" OnlySpawnWhenCrewInRange="false" SpawnAreaBounds="200,160" MaximumAmountInArea="3" MaximumAmountRangePadding="200" MaximumAmount="0" SpawnTimerRange="10,30" SpawnAmountRange="1,1" />
   </Item>
   <Item name="" nameidentifier="WR_ornament" identifier="WR_ornament1" width="20" height="37" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Christmas">
     <sprite texture="%ModDir%/Christmascontent/Christmasdeco.png" sourcerect="162,0,20,37" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
