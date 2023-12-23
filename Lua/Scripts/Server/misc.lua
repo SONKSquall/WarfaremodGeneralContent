@@ -5,7 +5,7 @@ if CLIENT and Game.IsMultiplayer then return end
 
 local specialitemfunctions = {}
 
-local gifts = {"fuelrod","oxygentank","batterycell","assaultriflemagazine","fraggrenade","boardingaxe","flakcannonammoboxphysicorium","hyperzine","meth","steroids","antidama2","liquidoxygenite","cyanide","combatstimulantsyringe","syringegun","guitar","harmonica","accordion","WR_dynamite","WR_landmine","WR_currency","WR_rifleammobox","WR_shotgunammobox","WR_revolverammobox"}
+local gifts = {"fuelrod","oxygentank","batterycell","assaultriflemagazine","fraggrenade","boardingaxe","flakcannonammoboxphysicorium","hyperzine","meth","steroids","antidama2","liquidoxygenite","cyanide","combatstimulantsyringe","WR_raspberryskinsealant","syringegun","guitar","harmonica","accordion","WR_dynamite","WR_landmine","WR_currency","WR_rifleammobox","WR_shotgunammobox","WR_revolverammobox"}
 local uniquegifts = {"nuclearshell","exosuit","WR_germanshoulderstrap","WR_flyboyboots","autoshotgun","assaultrifle","thermalgoggles","nucleargun","radiojammer"}
 
 
