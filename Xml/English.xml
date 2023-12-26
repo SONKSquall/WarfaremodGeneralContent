@@ -100,15 +100,4 @@
   <afflictiondescription.WR_cardiacarrest>The patient's heart is beating in a unusual pattern and their skin is getting paler.</afflictiondescription.WR_cardiacarrest>
   <afflictiondescription.WR_cardiacarrest.high>You find no pulse and the patient's skin is ice cold.</afflictiondescription.WR_cardiacarrest.high>
   <!-- Affliction end -->
-  
-  <!-- Christmas stuff -->
-
-<entityname.WR_christmastree>Barb wire tree</entityname.WR_christmastree>
-<entityname.WR_ornament>Ornament</entityname.WR_ornament>
-<entityname.WR_decopresent>Present</entityname.WR_decopresent>
-<entitydescription.WR_present>A box containing a unknown object, how festive! Wrapped in old world newspaper.</entitydescription.WR_present>
-<entityname.WR_germanshoulderstrap>Torn shoulder straps</entityname.WR_germanshoulderstrap>
-<entitydescription.WR_germanshoulderstrap>These straps do not match any pattern of greatcoat on the surface of Europa. Lieutenant rank.</entitydescription.WR_germanshoulderstrap>
-<entityname.WR_flyboyboots>Aviator boots</entityname.WR_flyboyboots>
-<entitydescription.WR_flyboyboots>Best quality English boots made of soft yellow leather, the sort that come up to the knee, with lacing all the way down - something really worth having.</entitydescription.WR_flyboyboots>
 </infotexts>
