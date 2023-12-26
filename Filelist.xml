@@ -17,4 +17,5 @@
 	<Item file="%ModDir%/Christmascontent/Deco.xml" />
 	<Item file="%ModDir%/Christmascontent/Gifts.xml" />
     <Item file="%ModDir%/Christmascontent/Food.xml" />
+	<Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
 </contentpackage>
