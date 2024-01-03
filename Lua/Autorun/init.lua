@@ -27,7 +27,7 @@ dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/welcomemessage.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/oxygen.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/defenses.lua")
+dofile(WR.Path .. "/Lua/Scripts/Server/antispam.lua")
 
 -- for holiday stuff
 dofile(WR.Path .. "/Lua/Scripts/Server/misc.lua")
