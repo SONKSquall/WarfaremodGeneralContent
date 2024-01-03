@@ -106,7 +106,7 @@
       </StatusEffect>
     </MotionSensor>
     <Pickable slots="Any" msg="itemmsgpickupselect" pickkey="Select" PickingTime="15.0">
-      <StatusEffect type="OnContained" targettype="This">
+      <StatusEffect type="OnContained" targettype="This" Interval="1">
         <SpawnItem identifier="WR_barbedwire_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
         <RemoveItem />
       </StatusEffect>
@@ -134,7 +134,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,81,88,253" depth="0.01" origin="0.5,0.45" />
     <Body width="50" height="252" density="12" />
     <Pickable slots="Any" msg="itemmsgpickupselect" pickkey="Select" PickingTime="15.0">
-      <StatusEffect type="OnContained" targettype="This">
+      <StatusEffect type="OnContained" targettype="This" Interval="1">
         <SpawnItem identifier="WR_sandbag_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
         <RemoveItem />
       </StatusEffect>
