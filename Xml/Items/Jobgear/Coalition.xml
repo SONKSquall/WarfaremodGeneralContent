@@ -35,7 +35,7 @@
   <!-- Helmets End -->
   <!-- Infantry gear Start -->
   <Item name="" identifier="WR_coalitiongear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,0,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="256,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Jobgear/Coalitiongear.png" sourcerect="443,162,69,94" depth="0.6" origin="0.5,0.35" />
     <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
@@ -45,8 +45,8 @@
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2">
       <Containable items="smallitem" excludeditems="packable,medpackable" />
-      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/SlotIcons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/UI/SlotIcons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SubContainer capacity="2">
         <Containable items="packable,smallitem" excludeditems="medpackable" />
       </SubContainer>

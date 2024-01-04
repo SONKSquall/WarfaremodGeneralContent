@@ -2,7 +2,7 @@
 <Items>
  <!-- Gear Start -->
   <Item name="" identifier="WR_medbag" category="Medical" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,0,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="192,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="450,7,62,60" depth="0.6" origin="0.5,0.5" />
     <Body width="100" height="45" density="20" />
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
@@ -14,12 +14,12 @@
     </Holdable>
     <ItemContainer capacity="6" MaxStackSize="1" hideitems="true" depth="0.5">
       <Containable items="medical,chem,medpackable" excludeditems="" />
-      <SlotIcon slotindex="0" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-      <SlotIcon slotindex="1" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-	  <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-      <SlotIcon slotindex="4" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-      <SlotIcon slotindex="5" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="0" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+	    <SlotIcon slotindex="2" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="%ModDir%/UI/SlotIcons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
  <!-- Gear End -->
