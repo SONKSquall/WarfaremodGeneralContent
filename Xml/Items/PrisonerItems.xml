@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <Item name="" identifier="WR_baton" category="Weapon" Tags="smallitem,stunner,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,185,141,17" depth="0.55" origin="0.5,0.5" />
     <Body width="141" height="17" density="30" />
     <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-25,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
@@ -16,7 +16,7 @@
     <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
   </Item>
   <Item name="" identifier="WR_cuffs" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,handlocker" scale="0.5" impactsoundtag="impact_soft" equipconfirmationtext="handcuffequipconfirmation">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="206,0,52,24" depth="0.6" origin="0.5,0.5" />
     <Body width="52" height="24" density="30" />
     <Wearable slots="Any,RightHand+LeftHand" msg="ItemMsgPickUpSelect" autoequipwhenfull="false">
@@ -44,7 +44,7 @@
     <Holdable attachable="true" attachedbydefault="true" AllowInGameEditing="false" PickingTime="1000" CanBePicked="false" />
   </Item>
   <Item name="" identifier="WR_footlocker" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,205,124,53" depth="0.6" origin="0.5,0.5" />
     <Body width="124" height="53" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
@@ -53,11 +53,11 @@
 	  <SubContainer capacity="1" maxstacksize="1">
          <Containable items="WR_currency" hide="false" itempos="-15,-3" />
       </SubContainer>
-	  <SlotIcon slotindex="19" texture="%ModDir%/UI/SlotIcons.png" sourcerect="128,0,64,64" origin="0.5,0.5" />
+	  <SlotIcon slotindex="19" texture="%ModDir%/UI/Sloticons.png" sourcerect="128,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_currency" category="Misc" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
-    <InventoryIcon texture="%ModDir%/Sprites/Items/InventoryIcons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="199,230,28,28" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="28" density="30" />
     <Holdable slots="Any,RightHand,LeftHand" UseHandRotationForHoldAngle="true" CanBeCombined="true" RemoveOnCombined="true" msg="itemmsgpickupselect"/>
