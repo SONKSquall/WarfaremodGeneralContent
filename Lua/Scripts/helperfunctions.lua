@@ -153,6 +153,12 @@ function WR.SendMessageToAllClients(messagestring)
     end
 end
 
+function WR.SendMessagetoClient(messagestring,client)
+    local chatMessage = ChatMessage.Create("Server", messagestring, ChatMessageType.ServerMessageBox, nil, nil)
+    chatMessage.Color = Color(255, 255, 0, 255)
+    Game.SendDirectChatMessage(chatMessage, client)
+end
+
 -- written by Sharp-Shark
 function WR.GiveAfflictionCharacter (character, identifier, amount)
     character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
