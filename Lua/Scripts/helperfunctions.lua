@@ -1,3 +1,33 @@
+function WR.GetPrefabsByTag(tag)
+    local prefabs = {}
+
+    for prefab in ItemPrefab.Prefabs do
+        for fabtag in prefab.Tags do
+            if fabtag == tag then table.insert(prefabs,prefab) break end
+        end
+    end
+
+    return prefabs
+end
+
+function WR.GetItemsById(id)
+    local items = {}
+
+    for k,v in pairs(Item.ItemList) do
+        if tostring(v.Prefab.Identifier) == id then table.insert(items, v) end
+    end
+
+    return items
+end
+
+function WR.FindItemBigField(item1,item2,field)
+    if item1[field] > item2[field] then
+        return item1
+    else
+        return item2
+    end
+end
+
 function WR.Lerp (n, a, b)
     return a*(1-n) + b*n
 end
@@ -121,6 +151,12 @@ function WR.SendMessageToAllClients(messagestring)
         chatMessage.Color = Color(255, 255, 0, 255)
         Game.SendDirectChatMessage(chatMessage, client)
     end
+end
+
+function WR.SendMessagetoClient(messagestring,client)
+    local chatMessage = ChatMessage.Create("Server", messagestring, ChatMessageType.ServerMessageBox, nil, nil)
+    chatMessage.Color = Color(255, 255, 0, 255)
+    Game.SendDirectChatMessage(chatMessage, client)
 end
 
 -- written by Sharp-Shark
