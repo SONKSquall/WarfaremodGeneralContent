@@ -63,7 +63,7 @@
     </LightComponent>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
   </Item>
-  <Item name="" identifier="WR_barbedwire_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_barbedwire_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="mediumitem" Scale="0.5" impactsoundtag="impact_metal_light">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
@@ -71,7 +71,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,0,254,78" depth="0.55" origin="0.5,0.5" />
     <Body width="254" height="55" density="12" />
-    <Holdable selectkey="Select" slots="Any,RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="0,20" handle1="50,-20" handle2="40,-20">
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="0,20" handle1="50,-20" handle2="40,-20">
       <!-- the same system as the beartrap mod (credits to whosyourdaddy) -->
       <StatusEffect type="OnNotContained" targettype="This" duration="1" Stackable="false">
         <Conditional IsAttached="true" />
@@ -112,7 +112,7 @@
       </StatusEffect>
     </Pickable>
   </Item>
-  <Item name="" identifier="WR_sandbag_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_sandbag_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="mediumitem" Scale="0.5" impactsoundtag="impact_metal_light">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
@@ -120,7 +120,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,153,128,99" depth="0.55" origin="0.5,0.5" />
     <Body width="128" height="90" density="12" />
-    <Holdable selectkey="Select" slots="Any,RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40">
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40">
       <!-- the same system as the beartrap mod (credits to whosyourdaddy) -->
       <StatusEffect type="OnNotContained" targettype="This" duration="1" Stackable="false">
         <Conditional IsAttached="true" />
