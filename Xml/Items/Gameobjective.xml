@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="" identifier="WR_objective" interactdistance="0" resizehorizontal="true" resizevertical="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="0.9" origin="0.5,0.5" />
+    <ItemComponent AllowInGameEditing="false">
+      <StatusEffect type="Always" Interval="5" target="This">
+        <LuaHook name="WR.gameobjective.xmlhook" />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+</Items>

@@ -43,11 +43,11 @@
       <SkillModifier skillidentifier="weapons" skillvalue="30" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
-    <ItemContainer capacity="2">
+    <ItemContainer capacity="2" maxstacksize="12">
       <Containable items="smallitem" excludeditems="packable,medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
-      <SubContainer capacity="2">
+      <SubContainer capacity="2" maxstacksize="1">
         <Containable items="packable,smallitem" excludeditems="medpackable" />
       </SubContainer>
     </ItemContainer>
@@ -63,11 +63,11 @@
       <StatValue stattype="MedicalItemApplyingMultiplier" value="0.5" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
-    <ItemContainer capacity="2">
+    <ItemContainer capacity="2" maxstacksize="12">
       <Containable items="medical,chem" excludeditems="medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-      <SubContainer capacity="2">
+      <SubContainer capacity="2" maxstacksize="1">
         <Containable items="medpackable,medical,chem" excludeditems="packable" />
       </SubContainer>
     </ItemContainer>

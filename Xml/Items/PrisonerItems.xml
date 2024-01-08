@@ -4,7 +4,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,185,141,17" depth="0.55" origin="0.5,0.5" />
     <Body width="141" height="17" density="30" />
-    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-25,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
+    <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-30,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
       <Attack structuredamage="0" itemdamage="0" targetimpulse="10" comparison="or">
         <StatusEffect type="OnUse" target="Limb">
           <LuaHook name="baton_attack" />
@@ -23,6 +23,9 @@
       <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="RightHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
       <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="LeftHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
       <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
+	  <StatusEffect type="OnWearing" target="NearbyCharacters" Interval="0.5" Range="200" >
+	    <LuaHook name="WR.cuffs.xmlhook" />
+	  </StatusEffect>
     </Wearable>
   </Item>
   <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
@@ -32,12 +35,8 @@
       <sound file="%ModDir%/Sounds/Pull1.ogg" type="OnUse" range="500.0" selectionmode="Random" />
       <sound file="%ModDir%/Sounds/Pull2.ogg" type="OnUse" range="500.0" />
       <sound file="%ModDir%/Sounds/Pull3.ogg" type="OnUse" range="500.0" />
-      <!-- Use a delay here so Lua doesn't shit itself -->
-      <StatusEffect type="OnPicked" target="NearbyCharacters" delay="1" range="500.0">
-        <LuaHook name="pow_handle" />
-      </StatusEffect>
-      <StatusEffect type="OnPicked" target="Character">
-        <LuaHook name="pow_frendlyteam" />
+      <StatusEffect type="OnPicked" target="Character,NearbyCharacters" range="500.0">
+        <LuaHook name="WR.powhandle.xmlhook" />
       </StatusEffect>
     </Controller>
     <!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->

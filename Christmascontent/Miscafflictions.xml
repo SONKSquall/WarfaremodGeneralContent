@@ -1,0 +1,51 @@
+<Afflictions>
+  <Affliction
+    name="Trench foot"
+    identifier="WR_trenchfoot"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="1000"
+	ShowIconToOthersThreshold="1000"
+    affectmachines="false" > 
+    <Effect minstrength="0" maxstrength="100" minspeedmultiplier="1.0" maxspeedmultiplier="0.1" strengthchange="-0.1" >
+    </Effect>
+    <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
+
+  <!-- Needed for the skinsealant -->
+  <Affliction
+    name="Melting Skin"
+    identifier="skinmelt"
+    description="YOUR SKIN. TEAR. IT. OFF!"
+    type="horrorsbeyondcomprehension"
+    limbspecific="false"
+    karmachangeonapplied="-5"
+    showiconthreshold="40"
+    maxstrength="100"
+    affectmachines="false"
+    healcostmultiplier="15">
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,896,128,128" color="193,10,70,255" origin="0,0"/>
+    <Effect minstrength="0" maxstrength="70" strengthchange="-1.5"/>
+    <Effect minstrength="70" maxstrength="90" strengthchange="-1.5">
+      <StatusEffect target="Character">
+        <Affliction identifier="organdamage" amount="0.5" />
+      </StatusEffect>
+    </Effect>
+    <Effect 
+    minstrength="90" 
+    maxstrength="100" 
+    strengthchange="-2"
+    minfacetint="255,255,255,0"
+    maxfacetint="255,100,100,150"
+    minbodytint="255,255,255,0"
+    maxbodytint="255,100,100,150">
+      <StatusEffect target="Character">
+        <Affliction identifier="organdamage" amount="4" />
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+    </Effect>
+  </Affliction>
+</Afflictions>

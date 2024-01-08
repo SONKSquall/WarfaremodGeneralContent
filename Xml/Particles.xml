@@ -1,0 +1,43 @@
+﻿<prefabs>
+  <minedetect
+    LifeTime="1"
+    LifeTimeMin="1"
+    StartDelayMin="0"
+    StartDelayMax="0"
+    AngularVelocityMin="0"
+    AngularVelocityMax="0"
+    StartRotationMin="0"
+    StartRotationMax="0"
+    RotateToDirection="True"
+    Drag="0"
+    WaterDrag="0"
+    VelocityChange="0,0"
+    VelocityChangeWater="0,0"
+    CollisionRadius="1"
+    InvariantCollisionSize="False"
+    UseCollision="False"
+    DeleteOnCollision="False"
+    Friction="0.5"
+    Restitution="0.5"
+    StartSizeMin="1,1"
+    StartSizeMax="1,1"
+    SizeChangeMin="0,0"
+    SizeChangeMax="0,0"
+    GrowTime="0.5"
+    StartColor="255,0,0,255"
+    MiddleColor="255,0,0,150"
+    EndColor="255,0,0,0"
+    UseMiddleColor="False"
+    DrawTarget="Both"
+    DrawOnTop="True"
+    DrawAlways="False"
+    BlendState="Additive"
+    Priority="0"
+    AnimDuration="0"
+    LoopAnim="False">
+    <sprite
+      texture="%ModDir%/Sprites/ParticleAtlas.png"
+      sourcerect="0,0,86,30"
+      depth="0.01" />
+  </minedetect>
+</prefabs>
