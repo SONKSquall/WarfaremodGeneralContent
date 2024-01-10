@@ -145,17 +145,46 @@ function WR.NumberToEqualize(number1, number2)
     return result
 end
 
-function WR.SendMessageToAllClients(messagestring)
+function WR.CreateDefaultMessageFormat()
+    local format = {}
+    format.type = ChatMessageType.ServerMessageBox
+    format.color = Color(255, 255, 0, 255)
+    format.sender = "Server"
+    return format
+end
+
+function WR.RepairMessageFormat(format)
+    local defaultformat = WR.CreateDefaultMessageFormat()
+
+    if format.type == nil then format.type = defaultformat.type end
+    if format.color == nil then format.color = defaultformat.color end
+    if format.sender == nil then format.sender = defaultformat.sender end
+
+    return format
+end
+
+function WR.SendMessageToAllClients(messagestring,format)
+    if not format then
+        format = WR.CreateDefaultMessageFormat()
+    else
+        format = WR.RepairMessageFormat(format)
+    end
     for key,client in pairs(Client.ClientList) do
-        local chatMessage = ChatMessage.Create("Server", messagestring, ChatMessageType.ServerMessageBox, nil, nil)
-        chatMessage.Color = Color(255, 255, 0, 255)
+        local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil)
+        chatMessage.Color = format.color
         Game.SendDirectChatMessage(chatMessage, client)
     end
 end
 
-function WR.SendMessagetoClient(messagestring,client)
-    local chatMessage = ChatMessage.Create("Server", messagestring, ChatMessageType.ServerMessageBox, nil, nil)
-    chatMessage.Color = Color(255, 255, 0, 255)
+function WR.SendMessagetoClient(messagestring,client,format)
+    if not format then
+        format = WR.CreateDefaultMessageFormat()
+    else
+        format = WR.RepairMessageFormat(format)
+    end
+
+    local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil)
+    chatMessage.Color = format.color
     Game.SendDirectChatMessage(chatMessage, client)
 end
 
