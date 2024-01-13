@@ -28,6 +28,10 @@
       </StatusEffect>
       <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" FrequencyMultiplier="2.5" loop="true" />
     </LightComponent>
+	<!-- This only here so the condition indicator looks like a stick of dynamite -->
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" containedstateindicatorstyle="explosive">
+      <Containable items="smallitem" />
+    </ItemContainer>
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="WRcutfuse" connection="signal_out1">
