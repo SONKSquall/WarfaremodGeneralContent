@@ -23,6 +23,7 @@ Hook.Add("WR.powhandle.xmlhook", "WR.powhandle", function(effect, deltaTime, ite
             Entity.Spawner.AddItemToSpawnQueue(Footlocker, character.WorldPosition, nil, nil, function(Container)
                 WR.SpawnInventoryItems(AllItems, Container.OwnInventory)
             end)
+            character.Kill(CauseOfDeathType.Unknown,nil,false,false)
             Entity.Spawner.AddEntityToRemoveQueue(character)
         end
     end

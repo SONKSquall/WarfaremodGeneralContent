@@ -1,19 +1,25 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
 WR.Game = {}
-WR.Game.winner = nil
 WR.Game.ending = false
 WR.Game.roundtick = 0
 WR.Game.roundtickmax = 30*60*60
+
+WR.Game.data = {}
+WR.Game.data.renegadeteam = {}
+WR.Game.data.coalitionteam = {}
+WR.Game.data.renegadeteam.deaths = {}
+WR.Game.data.coalitionteam.deaths = {}
+WR.Game.data.renegadeteam.winbycap = false
+WR.Game.data.coalitionteam.winbycap = false
 
 function WR.Game.endgame()
     if WR.Game.ending or not Game.RoundStarted then return end
 
     WR.Game.ending = true
 
-    local winnermessage = WR.Game.getwinner() .. " is the winner!"
+    local winnermessage = WR.Game.getwinner() or "ERROR"
     WR.SendMessageToAllClients(winnermessage,nil)
-    WR.Game.winner = nil
     for n=1,15 do
         Timer.Wait(function()
             WR.SendMessageToAllClients("Round ending in "..15-n.." seconds.",{["type"] = ChatMessageType.Server, ["color"] = Color(255, 0, 0, 255), ["sender"] = "Server"})
@@ -26,7 +32,58 @@ function WR.Game.endgame()
 end
 
 function WR.Game.getwinner()
-    if WR.Game.winner then return WR.Game.winner else return "Unknown winner" end
+    local victorytypes = {"Stalemate."," minor victory."," major victory!"," decisive victory!"," pyrrhic victory."}
+    local victorytype
+    local coalitiondeaths = #WR.Game.data.coalitionteam.deaths or 1
+    local renegadedeaths = #WR.Game.data.renegadeteam.deaths or 1
+    if WR.Game.data.coalitionteam.winbycap == true then
+        local ratio = renegadedeaths/coalitiondeaths
+        if ratio <= 1 then
+            victorytype = victorytypes[5]
+        elseif ratio >= 1.5 then
+            victorytype = victorytypes[4]
+        elseif ratio >= 1.25 then
+            victorytype = victorytypes[3]
+        elseif ratio >= 1 then
+            victorytype = victorytypes[2]
+        end
+        return "Coalition"..victorytype
+    elseif WR.Game.data.renegadeteam.winbycap == true then
+        local ratio = coalitiondeaths/renegadedeaths
+        if ratio <= 1 then
+            victorytype = victorytypes[5]
+        elseif ratio >= 1.5 then
+            victorytype = victorytypes[4]
+        elseif ratio >= 1.25 then
+            victorytype = victorytypes[3]
+        elseif ratio >= 1 then
+            victorytype = victorytypes[2]
+        end
+        return "Renegade"..victorytype
+    else
+        if renegadedeaths/coalitiondeaths > 0.9 and renegadedeaths/coalitiondeaths < 1.1 then
+            return victorytypes[1]
+        elseif renegadedeaths==coalitiondeaths then
+            return victorytypes[1]
+        end
+        local winner
+        local ratio
+        if renegadedeaths/coalitiondeaths > 1 then
+            winner = "Coalition"
+            ratio = renegadedeaths/coalitiondeaths
+        elseif coalitiondeaths/renegadedeaths > 1 then
+            winner = "Renegade"
+            ratio = coalitiondeaths/renegadedeaths
+        end
+        if ratio >= 1.5 then
+            victorytype = victorytypes[4]
+        elseif ratio >= 1.25 then
+            victorytype = victorytypes[3]
+        elseif ratio >= 1 then
+            victorytype = victorytypes[2]
+        end
+        return winner..victorytype
+    end
 end
 
 Game.AddCommand("setroundlength", "Use to set a custom round length in minutes. (Works for one round)", function(args)
@@ -35,7 +92,6 @@ Game.AddCommand("setroundlength", "Use to set a custom round length in minutes. 
 end, nil, true)
 
 Game.AddCommand("forceend", "Ends the round with a optional winner.", function(args)
-    if args[1] then WR.Game.winner = string.gsub(args[1], "_", " ") end
     WR.Game.endgame()
 end, nil, true)
 
@@ -44,7 +100,22 @@ Hook.add("roundStart", "WR.GameStart", function()
     WR.Game.roundtick = 0
     if WR.Game.roundtickmax == 0 then WR.Game.roundtickmax = 30*60*60 end
     WR.Game.ending = false
-    WR.Game.winner = nil
+
+    -- clear data
+    for k,v in pairs(WR.Game.data.coalitionteam) do
+        if type(v) == "boolean" then
+            WR.Game.data.coalitionteam[k] = false
+        else
+            WR.Game.data.coalitionteam[k] = {}
+        end
+    end
+    for k,v in pairs(WR.Game.data.renegadeteam) do
+        if type(v) == "boolean" then
+            WR.Game.data.renegadeteam[k] = false
+        else
+            WR.Game.data.renegadeteam[k] = {}
+        end
+    end
 
 end)
 
@@ -95,8 +166,15 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     end
     -- if there is more then 50% of the alive attacker team present and no defender then the round ends with attacker victory
     if math.abs(#Teams.attacker/#Teams.attackerteam) > 0.5 and #Teams.defender == 0 then
-        WR.Game.winner = string.gsub(winnertag, "_", " ")
+        WR.Game.data[attackertag].winbycap = true
         WR.Game.endgame()
     end
 
+end)
+
+Hook.add("character.death", "WR.DeathLog", function(char)
+    if WR.Game.ending then return end
+    if char.isHuman then
+        table.insert(WR.Game.data[tostring(char.JobIdentifier)].deaths, char.Name)
+    end
 end)
