@@ -47,15 +47,11 @@
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,205,124,53" depth="0.6" origin="0.5,0.5" />
     <Body width="124" height="53" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
-    <ItemContainer capacity="19" canbeselected="false" hideitems="false" SpawnWithId="WR_currency" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="WR_currency" hide="true" />
-	  <SubContainer capacity="1" maxstacksize="1">
-         <Containable items="WR_currency" hide="false" itempos="-15,-3" />
-      </SubContainer>
-	  <SlotIcon slotindex="19" texture="%ModDir%/UI/Sloticons.png" sourcerect="128,0,64,64" origin="0.5,0.5" />
+    <ItemContainer capacity="20" canbeselected="false" hideitems="false" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem" hide="true" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_currency" category="Misc" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
+  <Item name="" identifier="WR_currency" category="Misc" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="199,230,28,28" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="28" density="30" />
