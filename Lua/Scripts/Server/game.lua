@@ -129,6 +129,11 @@ Hook.add("think", "WR.GameManager", function()
         WR.Game.endgame()
     end
 
+    -- every 7.5 minutes
+    if WR.Game.roundtick % 27000 == 0 then
+        WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.Game.roundtickmax-WR.Game.roundtick)/60)..".",{["type"] = ChatMessageType.Server, ["sender"] = "Server"})
+    end
+
 end)
 
 Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaTime, item, targets, worldPosition)

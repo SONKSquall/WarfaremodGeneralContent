@@ -188,6 +188,27 @@ function WR.SendMessagetoClient(messagestring,client,format)
     Game.SendDirectChatMessage(chatMessage, client)
 end
 
+function WR.FormatTime(secs)
+    local mins = math.floor(secs/60)
+    local hours = math.floor(mins/60)
+    secs = math.floor(secs - mins * 60 + 0.5)
+    mins = mins - hours * 60
+
+    local text = ""
+    if hours > 0 then
+        text = text .. tostring(hours) .. " hours"
+    end
+    if mins > 0 then
+        text = text .. " " .. tostring(mins) .. " minutes"
+    end
+    if secs > 0 then
+        text = text .. " " .. tostring(secs) .. " seconds"
+    end
+    if text == "" then text = "seconds: 0" end
+    return text
+
+end
+
 -- written by Sharp-Shark
 function WR.GiveAfflictionCharacter (character, identifier, amount)
     character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
