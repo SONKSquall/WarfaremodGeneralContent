@@ -40,6 +40,8 @@
 <entitydescription.WR_rifleammoholder>Holds 6 rounds of rifle ammo.</entitydescription.WR_rifleammoholder>
 <entityname.WR_cuffs>Binding</entityname.WR_cuffs>
 <entitydescription.WR_cuffs>Rope handcuffs, crude but effective at restraining prisoners.</entitydescription.WR_cuffs>
+<entityname.WR_whistle>Trench whistle</entityname.WR_whistle>
+<entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>

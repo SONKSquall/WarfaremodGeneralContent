@@ -26,8 +26,8 @@
       <StatusEffect type="OnActive" target="This" Condition="-30.0">
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-	  <StatusEffect type="OnContained" target="This" Condition="10" />
-	  <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
+      <StatusEffect type="OnContained" target="This" Condition="10" />
+      <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
       <StatusEffect type="OnBroken" target="NearbyItems" disabledeltatime="true" range="500">
         <LuaHook name="WR.minedetector.xmlhook" />
       </StatusEffect>
@@ -121,6 +121,29 @@
     <ItemContainer capacity="1" maxstacksize="6" hideitems="false" itempos="-22,0" ItemRotation="90" iteminterval="9,0" ContainedStateIndicatorStyle="bullet" depth="0.5" containedspritedepth="0.65">
       <Containable items="rifleammo" excludeditems="" />
     </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_whistle" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="101,244,46,12" depth="0.55" origin="0.5,0.5" />
+    <Body width="46" height="10" density="30" />
+    <Holdable slots="LeftHand,Any" Aimable="false" HoldPos="30,15" HoldAngle="0" handle1="0,0" handle2="0,-7" msg="itemmsgpickupselect" > 
+	    <StatusEffect type="OnBroken" targettype="This" delay="1.5" Stackable="false" Condition="100" disabledeltatime="true"/>
+	</Holdable>
+	<CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
+      <Button text="Short whistle" connection="signal_out1">
+        <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
+          <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="5000" selectionmode="random" />
+		  <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="5000" />
+        </StatusEffect>
+      </Button>
+      <Button text="Long whistle" connection="signal_out1">
+        <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
+          <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="5000" selectionmode="random" />
+		  <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="5000" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
   </Item>
   <!-- Gear End -->
   <!-- Misc Start -->
