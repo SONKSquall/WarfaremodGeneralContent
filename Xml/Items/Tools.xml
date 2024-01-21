@@ -133,14 +133,14 @@
       <GuiFrame relativesize="0.15,0.15" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Short whistle" connection="signal_out1">
         <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="5000" selectionmode="random" />
-          <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="5000" />
+          <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="6000" selectionmode="random" />
+          <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="6000" />
         </StatusEffect>
       </Button>
       <Button text="Long whistle" connection="signal_out1">
         <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="5000" selectionmode="random" />
-          <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="5000" />
+          <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="6000" selectionmode="random" />
+          <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="6000" />
         </StatusEffect>
       </Button>
     </CustomInterface>
@@ -158,7 +158,7 @@
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Ring" connection="signal_out1">
         <StatusEffect type="OnUse" targettype="This" duration="4" Stackable="false" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="5000" selectionmode="random" />
+          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="6000" selectionmode="random" />
         </StatusEffect>
       </Button>
     </CustomInterface>
