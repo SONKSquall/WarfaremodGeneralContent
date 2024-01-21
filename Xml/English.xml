@@ -42,6 +42,8 @@
 <entitydescription.WR_cuffs>Rope handcuffs, crude but effective at restraining prisoners.</entitydescription.WR_cuffs>
 <entityname.WR_whistle>Trench whistle</entityname.WR_whistle>
 <entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
+<entityname.WR_gong>Gong</entityname.WR_gong>
+<entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
