@@ -132,15 +132,13 @@
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.15" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Short whistle" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="6000" selectionmode="random" />
-          <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="6000" />
+        <StatusEffect type="OnUse" targettype="This" tags="short" Stackable="false" Condition="-100" disabledeltatime="true">
+          <LuaHook name="WR.whistle.xmlhook" />
         </StatusEffect>
       </Button>
       <Button text="Long whistle" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" duration="1.5" Stackable="false" Condition="-100" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="6000" selectionmode="random" />
-          <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="6000" />
+        <StatusEffect type="OnUse" targettype="This" tags="long" Stackable="false" Condition="-100" disabledeltatime="true">
+          <LuaHook name="WR.whistle.xmlhook" />
         </StatusEffect>
       </Button>
     </CustomInterface>
@@ -158,7 +156,7 @@
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Ring" connection="signal_out1">
         <StatusEffect type="OnUse" targettype="This" duration="4" Stackable="false" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="6000" selectionmode="random" />
+          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="15000" selectionmode="random" />
         </StatusEffect>
       </Button>
     </CustomInterface>
@@ -178,6 +176,32 @@
     <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="WRguidecontents" textcolor="50,50,50,255">
       <GuiFrame relativesize="0.3,0.5" anchor="Center" style="WR_book" hidedragicons="true" />
     </Terminal>
+  </Item>
+  <Item name="WR_whistle_sfxshort" identifier="WR_whistle_sfxshort" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="15000" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="15000" />
+		<ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_whistle_sfxlong" identifier="WR_whistle_sfxlong" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="15000" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="15000" />
+		<ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
   </Item>
   <!-- Misc End -->
 </Items>
