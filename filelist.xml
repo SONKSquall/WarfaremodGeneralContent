@@ -1,4 +1,4 @@
-<contentpackage name="Warfare: General" modversion="0.1.7.2" gameversion="0.21.6.0" corepackage="false">
+<contentpackage name="Warfare: General" modversion="0.1.7.2b" gameversion="0.21.6.0" corepackage="false">
     <Item file="%ModDir%/Xml/Items/Tools.xml" />
     <Item file="%ModDir%/Xml/Items/Defenses.xml" />
     <Item file="%ModDir%/Xml/Items/Weapons.xml" />
