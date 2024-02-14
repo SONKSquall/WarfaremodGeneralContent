@@ -244,6 +244,12 @@ function WR.GetDeadPlayers()
     return players
 end
 
+function WR.TableSize(t)
+    local size = 1
+    for k in pairs(t) do size = size + 1 end
+    return size
+end
+
 -- set magic
 WR.Set = {}
 WR.Set.mt = {}
@@ -288,7 +294,7 @@ function WR.Set.tostring(set)
 end
 
 function WR.Set.randomkey(set)
-    local i = math.random(1,#set)
+    local i = math.random(1,WR.TableSize(set))
     for k in pairs(set) do
         i=i-1
         if i <= 0 then return k end
