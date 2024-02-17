@@ -26,8 +26,8 @@
       <StatusEffect type="OnActive" target="This" Condition="-30.0">
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-	  <StatusEffect type="OnContained" target="This" Condition="10" />
-	  <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
+      <StatusEffect type="OnContained" target="This" Condition="10" />
+      <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
       <StatusEffect type="OnBroken" target="NearbyItems" disabledeltatime="true" range="500">
         <LuaHook name="WR.minedetector.xmlhook" />
       </StatusEffect>
@@ -122,14 +122,54 @@
       <Containable items="rifleammo" excludeditems="" />
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_whistle" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="101,244,46,12" depth="0.55" origin="0.5,0.5" />
+    <Body width="46" height="10" density="30" />
+    <Holdable slots="LeftHand,Any" Aimable="false" HoldPos="30,15" HoldAngle="0" handle1="0,0" handle2="0,-7" msg="itemmsgpickupselect">
+      <StatusEffect type="OnBroken" targettype="This" delay="1.5" Stackable="false" Condition="100" disabledeltatime="true" />
+    </Holdable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
+      <Button text="Short whistle" connection="signal_out1">
+        <StatusEffect type="OnUse" targettype="This" tags="short" Stackable="false" Condition="-100" disabledeltatime="true">
+          <LuaHook name="WR.whistle.xmlhook" />
+        </StatusEffect>
+      </Button>
+      <Button text="Long whistle" connection="signal_out1">
+        <StatusEffect type="OnUse" targettype="This" tags="long" Stackable="false" Condition="-100" disabledeltatime="true">
+          <LuaHook name="WR.whistle.xmlhook" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+  <Item name="" identifier="WR_gong" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Gongspritesheet.png" sourcerect="0,0,90,104" depth="0.55" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/Gongspritesheet.png" sourcerect="0,107,67,104" depth="0.8" maxcondition="90" origin="0.5,0.5" />
+    <Body width="90" height="92" density="30" />
+    <Holdable slots="LeftHand+RightHand,Any" Aimable="false" HoldPos="40,0" HoldAngle="0" handle1="-20,-40" handle2="25,-20" msg="itemmsgpickupselect">
+      <StatusEffect type="OnActive" targettype="This" interval="0.1" Condition="89" setvalue="true" disabledeltatime="true" />
+      <StatusEffect type="OnNotContained" targettype="This" interval="0.1" Condition="100" setvalue="true" disabledeltatime="true" />
+    </Holdable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
+      <Button text="Ring" connection="signal_out1">
+        <StatusEffect type="OnUse" targettype="This" duration="4" Stackable="false" disabledeltatime="true">
+          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="15000" selectionmode="random" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
   <!-- Gear End -->
   <!-- Misc Start -->
+  <!--
   <Item name="" identifier="WR_guide" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="218,195,37,55" origin="0.5,0.5" />
     <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="367,194,12,44" origin="0.5,0.5" depth="0.8" />
     <Body width="35" height="40" density="8" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
-      <!-- guide should not exist outside a player's inventory -->
+           guide should not exist outside a player's inventory
       <StatusEffect type="OnNotContained" target="This">
         <Remove />
       </StatusEffect>
@@ -137,6 +177,33 @@
     <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="WRguidecontents" textcolor="50,50,50,255">
       <GuiFrame relativesize="0.3,0.5" anchor="Center" style="WR_book" hidedragicons="true" />
     </Terminal>
+  </Item>
+  -->
+  <Item name="WR_whistle_sfxshort" identifier="WR_whistle_sfxshort" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Whistleshort1.ogg" range="15000" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/Whistleshort2.ogg" range="15000" />
+		<ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_whistle_sfxlong" identifier="WR_whistle_sfxlong" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="15000" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="15000" />
+		<ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
   </Item>
   <!-- Misc End -->
 </Items>

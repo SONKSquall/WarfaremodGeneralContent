@@ -2,7 +2,7 @@ WR = {} -- Warfare General Content Pack
 
 WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
-WR.Version = "0.1.7.0"
+WR.Version = "0.2.0.0"
 WR.DeltaTime = 0
 WR.Config = json.parse(File.Read(WR.Path .. "/config.json"))
 
@@ -25,9 +25,10 @@ dofile(WR.Path .. "/Lua/Scripts/Server/weapons.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/tools.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/welcomemessage.lua")
+dofile(WR.Path .. "/Lua/Scripts/Server/chatcommands.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/oxygen.lua")
 dofile(WR.Path .. "/Lua/Scripts/Server/antispam.lua")
+dofile(WR.Path .. "/Lua/Scripts/Server/teambalance.lua")
 
 -- for holiday stuff
 dofile(WR.Path .. "/Lua/Scripts/Server/misc.lua")

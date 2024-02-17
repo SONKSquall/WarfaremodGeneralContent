@@ -19,3 +19,16 @@ Hook.Add("WR.minedetector.xmlhook", "WR.minedetector", function(effect, deltaTim
         end
     end
 end)
+
+Hook.Add("WR.whistle.xmlhook", "WR.whistlesound", function(effect, deltaTime, item, targets, worldPosition)
+    local hat = item.ParentInventory.GetItemInLimbSlot(InvSlotType.Head)
+
+    if not hat then return end
+    if not hat.HasTag("command") then return end
+
+    if effect.Tags == "long" then
+        Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_whistle_sfxlong"), item.WorldPosition, nil, nil, function(_) end)
+    elseif effect.Tags == "short" then
+        Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_whistle_sfxshort"), item.WorldPosition, nil, nil, function(_) end)
+    end
+end)

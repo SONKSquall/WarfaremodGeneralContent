@@ -62,6 +62,7 @@ Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance)
 
     if not client then return end
     if not cardiacarrest then ignorekill = true return end
+    if instance.IsDead then return end
 
     if cardiacarrest.Strength < 60 then
         ignorekill = true
