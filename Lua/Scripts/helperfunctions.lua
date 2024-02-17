@@ -213,3 +213,95 @@ end
 function WR.GiveAfflictionCharacter (character, identifier, amount)
     character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
 end
+
+function WR.ConcatTables(a, b)
+
+    for key,value in pairs(b) do
+        a[#a+1] = b[#b]
+        table.remove(b, #b)
+    end
+
+    return a
+end
+
+function WR.GivePreferedJob(client)
+
+    if not client.PreferredJob then return end
+    client.AssignedJob = JobVariant(JobPrefab.Get(client.PreferredJob), 0)
+
+end
+
+function WR.GetDeadPlayers()
+
+    local players = {}
+
+    for key,player in pairs(Client.ClientList) do
+        if player and not player.Character or player.Character.IsDead then
+            players[#players+1] = player
+        end
+    end
+
+    return players
+end
+
+function WR.TableSize(t)
+    local size = 1
+    for k in pairs(t) do size = size + 1 end
+    return size
+end
+
+-- set magic
+WR.Set = {}
+WR.Set.mt = {}
+
+function WR.Set.new(t)
+    local set = {}
+    setmetatable(set, WR.Set.mt)
+    for _, l in pairs(t) do set[l] = true end
+    return set
+end
+
+function WR.Set.add(a,b)
+    local res = WR.Set.new{}
+    for k in pairs(a) do res[k] = true end
+    for k in pairs(b) do res[k] = true end
+    return res
+end
+
+function WR.Set.intersection(a,b)
+    local res = WR.Set.new{}
+    for k in pairs(a) do
+      res[k] = b[k]
+    end
+    return res
+end
+
+function WR.Set.sub(a,b)
+    for k in pairs(a) do
+        if a[k] == b[k] then a[k] = nil end
+    end
+    return a
+end
+
+function WR.Set.tostring(set)
+    local s = "{"
+    local sep = ""
+    for e in pairs(set) do
+      s = s .. sep .. tostring(e)
+      sep = ", "
+    end
+    return s .. "}"
+end
+
+function WR.Set.randomkey(set)
+    local i = math.random(1,WR.TableSize(set))
+    for k in pairs(set) do
+        i=i-1
+        if i <= 0 then return k end
+    end
+end
+
+WR.Set.mt.__add = WR.Set.add
+WR.Set.mt.__mul = WR.Set.intersection
+WR.Set.mt.__sub = WR.Set.sub
+WR.Set.mt.__tostring = WR.Set.tostring
