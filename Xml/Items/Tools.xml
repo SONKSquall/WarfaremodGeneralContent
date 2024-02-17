@@ -163,12 +163,13 @@
   </Item>
   <!-- Gear End -->
   <!-- Misc Start -->
+  <!--
   <Item name="" identifier="WR_guide" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="218,195,37,55" origin="0.5,0.5" />
     <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="367,194,12,44" origin="0.5,0.5" depth="0.8" />
     <Body width="35" height="40" density="8" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
-      <!-- guide should not exist outside a player's inventory -->
+      <!-- guide should not exist outside a player's inventory --> <!--
       <StatusEffect type="OnNotContained" target="This">
         <Remove />
       </StatusEffect>
@@ -177,6 +178,7 @@
       <GuiFrame relativesize="0.3,0.5" anchor="Center" style="WR_book" hidedragicons="true" />
     </Terminal>
   </Item>
+  -->
   <Item name="WR_whistle_sfxshort" identifier="WR_whistle_sfxshort" spritecolor="0,0,0,0" >
     <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
     <ItemComponent>
