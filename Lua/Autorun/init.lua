@@ -4,7 +4,8 @@ WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
 WR.Version = "0.2.0.0"
 WR.DeltaTime = 0
-WR.Config = json.parse(File.Read(WR.Path .. "/config.json"))
+json = dofile(WR.Path .. "/Lua/Scripts/json.lua")
+WR.Config = json.decode(File.Read(WR.Path .. "/config.json"))
 
 
 -- get delta time here so we don't have to calculate it every time we need it
