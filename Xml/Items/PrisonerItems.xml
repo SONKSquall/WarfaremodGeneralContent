@@ -38,6 +38,9 @@
       <StatusEffect type="OnPicked" target="Character,NearbyCharacters" range="500.0">
         <LuaHook name="WR.powhandle.xmlhook" />
       </StatusEffect>
+      <StatusEffect type="OnPicked" target="Character" >
+        <LuaHook name="WR.powteamgrabber.xmlhook" />
+      </StatusEffect>
     </Controller>
     <!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->
     <Holdable attachable="true" attachedbydefault="true" AllowInGameEditing="false" PickingTime="1000" CanBePicked="false" />
