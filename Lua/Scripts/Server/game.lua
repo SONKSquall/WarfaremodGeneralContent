@@ -5,13 +5,18 @@ WR.Game.ending = false
 WR.Game.roundtick = 0
 WR.Game.roundtickmax = 30*60*60
 
-WR.Game.data = {}
-WR.Game.data.renegadeteam = {}
-WR.Game.data.coalitionteam = {}
-WR.Game.data.renegadeteam.deaths = {}
-WR.Game.data.coalitionteam.deaths = {}
-WR.Game.data.renegadeteam.winbycap = false
-WR.Game.data.coalitionteam.winbycap = false
+WR.Game.Data = dofile(WR.Path .. "/Lua/Scripts/Server/data.lua")
+
+-- register teams
+for v in JobPrefab.Prefabs do
+    if not v.HiddenJob then
+        WR.Game.Data.Stats[tostring(v.Identifier)] = {
+            Deaths = 0,
+            Captures = 0,
+            Winbycap = false
+        }
+    end
+end
 
 function WR.Game.endgame()
     if WR.Game.ending or not Game.RoundStarted then return end
@@ -34,9 +39,9 @@ end
 function WR.Game.getwinner()
     local victorytypes = {"Stalemate."," minor victory."," major victory!"," decisive victory!"," pyrrhic victory."}
     local victorytype
-    local coalitiondeaths = #WR.Game.data.coalitionteam.deaths or 1
-    local renegadedeaths = #WR.Game.data.renegadeteam.deaths or 1
-    if WR.Game.data.coalitionteam.winbycap == true then
+    local coalitiondeaths = WR.Game.Data.Stats.coalitionteam.Deaths or 1
+    local renegadedeaths = WR.Game.Data.Stats.renegadeteam.Deaths or 1
+    if WR.Game.Data.Stats.coalitionteam.Winbycap == true then
         local ratio = renegadedeaths/coalitiondeaths
         if ratio <= 1 then
             victorytype = victorytypes[5]
@@ -48,7 +53,7 @@ function WR.Game.getwinner()
             victorytype = victorytypes[2]
         end
         return "Coalition"..victorytype
-    elseif WR.Game.data.renegadeteam.winbycap == true then
+    elseif WR.Game.Data.Stats.renegadeteam.Winbycap == true then
         local ratio = coalitiondeaths/renegadedeaths
         if ratio <= 1 then
             victorytype = victorytypes[5]
@@ -101,21 +106,14 @@ Hook.add("roundStart", "WR.GameStart", function()
     if WR.Game.roundtickmax == 0 then WR.Game.roundtickmax = 30*60*60 end
     WR.Game.ending = false
 
-    -- clear data
-    for k,v in pairs(WR.Game.data.coalitionteam) do
-        if type(v) == "boolean" then
-            WR.Game.data.coalitionteam[k] = false
-        else
-            WR.Game.data.coalitionteam[k] = {}
-        end
-    end
-    for k,v in pairs(WR.Game.data.renegadeteam) do
-        if type(v) == "boolean" then
-            WR.Game.data.renegadeteam[k] = false
-        else
-            WR.Game.data.renegadeteam[k] = {}
-        end
-    end
+    -- clear Data
+    WR.Game.Data.Reset()
+
+end)
+
+Hook.add("roundEnd", "WR.GameEnd", function()
+
+    WR.Game.Data.Save(tostring(os.date()))
 
 end)
 
@@ -171,7 +169,7 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     end
     -- if there is more then 50% of the alive attacker team present and no defender then the round ends with attacker victory
     if math.abs(#Teams.attacker/#Teams.attackerteam) > 0.5 and #Teams.defender == 0 then
-        WR.Game.data[attackertag].winbycap = true
+        WR.Game.Data.Stats[attackertag].Winbycap = true
         WR.Game.endgame()
     end
 
@@ -180,6 +178,6 @@ end)
 Hook.add("character.death", "WR.DeathLog", function(char)
     if WR.Game.ending then return end
     if char.isHuman then
-        table.insert(WR.Game.data[tostring(char.JobIdentifier)].deaths, char.Name)
+        WR.Game.Data.AddStat(tostring(char.JobIdentifier), "Deaths", 1)
     end
 end)

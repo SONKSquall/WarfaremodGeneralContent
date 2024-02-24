@@ -4,7 +4,7 @@ WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
 WR.Version = "0.2.0.0"
 WR.DeltaTime = 0
-json = dofile(WR.Path .. "/Lua/Scripts/json.lua")
+local json = dofile(WR.Path .. "/Lua/Scripts/json.lua")
 WR.Config = json.decode(File.Read(WR.Path .. "/config.json"))
 
 

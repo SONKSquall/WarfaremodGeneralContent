@@ -18,7 +18,10 @@ local function powhandle(targets, frendlyteam)
                     break
                 end
             end
-            character.Kill(CauseOfDeathType.Unknown,nil,false,false)
+            print("Frendly team: ",tostring(frendlyteam))
+            print("Enemy team: ", tostring(character.JobIdentifier))
+            WR.Game.Data.AddStat(tostring(frendlyteam),"Captures",1)
+            WR.Game.Data.AddStat(tostring(character.JobIdentifier),"Deaths",1)
             Entity.Spawner.AddEntityToRemoveQueue(character)
         end
     end
@@ -31,6 +34,7 @@ Hook.Add("WR.powteamgrabber.xmlhook", "WR.teamgrabber", function(effect, deltaTi
 end)
 
 Hook.Add("WR.powhandle.xmlhook", "WR.powhandle", function(effect, deltaTime, item, targets, worldPosition)
+    print(frendlyteam)
     Timer.NextFrame(function() powhandle(targets, frendlyteam) end)
 end)
 
