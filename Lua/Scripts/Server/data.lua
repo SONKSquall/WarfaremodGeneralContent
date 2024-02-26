@@ -4,18 +4,21 @@ local json = dofile(WR.Path .. "/Lua/Scripts/json.lua")
 local data = {}
 data.Stats = {} -- strings, intergers, booleans, arrays
 data.Gamemode = {} -- data thats used by the server (items, players, ect)
---[[
-data.GmDefault = {
-    Shops = {}
+data.Default = {
+    Deaths = 0,
+    Captures = 0,
+    Winbycap = false
 }
-]]
 
-function data.AddStat(team,stat,value)
-    data.Stats[team][stat] = data.Stats[team][stat] + value or value
+function data.SetStat(team,stat,value)
+    if not data.Stats[team] then data.Stats[team] = data.SetDefault{} end
+    data.Stats[team][stat] = value
 end
 
-function data.SubStat(team,stat,value)
-    data.Stats[team][stat] = math.min(data.Stats[team][stat] - value, 0) or 0
+function data.AddStat(team,stat,value)
+    if not data.Stats[team] then data.Stats[team] = data.SetDefault{} end
+    local oldvalue = data.Stats[team][stat] or 0
+    data.SetStat(team,stat,oldvalue+value)
 end
 
 function data.Save(index)
@@ -39,30 +42,21 @@ function data.GetStat(team,stat)
     return data.Stats[team][stat]
 end
 
-function data.Reset()
-    print("Reseting Stats.")
-    for k,v in pairs(data.Stats) do
-        v = {
-            Deaths = 0,
-            Captures = 0,
-            Winbycap = false
-        }
-        print(k," reseted")
+function data.SetDefault(table)
+    for k in pairs(data.Default) do
+        table[k] = data.Default[k]
     end
-    --[[
-    print("Reseting Gamemode data.")
-    for k,v in pairs(data.Gamemode) do
-        v = data.GmDefault
-        print(k," reseted")
+    -- remove extra values
+    for k in pairs(table) do
+        table[k] = data.Default[k]
     end
-    ]]
+    return table
 end
 
-function data.ResetStats()
+function data.Reset()
     print("Reseting Stats.")
-    for k,v in pairs(data.Stats) do
-        v = data.Default
-        print(k," reseted")
+    for v in data.Stats do
+        data.SetDefault(v)
     end
 end
 

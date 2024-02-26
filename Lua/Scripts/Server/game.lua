@@ -10,11 +10,7 @@ WR.Game.Data = dofile(WR.Path .. "/Lua/Scripts/Server/data.lua")
 -- register teams
 for v in JobPrefab.Prefabs do
     if not v.HiddenJob then
-        WR.Game.Data.Stats[tostring(v.Identifier)] = {
-            Deaths = 0,
-            Captures = 0,
-            Winbycap = false
-        }
+        WR.Game.Data.Stats[tostring(v.Identifier)] = WR.Game.Data.SetDefault{}
     end
 end
 
@@ -169,7 +165,7 @@ Hook.add("WR.gameobjective.xmlhook", "WR.gameobjective", function(effect, deltaT
     end
     -- if there is more then 50% of the alive attacker team present and no defender then the round ends with attacker victory
     if math.abs(#Teams.attacker/#Teams.attackerteam) > 0.5 and #Teams.defender == 0 then
-        WR.Game.Data.Stats[attackertag].Winbycap = true
+        WR.Game.Data.SetStat(attackertag,"Winbycap",true)
         WR.Game.endgame()
     end
 
