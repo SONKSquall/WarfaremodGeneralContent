@@ -10,15 +10,17 @@ data.Default = {
     Winbycap = false
 }
 
-function data.SetStat(team,stat,value)
-    if not data.Stats[team] then data.Stats[team] = data.SetDefault{} end
-    data.Stats[team][stat] = value
+function data.SetStat(team,stat,value,table)
+    if not table then table = data.Stats end
+    if not table[team] then table[team] = data.SetDefault{} end
+    table[team][stat] = value
 end
 
-function data.AddStat(team,stat,value)
-    if not data.Stats[team] then data.Stats[team] = data.SetDefault{} end
-    local oldvalue = data.Stats[team][stat] or 0
-    data.SetStat(team,stat,oldvalue+value)
+function data.AddStat(team,stat,value,table)
+    if not table then table = data.Stats end
+    if not table[team] then table[team] = data.SetDefault{} end
+    local oldvalue = table[team][stat] or 0
+    data.SetStat(team,stat,oldvalue+value,table)
 end
 
 function data.Save(index)
@@ -38,8 +40,9 @@ function data.Load(index)
     return json.decode(File.Read(WR.Path .. "/Lua/data.json"))[index]
 end
 
-function data.GetStat(team,stat)
-    return data.Stats[team][stat]
+function data.GetStat(team,stat,table)
+    if not table then table = data.Stats end
+    return table[team][stat]
 end
 
 function data.SetDefault(table)

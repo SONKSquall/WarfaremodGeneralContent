@@ -11,6 +11,16 @@ WR.Game.Data = dofile(WR.Path .. "/Lua/Scripts/Server/data.lua")
 for v in JobPrefab.Prefabs do
     if not v.HiddenJob then
         WR.Game.Data.Stats[tostring(v.Identifier)] = WR.Game.Data.SetDefault{}
+        WR.Game.Data.Gamemode[tostring(v.Identifier)] = {Shops = {}}
+    end
+end
+-- incase of reloadlua
+if Game.RoundStarted then
+    for shop in Util.GetItemsById("WR_strategicexchange") do
+        local _, _, shopteam = string.find(shop.tags, "team='(.-)'")
+        if shopteam then
+            table.insert(WR.Game.Data.Gamemode[shopteam].Shops, shop)
+        end
     end
 end
 
@@ -102,14 +112,22 @@ Hook.add("roundStart", "WR.GameStart", function()
     if WR.Game.roundtickmax == 0 then WR.Game.roundtickmax = 30*60*60 end
     WR.Game.ending = false
 
-    -- clear Data
-    WR.Game.Data.Reset()
+    for shop in Util.GetItemsById("WR_strategicexchange") do
+        local _, _, shopteam = string.find(shop.tags, "team='(.-)'")
+        if shopteam then
+            table.insert(WR.Game.Data.Gamemode[shopteam].Shops, shop)
+        end
+    end
 
 end)
 
 Hook.add("roundEnd", "WR.GameEnd", function()
 
     WR.Game.Data.Save(tostring(os.date()))
+    WR.Game.Data.Reset()
+    for k,v in pairs(WR.Game.Data.Gamemode) do
+        v = {Shops = {}}
+    end
 
 end)
 
