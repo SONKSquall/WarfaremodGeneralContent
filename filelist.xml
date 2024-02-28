@@ -12,6 +12,7 @@
 	<Particles file="%ModDir%/Xml/Particles.xml" />
 	<Text file="%ModDir%/Xml/English.xml" />
 	<UIStyle file="%ModDir%/Xml/Style.xml" />
+	<Structure file="%ModDir%/Xml/Prefabs.xml" />
 	
 	<!-- Christmas stuff -->
 	<Item file="%ModDir%/Christmascontent/Deco.xml" />

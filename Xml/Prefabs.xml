@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prefabs>
+  <structure name="Concrete wall" identifier="WR_x_concretewall" descriptionidentifier="resizeablewallwithcollisiondetection" width="1024" height="96" resizehorizontal="true" body="true" castshadow="true" health="75" scale="0.5" tags="inner">
+    <sprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.16" sourcerect="0,0,1024,98" origin="0.5,0.5" />
+    <backgroundsprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.85" sourcerect="0,0,1024,98" color="60,60,60,255" origin="0.5,0.5" />
+  </structure>
+  <structure name="Concrete wall" identifier="WR_y_concretewall" descriptionidentifier="resizeablewallwithcollisiondetection" width="96" height="1024" resizevertical="true" body="true" castshadow="true" health="75" scale="0.5" tags="inner">
+    <sprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.16" sourcerect="926,101,98,1024" origin="0.5,0.5" />
+    <backgroundsprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.85" sourcerect="926,101,98,1024" color="60,60,60,255" origin="0.5,0.5" />
+  </structure>
+  <structure name="Concrete cap" identifier="WR_x_concretewall_cap" descriptionidentifier="wallcap" body="false" castshadow="false" noaitarget="true" scale="0.5">
+    <sprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.03" sourcerect="0,101,54,100" origin="0.5,0.5" />
+  </structure>
+  <structure name="Concrete cap" identifier="WR_y_concretewall_cap" descriptionidentifier="wallcap" body="false" castshadow="false" noaitarget="true" scale="0.5">
+    <sprite texture="%ModDir%/Sprites/Items/Walls.png" depth="0.03" sourcerect="57,101,101,54" origin="0.5,0.5" />
+  </structure>
+</prefabs>
