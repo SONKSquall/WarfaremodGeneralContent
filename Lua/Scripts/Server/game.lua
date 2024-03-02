@@ -6,6 +6,8 @@ WR.Game.roundtick = 0
 WR.Game.roundtickmax = 30*60*60
 
 WR.Game.Data = dofile(WR.Path .. "/Lua/Scripts/Server/data.lua")
+WR.Game.Data.Gamemode.Buildings = {}
+local building = dofile(WR.Path .. "/Lua/Scripts/Server/building.lua")
 
 -- register teams
 for v in JobPrefab.Prefabs do
@@ -20,6 +22,21 @@ if Game.RoundStarted then
         local _, _, shopteam = string.find(shop.tags, "team='(.-)'")
         if shopteam then
             table.insert(WR.Game.Data.Gamemode[shopteam].Shops, shop)
+        end
+    end
+    for item in Util.GetItemsById("label") do
+        if item.HasTag("wr_building") then
+            local walls = {}
+            local rect = item.WorldRect
+            for key,wall in pairs(Structure.WallList) do
+                if wall.MaxHealth < 1000 then
+                    if (math.abs(wall.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(wall.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
+                        table.insert(walls,wall)
+                    end
+                end
+            end
+            WR.Game.Data.Gamemode.Buildings[item.ID] = building:New({Walls = walls})
+            print(WR.Game.Data.Gamemode.Buildings[item.ID])
         end
     end
 end
@@ -118,6 +135,21 @@ Hook.add("roundStart", "WR.GameStart", function()
             table.insert(WR.Game.Data.Gamemode[shopteam].Shops, shop)
         end
     end
+    for item in Util.GetItemsById("label") do
+        if item and (item.HasTag("wr_building")) then
+            local walls = {}
+            local rect = item.WorldRect
+            for wall in Structure.WallList do
+                if wall.MaxHealth < 1000 then
+                    if (math.abs(wall.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(wall.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
+                        table.insert(walls,wall)
+                    end
+                end
+            end
+            WR.Game.Data.Gamemode.Buildings[item.ID] = building:New({Walls = walls})
+            print(WR.Game.Data.Gamemode.Buildings[item.ID])
+        end
+    end
 
 end)
 
@@ -128,6 +160,7 @@ Hook.add("roundEnd", "WR.GameEnd", function()
     for k,v in pairs(WR.Game.Data.Gamemode) do
         v = {Shops = {}}
     end
+    WR.Game.Data.Gamemode.Buildings = {}
 
 end)
 
@@ -144,6 +177,14 @@ Hook.add("think", "WR.GameManager", function()
     -- every 7.5 minutes
     if WR.Game.roundtick % 27000 == 0 then
         WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.Game.roundtickmax-WR.Game.roundtick)/60)..".",{["type"] = ChatMessageType.Server, ["sender"] = "Server"})
+    end
+
+    if WR.Game.roundtick % 60 == 0 then
+        for building in WR.Game.Data.Gamemode.Buildings do
+            if building:IsDestroyed() then
+                building:AddDamage(5)
+            end
+        end
     end
 
 end)
