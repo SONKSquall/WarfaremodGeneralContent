@@ -14,8 +14,6 @@ function building:IsDestroyed()
             currentdamage = currentdamage + (wall.SectionDamage(n))
         end
     end
-    print("currentdamage: ",currentdamage)
-    print("maxdamage: ",maxdamage)
     if currentdamage > maxdamage then
         self.Destroyed = true
     end
