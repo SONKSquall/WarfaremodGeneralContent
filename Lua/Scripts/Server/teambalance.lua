@@ -6,11 +6,7 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
     local amountRenegade = 0
     for key, player in pairs(Client.ClientList) do
         if not player.SpectateOnly then
-            if player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
-                amountRenegade = amountRenegade + 1
-            elseif player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
-                amountCoalition = amountCoalition + 1
-            else
+            if player.AssignedJob == nil then
                 if key % 2 == 0 then
                     player.AssignedJob = WR.coalition_job
                     amountCoalition = amountCoalition + 1
@@ -18,6 +14,10 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
                     player.AssignedJob = WR.renegade_job
                     amountRenegade = amountRenegade + 1
                 end
+            elseif player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
+                amountRenegade = amountRenegade + 1
+            elseif player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
+                amountCoalition = amountCoalition + 1
             end
         end
     end
