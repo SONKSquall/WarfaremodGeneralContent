@@ -157,8 +157,8 @@ Hook.add("roundEnd", "WR.GameEnd", function()
 
     WR.Game.Data.Save(tostring(os.date()))
     WR.Game.Data.Reset()
-    for k,v in pairs(WR.Game.Data.Gamemode) do
-        v = {Shops = {}}
+    for k in pairs(WR.Game.Data.Gamemode) do
+        WR.Game.Data.Gamemode[k] = {Shops = {}}
     end
     WR.Game.Data.Gamemode.Buildings = {}
 
