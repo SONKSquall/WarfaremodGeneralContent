@@ -1,22 +1,22 @@
-<contentpackage name="Warfare: General" modversion="0.2.0.2" gameversion="0.21.6.0" corepackage="false">
-    <Item file="%ModDir%/Xml/Items/Tools.xml" />
-    <Item file="%ModDir%/Xml/Items/Defenses.xml" />
-    <Item file="%ModDir%/Xml/Items/Weapons.xml" />
-    <Item file="%ModDir%/Xml/Items/PrisonerItems.xml" />
-    <Item file="%ModDir%/Xml/Items/Gameobjective.xml" />
-    <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
-    <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
-    <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />
-	<Afflictions file="%ModDir%/Xml/Afflictions.xml" />
-    <Sounds file="%ModDir%/Xml/Sounds.xml" />
-	<Particles file="%ModDir%/Xml/Particles.xml" />
-	<Text file="%ModDir%/Xml/English.xml" />
-	<UIStyle file="%ModDir%/Xml/Style.xml" />
-	<Structure file="%ModDir%/Xml/Prefabs.xml" />
-	
-	<!-- Christmas stuff -->
-	<Item file="%ModDir%/Christmascontent/Deco.xml" />
-	<Item file="%ModDir%/Christmascontent/Gifts.xml" />
-    <Item file="%ModDir%/Christmascontent/Food.xml" />
-	<Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
+<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Warfare General" modversion="0.2.0.2" corepackage="False" gameversion="1.2.8.0">
+  <Item file="%ModDir%/Xml/Items/Tools.xml" />
+  <Item file="%ModDir%/Xml/Items/Defenses.xml" />
+  <Item file="%ModDir%/Xml/Items/Weapons.xml" />
+  <Item file="%ModDir%/Xml/Items/PrisonerItems.xml" />
+  <Item file="%ModDir%/Xml/Items/Gameobjective.xml" />
+  <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
+  <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
+  <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />
+  <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Sounds file="%ModDir%/Xml/Sounds.xml" />
+  <Particles file="%ModDir%/Xml/Particles.xml" />
+  <Text file="%ModDir%/Xml/English.xml" />
+  <UIStyle file="%ModDir%/Xml/Style.xml" />
+  <Structure file="%ModDir%/Xml/Prefabs.xml" />
+  <Item file="%ModDir%/Christmascontent/Deco.xml" />
+  <Item file="%ModDir%/Christmascontent/Gifts.xml" />
+  <Item file="%ModDir%/Christmascontent/Food.xml" />
+  <Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
+  <Submarine file="%ModDir%/Abridging War.sub" />
 </contentpackage>
