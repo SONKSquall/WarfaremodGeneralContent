@@ -4,7 +4,7 @@ WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
 WR.Version = "0.2.0.3"
 WR.DeltaTime = 0
-local json = dofile(WR.Path .. "/Lua/Scripts/json.lua")
+local json = dofile(WR.Path .. "/Lua/json.lua")
 WR.Config = json.decode(File.Read(WR.Path .. "/config.json"))
 
 
@@ -21,19 +21,19 @@ Hook.Add('think', 'WR.UpdateDeltaTime', function ()
     WR.DeltaTime = UpdateDeltaTime()
 end)
 
-dofile(WR.Path .. "/Lua/Scripts/helperfunctions.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/weapons.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/tools.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/pow.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/game.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/chatcommands.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/oxygen.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/antispam.lua")
-dofile(WR.Path .. "/Lua/Scripts/Server/teambalance.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/helperfunctions.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/weapons.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/tools.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/pow.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/game.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/chatcommands.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/oxygen.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/antispam.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
 
 -- for holiday stuff
-dofile(WR.Path .. "/Lua/Scripts/Server/misc.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/misc.lua")
 
 if CLIENT then
-  dofile(WR.Path .. "/Lua/Scripts/Client/recoildisplay.lua")
+  dofile(WR.Path .. "/Lua/WR/Scripts/Client/recoildisplay.lua")
 end

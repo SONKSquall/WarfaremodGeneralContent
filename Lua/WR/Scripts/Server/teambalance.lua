@@ -1,5 +1,5 @@
-WR.renegade_job = JobVariant(JobPrefab.Get("renegadeteam"), 0)
-WR.coalition_job = JobVariant(JobPrefab.Get("coalitionteam"), 0)
+WR.renegadeJob = JobVariant(JobPrefab.Get("renegadeteam"), 0)
+WR.coalitionJob = JobVariant(JobPrefab.Get("coalitionteam"), 0)
 
 Hook.Add('jobsAssigned', 'WR.jobbalance', function()
     local amountCoalition = 0
@@ -8,10 +8,10 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         if not player.SpectateOnly then
             if player.AssignedJob == nil then
                 if key % 2 == 0 then
-                    player.AssignedJob = WR.coalition_job
+                    player.AssignedJob = WR.coalitionJob
                     amountCoalition = amountCoalition + 1
                 else
-                    player.AssignedJob = WR.renegade_job
+                    player.AssignedJob = WR.renegadeJob
                     amountRenegade = amountRenegade + 1
                 end
             elseif player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
@@ -31,7 +31,7 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
             if player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
-                player.AssignedJob = WR.renegade_job
+                player.AssignedJob = WR.renegadeJob
                 amount = amount - 1
                 if amount <= 0 then
                     break
@@ -43,7 +43,7 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
             if player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
-                player.AssignedJob = WR.coalition_job
+                player.AssignedJob = WR.coalitionJob
                 amount = amount - 1
                 if amount <= 0 then
                     break

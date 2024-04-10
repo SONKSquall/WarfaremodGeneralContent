@@ -47,24 +47,7 @@ function WR.IsEnemyPOW(character, TeamIdentifier)
         return false
     end
 end
---[[ unused functions
-function WR.TableFindBool(table, findval)
-    for value in table do
-        if value == findval then
-            return true
-        end
-    end
-    return false
-end
 
-function WR.StringFindBool(string, findstring)
-    if string.find(string, "findstring") ~= nil then
-        return true
-    else
-        return false
-    end
-end
-]]
 -- Thanks Mellon <3
 function WR.SpawnInventoryItems(Items, TargetInventory)
     for Item in Items do
@@ -109,24 +92,6 @@ function WR.GetPointers(valuetable, pointertable, field)
     return pointers
 
 end
-
---[[
-function WR.GetDifference(number1, number2)
-
-    if number1 == number2 then return 0 end
-
-    local result = 0
-
-    if number1 > number2 then
-        result = math.abs(number2 - number1)
-    elseif number2 > number1 then
-        result = math.abs(number1 - number2)
-    end
-
-    return result
-
-end
---]]
 
 function WR.NumberToEqualize(number1, number2)
 
@@ -204,7 +169,7 @@ function WR.FormatTime(secs)
     if secs > 0 then
         text = text .. " " .. tostring(secs) .. " seconds"
     end
-    if text == "" then text = "seconds: 0" end
+    if text == "" then text = "0 seconds" end
     return text
 
 end
@@ -261,7 +226,7 @@ function WR.Set.new(t)
     return set
 end
 
-function WR.Set.add(a,b)
+function WR.Set.union(a,b)
     local res = WR.Set.new{}
     for k in pairs(a) do res[k] = true end
     for k in pairs(b) do res[k] = true end
@@ -293,15 +258,30 @@ function WR.Set.tostring(set)
     return s .. "}"
 end
 
-function WR.Set.randomkey(set)
-    local i = math.random(1,WR.TableSize(set))
-    for k in pairs(set) do
-        i=i-1
-        if i <= 0 then return k end
+WR.Set.mt.__tostring = WR.Set.tostring
+
+function WR.stringSplit(s)
+
+    local tbl = {}
+
+    for v in string.gmatch(s, '([^,]+)') do
+        table.insert(tbl,v)
     end
+
+    return WR.Set.new(tbl)
+
 end
 
-WR.Set.mt.__add = WR.Set.add
-WR.Set.mt.__mul = WR.Set.intersection
-WR.Set.mt.__sub = WR.Set.sub
-WR.Set.mt.__tostring = WR.Set.tostring
+function WR.stringKeyVar(s)
+
+    if type(s) ~= "string" then return {} end
+
+    local _, _, key, value = string.find(s, "(%a+):(.+)")
+
+    if key and value then
+        return {[key] = value}
+    else
+        return {}
+    end
+
+end
