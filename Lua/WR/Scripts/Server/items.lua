@@ -29,17 +29,14 @@ function WR.equipItemFunctions.WR_whistle(item, itemUser)
 
     if not hat then
         item.Condition = 0
-        item.DescriptionTag = "(Can not use right now, please reequip with commander headgear) Small metal whistle, used for issuing offensive orders."
         return
     end
     if not hat.HasTag("command") then
         item.Condition = 0
-        item.DescriptionTag = "(Can not use right now, please reequip with commander headgear) Small metal whistle, used for issuing offensive orders."
         return
     end
 
     item.Condition = item.MaxCondition
-    item.DescriptionTag = "Small metal whistle, used for issuing offensive orders."
 
 end
 
