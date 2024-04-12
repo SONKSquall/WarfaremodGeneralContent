@@ -111,11 +111,13 @@ function WR.roundStartFunctions.main()
         WR.shops[v] = {}
     end
 
-    for shop in Util.GetItemsById("WR_strategicexchange") do
-        local _, _, shopteam = string.find(shop.tags, "team='(.-)'")
-        shopteam = WR.teamKeys[shopteam] -- remove bogus teams
-        if shopteam then
-            table.insert(WR.shops[shopteam], shop)
+    if Util.GetItemsById("WR_strategicexchange") then
+        for shop in Util.GetItemsById("WR_strategicexchange") do
+            local _, _, shopteam = string.find(shop.tags, "team='(.-)'")
+            shopteam = WR.teamKeys[shopteam] -- remove bogus teams
+            if shopteam then
+                table.insert(WR.shops[shopteam], shop)
+            end
         end
     end
 end
