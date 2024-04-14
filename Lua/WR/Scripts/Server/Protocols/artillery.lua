@@ -7,7 +7,7 @@ LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Items.Components.Turret"
 
 -- not the right term, i know
 local function normalizeAngle(angle)
-    return math.abs(angle) % 180
+    return math.abs(angle) % 90
 end
 
 WR.shellPrefabs = {
