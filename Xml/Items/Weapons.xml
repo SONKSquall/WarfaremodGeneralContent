@@ -43,4 +43,73 @@
     <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect"></Throwable>
   </Item>
   <!-- Explosives End -->
+  <!-- Shell Prefabs Start -->
+  <Item name="Shell" identifier="WR_shell" tags="" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Sprite texture="%ModDir%/Sprites/Items/Artyshell.png" sourcerect="0,0,34,84" depth="0.55" origin="0.5,0.5" />
+    <Body radius="100" density="30" />
+    <Projectile characterusable="false" spread="4.0" launchimpulse="0" maxtargetstohit="1" damagedoors="true">
+      <Attack structuredamage="50" itemdamage="50" severlimbsprobability="5" penetration="0.5" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="250" />
+        <Affliction identifier="bleeding" strength="50" />
+        <Affliction identifier="stun" strength="15" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="8000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="8000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="8000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="500.0" ballastfloradamage="200" structuredamage="75" itemdamage="250" force="20" severlimbsprobability="2" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="burn" strength="30" probability="0.2" dividebylimbcount="false"/>
+          <Affliction identifier="bleeding" strength="40" probability="0.05" dividebylimbcount="false"/>
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<!-- invisible explosion that gives suppression -->
+		<Explosion range="2000.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
+          <Affliction identifier="WR_suppression" strength="30" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" >
+        <ParticleEmitter particle="ammotrailwater" copyentityangle="true" anglemin="-5" anglemax="5" particleamount="5" velocitymin="-10" velocitymax="-100" scalemin="1.5" scalemax="2" />
+      </StatusEffect>  
+    </Projectile>
+  </Item>
+  <Item name="Shell" identifier="WR_bigshell" tags="" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.75" impactsoundtag="impact_metal_heavy">
+    <Sprite texture="%ModDir%/Sprites/Items/Artyshell.png" sourcerect="0,0,34,84" depth="0.55" origin="0.5,0.5" />
+    <Body radius="100" density="30" />
+    <Projectile characterusable="false" spread="4.0" launchimpulse="0" maxtargetstohit="1" damagedoors="true">
+      <Attack structuredamage="100" itemdamage="100" severlimbsprobability="5" penetration="0.5" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="250" />
+        <Affliction identifier="bleeding" strength="50" />
+        <Affliction identifier="stun" strength="15" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="8000" FrequencyMultiplier="0.75" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="8000" FrequencyMultiplier="0.75" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="750.0" ballastfloradamage="200" structuredamage="300" itemdamage="1000" force="20" severlimbsprobability="2" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="burn" strength="30" probability="0.2" dividebylimbcount="false"/>
+          <Affliction identifier="bleeding" strength="40" probability="0.05" dividebylimbcount="false"/>
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<!-- invisible explosion that gives suppression -->
+		<Explosion range="2000.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
+          <Affliction identifier="WR_suppression" strength="30" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" >
+        <ParticleEmitter particle="ammotrailwater" copyentityangle="true" anglemin="-5" anglemax="5" particleamount="5" velocitymin="-10" velocitymax="-100" scalemin="1.5" scalemax="2" />
+      </StatusEffect>  
+    </Projectile>
+  </Item>
+  <!-- Shell Prefabs End -->
 </Items>

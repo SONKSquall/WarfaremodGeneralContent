@@ -11,8 +11,8 @@ local function normalizeAngle(angle)
 end
 
 WR.shellPrefabs = {
-    railgun = ItemPrefab.GetItemPrefab("railgunshell"),
-    flakcannon = ItemPrefab.GetItemPrefab("flakboltexplosive")
+    railgun = ItemPrefab.GetItemPrefab("WR_bigshell"),
+    flakcannon = ItemPrefab.GetItemPrefab("WR_shell")
 }
 
 WR.artillery = WR.protocolBase:new({
