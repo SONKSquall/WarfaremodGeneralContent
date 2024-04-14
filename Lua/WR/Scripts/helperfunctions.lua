@@ -10,6 +10,18 @@ function WR.GetPrefabsByTag(tag)
     return prefabs
 end
 
+function WR.GetItemsByTag(searchTag)
+    local items = {}
+
+    for item in Item.ItemList do
+        for tag in item.GetTags() do
+            if tag == searchTag then table.insert(items,item) break end
+        end
+    end
+
+    return items
+end
+
 function WR.GetItemsById(id)
     local items = {}
 

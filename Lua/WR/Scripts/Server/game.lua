@@ -4,6 +4,7 @@ require "WR.Scripts.Server.Protocols.base"
 require "WR.Scripts.Server.Protocols.buildingmanager"
 require "WR.Scripts.Server.Protocols.data"
 require "WR.Scripts.Server.Protocols.objective"
+require "WR.Scripts.Server.Protocols.artillery"
 
 
 WR.shops = {}
@@ -16,7 +17,8 @@ WR.tickmax = 30*60*60
 WR.protocols = {
     WR.buildingManager,
     WR.data,
-    WR.objective
+    WR.objective,
+    WR.artillery
 }
 WR.thinkFunctions = {}
 
@@ -227,7 +229,7 @@ Hook.add("think", "WR.think", function()
         func()
     end
 end)
-
+--[[
 Hook.add("character.death", "WR.Death", function(char)
     if WR.Game.ending then return end
 
@@ -236,3 +238,4 @@ Hook.add("character.death", "WR.Death", function(char)
     end
 
 end)
+]]
