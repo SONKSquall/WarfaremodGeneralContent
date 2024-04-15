@@ -229,7 +229,7 @@ Hook.add("think", "WR.think", function()
         func()
     end
 end)
---[[
+
 Hook.add("character.death", "WR.Death", function(char)
     if WR.Game.ending then return end
 
@@ -238,4 +238,3 @@ Hook.add("character.death", "WR.Death", function(char)
     end
 
 end)
-]]
