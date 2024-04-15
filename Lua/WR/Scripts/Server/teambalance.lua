@@ -30,11 +30,13 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         local amount = math.abs(difference) - 2
         local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
-            if player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
-                player.AssignedJob = WR.renegadeJob
-                amount = amount - 1
-                if amount <= 0 then
-                    break
+            if player.AssignedJob ~= nil then
+                if player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
+                    player.AssignedJob = WR.renegadeJob
+                    amount = amount - 1
+                    if amount <= 0 then
+                        break
+                    end
                 end
             end
         end
@@ -42,11 +44,13 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         local amount = math.abs(difference) - 2
         local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
-            if player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
-                player.AssignedJob = WR.coalitionJob
-                amount = amount - 1
-                if amount <= 0 then
-                    break
+            if player.AssignedJob ~= nil then
+                if player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
+                    player.AssignedJob = WR.coalitionJob
+                    amount = amount - 1
+                    if amount <= 0 then
+                        break
+                    end
                 end
             end
         end
