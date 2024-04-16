@@ -272,10 +272,14 @@ end
 
 WR.Set.mt.__tostring = WR.Set.tostring
 
-function WR.stringSplit(s)
+function WR.stringSplit(s,sep)
     local tbl = {}
 
-    for v in string.gmatch(s, '([^,]+)') do
+    if not sep then
+        sep = ","
+    end
+
+    for v in string.gmatch(s, '([^'..sep..']+)') do
         table.insert(tbl,v)
     end
 
