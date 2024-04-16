@@ -56,13 +56,14 @@ WR.objective = WR.protocolBase:new({
         for item in Util.GetItemsById("label") do
             if item.HasTag("wr_objective") then
 
-                local _, _, defendertag = string.find(item.tags, 'defender="(.-)"')
-                local _, _, attackertag = string.find(item.tags, 'attacker="(.-)"')
+                local tagVars = WR.getStringVariables(item.Tags)
+                local defender = tagVars["defender"] or ""
+                local attacker = tagVars["attacker"] or ""
                 -- each area is its own object
                 table.insert(self.areas, area:new({
                     rect = item.WorldRect,
-                    defender = WR.teamKeys[defendertag],
-                    attacker = WR.teamKeys[attackertag]
+                    defender = WR.teamKeys[defender],
+                    attacker = WR.teamKeys[attacker]
                 }))
             end
         end

@@ -273,7 +273,6 @@ end
 WR.Set.mt.__tostring = WR.Set.tostring
 
 function WR.stringSplit(s)
-
     local tbl = {}
 
     for v in string.gmatch(s, '([^,]+)') do
@@ -281,19 +280,27 @@ function WR.stringSplit(s)
     end
 
     return WR.Set.new(tbl)
-
 end
 
 function WR.stringKeyVar(s)
-
-    if type(s) ~= "string" then return {} end
+    if type(s) ~= "string" then return nil end
 
     local _, _, key, value = string.find(s, "(%a+):(.+)")
 
     if key and value then
-        return {[key] = value}
+        return key, value
     else
-        return {}
+        return nil
     end
 
+end
+
+function WR.getStringVariables(s)
+    local input = WR.stringSplit(s)
+    local output = {}
+    for k in pairs(input) do
+        local key, value = WR.stringKeyVar(k)
+        if key then output[key] = value end
+    end
+    return output
 end
