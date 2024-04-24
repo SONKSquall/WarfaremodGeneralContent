@@ -5,6 +5,7 @@
   <Item file="%ModDir%/Xml/Items/Weapons.xml" />
   <Item file="%ModDir%/Xml/Items/PrisonerItems.xml" />
   <Item file="%ModDir%/Xml/Items/Gameobjective.xml" />
+  <Item file="%ModDir%/Xml/Items/Production.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />
