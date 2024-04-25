@@ -59,7 +59,7 @@
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="10" amount="1">
-      <RequiredItem identifier="WR_ore" amount="4" />
+      <RequiredItem identifier="WR_ore" amount="5" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -70,8 +70,8 @@
     <AiTarget sightrange="1000" static="true" />
   </Item>
   <Item name="Advanced Materals" identifier="WR_advancedmateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
-    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
-    <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,768,64,64" />
+    <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="62,203,55,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="20" amount="1">
       <RequiredItem identifier="WR_basicmateral" amount="2" />
@@ -85,8 +85,8 @@
     <AiTarget sightrange="1000" static="true" />
   </Item>
   <Item name="Explosive Materals" identifier="WR_explosivemateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
-    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
-    <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="897,896,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.55" sourcerect="2,478,47,32" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="10" amount="1">
       <RequiredItem identifier="WR_ore" amount="6" />
@@ -114,7 +114,7 @@
         <ParticleEmitter particle="shrapnel" particleamount="10" scalemin="0.25" scalemax="1" velocitymin="100" velocitymax="300" anglemin="0" anglemax="360" DrawOnTop="True" />
         <SpawnItem identifiers="WR_ore" spawnposition="This" rotationtype="Random" aimspread="360" Impulse="20" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="20" disableDeltaTime="true" condition="5" />
+      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="60" disableDeltaTime="true" condition="5" />
     </ItemComponent>
   </Item>
   <Item name="Ore Vain" identifier="WR_orevain2" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
@@ -141,17 +141,18 @@
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="407,376,152,89" origin="0.5,0.5" />
     <Body width="150" height="75" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
-    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem,largeitem" />
-      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
-        <LuaHook name="WR.productionCrate.xmlhook" />
-      </StatusEffect>
-    </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" tags="crate,allowcleanup,spawnid:rifle,spawncount:1" Health="8" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" tags="crate,allowcleanup" Health="8" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
     <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmateral" amount="1" />
     </Fabricate>
+    <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="rifle:1,riflebullet:12"  />
+      </StatusEffect>
+    </ItemContainer>
   </Item>
   <!-- Production crate End -->
 </Items>

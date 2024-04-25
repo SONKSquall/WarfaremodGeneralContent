@@ -65,13 +65,14 @@ Hook.Add("item.created", "WR.itemSpawn", function(item)
     end
 end)
 
-Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition)
-    local tagVars = WR.getStringVariables(item.tags)
-    if not (tagVars.spawncount and tagVars.spawnid) then return end
+Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
+    local spawndata = WR.getStringVariables(element.GetAttributeString("spawndata", "default value"))
     local itemSpawned = false
     if item.OwnInventory.IsEmpty() and item.Condition >= 1 then
-        for i=tonumber(tagVars.spawncount),1,-1 do
-            Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab(tagVars.spawnid), item.OwnInventory, nil, nil, function(worldItem) end)
+        for id,spawnCount in pairs(spawndata) do
+            for i=tonumber(spawnCount),1,-1 do
+                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab(id), item.OwnInventory, nil, nil, function(worldItem) end)
+            end
         end
         itemSpawned = true
         item.Condition = item.Condition - 1
