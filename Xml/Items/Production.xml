@@ -52,13 +52,16 @@
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" uilabel="" allowuioverlap="true" />
   </Item>
+
+  <Item name="Coalition Factory" identifier="WR_coalitionfactory" variantof="WR_factory" tags="factory,coalitionfactory,donttakeitems,dontsellitems"/>
+  <Item name="Renegade Factory" identifier="WR_renegadefactory" variantof="WR_factory" tags="factory,renegadefactory,donttakeitems,dontsellitems"/>
   <!-- Facilitys End -->
   <!-- Material Start -->
   <Item name="Basic Materals" identifier="WR_basicmateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
-    <Fabricate suitablefabricators="refinery" requiredtime="10" amount="1">
+    <Fabricate suitablefabricators="refinery" requiredtime="10" amount="2">
       <RequiredItem identifier="WR_ore" amount="5" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -74,7 +77,7 @@
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="62,203,55,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="20" amount="1">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
+      <RequiredItem identifier="WR_basicmateral" amount="4" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -88,7 +91,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="897,896,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.55" sourcerect="2,478,47,32" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
-    <Fabricate suitablefabricators="refinery" requiredtime="10" amount="1">
+    <Fabricate suitablefabricators="refinery" requiredtime="10" amount="2">
       <RequiredItem identifier="WR_ore" amount="6" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -142,17 +145,205 @@
     <Body width="150" height="75" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
   </Item>
-  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" tags="crate,allowcleanup" Health="8" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" Health="8">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="1" />
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
       <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
 	    <!-- spawndata: Prefabid:SpawnNumber -->
-        <LuaHook name="WR.productionCrate.xmlhook" spawndata="rifle:1,riflebullet:12"  />
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="rifle:1,WR_rifleammoholder:1"  />
       </StatusEffect>
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="8" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="3" />
+    </Fabricate>
+    <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="shotgun:1,WR_rifleammoholder:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_smgcrate" variantof="WR_productioncrate" Health="2" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="smg:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_hmgcrate" variantof="WR_productioncrate" Health="1" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="hmg:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="8" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="3" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="riflebullet:12"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="8" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="shotgunshell:12"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_smgammocrate" variantof="WR_productioncrate" Health="4" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="smgmagazine:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_hmgammocrate" variantof="WR_productioncrate" Health="4" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="3" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="hmgmagazine:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_medicalcrate" variantof="WR_productioncrate" Health="1" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="12" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="antibleeding1:8,antibleeding3:4,antidama1:8,antidama2:4"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_bloodcrate" variantof="WR_productioncrate" Health="1" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="3" />
+    </Fabricate>
+    <ItemContainer capacity="8" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="antibloodloss1:6,antibloodloss2:2"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_grenadecrate" variantof="WR_productioncrate" Health="4" >
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
+	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="fraggrenade:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <!-- Coalition Start -->
+  <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6" >
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
+	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem,railgunammo" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="railgunshell:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_coalitionbodyarmorcrate" variantof="WR_productioncrate" Health="2" >
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="bodyarmor:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_coalitiongasgrenadecrate" variantof="WR_productioncrate" Health="3" >
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="chemgrenade:2,40mmchemgrenade:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <!-- Coalition End -->
+  <!-- Renegade Start -->
+  <Item name="" identifier="WR_renegadeshellcrate" variantof="WR_productioncrate" Health="1" >
+    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmateral" amount="2" />
+	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="flakcannonammoboxexplosive:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_renegadebodyarmorcrate" variantof="WR_productioncrate" Health="4" >
+    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="piratebodyarmor:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <!-- Renegade End -->
   <!-- Production crate End -->
 </Items>
