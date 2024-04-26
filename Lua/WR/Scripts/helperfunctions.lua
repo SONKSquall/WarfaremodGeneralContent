@@ -289,7 +289,7 @@ end
 function WR.stringKeyVar(s)
     if type(s) ~= "string" then return nil end
 
-    local _, _, key, value = string.find(s, "(%a+):(.+)")
+    local _, _, key, value = string.find(s, "(.+):(.+)")
 
     if key and value then
         return key, value
