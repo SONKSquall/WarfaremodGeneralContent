@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- Facilitys Start -->
-  <Item name="Refinery" identifier="WR_refinery" tags="refinery,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
+  <Item name="" identifier="WR_refinery" tags="refinery,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
     <Sprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.8" sourcerect="0,304,256,320"/>
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.84" sourcerect="866,484,156,105"/>
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.83" offset="-27,-20" sourcerect="944,395,74,74" origin="0.5,0.5" rotationspeed="-715">
@@ -34,7 +34,7 @@
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" uilabel="" allowuioverlap="true" />
   </Item>
-  <Item name="Factory" identifier="WR_factory" tags="factory,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
+  <Item name="" identifier="WR_factory" tags="factory,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
     <Sprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="0,624,336,400" depth="0.8"/>
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.84" offset="-103,99" sourcerect="908,301,116,87"/>
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.81" offset="-103,99" sourcerect="825,395,114,83"/>
@@ -53,11 +53,11 @@
     <ItemContainer capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" uilabel="" allowuioverlap="true" />
   </Item>
 
-  <Item name="Coalition Factory" identifier="WR_coalitionfactory" variantof="WR_factory" tags="factory,coalitionfactory,donttakeitems,dontsellitems"/>
-  <Item name="Renegade Factory" identifier="WR_renegadefactory" variantof="WR_factory" tags="factory,renegadefactory,donttakeitems,dontsellitems"/>
+  <Item name="" identifier="WR_coalitionfactory" variantof="WR_factory" tags="factory,coalitionfactory,donttakeitems,dontsellitems"/>
+  <Item name="" identifier="WR_renegadefactory" variantof="WR_factory" tags="factory,renegadefactory,donttakeitems,dontsellitems"/>
   <!-- Facilitys End -->
   <!-- Material Start -->
-  <Item name="Basic Materals" identifier="WR_basicmateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_basicmaterial" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
@@ -72,12 +72,12 @@
     </Holdable>
     <AiTarget sightrange="1000" static="true" />
   </Item>
-  <Item name="Advanced Materals" identifier="WR_advancedmateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_advancedmaterial" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,768,64,64" />
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="62,203,55,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="20" amount="1">
-      <RequiredItem identifier="WR_basicmateral" amount="4" />
+      <RequiredItem identifier="WR_basicmaterial" amount="4" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -87,7 +87,7 @@
     </Holdable>
     <AiTarget sightrange="1000" static="true" />
   </Item>
-  <Item name="Explosive Materals" identifier="WR_explosivemateral" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_explosivematerial" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="897,896,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.55" sourcerect="2,478,47,32" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
@@ -104,7 +104,7 @@
   </Item>
   <!-- Material End -->
   <!-- Ore Start -->
-  <Item name="Ore Vain" identifier="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
+  <Item name="" identifier="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="205,0,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="0,0,202,147" origin="0.5,0.5" />
     <Body radius="50" bodytype="Static" />
@@ -120,19 +120,19 @@
       <StatusEffect type="OnBroken" target="This" Stackable="false" delay="30" disableDeltaTime="true" condition="5" />
     </ItemComponent>
   </Item>
-  <Item name="Ore Vain" identifier="WR_orevain2" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
+  <Item name="" identifier="WR_orevain2" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="614,0,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="409,0,202,147" origin="0.5,0.5" />
   </Item>
-  <Item name="Ore Vain" identifier="WR_orevain3" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
+  <Item name="" identifier="WR_orevain3" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="205,150,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="0,150,202,147" origin="0.5,0.5" />
   </Item>
-  <Item name="Ore Vain" identifier="WR_orevain4" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
+  <Item name="" identifier="WR_orevain4" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="614,150,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="409,150,202,147" origin="0.5,0.5" />
   </Item>
-  <Item name="Saltpeter" identifier="WR_ore" category="Material" Tags="smallitem,ore" maxstacksize="32" maxstacksizecharacterinventory="1" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_ore" category="Material" Tags="smallitem,ore" maxstacksize="32" maxstacksizecharacterinventory="1" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="938,0,86,109" origin="0.5,0.5" />
     <Body radius="40" width="20" density="25" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
@@ -147,7 +147,7 @@
   </Item>
   <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -159,7 +159,7 @@
   </Item>
   <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -171,7 +171,7 @@
   </Item>
   <Item name="" identifier="WR_smgcrate" variantof="WR_productioncrate" Health="2" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -183,7 +183,7 @@
   </Item>
   <Item name="" identifier="WR_hmgcrate" variantof="WR_productioncrate" Health="1" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -195,7 +195,7 @@
   </Item>
   <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -207,7 +207,7 @@
   </Item>
   <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -219,7 +219,7 @@
   </Item>
   <Item name="" identifier="WR_smgammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -231,7 +231,7 @@
   </Item>
   <Item name="" identifier="WR_hmgammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -243,7 +243,7 @@
   </Item>
   <Item name="" identifier="WR_medicalcrate" variantof="WR_productioncrate" Health="1" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="1" />
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="12" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -255,7 +255,7 @@
   </Item>
   <Item name="" identifier="WR_bloodcrate" variantof="WR_productioncrate" Health="1" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="8" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -267,8 +267,8 @@
   </Item>
   <Item name="" identifier="WR_grenadecrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
-	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -281,8 +281,8 @@
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6" >
     <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
-	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem,railgunammo" />
@@ -294,7 +294,7 @@
   </Item>
   <Item name="" identifier="WR_coalitionbodyarmorcrate" variantof="WR_productioncrate" Health="2" >
     <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
-      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
@@ -306,8 +306,8 @@
   </Item>
   <Item name="" identifier="WR_coalitiongasgrenadecrate" variantof="WR_productioncrate" Health="3" >
     <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
-      <RequiredItem identifier="WR_advancedmateral" amount="1" />
-	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
+	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -321,8 +321,8 @@
   <!-- Renegade Start -->
   <Item name="" identifier="WR_renegadeshellcrate" variantof="WR_productioncrate" Health="1" >
     <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmateral" amount="2" />
-	  <RequiredItem identifier="WR_explosivemateral" amount="1" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
@@ -334,7 +334,7 @@
   </Item>
   <Item name="" identifier="WR_renegadebodyarmorcrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
-      <RequiredItem identifier="WR_advancedmateral" amount="1" />
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem,flakcannonammo" />
