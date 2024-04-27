@@ -159,7 +159,7 @@
   </Item>
   <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
@@ -219,7 +219,7 @@
   </Item>
   <Item name="" identifier="WR_smgammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
