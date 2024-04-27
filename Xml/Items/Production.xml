@@ -117,7 +117,7 @@
         <ParticleEmitter particle="shrapnel" particleamount="10" scalemin="0.25" scalemax="1" velocitymin="100" velocitymax="300" anglemin="0" anglemax="360" DrawOnTop="True" />
         <SpawnItem identifiers="WR_ore" spawnposition="This" rotationtype="Random" aimspread="360" Impulse="20" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="60" disableDeltaTime="true" condition="5" />
+      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="30" disableDeltaTime="true" condition="5" />
     </ItemComponent>
   </Item>
   <Item name="Ore Vain" identifier="WR_orevain2" variantof="WR_orevain" category="Material" Tags="ore" description="" health="5" damagedbymeleeweapons="true" scale="0.5">
@@ -145,7 +145,7 @@
     <Body width="150" height="75" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
   </Item>
-  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" Health="8">
+  <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmateral" amount="2" />
     </Fabricate>
@@ -157,7 +157,7 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="8" >
+  <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmateral" amount="3" />
     </Fabricate>
@@ -193,7 +193,7 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="8" >
+  <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmateral" amount="3" />
     </Fabricate>
@@ -205,7 +205,7 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="8" >
+  <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="4" >
     <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmateral" amount="2" />
     </Fabricate>
