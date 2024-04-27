@@ -32,24 +32,14 @@ WR.artillery = WR.protocolBase:new({
             -- the lower the angle, the higher the range
             local maxAngle = math.min(normalizeAngle(instance.maxRotation * 57), normalizeAngle(instance.minRotation * 57))
             local minAngle = math.max(normalizeAngle(instance.maxRotation * 57), normalizeAngle(instance.minRotation * 57))
-
-            local maxRange = 20000
-            local minRange = 2500
-            local spread = 1000
             print(angle)
             print(maxAngle)
             print(minAngle)
 
-            for tag in instance.Item.GetTags() do
-                local sTag = tostring(tag)
-                if WR.stringKeyVar(tostring(sTag))["maxrange"] then
-                    maxRange = tonumber(WR.stringKeyVar(sTag)["maxrange"]) * 100
-                elseif WR.stringKeyVar(tostring(sTag))["minrange"] then
-                    minRange = tonumber(WR.stringKeyVar(sTag)["minrange"]) * 100
-                elseif WR.stringKeyVar(tostring(sTag))["spread"] then
-                    spread = tonumber(WR.stringKeyVar(sTag)["spread"]) * 100
-                end
-            end
+            local tagVars = WR.getStringVariables(instance.Item.Tags)
+            local maxRange = tonumber(tagVars["maxrange"]) * 100 or 20000
+            local minRange = tonumber(tagVars["minrange"]) * 100 or 2500
+            local spread = tonumber(tagVars["spread"]) * 100 or 1000
 
             local range = WR.Lerp(WR.InvLerp(angle,minAngle,maxAngle), minRange, maxRange)
             if instance.Item.FlippedX then range = range * -1 end

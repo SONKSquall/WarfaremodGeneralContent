@@ -23,7 +23,7 @@ Hook.add("think", "WR.antispam", function()
                         if (math.abs(offset.X) <= 200 and math.abs(offset.Y) <= 200) then
                             -- the item with the higher spawn time gets despawned (higher spawntimes = newer)
                             local itemtoremove = WR.FindItemBigField(item,relativeitem,"SpawnTime")
-                            local _, _, replacementitemID = string.find(item.tags, "replacementitemID='(.-)'")
+                            local replacementitemID = WR.getStringVariables(item.Tags)["replacementitemid"]
 
                             if replacementitemID then
                                 local replacementitemprefab = ItemPrefab.GetItemPrefab(tostring(replacementitemID))

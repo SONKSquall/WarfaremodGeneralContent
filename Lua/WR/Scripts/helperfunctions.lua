@@ -272,28 +272,39 @@ end
 
 WR.Set.mt.__tostring = WR.Set.tostring
 
-function WR.stringSplit(s)
-
+function WR.stringSplit(s,sep)
     local tbl = {}
 
-    for v in string.gmatch(s, '([^,]+)') do
+    if not sep then
+        sep = ","
+    end
+
+    for v in string.gmatch(s, '([^'..sep..']+)') do
         table.insert(tbl,v)
     end
 
     return WR.Set.new(tbl)
-
 end
 
 function WR.stringKeyVar(s)
+    if type(s) ~= "string" then return nil end
 
-    if type(s) ~= "string" then return {} end
-
-    local _, _, key, value = string.find(s, "(%a+):(.+)")
+    local _, _, key, value = string.find(s, "(.+):(.+)")
 
     if key and value then
-        return {[key] = value}
+        return key, value
     else
-        return {}
+        return nil
     end
 
+end
+
+function WR.getStringVariables(s)
+    local input = WR.stringSplit(s)
+    local output = {}
+    for k in pairs(input) do
+        local key, value = WR.stringKeyVar(k)
+        if key then output[key] = value end
+    end
+    return output
 end
