@@ -81,7 +81,7 @@ local chatcommands = function (message,client)
     end
     if message == "!time" then
         if not WR.Game.ending and Game.RoundStarted then
-            WR.SendMessagetoClient("Round ending in"..WR.FormatTime((WR.Game.roundtickmax-WR.Game.roundtick)/60)..".", client, {type = ChatMessageType.Default})
+            WR.SendMessagetoClient("Round ending in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".", client, {type = ChatMessageType.Default})
         else
             WR.SendMessagetoClient("Round ending or not started!", client, {type = ChatMessageType.Default})
         end
