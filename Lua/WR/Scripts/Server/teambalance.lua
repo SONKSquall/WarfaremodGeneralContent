@@ -4,6 +4,7 @@ WR.coalitionJob = JobVariant(JobPrefab.Get("coalitionteam"), 0)
 Hook.Add('jobsAssigned', 'WR.jobbalance', function()
     local amountCoalition = 0
     local amountRenegade = 0
+    local deadPlayers = WR.GetDeadPlayers()
     for key, player in pairs(Client.ClientList) do
         if not player.SpectateOnly then
             if player.AssignedJob == nil then
@@ -28,7 +29,6 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
 
     if difference > 1 then
         local amount = math.abs(difference) - 2
-        local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
             if player.AssignedJob ~= nil then
                 if player.AssignedJob.Prefab.Identifier == 'coalitionteam' then
@@ -42,7 +42,6 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         end
     elseif difference < -1 then
         local amount = math.abs(difference) - 2
-        local deadPlayers = WR.GetDeadPlayers()
         for key, player in pairs(deadPlayers) do
             if player.AssignedJob ~= nil then
                 if player.AssignedJob.Prefab.Identifier == 'renegadeteam' then
@@ -55,4 +54,14 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
             end
         end
     end
+
+    Timer.NextFrame(function()
+        for player in deadPlayers do
+            if player.CharacterInfo.Job.Prefab.Identifier.value == "coalitionteam" then
+                WR.switchTeam(player,"Team1")
+            elseif player.CharacterInfo.Job.Prefab.Identifier.value == "renegadeteam"  then
+                WR.switchTeam(player,"Team2")
+            end
+        end
+    end)
 end)
