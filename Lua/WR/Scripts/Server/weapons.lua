@@ -1,7 +1,7 @@
 if Game.IsMultiplayer and CLIENT then return end
-
+-- now using a affliction based system for recoil
+--[[
 local playerrecoil = {}
-
 Hook.Add("WR.gunrecoilgain.xmlhook", "WR.gunrecoilgain", function(effect, deltaTime, item, targets, worldPosition)
     if item.HasTag("gun") then
         -- failsafe incase theres no value for the recoil yet
@@ -72,7 +72,7 @@ Hook.add("think", "WR.gunrecoillose", function()
     end
 
 end)
-
+]]
 Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, targets, worldPosition)
     local limb = targets[1]
     local character = limb.character
