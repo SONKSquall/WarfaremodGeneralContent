@@ -167,7 +167,7 @@
       <Containable items="smallitem,mediumitem,largeitem" />
       <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
 	    <!-- spawndata: Prefabid:SpawnNumber -->
-        <LuaHook name="WR.productionCrate.xmlhook" spawndata="shotgun:1,WR_rifleammoholder:1"  />
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="shotgun:1,WR_shotgunammoholder:1"  />
       </StatusEffect>
     </ItemContainer>
   </Item>
@@ -311,7 +311,7 @@
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
-    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+    <ItemContainer capacity="3" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
       <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
 	    <!-- spawndata: Prefabid:SpawnNumber -->
