@@ -3,7 +3,7 @@
   <!-- Melee Weapons Start -->
   <!-- Melee Weapons End -->
   <!-- Explosives Start -->
-  <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert" Health="15.0" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert,packable" Health="15.0" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
@@ -13,7 +13,6 @@
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="437,158,23,98" depth="0.55" maxcondition="33" mincondition="0" origin="0.5,0.5" />
     <Body width="23" height="98" density="20" />
     <LightComponent LightColor="255,255,0,80" Flicker="1.0" range="30" IsOn="false">
-      <StatusEffect type="OnUse" targettype="This" IsOn="true" />
       <StatusEffect type="OnActive" targettype="This" Condition="-1.0" />
       <StatusEffect type="OnBroken" target="This">
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
@@ -35,12 +34,15 @@
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="WRcutfuse" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" Condition="-5.0" disabledeltatime="true">
+        <StatusEffect type="OnUse" targettype="This" Condition="-5.0" disabledeltatime="true" conditionalComparison="and">
           <Conditional Condition="gt 5" />
+		  <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
         </StatusEffect>
       </Button>
     </CustomInterface>
-    <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect"></Throwable>
+    <Throwable characterusable="true" slots="RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
+	  <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" targetitemcomponent="LightComponent" />
+	</Throwable>
   </Item>
   <!-- Explosives End -->
   <!-- Shell Prefabs Start -->
