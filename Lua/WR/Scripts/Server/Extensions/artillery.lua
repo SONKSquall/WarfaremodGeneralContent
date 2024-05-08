@@ -1,6 +1,6 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Protocols.base"
+require "WR.Scripts.Server.Extensions.base"
 
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Items.Components.Turret"], "minRotation")
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Items.Components.Turret"], "maxRotation")
@@ -15,7 +15,7 @@ WR.shellPrefabs = {
     flakcannon = ItemPrefab.GetItemPrefab("WR_shell")
 }
 
-WR.artillery = WR.protocolBase:new({
+WR.artillery = WR.extensionBase:new({
     name = "Artillery",
     guns = {},
     onStart = function(self)
