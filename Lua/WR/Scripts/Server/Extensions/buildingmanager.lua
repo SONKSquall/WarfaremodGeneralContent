@@ -1,6 +1,6 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Protocols.base"
+require "WR.Scripts.Server.Extensions.base"
 
 local building = {}
 building.walls = {}
@@ -39,7 +39,7 @@ function building:new(o)
     return o
 end
 
-WR.buildingManager = WR.protocolBase:new({
+WR.buildingManager = WR.extensionBase:new({
     name = "Building manager",
     buildings = {},
     onStart = function(self)

@@ -1,6 +1,6 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Protocols.base"
+require "WR.Scripts.Server.Extensions.base"
 
 local area = {}
 area.rect = {X = 0, Y = 0}
@@ -48,7 +48,7 @@ function area:new(o)
     return o
 end
 
-WR.objective = WR.protocolBase:new({
+WR.objective = WR.extensionBase:new({
     name = "Objective manager",
     areas = {},
     onStart = function(self)

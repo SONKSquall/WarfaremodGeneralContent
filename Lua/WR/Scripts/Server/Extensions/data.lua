@@ -1,9 +1,9 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Protocols.base"
+require "WR.Scripts.Server.Extensions.base"
 
 local json = dofile(WR.Path .. "/Lua/json.lua")
-WR.data = WR.protocolBase:new({
+WR.data = WR.extensionBase:new({
     stats = {}, -- data gathered during the round
     info = {}, -- data gathered at the end of the round
     name = "Data",

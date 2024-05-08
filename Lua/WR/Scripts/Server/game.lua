@@ -1,10 +1,10 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
-require "WR.Scripts.Server.Protocols.base"
-require "WR.Scripts.Server.Protocols.buildingmanager"
-require "WR.Scripts.Server.Protocols.data"
-require "WR.Scripts.Server.Protocols.objective"
-require "WR.Scripts.Server.Protocols.artillery"
+require "WR.Scripts.Server.Extensions.base"
+require "WR.Scripts.Server.Extensions.buildingmanager"
+require "WR.Scripts.Server.Extensions.data"
+require "WR.Scripts.Server.Extensions.objective"
+require "WR.Scripts.Server.Extensions.artillery"
 
 
 WR.shops = {}
@@ -14,7 +14,7 @@ WR.Game.winner = ""
 WR.tick = 0
 WR.tickmax = 30*60*60
 
-WR.protocols = {
+WR.extensions = {
     WR.buildingManager,
     WR.data,
     WR.objective,
@@ -179,7 +179,7 @@ if Game.RoundStarted then
     for func in WR.roundStartFunctions do
         func()
     end
-    for obj in WR.protocols do
+    for obj in WR.extensions do
         obj:Start()
     end
 end
@@ -205,7 +205,7 @@ Hook.add("roundStart", "WR.GameStart", function()
     for func in WR.roundStartFunctions do
         func()
     end
-    for obj in WR.protocols do
+    for obj in WR.extensions do
         obj:Start()
     end
 
