@@ -27,7 +27,7 @@ local function powhandle(targets, frendlyteam)
             Entity.Spawner.AddEntityToRemoveQueue(character)
         end
     end
-    spawncoins(shop,capturecount)
+    spawncoins(shop,capturecount*5)
 end
 
 local frendlyteam = ""
