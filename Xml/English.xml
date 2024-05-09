@@ -130,6 +130,8 @@
 <entitydescription.WR_bloodcrate>Produces 6 saline and 2 blood packs.</entitydescription.WR_bloodcrate>
 <entityname.WR_grenadecrate>Production Crate (Grenade)</entityname.WR_grenadecrate>
 <entitydescription.WR_grenadecrate>Produces 4 frag grenades.</entitydescription.WR_grenadecrate>
+<entityname.WR_dynamitecrate>Production Crate (Dynamite)</entityname.WR_dynamitecrate>
+<entitydescription.WR_dynamitecrate>Produces 2 dynamite.</entitydescription.WR_dynamitecrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>

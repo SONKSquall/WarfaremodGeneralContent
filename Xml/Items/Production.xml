@@ -280,6 +280,19 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_dynamitecrate" variantof="WR_productioncrate" Health="1" >
+    <Fabricate suitablefabricators="factory" requiredtime="120">
+      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_dynamite:2"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6" >
     <Fabricate suitablefabricators="coalitionfactory" requiredtime="120">
