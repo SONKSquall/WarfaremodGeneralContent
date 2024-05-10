@@ -46,7 +46,7 @@
       <AnimationConditional IsActive="True" targetitemcomponent="Fabricator" />
       <IsActiveConditional Condition="gt 0.0" />
     </DecorativeSprite>
-    <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect">
+    <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect" FabricationLimitReachedText="WRproductionlicense">
       <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
     </Fabricator>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
@@ -62,7 +62,7 @@
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="60" amount="2">
-      <RequiredItem identifier="WR_ore" amount="5" />
+      <RequiredItem identifier="WR_ore" amount="3" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -77,7 +77,7 @@
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="62,203,55,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
     <Fabricate suitablefabricators="refinery" requiredtime="60" amount="1">
-      <RequiredItem identifier="WR_basicmaterial" amount="4" />
+      <RequiredItem identifier="WR_basicmaterial" amount="6" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
@@ -119,7 +119,7 @@
       <StatusEffect type="OnBroken" target="This" Stackable="false" >
         <SpawnItem identifiers="WR_ore" spawnposition="This" rotationtype="Random" aimspread="360" Impulse="20" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="15" disableDeltaTime="true" condition="300" />
+      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="15" disableDeltaTime="true" condition="1000" />
     </ItemComponent>
   </Item>
   <Item name="" identifier="WR_orevain2" variantof="WR_orevain" >
@@ -172,7 +172,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_smgcrate" variantof="WR_productioncrate" Health="2" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" fabricationlimitmin="2" fabricationlimitmax="2" requiredtime="120">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -184,7 +184,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_hmgcrate" variantof="WR_productioncrate" Health="1" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" fabricationlimitmin="2" fabricationlimitmax="2" requiredtime="120">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
