@@ -54,7 +54,7 @@
       <Containable items="smallitem,mediumitem" hide="true" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_currency" category="Misc" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
+  <Item name="" identifier="WR_currency" category="Misc" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="199,230,28,28" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="28" density="30" />

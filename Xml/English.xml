@@ -130,6 +130,12 @@
 <entitydescription.WR_bloodcrate>Produces 6 saline and 2 blood packs.</entitydescription.WR_bloodcrate>
 <entityname.WR_grenadecrate>Production Crate (Grenade)</entityname.WR_grenadecrate>
 <entitydescription.WR_grenadecrate>Produces 4 frag grenades.</entitydescription.WR_grenadecrate>
+<entityname.WR_dynamitecrate>Production Crate (Dynamite)</entityname.WR_dynamitecrate>
+<entitydescription.WR_dynamitecrate>Produces 2 dynamite.</entitydescription.WR_dynamitecrate>
+<entityname.WR_barbedwirecrate>Production Crate (Barb wire)</entityname.WR_barbedwirecrate>
+<entitydescription.WR_barbedwirecrate>Produces 4 barb wire.</entitydescription.WR_barbedwirecrate>
+<entityname.WR_sandbagcrate>Production Crate (Sandbag)</entityname.WR_sandbagcrate>
+<entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags.</entitydescription.WR_sandbagcrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>
@@ -157,6 +163,7 @@
 <WRcutfuse>Shorten fuse (by 5 seconds)</WRcutfuse>
 <WRitemmsgrepairtrenchingtool>[[use]] Repair (Entrenching tool)</WRitemmsgrepairtrenchingtool>
 <WRitemmsgforceopentrenchingtool>[[use]] Dig (Entrenching tool)</WRitemmsgforceopentrenchingtool>
+<WRproductionlicense>Production license expired.</WRproductionlicense>
   <!-- Misc end -->
   <!-- Affliction start -->
   <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
