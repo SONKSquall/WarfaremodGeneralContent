@@ -1,10 +1,10 @@
-WR.protocolBase = {}
-WR.protocolBase.enabled = false
-WR.protocolBase.name = "Name"
-WR.protocolBase.seed = 12345
-WR.protocolBase.tick = 0
+WR.extensionBase = {}
+WR.extensionBase.enabled = false
+WR.extensionBase.name = "Name"
+WR.extensionBase.seed = 12345
+WR.extensionBase.tick = 0
 
-function WR.protocolBase:Start()
+function WR.extensionBase:Start()
     self.enabled = true
     self:onStart()
 
@@ -13,14 +13,14 @@ function WR.protocolBase:Start()
     WR.characterDeathFunctions[self.name .. self.seed] = function(char) self:onCharacterDeath(char) end
 end
 
-function WR.protocolBase:Think()
+function WR.extensionBase:Think()
     if self.enabled then
         self.tick = self.tick + 1
     end
     self:End()
 end
 
-function WR.protocolBase:End()
+function WR.extensionBase:End()
     self.enabled = false
     self.tick = 0
     self:onEnd()
@@ -30,19 +30,19 @@ function WR.protocolBase:End()
     WR.characterDeathFunctions[self.name .. self.seed] = nil
 end
 
-function WR.protocolBase:onStart()
+function WR.extensionBase:onStart()
 
 end
 
-function WR.protocolBase:onEnd()
+function WR.extensionBase:onEnd()
 
 end
 
-function WR.protocolBase:onCharacterDeath(char)
+function WR.extensionBase:onCharacterDeath(char)
 
 end
 
-function WR.protocolBase:new(o)
+function WR.extensionBase:new(o)
     self.seed = math.random(99999, 00001)
     o = o or {}
     setmetatable(o, self)

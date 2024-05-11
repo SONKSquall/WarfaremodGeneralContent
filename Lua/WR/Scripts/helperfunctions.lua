@@ -308,3 +308,19 @@ function WR.getStringVariables(s)
     end
     return output
 end
+
+function WR.switchTeam(player,team)
+    local newInfo = player.CharacterInfo
+    newInfo.TeamID = CharacterTeamType[team] or CharacterTeamType.None
+
+    Entity.Spawner.AddCharacterToSpawnQueue("Human", player.Character.WorldPosition, newInfo, function(character)
+        player.SetClientCharacter(character)
+        newInfo.Job.GiveJobItems(character)
+    end)
+
+    -- prevents issues were a item drops to the floor
+    for item in player.Character.Inventory.AllItems do
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+    Entity.Spawner.AddEntityToRemoveQueue(player.Character)
+end

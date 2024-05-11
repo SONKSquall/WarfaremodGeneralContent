@@ -1,22 +1,34 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Protocols.base"
+require "WR.Scripts.Server.Extensions.base"
 
 local building = {}
 building.walls = {}
 building.destroyed = false
 
-function building:IsDestroyed()
-    local maxdamage = 0
-    local currentdamage = 0
+function building:GetDamage()
+    local damage = 0
     for wall in self.walls do
         for n=0,wall.SectionCount do
-            -- for some reason wall.Health is alot larger then the wall max damage
-            maxdamage = maxdamage + (wall.Health/4)
-            currentdamage = currentdamage + (wall.SectionDamage(n))
+            damage = damage + (wall.SectionDamage(n))
         end
     end
-    if currentdamage > maxdamage then
+    return damage
+end
+
+function building:GetHealth()
+    local health = 0
+    for wall in self.walls do
+        for n=1,wall.SectionCount,1 do
+            health = health + wall.Health
+        end
+    end
+    return health
+end
+
+function building:IsDestroyed()
+    local damageRatio = (self:GetHealth()/self:GetDamage()) or 0
+    if damageRatio > 0.5 then
         self.destroyed = true
     end
     -- buildings can not be undestroyed
@@ -39,7 +51,7 @@ function building:new(o)
     return o
 end
 
-WR.buildingManager = WR.protocolBase:new({
+WR.buildingManager = WR.extensionBase:new({
     name = "Building manager",
     buildings = {},
     onStart = function(self)
@@ -49,7 +61,7 @@ WR.buildingManager = WR.protocolBase:new({
                 local areaWalls = {}
                 local rect = item.WorldRect
                 for wall in Structure.WallList do
-                    if wall.MaxHealth < 1000 then
+                    if wall.MaxHealth < 1000 and not wall.IsPlatform then
                         if (math.abs(wall.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(wall.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
                             table.insert(areaWalls,wall)
                         end

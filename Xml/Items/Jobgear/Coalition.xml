@@ -78,7 +78,7 @@
     <InventoryIcon name="Coalition Uniform Icon" texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="64,64,64,64" origin="0.5,0.5" />
     <Sprite name="Coalition Uniform" texture="%ModDir%/Sprites/Items/Jobgear/Coalitiongear.png" sourcerect="0,198,116,58" depth="0.6" origin="0.5,0.5" />
     <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
-    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+    <Wearable slots="InnerClothes" msg="ItemMsgPickUpSelect">
       <sprite name="Coalition Uniform Torso" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionUniform.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Coalition Uniform Left Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionUniform.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Coalition Uniform Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionUniform.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
@@ -94,6 +94,12 @@
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.95" />
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="gunshotwound, bitewounds" damagemultiplier="0.9" />
     </Wearable>
+    <ItemComponent characterusable="false">
+	  <StatusEffect type="OnNotContained" target="This" delay="0.01">
+		<Remove />
+	  </StatusEffect>
+      <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True"/>
+	</ItemComponent>
   </Item>
   <!-- Uniform End -->
 </Items>
