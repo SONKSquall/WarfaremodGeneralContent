@@ -213,7 +213,7 @@ function WR.GetDeadPlayers()
     local players = {}
 
     for key,player in pairs(Client.ClientList) do
-        if player and not player.Character or player.Character.IsDead then
+        if (not player.Character and not player.SpectateOnly) or player.Character.IsDead then
             players[#players+1] = player
         end
     end
