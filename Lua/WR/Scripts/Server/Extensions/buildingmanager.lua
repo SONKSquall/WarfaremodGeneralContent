@@ -27,7 +27,7 @@ function building:GetHealth()
 end
 
 function building:IsDestroyed()
-    local damageRatio = (self:GetHealth()/self:GetDamage()) or 0
+    local damageRatio = (self:GetDamage()/self:GetHealth())
     if damageRatio > 0.5 then
         self.destroyed = true
     end
