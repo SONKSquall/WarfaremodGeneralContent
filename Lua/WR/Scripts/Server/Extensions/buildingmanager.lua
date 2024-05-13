@@ -29,10 +29,21 @@ end
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
     if damageRatio > 0.5 then
-        self.destroyed = true
+        return true
     end
-    -- buildings can not be undestroyed
-    return self.destroyed
+    return false
+end
+
+function building:Destroy(damage,frames)
+    local tick = 0
+    local tickMax = frames
+    local function main()
+        tick = tick + 1
+        if tick >= tickMax then return function() end end
+        self:AddDamage(damage)
+        return function() main() end
+    end
+    self.Destroy = main()
 end
 
 function building:AddDamage(number)
@@ -75,11 +86,11 @@ WR.buildingManager = WR.extensionBase:new({
     Think = function(self)
         if self.enabled then
             self.tick = self.tick + 1
-
             if self.tick % 60 == 0 then
                 for obj in self.buildings do
-                    if obj:IsDestroyed() then
-                        obj:AddDamage(5)
+                    if obj.destroyed or obj:IsDestroyed() then
+                        obj.destroyed = true
+                        obj:Destroy(5,60)
                     end
                 end
             end
