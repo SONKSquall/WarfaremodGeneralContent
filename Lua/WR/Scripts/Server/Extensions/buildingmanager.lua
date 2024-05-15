@@ -2,9 +2,48 @@ if CLIENT then return end
 
 require "WR.Scripts.Server.Extensions.base"
 
+local destructionPresets = {
+    small = {
+        sfx = {
+            wallRatio = 0.2,
+            particle = ItemPrefab.GetItemPrefab("WR_destructionsmall_sfx")
+        },
+        dps = 20,
+        threshold = 0.8,
+        duration = 4
+    },
+    medium = {
+        sfx = {
+            wallRatio = 0.2,
+            particle = ItemPrefab.GetItemPrefab("WR_destructionmedium_sfx")
+        },
+        dps = 12,
+        threshold = 0.5,
+        duration = 6
+    },
+    large = {
+        sfx = {
+            wallRatio = 0.2,
+            particle = ItemPrefab.GetItemPrefab("WR_destructionlarge_sfx")
+        },
+        dps = 10,
+        threshold = 0.5,
+        duration = 10
+    },
+    super = {
+        sfx = {
+            wallRatio = 0.2,
+            particle = ItemPrefab.GetItemPrefab("WR_destructionsuper_sfx")
+        },
+        dps = 4,
+        threshold = 0.4,
+        duration = 20
+    }
+}
 local building = {}
 building.walls = {}
 building.destroyed = false
+building.destructionPreset = destructionPresets.small
 
 function building:GetDamage()
     local damage = 0
@@ -28,7 +67,7 @@ end
 
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
-    if damageRatio > 0.5 then
+    if damageRatio > self.destructionPreset.threshold then
         return true
     end
     return false
@@ -41,6 +80,15 @@ function building:Destroy(damage,frames)
         tick = tick + 1
         if tick >= tickMax then return function() end end
         self:AddDamage(damage)
+
+        -- sfx
+        for wall in self.walls do
+            for i=wall.SectionCount,1,-1 do
+                if math.random() > self.destructionPreset.sfx.wallRatio then
+                    Timer.Wait(function() Entity.Spawner.AddItemToSpawnQueue(self.destructionPreset.sfx.particle, wall.SectionPosition(i,true), nil, nil, nil) end,3000*math.random())
+                end
+            end
+        end
         return function() main() end
     end
     self.Destroy = main()
@@ -78,8 +126,12 @@ WR.buildingManager = WR.extensionBase:new({
                         end
                     end
                 end
+                print(destructionPresets.small)
                 -- each building is its own object
-                table.insert(self.buildings, building:new({walls = areaWalls}))
+                table.insert(self.buildings, building:new{
+                    walls = areaWalls,
+                    destructionPreset = destructionPresets[WR.getStringVariables(item.Tags).size]
+                })
             end
         end
     end,
@@ -90,7 +142,7 @@ WR.buildingManager = WR.extensionBase:new({
                 for obj in self.buildings do
                     if obj.destroyed or obj:IsDestroyed() then
                         obj.destroyed = true
-                        obj:Destroy(5,60)
+                        obj:Destroy(obj.destructionPreset.dps,obj.destructionPreset.duration)
                     end
                 end
             end
