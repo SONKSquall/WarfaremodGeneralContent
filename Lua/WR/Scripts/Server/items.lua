@@ -81,3 +81,17 @@ Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, de
         Entity.Spawner.AddEntityToRemoveQueue(item)
     end
 end)
+
+Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTime, item, targets, worldPosition, element)
+    local prefab = ItemPrefab.GetItemPrefab(element.GetAttributeString("prefab", "default value") or "WR_sandbag")
+    local distance = element.GetAttributeString("distance", "default value")
+    local spawnPos = item.WorldPosition
+
+    if item.ParentInventory.Owner.IsFlipped then
+        spawnPos.X = spawnPos.X - distance
+    else
+        spawnPos.X = spawnPos.X + distance
+    end
+
+    Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
+end)
