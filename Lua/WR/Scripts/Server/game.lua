@@ -122,6 +122,16 @@ function WR.roundStartFunctions.main()
             end
         end
     end
+
+    -- grace period
+    Timer.Wait(function()
+        if Game.RoundStarted then
+            for door in WR.GetItemsByTag("wr_graceperiod") do
+                Entity.Spawner.AddEntityToRemoveQueue(door)
+            end
+            WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
+        end
+    end, 60*1000)
 end
 
 WR.characterDeathFunctions = {}
