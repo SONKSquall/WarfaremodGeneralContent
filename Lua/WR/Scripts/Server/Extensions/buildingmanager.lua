@@ -1,6 +1,7 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Extensions.base"
+local base = require "WR.Scripts.Server.Extensions.base"
+local class = dofile(WR.Path .. "/Lua/singleton.lua")
 
 local destructionPresets = {
     small = {
@@ -110,45 +111,46 @@ function building:new(o)
     return o
 end
 
-WR.buildingManager = WR.extensionBase:new({
-    name = "Building manager",
-    buildings = {},
-    onStart = function(self)
-        -- registers buildings
-        for item in Util.GetItemsById("label") do
-            if item.HasTag("wr_building") then
-                local areaWalls = {}
-                local rect = item.WorldRect
-                for wall in Structure.WallList do
-                    if wall.MaxHealth < 1000 and not wall.IsPlatform then
-                        if (math.abs(wall.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(wall.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
-                            table.insert(areaWalls,wall)
-                        end
-                    end
-                end
-                print(destructionPresets.small)
-                -- each building is its own object
-                table.insert(self.buildings, building:new{
-                    walls = areaWalls,
-                    destructionPreset = destructionPresets[WR.getStringVariables(item.Tags).size]
-                })
-            end
-        end
-    end,
-    Think = function(self)
-        if self.enabled then
-            self.tick = self.tick + 1
-            if self.tick % 60 == 0 then
-                for obj in self.buildings do
-                    if obj.destroyed or obj:IsDestroyed() then
-                        obj.destroyed = true
-                        obj:Destroy(obj.destructionPreset.dps,obj.destructionPreset.duration)
+local buildingManager = class(base)
+buildingManager.name = "Building manager"
+buildingManager.buildings = {}
+function buildingManager:onStart()
+    -- registers buildings
+    for item in Util.GetItemsById("label") do
+        if item.HasTag("wr_building") then
+            local areaWalls = {}
+            local rect = item.WorldRect
+            for wall in Structure.WallList do
+                if wall.MaxHealth < 1000 and not wall.IsPlatform then
+                    if (math.abs(wall.WorldPosition.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(wall.WorldPosition.Y - rect.Y + rect.Height/2) <= rect.Height/2) then
+                        table.insert(areaWalls,wall)
                     end
                 end
             end
+            print(destructionPresets.small)
+            -- each building is its own object
+            table.insert(self.buildings, building:new{
+                walls = areaWalls,
+                destructionPreset = destructionPresets[WR.getStringVariables(item.Tags).size]
+            })
         end
-    end,
-    onEnd = function(self)
-        self.buildings = {}
     end
-})
+end
+function buildingManager:Think()
+    if self.enabled then
+        self.tick = self.tick + 1
+        if self.tick % 60 == 0 then
+            for obj in self.buildings do
+                if obj.destroyed or obj:IsDestroyed() then
+                    obj.destroyed = true
+                    obj:Destroy(obj.destructionPreset.dps,obj.destructionPreset.duration)
+                end
+            end
+        end
+    end
+end
+function buildingManager:onEnd()
+    self.buildings = {}
+end
+
+return buildingManager

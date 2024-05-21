@@ -1,51 +1,45 @@
-WR.extensionBase = {}
-WR.extensionBase.enabled = false
-WR.extensionBase.name = "Name"
-WR.extensionBase.seed = 12345
-WR.extensionBase.tick = 0
+local class = dofile(WR.Path .. "/Lua/singleton.lua")
 
-function WR.extensionBase:Start()
+local extensionBase = class()
+extensionBase.enabled = false
+extensionBase.name = "Name"
+extensionBase.tick = 0
+
+function extensionBase:Start()
     self.enabled = true
     self:onStart()
 
-    WR.thinkFunctions[self.name .. self.seed] = function() self:Think() end
-    WR.roundEndFunctions[self.name .. self.seed] = function() self:End() end
-    WR.characterDeathFunctions[self.name .. self.seed] = function(char) self:onCharacterDeath(char) end
+    WR.thinkFunctions[self.name] = function() self:Think() end
+    WR.roundEndFunctions[self.name] = function() self:End() end
+    WR.characterDeathFunctions[self.name] = function(char) self:onCharacterDeath(char) end
 end
 
-function WR.extensionBase:Think()
+function extensionBase:Think()
     if self.enabled then
         self.tick = self.tick + 1
     end
-    self:End()
 end
 
-function WR.extensionBase:End()
+function extensionBase:End()
     self.enabled = false
     self.tick = 0
     self:onEnd()
 
-    WR.thinkFunctions[self.name .. self.seed] = nil
-    WR.roundEndFunctions[self.name .. self.seed] = nil
-    WR.characterDeathFunctions[self.name .. self.seed] = nil
+    WR.thinkFunctions[self.name] = nil
+    WR.roundEndFunctions[self.name] = nil
+    WR.characterDeathFunctions[self.name] = nil
 end
 
-function WR.extensionBase:onStart()
-
-end
-
-function WR.extensionBase:onEnd()
+function extensionBase:onStart()
 
 end
 
-function WR.extensionBase:onCharacterDeath(char)
+function extensionBase:onEnd()
 
 end
 
-function WR.extensionBase:new(o)
-    self.seed = math.random(99999, 00001)
-    o = o or {}
-    setmetatable(o, self)
-    self.__index = self
-    return o
+function extensionBase:onCharacterDeath(char)
+
 end
+
+return extensionBase
