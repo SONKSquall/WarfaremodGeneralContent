@@ -356,6 +356,18 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_headsetcrate" variantof="WR_productioncrate" Health="6">
+    <Fabricate suitablefabricators="factory" requiredtime="120">
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="headset:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
   <!-- Coalition End -->
   <!-- Renegade Start -->
   <Item name="" identifier="WR_renegadeshellcrate" variantof="WR_productioncrate" Health="1" >

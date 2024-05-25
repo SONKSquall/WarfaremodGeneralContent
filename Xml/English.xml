@@ -136,6 +136,8 @@
 <entitydescription.WR_barbedwirecrate>Produces 4 barb wire.</entitydescription.WR_barbedwirecrate>
 <entityname.WR_sandbagcrate>Production Crate (Sandbag)</entityname.WR_sandbagcrate>
 <entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags.</entitydescription.WR_sandbagcrate>
+<entityname.WR_headsetcrate>Production Crate (Radio)</entityname.WR_headsetcrate>
+<entitydescription.WR_headsetcrate>Produces 6 headsets.</entitydescription.WR_headsetcrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>
