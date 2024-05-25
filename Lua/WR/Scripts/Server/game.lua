@@ -1,10 +1,10 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
-require "WR.Scripts.Server.Extensions.base"
-require "WR.Scripts.Server.Extensions.buildingmanager"
-require "WR.Scripts.Server.Extensions.data"
-require "WR.Scripts.Server.Extensions.objective"
-require "WR.Scripts.Server.Extensions.artillery"
+-- use instances to prevent the server from modifying classes
+WR.buildingManager = (require"WR.Scripts.Server.Extensions.buildingmanager".new())
+WR.data = (require"WR.Scripts.Server.Extensions.data".new())
+WR.objective = (require"WR.Scripts.Server.Extensions.objective".new())
+WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 
 WR.shops = {}
@@ -122,6 +122,16 @@ function WR.roundStartFunctions.main()
             end
         end
     end
+
+    -- grace period
+    Timer.Wait(function()
+        if Game.RoundStarted then
+            for door in WR.GetItemsByTag("wr_graceperiod") do
+                Entity.Spawner.AddEntityToRemoveQueue(door)
+            end
+            WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
+        end
+    end, 60*1000)
 end
 
 WR.characterDeathFunctions = {}

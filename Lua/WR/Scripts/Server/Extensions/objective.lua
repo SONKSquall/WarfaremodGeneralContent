@@ -1,6 +1,7 @@
 if CLIENT then return end
 
-require "WR.Scripts.Server.Extensions.base"
+local base = require "WR.Scripts.Server.Extensions.base"
+local class = dofile(WR.Path .. "/Lua/singleton.lua")
 
 local area = {}
 area.rect = {X = 0, Y = 0}
@@ -48,47 +49,45 @@ function area:new(o)
     return o
 end
 
-WR.objective = WR.extensionBase:new({
-    name = "Objective manager",
-    areas = {},
-    onStart = function(self)
-        -- registers areas
-        for item in Util.GetItemsById("label") do
-            if item.HasTag("wr_objective") then
+local objective = class(base)
 
-                local tagVars = WR.getStringVariables(item.Tags)
-                local defender = tagVars["defender"] or ""
-                local attacker = tagVars["attacker"] or ""
-                -- each area is its own object
-                table.insert(self.areas, area:new({
-                    rect = item.WorldRect,
-                    defender = WR.teamKeys[defender],
-                    attacker = WR.teamKeys[attacker]
-                }))
-            end
+objective.name = "Objective manager"
+objective.areas = {}
+function objective:onStart()
+    -- registers areas
+    for item in Util.GetItemsById("label") do
+        if item.HasTag("wr_objective") then
+            local tagVars = WR.getStringVariables(item.Tags)
+            local defender = tagVars["defender"] or ""
+            local attacker = tagVars["attacker"] or ""
+            -- each area is its own object
+            table.insert(self.areas, area:new({
+                rect = item.WorldRect,
+                defender = WR.teamKeys[defender],
+                attacker = WR.teamKeys[attacker]
+            }))
         end
-    end,
-    Think = function(self)
-        if self.enabled then
-            self.tick = self.tick + 1
-
-            if self.tick % 60 == 0 then
-                for obj in self.areas do
-
-                    local defenders, attackers, totalAttackers = obj:getTeamCount()
-
-                    -- avoid 0/0
-                    if attackers >= 1 then
-                        -- if there is more then 50% of the alive attacker team present and no defenders then the area is captured
-                        if math.abs(attackers/totalAttackers) > 0.5 and defenders == 0 then
-                            obj.captured = true
-                        end
+    end
+end
+function objective:Think()
+    if self.enabled then
+        self.tick = self.tick + 1
+        if self.tick % 60 == 0 then
+            for obj in self.areas do
+                local defenders, attackers, totalAttackers = obj:getTeamCount()
+                -- avoid 0/0
+                if attackers >= 1 then
+                    -- if there is more then 50% of the alive attacker team present and no defenders then the area is captured
+                    if math.abs(attackers/totalAttackers) > 0.5 and defenders == 0 then
+                        obj.captured = true
                     end
                 end
             end
         end
-    end,
-    onEnd = function(self)
-        self.areas = {}
     end
-})
+end
+function objective:onEnd()
+    self.areas = {}
+end
+
+return objective

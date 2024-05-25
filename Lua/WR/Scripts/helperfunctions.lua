@@ -11,15 +11,21 @@ function WR.GetPrefabsByTag(tag)
 end
 
 function WR.GetItemsByTag(searchTag)
-    local items = {}
+    local Worlditems = {}
+    local prefabs = {}
 
-    for item in Item.ItemList do
-        for tag in item.GetTags() do
-            if tag == searchTag then table.insert(items,item) break end
+    for prefab in ItemPrefab.Prefabs do
+        for tag in prefab.Tags do
+            if tostring(tag) == searchTag then
+                prefabs[prefab.Identifier.value] = prefab
+            end
         end
     end
+    for item in Item.ItemList do
+        if item.Prefab == prefabs[item.Prefab.Identifier.value] then table.insert(Worlditems,item) end
+    end
 
-    return items
+    return Worlditems
 end
 
 function WR.GetItemsById(id)
@@ -213,7 +219,7 @@ function WR.GetDeadPlayers()
     local players = {}
 
     for key,player in pairs(Client.ClientList) do
-        if player and not player.Character or player.Character.IsDead then
+        if (not player.Character and not player.SpectateOnly) or player.Character.IsDead then
             players[#players+1] = player
         end
     end
@@ -323,4 +329,18 @@ function WR.switchTeam(player,team)
         Entity.Spawner.AddEntityToRemoveQueue(item)
     end
     Entity.Spawner.AddEntityToRemoveQueue(player.Character)
+end
+
+function WR.weightedRandom(tbl,weights)
+    local weightSum = 0
+    for i=1,#tbl,1 do
+        weightSum = weightSum + weights[i]
+    end
+    local rng = math.random() * weightSum
+    for i=1,#tbl,1 do
+        if rng <= weights[i] then
+            return tbl[i]
+        end
+        rng = rng - weights[i]
+    end
 end
