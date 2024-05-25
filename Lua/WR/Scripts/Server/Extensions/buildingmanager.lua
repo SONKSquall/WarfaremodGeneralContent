@@ -3,42 +3,42 @@ if CLIENT then return end
 local base = require "WR.Scripts.Server.Extensions.base"
 local class = dofile(WR.Path .. "/Lua/singleton.lua")
 
-local destructionPresets = {
+local sizes = {
     small = {
-        sfx = {
-            wallRatio = 0.2,
-            particle = ItemPrefab.GetItemPrefab("WR_destructionsmall_sfx")
+        destruction = {
+            particle = ItemPrefab.GetItemPrefab("WR_destructionsmall_sfx"),
+            dps = 20,
+            threshold = 0.8,
+            duration = 4
         },
-        dps = 20,
-        threshold = 0.8,
-        duration = 4
+        fortsRequired = 1
     },
     medium = {
-        sfx = {
-            wallRatio = 0.2,
-            particle = ItemPrefab.GetItemPrefab("WR_destructionmedium_sfx")
+        destruction = {
+            particle = ItemPrefab.GetItemPrefab("WR_destructionmedium_sfx"),
+            dps = 12,
+            threshold = 0.5,
+            duration = 6
         },
-        dps = 12,
-        threshold = 0.5,
-        duration = 6
+        fortsRequired = 2
     },
     large = {
-        sfx = {
-            wallRatio = 0.2,
-            particle = ItemPrefab.GetItemPrefab("WR_destructionlarge_sfx")
+        destruction = {
+            particle = ItemPrefab.GetItemPrefab("WR_destructionlarge_sfx"),
+            dps = 10,
+            threshold = 0.5,
+            duration = 10
         },
-        dps = 10,
-        threshold = 0.5,
-        duration = 10
+        fortsRequired = 3
     },
     super = {
-        sfx = {
-            wallRatio = 0.2,
-            particle = ItemPrefab.GetItemPrefab("WR_destructionsuper_sfx")
+        destruction = {
+            particle = ItemPrefab.GetItemPrefab("WR_destructionsuper_sfx"),
+            dps = 4,
+            threshold = 0.4,
+            duration = 20
         },
-        dps = 4,
-        threshold = 0.4,
-        duration = 20
+        fortsRequired = 10
     }
 }
 local building = {}
@@ -48,7 +48,7 @@ building.containers = {}
 
 building.fortified = false
 building.destroyed = false
-building.destructionPreset = destructionPresets.small
+building.size = sizes.small
 
 function building:GetRectClients()
     local clients = {}
@@ -100,7 +100,7 @@ end
 
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
-    if damageRatio > self.destructionPreset.threshold and not self.fortified then
+    if damageRatio > self.size.destruction.threshold and not self.fortified then
         return true
     end
     return false
@@ -117,8 +117,8 @@ function building:Destroy(damage,frames)
         -- sfx
         for wall in self.walls do
             for i=wall.SectionCount,1,-1 do
-                if math.random() > self.destructionPreset.sfx.wallRatio then
-                    Timer.Wait(function() Entity.Spawner.AddItemToSpawnQueue(self.destructionPreset.sfx.particle, wall.SectionPosition(i,true), nil, nil, nil) end,3000*math.random())
+                if math.random() > 0.2 then
+                    Timer.Wait(function() Entity.Spawner.AddItemToSpawnQueue(self.size.destruction.particle, wall.SectionPosition(i,true), nil, nil, nil) end,3000*math.random())
                 end
             end
         end
@@ -145,8 +145,8 @@ function building:SpawnItemContainer(index,itemID,amount)
 end
 
 function building:IsFortified()
-    local defenseCount = #self:GetRectItems("WR_spamable",true)
-    if defenseCount >= 3 then
+    local defenseCount = #self:GetRectItems("defense",true)
+    if defenseCount >= self.size.fortsRequired then
         return true
     end
     return false
@@ -195,7 +195,7 @@ function buildingManager:onStart()
                 walls = walls,
                 containers = containers,
                 rect = rect,
-                destructionPreset = destructionPresets[WR.getStringVariables(item.Tags).size]
+                size = sizes[WR.getStringVariables(item.Tags).size]
             })
         end
     end
@@ -207,12 +207,12 @@ function buildingManager:Think()
             if self.tick % 60 == 0 then
                 if obj.destroyed or obj:IsDestroyed() then
                     obj.destroyed = true
-                    obj:Destroy(obj.destructionPreset.dps,obj.destructionPreset.duration)
+                    obj:Destroy(obj.size.destruction.dps,obj.size.destruction.duration)
                 else
                     obj.fortified = obj:IsFortified()
                 end
             end
-            if (self.tick % (30*60) == 0) then
+            if self.tick % (30*60) == 0 then
                 if obj.fortified and not obj.destroyed then
                     local loot = self.lootTable[math.random(#self.lootTable)]
                     obj:SpawnItemContainer(math.random(1,#obj.containers),loot.id,loot.amount)

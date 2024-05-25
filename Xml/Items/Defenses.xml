@@ -85,7 +85,7 @@
 	  </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_spamable,replacementitemid:WR_barbedwire_setup" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense,WR_spamable,replacementitemid:WR_barbedwire_setup" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
@@ -139,7 +139,7 @@
 	  </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="WR_sandbag" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_spamable,replacementitemid:WR_sandbag_setup" Health="500" DamagedByExplosions="true" ExplosionDamageMultiplier="2.5" DamagedByProjectiles="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_sandbag" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense,WR_spamable,replacementitemid:WR_sandbag_setup" Health="500" DamagedByExplosions="true" ExplosionDamageMultiplier="2.5" DamagedByProjectiles="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,81,88,253" depth="0.01" origin="0.5,0.45" />
     <Body width="50" height="252" density="12" />
