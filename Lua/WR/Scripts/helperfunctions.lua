@@ -324,3 +324,17 @@ function WR.switchTeam(player,team)
     end
     Entity.Spawner.AddEntityToRemoveQueue(player.Character)
 end
+
+function WR.weightedRandom(tbl,weights)
+    local weightSum = 0
+    for i=1,#tbl,1 do
+        weightSum = weightSum + weights[i]
+    end
+    local rng = math.random() * weightSum
+    for i=1,#tbl,1 do
+        if rng <= weights[i] then
+            return tbl[i]
+        end
+        rng = rng - weights[i]
+    end
+end
