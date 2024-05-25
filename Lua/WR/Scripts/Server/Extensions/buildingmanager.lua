@@ -11,7 +11,11 @@ local sizes = {
             threshold = 0.8,
             duration = 4
         },
-        fortsRequired = 1
+        fortsRequired = 1,
+        lootTable = {
+            {id = "antibleeding1", amount = 3, weight = 5},
+            {id = "antibloodloss1", amount = 2, weight = 2},
+        }
     },
     medium = {
         destruction = {
@@ -20,7 +24,13 @@ local sizes = {
             threshold = 0.5,
             duration = 6
         },
-        fortsRequired = 2
+        fortsRequired = 2,
+        lootTable = {
+            {id = "antibleeding1", amount = 3, weight = 5},
+            {id = "antibloodloss1", amount = 2, weight = 5},
+            {id = "WR_sandbag_setup", amount = 1, weight = 2},
+            {id = "WR_barbedwire_setup", amount = 1, weight = 2}
+        }
     },
     large = {
         destruction = {
@@ -29,7 +39,14 @@ local sizes = {
             threshold = 0.5,
             duration = 10
         },
-        fortsRequired = 3
+        fortsRequired = 3,
+        lootTable = {
+            {id = "WR_basicmaterial", amount = 1, weight = 1},
+            {id = "antibleeding1", amount = 3, weight = 5},
+            {id = "antibloodloss1", amount = 2, weight = 5},
+            {id = "WR_sandbag_setup", amount = 1, weight = 3},
+            {id = "WR_barbedwire_setup", amount = 1, weight = 3}
+        }
     },
     super = {
         destruction = {
@@ -38,7 +55,13 @@ local sizes = {
             threshold = 0.4,
             duration = 20
         },
-        fortsRequired = 10
+        fortsRequired = 10,
+        lootTable = {
+            {id = "antibleeding1", amount = 3, weight = 5},
+            {id = "antibloodloss1", amount = 2, weight = 5},
+            {id = "WR_sandbag_setup", amount = 1, weight = 3},
+            {id = "WR_barbedwire_setup", amount = 1, weight = 3}
+        }
     }
 }
 local building = {}
@@ -60,14 +83,7 @@ function building:GetRectClients()
     return clients
 end
 
-function building:GetRectItems(id,isTag)
-    local items
-    if isTag then
-        items = WR.GetItemsByTag(id)
-    else
-        items = Util.GetItemsById(id)
-    end
-
+function building:GetRectItems(items)
     local rectItems = {}
     for item in items do
         if (math.abs(item.WorldPosition.X - self.rect.X - self.rect.Width/2) <= self.rect.Width/2 and math.abs(item.WorldPosition.Y - self.rect.Y + self.rect.Height/2) <= self.rect.Height/2) then
@@ -144,8 +160,7 @@ function building:SpawnItemContainer(index,itemID,amount)
     end
 end
 
-function building:IsFortified()
-    local defenseCount = #self:GetRectItems("defense",true)
+function building:IsFortified(defenseCount)
     if defenseCount >= self.size.fortsRequired then
         return true
     end
@@ -162,14 +177,6 @@ end
 local buildingManager = class(base)
 buildingManager.name = "Building manager"
 buildingManager.buildings = {}
--- used for items spawning in intact buildings
-buildingManager.lootTable = {
-    {id = "WR_basicmaterial", amount = 1},
-    {id = "antibleeding1", amount = 3},
-    {id = "antibloodloss1", amount = 2},
-    {id = "WR_sandbag_setup", amount = 1},
-    {id = "WR_barbedwire_setup", amount = 1}
-}
 function buildingManager:onStart()
     -- registers buildings
     for item in Util.GetItemsById("label") do
@@ -203,19 +210,24 @@ end
 function buildingManager:Think()
     if self.enabled then
         self.tick = self.tick + 1
-        for obj in self.buildings do
-            if self.tick % 60 == 0 then
+        if self.tick % 60 == 0 then
+            local defenses = WR.GetItemsByTag("defense")
+            for obj in self.buildings do
                 if obj.destroyed or obj:IsDestroyed() then
                     obj.destroyed = true
                     obj:Destroy(obj.size.destruction.dps,obj.size.destruction.duration)
                 else
-                    obj.fortified = obj:IsFortified()
+                    obj.fortified = obj:IsFortified(#obj:GetRectItems(defenses))
                 end
-            end
-            if self.tick % (30*60) == 0 then
-                if obj.fortified and not obj.destroyed then
-                    local loot = self.lootTable[math.random(#self.lootTable)]
-                    obj:SpawnItemContainer(math.random(1,#obj.containers),loot.id,loot.amount)
+                if self.tick % (5*60) == 0 then
+                    if obj.fortified and not obj.destroyed then
+                        local weights = {}
+                        for v in obj.size.lootTable do
+                            table.insert(weights,v.weight)
+                        end
+                        local loot = WR.weightedRandom(obj.size.lootTable,weights)
+                        obj:SpawnItemContainer(math.random(1,#obj.containers),loot.id,loot.amount)
+                    end
                 end
             end
         end
