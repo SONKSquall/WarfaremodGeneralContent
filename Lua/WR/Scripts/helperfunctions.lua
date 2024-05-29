@@ -12,17 +12,9 @@ end
 
 function WR.GetItemsByTag(searchTag)
     local Worlditems = {}
-    local prefabs = {}
 
-    for prefab in ItemPrefab.Prefabs do
-        for tag in prefab.Tags do
-            if tostring(tag) == searchTag then
-                prefabs[prefab.Identifier.value] = prefab
-            end
-        end
-    end
     for item in Item.ItemList do
-        if item.Prefab == prefabs[item.Prefab.Identifier.value] then table.insert(Worlditems,item) end
+        if item.HasTag(searchTag) then table.insert(Worlditems,item) end
     end
 
     return Worlditems
