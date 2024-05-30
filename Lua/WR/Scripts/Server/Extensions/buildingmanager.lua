@@ -161,10 +161,7 @@ function building:SpawnItemContainer(index,itemID,amount)
 end
 
 function building:IsFortified(defenseCount)
-    if defenseCount >= self.size.fortsRequired then
-        return true
-    end
-    return false
+    return defenseCount >= self.size.fortsRequired
 end
 
 function building:new(o)
