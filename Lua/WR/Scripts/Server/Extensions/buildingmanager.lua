@@ -116,10 +116,7 @@ end
 
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
-    if damageRatio > self.size.destruction.threshold and not self.fortified then
-        return true
-    end
-    return false
+    return damageRatio > self.size.destruction.threshold and not self.fortified
 end
 
 function building:Destroy(damage,frames)
