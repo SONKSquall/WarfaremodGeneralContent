@@ -44,11 +44,11 @@
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">
-      <Containable items="smallitem" excludeditems="packable,medpackable" />
+      <Containable items="smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,packable,medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SubContainer capacity="2" maxstacksize="1">
-        <Containable items="packable,smallitem" excludeditems="medpackable" />
+        <Containable items="packable,smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable" />
       </SubContainer>
     </ItemContainer>
   </Item>
@@ -64,11 +64,11 @@
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">
-      <Containable items="medical,chem" excludeditems="medpackable" />
+      <Containable items="medical,chem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SubContainer capacity="2" maxstacksize="1">
-        <Containable items="medpackable,medical,chem" excludeditems="packable" />
+        <Containable items="medpackable,medical,chem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,packable" />
       </SubContainer>
     </ItemContainer>
   </Item>
@@ -95,11 +95,11 @@
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="gunshotwound, bitewounds" damagemultiplier="0.9" />
     </Wearable>
     <ItemComponent characterusable="false">
-	  <StatusEffect type="OnNotContained" target="This" delay="0.01">
-		<Remove />
-	  </StatusEffect>
-      <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True"/>
-	</ItemComponent>
+      <StatusEffect type="OnNotContained" target="This" delay="0.01">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
+    </ItemComponent>
   </Item>
   <!-- Uniform End -->
 </Items>
