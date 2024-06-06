@@ -70,6 +70,8 @@
 <entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
 <entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>
 <entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
+<entityname.WR_renegadeenggear>Renegade Sapper Rig</entityname.WR_renegadeenggear>
+<entitydescription.WR_renegadeenggear>Basic rig pockets and bandolier replaced with packs for equipment and material storage. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_renegadeenggear>
   <!-- Infantry gear End -->
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>
