@@ -117,7 +117,7 @@
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
-	  <StatusEffect type="OnWearing" target="Character" TeamID="Team1" setvalue="true" />
+	  <StatusEffect type="OnWearing" target="Character" TeamID="Team2" setvalue="true" />
     </ItemComponent>
   </Item>
   <!-- Uniform End -->

@@ -32,6 +32,7 @@
       <Button text="Ping allies" connection="signal_in">
         <StatusEffect type="OnUse" targettype="This" condition="-2" disabledeltatime="true">
           <LuaHook name="WR.transmit.xmlhook" />
+		  <Conditional Condition="gt 2" />
         </StatusEffect>
       </Button>
     </CustomInterface>
