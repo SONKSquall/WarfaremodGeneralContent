@@ -44,6 +44,8 @@
 <entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
 <entityname.WR_gong>Gong</entityname.WR_gong>
 <entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
+<entityname.WR_radio>Field Telephone</entityname.WR_radio>
+<entitydescription.WR_radio>Remote communications device with limited transmission time. Has a ping feature to alert allies of imcoming message.</entitydescription.WR_radio>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
@@ -64,10 +66,14 @@
 <entitydescription.WR_coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.WR_coalitiongear>
 <entityname.WR_coalitionmedgear>Coalition Medic Rig</entityname.WR_coalitionmedgear>
 <entitydescription.WR_coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.WR_coalitionmedgear>
+<entityname.WR_coalitionenggear>Coalition Sapper Rig</entityname.WR_coalitionenggear>
+<entitydescription.WR_coalitionenggear>Standard issue rig for Coalition sappers. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_coalitionenggear>
 <entityname.WR_renegadegear>Renegade Infantry Rig</entityname.WR_renegadegear>
 <entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
 <entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>
 <entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
+<entityname.WR_renegadeenggear>Renegade Sapper Rig</entityname.WR_renegadeenggear>
+<entitydescription.WR_renegadeenggear>Basic rig pockets and bandolier replaced with packs for equipment and material storage. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_renegadeenggear>
   <!-- Infantry gear End -->
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>

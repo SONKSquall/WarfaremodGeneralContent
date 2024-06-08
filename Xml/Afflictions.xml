@@ -85,4 +85,17 @@
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_callsound"
+	Duration="1.6"
+    ShowIconThreshold="1000" >
+    <Effect>
+	  <StatusEffect target="Character" comparison="and" CheckConditionalAlways="true">
+	    <Conditional isLocalPlayer="true" />
+	    <Sound file="%ModDir%/Sounds/Morse.ogg" volume="0.25" dontmuffle="true" />
+	  </StatusEffect>
+    </Effect>
+  </Affliction>
 </Afflictions>

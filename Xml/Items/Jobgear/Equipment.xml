@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
- <!-- Gear Start -->
+  <!-- Gear Start -->
   <Item name="" identifier="WR_medbag" category="Medical" tags="mediumitem,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="450,7,62,60" depth="0.6" origin="0.5,0.5" />
@@ -16,11 +16,33 @@
       <Containable items="medical,chem,medpackable" excludeditems="" />
       <SlotIcon slotindex="0" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="1" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
-	  <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="4" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="5" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
- <!-- Gear End -->
+  <Item name="" identifier="WR_radio" scale="0.5" category="Equipment" tags="smallitem,mobileradio" description="" cargocontaineridentifier="metalcrate" health="15" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="160,188,38,68" depth="0.6" origin="0.5,0.5" />
+    <Body width="25" height="60" density="15" />
+    <WifiComponent range="25000.0" LinkToChat="true" MinChatMessageInterval="0.0" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
+      <Button text="Ping allies" connection="signal_in">
+        <StatusEffect type="OnUse" targettype="This" condition="-2" disabledeltatime="true">
+          <LuaHook name="WR.transmit.xmlhook" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Holdable slots="Any,LeftHand" holdpos="40,-10" handle2="-10,-5" holdangle="0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" targettype="This" condition="-2"></StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" condition="1"></StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="true">
+        <Conditional Condition="gt 2" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="false"></StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Gear End -->
 </Items>

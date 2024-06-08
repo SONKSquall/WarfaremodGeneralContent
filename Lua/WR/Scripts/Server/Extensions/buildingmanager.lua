@@ -116,10 +116,7 @@ end
 
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
-    if damageRatio > self.size.destruction.threshold and not self.fortified then
-        return true
-    end
-    return false
+    return damageRatio > self.size.destruction.threshold and not self.fortified
 end
 
 function building:Destroy(damage,frames)
@@ -161,10 +158,7 @@ function building:SpawnItemContainer(index,itemID,amount)
 end
 
 function building:IsFortified(defenseCount)
-    if defenseCount >= self.size.fortsRequired then
-        return true
-    end
-    return false
+    return defenseCount >= self.size.fortsRequired
 end
 
 function building:new(o)

@@ -95,3 +95,14 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
 
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
+
+Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition)
+    for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
+        if radio.Item.HasTag("mobileradio") then
+            local owner = radio.Item.GetRootInventoryOwner()
+            if owner.Prefab.Identifier == "human" then
+                WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
+            end
+        end
+    end
+end)

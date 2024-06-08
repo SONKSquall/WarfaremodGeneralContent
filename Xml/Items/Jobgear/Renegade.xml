@@ -44,11 +44,11 @@
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">
-      <Containable items="smallitem" excludeditems="packable,medpackable" />
+      <Containable items="smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,packable,medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
       <SubContainer capacity="2" maxstacksize="1">
-        <Containable items="packable,smallitem" excludeditems="medpackable" />
+        <Containable items="packable,smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable" />
       </SubContainer>
     </ItemContainer>
   </Item>
@@ -64,11 +64,29 @@
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">
-      <Containable items="medical,chem" excludeditems="medpackable" />
+      <Containable items="medical,chem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable" />
       <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
       <SubContainer capacity="2" maxstacksize="1">
-        <Containable items="medpackable,medical,chem" excludeditems="packable" />
+        <Containable items="medpackable,medical,chem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,packable" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_renegadeenggear" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="704,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" sourcerect="361,224,84,32" depth="0.6" origin="0.5,0.5" />
+    <Body width="64" height="5" density="15" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Renegade Eng Rig Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" limb="Torso" hidelimb="false" sourcerect="361,152,84,104" inherittexturescale="true" origin="0.4,0.575" />
+      <StatValue stattype="RepairSpeed" value="2" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="2" maxstacksize="12">
+      <Containable items="smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,packable,medpackable" />
+      <SlotIcon slotindex="3" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/UI/Sloticons.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="2" maxstacksize="1">
+        <Containable items="WR_barbedwire_setup,WR_sandbag_setup,smallitem" excludeditems="medpackable,packable" />
       </SubContainer>
     </ItemContainer>
   </Item>
@@ -95,11 +113,12 @@
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="gunshotwound, bitewounds" damagemultiplier="0.9" />
     </Wearable>
     <ItemComponent characterusable="false">
-	  <StatusEffect type="OnNotContained" target="This" delay="0.01">
-		<Remove />
-	  </StatusEffect>
-      <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True"/>
-	</ItemComponent>
+      <StatusEffect type="OnNotContained" target="This" delay="0.01">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
+	  <StatusEffect type="OnWearing" target="Character" TeamID="Team2" setvalue="true" />
+    </ItemComponent>
   </Item>
   <!-- Uniform End -->
 </Items>
