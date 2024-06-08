@@ -55,6 +55,7 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
         end
     end
 
+    --[[
     Timer.NextFrame(function()
         for player in deadPlayers do
             if player.CharacterInfo.Job.Prefab.Identifier.value == "coalitionteam" then
@@ -64,4 +65,5 @@ Hook.Add('jobsAssigned', 'WR.jobbalance', function()
             end
         end
     end)
+    ]]
 end)
