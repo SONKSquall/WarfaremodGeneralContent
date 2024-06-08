@@ -44,6 +44,8 @@
 <entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
 <entityname.WR_gong>Gong</entityname.WR_gong>
 <entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
+<entityname.WR_radio>Field Telephone</entityname.WR_radio>
+<entitydescription.WR_radio>Remote communications device with limited transmission time. Has a ping feature to alert allies of imcoming message.</entitydescription.WR_radio>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
