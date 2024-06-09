@@ -210,9 +210,14 @@ function WR.GetDeadPlayers()
 
     local players = {}
 
-    for key,player in pairs(Client.ClientList) do
-        if (not player.Character and not player.SpectateOnly) or player.Character.IsDead then
-            players[#players+1] = player
+    for player in Client.ClientList do
+        local charExists = (player.Character ~= nil)
+        if not player.SpectateOnly and not charExists then
+            table.insert(players,player)
+        elseif not player.SpectateOnly and charExists then
+            if player.Character.IsDead then
+                table.insert(players,player)
+            end
         end
     end
 
