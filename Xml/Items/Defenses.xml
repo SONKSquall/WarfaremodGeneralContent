@@ -17,8 +17,8 @@
     <ItemContainer capacity="1" maxstacksize="3" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
   </Item>
   <Item name="" identifier="WR_landmine" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_mine" damagedbyprojectiles="true" DamagedByExplosions="true" Scale="0.5" impactsoundtag="impact_metal_light">
-    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="2">
-      <RequiredItem identifier="WR_currency" />
+    <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="1">
+      <RequiredItem identifier="WR_currency" amount="2" />
     </Fabricate>
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,231,80,25" depth="0.55" origin="0.5,0.5" />
@@ -71,16 +71,21 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,0,254,78" depth="0.55" origin="0.5,0.5" />
     <Body width="254" height="55" density="12" />
-    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="0,20" handle1="50,-20" handle2="40,-20">
-      <!-- the same system as the beartrap mod (credits to whosyourdaddy) -->
-      <StatusEffect type="OnNotContained" targettype="This" duration="1" Stackable="false">
-        <Conditional IsAttached="true" />
-        <SpawnItem identifier="WR_barbedwire" spawnposition="This" rotationtype="Fixed" rotation="0" />
-        <RemoveItem />
-      </StatusEffect>
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="0,20" handle1="50,-20" handle2="40,-20" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" >
+      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-10" Stackable="false" >
+        <sound file="Content/Items/Fabricators/Fabricator.ogg" range="500" loop="true" />
+	  </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
+	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
+	    <Conditional HasStatusTag="! building" />
+	  </StatusEffect>
+	  <StatusEffect type="OnBroken" targettype="This" >
+	    <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_barbedwire" distance="100" />
+		<RemoveItem />
+	  </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_spamable,replacementitemID='WR_barbedwire_setup'" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense,WR_spamable,replacementitemid:WR_barbedwire_setup" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
@@ -120,16 +125,21 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,153,128,99" depth="0.55" origin="0.5,0.5" />
     <Body width="128" height="90" density="12" />
-    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" attachable="true" AttachedByDefault="false" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40">
-      <!-- the same system as the beartrap mod (credits to whosyourdaddy) -->
-      <StatusEffect type="OnNotContained" targettype="This" duration="1" Stackable="false">
-        <Conditional IsAttached="true" />
-        <SpawnItem identifier="WR_sandbag" spawnposition="This" rotationtype="MainLimb" rotation="0" />
-        <RemoveItem />
-      </StatusEffect>
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" >
+      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-10" Stackable="false" >
+        <sound file="Content/Items/Fabricators/Fabricator.ogg" range="500" loop="true" />
+	  </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
+	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
+	    <Conditional HasStatusTag="! building" />
+	  </StatusEffect>
+	  <StatusEffect type="OnBroken" targettype="This" >
+	    <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_sandbag" distance="50" />
+		<RemoveItem />
+	  </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="WR_sandbag" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,WR_spamable,replacementitemID='WR_sandbag_setup'" Health="500" DamagedByExplosions="true" ExplosionDamageMultiplier="2.5" DamagedByProjectiles="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_sandbag" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense,WR_spamable,replacementitemid:WR_sandbag_setup" Health="500" DamagedByExplosions="true" ExplosionDamageMultiplier="2.5" DamagedByProjectiles="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,81,88,253" depth="0.01" origin="0.5,0.45" />
     <Body width="50" height="252" density="12" />

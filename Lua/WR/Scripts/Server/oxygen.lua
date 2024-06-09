@@ -50,19 +50,17 @@ end)
 
 local ignorekill = false
 
-Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance)
-    local cardiacarrest = instance.CharacterHealth.GetAffliction("WR_cardiacarrest", false)
-    local client
+Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance, ptable)
+    -- if the event is not for the give in button then return
+    if ptable["msg"].PeekByte() ~= 2 then return end
 
-    for k,v in pairs(Client.ClientList) do
-        if v.character == instance then
-            client = v
-        end
-    end
+    local cardiacarrest = instance.CharacterHealth.GetAffliction("WR_cardiacarrest", false)
+    local client = ptable["c"]
 
     if not client then return end
     if not cardiacarrest then ignorekill = true return end
     if instance.IsDead then return end
+    if not instance.IsUnconscious then return end
 
     if cardiacarrest.Strength < 60 then
         ignorekill = true

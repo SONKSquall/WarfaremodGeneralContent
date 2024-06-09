@@ -8,14 +8,39 @@
     limbspecific="false"
     indicatorlimb="Torso"
     maxstrength="15"
-    ShowIconThreshold="5"
+    ShowIconThreshold="0"
 	ShowIconToOthersThreshold="500"
     affectmachines="false"
     grainburst="1"> 
 	<Description textidentifier="afflictiondescription.WR_suppression" minstrength="0" maxstrength="15" Target="Self" />
-    <Effect minstrength="0" maxstrength="5" strengthchange="-1" resistancefor="WR_suppression" MinResistance="0" MaxResistance="0.75">
+    <Effect minstrength="0" maxstrength="5" resistancefor="WR_recoil" MinResistance="0" MaxResistance="-1" mingrainstrength="0.0" maxgrainstrength="1.5" graincolor="0,0,0,255" strengthchange="-1">
     </Effect>
-    <Effect minstrength="5" maxstrength="15" mingrainstrength="0.0" maxgrainstrength="4.0" graincolor="0,0,0,255" MinScreenBlur="0.0" MaxScreenBlur="0.125" MinSkillMultiplier="1" MaxSkillMultiplier="0.25" strengthchange="-1">
+    <Effect minstrength="5" maxstrength="10" resistancefor="WR_recoil" MinResistance="-1" MaxResistance="-2" mingrainstrength="1.5" maxgrainstrength="3.0" graincolor="0,0,0,255" strengthchange="-1">
+	  <StatusEffect type="OnActive" target="Character" LowPassMultiplier="0.5" HighPassMultiplier="0.5" setvalue="true">
+        <Conditional IsLocalPlayer="True" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="10" maxstrength="15" resistancefor="WR_recoil" MinResistance="-2" MaxResistance="-3" mingrainstrength="3.0" maxgrainstrength="4.0" graincolor="0,0,0,255" MinScreenBlur="0.0" MaxScreenBlur="0.125" strengthchange="-1">
+      <StatusEffect type="OnActive" target="Character" LowPassMultiplier="0.0" HighPassMultiplier="0.0" setvalue="true">
+        <Conditional IsLocalPlayer="True" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="0,0,128,128" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_recoil"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="1000"
+	ShowIconToOthersThreshold="1000"
+    affectmachines="false" > 
+    <Effect minstrength="0" maxstrength="100" strengthchange="-20">
+	  <StatValue stattype="RangedSpreadReduction" minvalue="-0" maxvalue="-0.75" />
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="0,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -59,5 +84,18 @@
 	<Effect minstrength="99" maxstrength="100" MinFaceTint="255,255,255,100" MaxFaceTint="255,255,255,100" strengthchange="1" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_callsound"
+	Duration="1.6"
+    ShowIconThreshold="1000" >
+    <Effect>
+	  <StatusEffect target="Character" comparison="and" CheckConditionalAlways="true">
+	    <Conditional isLocalPlayer="true" />
+	    <Sound file="%ModDir%/Sounds/Morse.ogg" volume="0.25" dontmuffle="true" />
+	  </StatusEffect>
+    </Effect>
   </Affliction>
 </Afflictions>

@@ -22,16 +22,12 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="320,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,368,50" depth="0.55" origin="0.3,0.5" />
     <Body width="150" height="30" density="30" />
-    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect">
-      <StatusEffect type="OnActive" target="This" Condition="-30.0">
+    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect" />
+    <RangedWeapon reload="0" >
+      <StatusEffect type="OnUse" target="This" >
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-      <StatusEffect type="OnContained" target="This" Condition="10" />
-      <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" />
-      <StatusEffect type="OnBroken" target="NearbyItems" disabledeltatime="true" range="500">
-        <LuaHook name="WR.minedetector.xmlhook" />
-      </StatusEffect>
-    </Holdable>
+    </RangedWeapon>
   </Item>
   <!-- Tools End -->
   <!-- Gear Start -->
@@ -127,18 +123,21 @@
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="101,244,46,12" depth="0.55" origin="0.5,0.5" />
     <Body width="46" height="10" density="30" />
     <Holdable slots="LeftHand,Any" Aimable="false" HoldPos="30,15" HoldAngle="0" handle1="0,0" handle2="0,-7" msg="itemmsgpickupselect">
-      <StatusEffect type="OnBroken" targettype="This" delay="1.5" Stackable="false" Condition="100" disabledeltatime="true" />
+      <StatusEffect description="(Can not use right now, please reequip with commander headgear) Small metal whistle, used for issuing offensive orders." type="OnBroken" Interval="0.5" targettype="This" Stackable="false" disabledeltatime="true"/>
+      <StatusEffect description="Small metal whistle, used for issuing offensive orders." type="OnContained" Interval="0.5" targettype="This" Stackable="false" disabledeltatime="true">
+        <Conditional Condition="gt 0" />
+      </StatusEffect>
     </Holdable>
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.15" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Short whistle" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" tags="short" Stackable="false" Condition="-100" disabledeltatime="true">
-          <LuaHook name="WR.whistle.xmlhook" />
+        <StatusEffect type="OnUse" Duration="1" targettype="This" Stackable="false" disabledeltatime="true">
+          <SpawnItem identifiers="WR_whistle_sfxshort" Count="1" spawnposition="This" />
         </StatusEffect>
       </Button>
       <Button text="Long whistle" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" tags="long" Stackable="false" Condition="-100" disabledeltatime="true">
-          <LuaHook name="WR.whistle.xmlhook" />
+        <StatusEffect type="OnUse" Duration="2" targettype="This" Stackable="false" disabledeltatime="true">
+          <SpawnItem identifiers="WR_whistle_sfxlong" Count="1" spawnposition="This" />
         </StatusEffect>
       </Button>
     </CustomInterface>
@@ -199,6 +198,77 @@
         <Sound file="%ModDir%/Sounds/Whistlelong1.ogg" range="15000" selectionmode="random" />
         <Sound file="%ModDir%/Sounds/Whistlelong2.ogg" range="15000" />
 		<ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_destructionsmall_sfx" identifier="WR_destructionsmall_sfx" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" FrequencyMultiplier="1.2" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" FrequencyMultiplier="1.2" />
+		<Explosion range="400.0" force="0.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+		<ParticleEmitter particle="shrapnel" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="7" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_destructionmedium_sfx" identifier="WR_destructionmedium_sfx" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
+		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+		<ParticleEmitter particle="shrapnel" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="15" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_destructionlarge_sfx" identifier="WR_destructionlarge_sfx" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
+		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+		<ParticleEmitter particle="shrapnel" scale="2" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="15" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
+		<Remove/>
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="WR_destructionsuper_sfx" identifier="WR_destructionsuper_sfx" spritecolor="0,0,0,0" >
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="15000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="15000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="15000" />
+		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+		<ParticleEmitter particle="shrapnel" scale="4" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="20" ColorMultiplier="255,255,255,255" />
       </StatusEffect>
 	  <StatusEffect type="OnNotContained" delay="0.2" targettype="This" disabledeltatime="true">
 		<Remove/>

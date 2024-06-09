@@ -3,7 +3,7 @@
 <entityname.WR_baton>Baton</entityname.WR_baton>
 <entitydescription.WR_baton>Often seen in the hands of officers and wardens; useful for discipline or moving prisoners.</entitydescription.WR_baton>
 <entityname.WR_dynamite>Dynamite</entityname.WR_dynamite>
-<entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications. (Press E to light)</entitydescription.WR_dynamite>
+<entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications.</entitydescription.WR_dynamite>
 <entityname.WR_landmine>Landmine</entityname.WR_landmine>
 <entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
   <!-- Weapon End -->
@@ -11,15 +11,15 @@
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
 <entitydescription.WR_trenchingtool>A simple tool used to erect fortifications or dig trenchs.</entitydescription.WR_trenchingtool>
 <entityname.WR_minedetector>Mine detector</entityname.WR_minedetector>
-<entitydescription.WR_minedetector>Military grade metal detector built for the purpose of finding mines. Reveals mines in five second intervals.</entitydescription.WR_minedetector>
+<entitydescription.WR_minedetector>Military grade metal detector built for the purpose of finding mines. Hold right click to scan.</entitydescription.WR_minedetector>
   <!-- Tools End -->
   <!-- Defenses Start -->
 <entityname.WR_barbedwire>Barb wire</entityname.WR_barbedwire>
 <entityname.WR_barbedwire_setup>Barb wire spool</entityname.WR_barbedwire_setup>
-<entitydescription.WR_barbedwire_setup>Metal beams with barb wire wrapped around. Can be placed down by pressing E while holding down right click to create a barb wire fortification.</entitydescription.WR_barbedwire_setup>
+<entitydescription.WR_barbedwire_setup>Metal beams with barb wire wrapped around. Hold down right click to start building.</entitydescription.WR_barbedwire_setup>
 <entityname.WR_sandbag>Sandbags</entityname.WR_sandbag>
 <entityname.WR_sandbag_setup>Empty sandbags</entityname.WR_sandbag_setup>
-<entitydescription.WR_sandbag_setup>A pallet loaded with empty sandbags. Can be placed down by pressing E while holding down right click to create a sandbag fortification.</entitydescription.WR_sandbag_setup>
+<entitydescription.WR_sandbag_setup>A pallet loaded with empty sandbags. Hold down right click to start building.</entitydescription.WR_sandbag_setup>
   <!-- Defenses End -->
   <!-- Gear Start -->
 <entityname.WR_medkit>First Aid Kit</entityname.WR_medkit>
@@ -44,6 +44,8 @@
 <entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
 <entityname.WR_gong>Gong</entityname.WR_gong>
 <entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
+<entityname.WR_radio>Field Telephone</entityname.WR_radio>
+<entitydescription.WR_radio>Remote communications device with limited transmission time. Has a ping feature to alert allies of imcoming message.</entitydescription.WR_radio>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
@@ -64,10 +66,14 @@
 <entitydescription.WR_coalitiongear>Standard issue equipment for Coalition soldiers. Has pockets to hold anything from meds to ammo.</entitydescription.WR_coalitiongear>
 <entityname.WR_coalitionmedgear>Coalition Medic Rig</entityname.WR_coalitionmedgear>
 <entitydescription.WR_coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.WR_coalitionmedgear>
+<entityname.WR_coalitionenggear>Coalition Sapper Rig</entityname.WR_coalitionenggear>
+<entitydescription.WR_coalitionenggear>Standard issue rig for Coalition sappers. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_coalitionenggear>
 <entityname.WR_renegadegear>Renegade Infantry Rig</entityname.WR_renegadegear>
 <entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
 <entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>
 <entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
+<entityname.WR_renegadeenggear>Renegade Sapper Rig</entityname.WR_renegadeenggear>
+<entitydescription.WR_renegadeenggear>Basic rig pockets and bandolier replaced with packs for equipment and material storage. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_renegadeenggear>
   <!-- Infantry gear End -->
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>
@@ -82,7 +88,75 @@
 <entitydescription.WR_strategicexchange>A place were ammo and weapons from the home front are sent and, with the right amount money, can be bought.</entitydescription.WR_strategicexchange>
 <entityname.WR_townfabricator>Work station</entityname.WR_townfabricator>
 <entitydescription.WR_townfabricator>Field contructed work bench. Take zero materials to build basic defenses.</entitydescription.WR_townfabricator>
+<entityname.WR_refinery>Refinery</entityname.WR_refinery>
+<entitydescription.WR_refinery>Used to turn raw ore into materials.</entitydescription.WR_refinery>
+<entityname.WR_factory>Factory</entityname.WR_factory>
+<entitydescription.WR_factory>Turns materials into useable items.</entitydescription.WR_factory>
+<entityname.WR_coalitionfactory>Coalition Factory</entityname.WR_coalitionfactory>
+<entityname.WR_renegadefactory>Renegade Factory</entityname.WR_renegadefactory>
+<entityname.WR_orevain>Ore outcrop</entityname.WR_orevain>
+<entitydescription.WR_orevain>Regenerates 30 secs after being broken.</entitydescription.WR_orevain>
+<entityname.WR_orevain2>Ore outcrop</entityname.WR_orevain2>
+<entitydescription.WR_orevain2>Regenerates 30 secs after being broken.</entitydescription.WR_orevain2>
+<entityname.WR_orevain3>Ore outcrop</entityname.WR_orevain3>
+<entitydescription.WR_orevain3>Regenerates 30 secs after being broken.</entitydescription.WR_orevain3>
+<entityname.WR_orevain4>Ore outcrop</entityname.WR_orevain4>
+<entitydescription.WR_orevain4>Regenerates 30 secs after being broken.</entitydescription.WR_orevain4>
   <!-- Structure End -->
+  <!-- Material Start -->
+<entityname.WR_ore>Raw Ore</entityname.WR_ore>
+<entitydescription.WR_ore>Needs to be processed.</entitydescription.WR_ore>
+<entityname.WR_basicmaterial>Basic Materials</entityname.WR_basicmaterial>
+<entitydescription.WR_basicmaterial>Used in the contruction of basic items.</entitydescription.WR_basicmaterial>
+<entityname.WR_advancedmaterial>Advanced materials</entityname.WR_advancedmaterial>
+<entitydescription.WR_advancedmaterial>Used in fabrication of powerful items.</entitydescription.WR_advancedmaterial>
+<entityname.WR_explosivematerial>Explosive Materials</entityname.WR_explosivematerial>
+<entitydescription.WR_explosivematerial>Used in bomb making.</entitydescription.WR_explosivematerial>
+  <!-- Material End -->
+  <!-- Production Crate Start -->
+<entityname.WR_riflecrate>Production Crate (Rifle)</entityname.WR_riflecrate>
+<entitydescription.WR_riflecrate>Produces 4 rifles with ammo carriers.</entitydescription.WR_riflecrate>
+<entityname.WR_shotguncrate>Production Crate (Shotgun)</entityname.WR_shotguncrate>
+<entitydescription.WR_shotguncrate>Produces 4 shotguns with ammo carriers.</entitydescription.WR_shotguncrate>
+<entityname.WR_smgcrate>Production Crate (Smg)</entityname.WR_smgcrate>
+<entitydescription.WR_smgcrate>Produces 2 smgs.</entitydescription.WR_smgcrate>
+<entityname.WR_hmgcrate>Production Crate (Hmg)</entityname.WR_hmgcrate>
+<entitydescription.WR_hmgcrate>Produces a hmg.</entitydescription.WR_hmgcrate>
+<entityname.WR_rifleammocrate>Production Crate (Rifle Ammo)</entityname.WR_rifleammocrate>
+<entitydescription.WR_rifleammocrate>Produces 48 rifle rounds.</entitydescription.WR_rifleammocrate>
+<entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
+<entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells.</entitydescription.WR_shotgunammocrate>
+<entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>
+<entitydescription.WR_smgammocrate>Produces 4 submachine gun magazines.</entitydescription.WR_smgammocrate>
+<entityname.WR_hmgammocrate>Production Crate (Hmg Ammo)</entityname.WR_hmgammocrate>
+<entitydescription.WR_hmgammocrate>Produces 4 machine gun magazines.</entitydescription.WR_hmgammocrate>
+<entityname.WR_medicalcrate>Production Crate (Medical Supplies)</entityname.WR_medicalcrate>
+<entitydescription.WR_medicalcrate>Produces assorted medical items (blood not included).</entitydescription.WR_medicalcrate>
+<entityname.WR_bloodcrate>Production Crate (Blood)</entityname.WR_bloodcrate>
+<entitydescription.WR_bloodcrate>Produces 6 saline and 2 blood packs.</entitydescription.WR_bloodcrate>
+<entityname.WR_grenadecrate>Production Crate (Grenade)</entityname.WR_grenadecrate>
+<entitydescription.WR_grenadecrate>Produces 4 frag grenades.</entitydescription.WR_grenadecrate>
+<entityname.WR_dynamitecrate>Production Crate (Dynamite)</entityname.WR_dynamitecrate>
+<entitydescription.WR_dynamitecrate>Produces 2 dynamite.</entitydescription.WR_dynamitecrate>
+<entityname.WR_barbedwirecrate>Production Crate (Barb wire)</entityname.WR_barbedwirecrate>
+<entitydescription.WR_barbedwirecrate>Produces 4 barb wire.</entitydescription.WR_barbedwirecrate>
+<entityname.WR_sandbagcrate>Production Crate (Sandbag)</entityname.WR_sandbagcrate>
+<entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags.</entitydescription.WR_sandbagcrate>
+<entityname.WR_headsetcrate>Production Crate (Radio)</entityname.WR_headsetcrate>
+<entitydescription.WR_headsetcrate>Produces 6 headsets.</entitydescription.WR_headsetcrate>
+
+<entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
+<entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>
+<entityname.WR_coalitionbodyarmorcrate>Production Crate (Armor)</entityname.WR_coalitionbodyarmorcrate>
+<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 chestplates.</entitydescription.WR_coalitionbodyarmorcrate>
+<entityname.WR_coalitiongasgrenadecrate>Production Crate (Gas Grenade)</entityname.WR_coalitiongasgrenadecrate>
+<entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades.</entitydescription.WR_coalitiongasgrenadecrate>
+
+<entityname.WR_renegadeshellcrate>Production Crate (Artillery Shell)</entityname.WR_renegadeshellcrate>
+<entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells.</entitydescription.WR_renegadeshellcrate>
+<entityname.WR_renegadebodyarmorcrate>Production Crate (Armor)</entityname.WR_renegadebodyarmorcrate>
+<entitydescription.WR_renegadebodyarmorcrate>Produces 4 chestplates.</entitydescription.WR_renegadebodyarmorcrate>
+  <!-- Production Crate End -->
   <!-- Misc start -->
 <entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>
 <entitydescription.WR_currency>A brass coin made as a alternative to the Mark to better withstand battlefield conditions. Respected, produced and used by both the Coalition and Renegades.</entitydescription.WR_currency>
@@ -97,6 +171,7 @@
 <WRcutfuse>Shorten fuse (by 5 seconds)</WRcutfuse>
 <WRitemmsgrepairtrenchingtool>[[use]] Repair (Entrenching tool)</WRitemmsgrepairtrenchingtool>
 <WRitemmsgforceopentrenchingtool>[[use]] Dig (Entrenching tool)</WRitemmsgforceopentrenchingtool>
+<WRproductionlicense>Production license expired.</WRproductionlicense>
   <!-- Misc end -->
   <!-- Affliction start -->
   <afflictionname.WR_suppression>Suppressed</afflictionname.WR_suppression>
