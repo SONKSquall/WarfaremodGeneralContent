@@ -341,3 +341,11 @@ function WR.weightedRandom(tbl,weights)
         rng = rng - weights[i]
     end
 end
+
+function WR.simPosToWorldPos(position,inSub)
+    if inSub then
+        return (position * 100) + Submarine.MainSub.Position
+    else
+        return (position * 100)
+    end
+end
