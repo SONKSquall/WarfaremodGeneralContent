@@ -208,11 +208,11 @@
     <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
     <ItemComponent>
 	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
-        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" FrequencyMultiplier="1.2" selectionmode="random" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" FrequencyMultiplier="1.2" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" FrequencyMultiplier="1.2" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" FrequencyMultiplier="1.2" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="2000" FrequencyMultiplier="1.2" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="2000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="2000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="2000" FrequencyMultiplier="1.2" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="2000" FrequencyMultiplier="1.2" />
 		<Explosion range="400.0" force="0.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
 		<ParticleEmitter particle="shrapnel" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="7" ColorMultiplier="255,255,255,255" />
       </StatusEffect>
@@ -225,11 +225,11 @@
     <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
     <ItemComponent>
 	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
-        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="2000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="2000" />
 		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
 		<ParticleEmitter particle="shrapnel" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="15" ColorMultiplier="255,255,255,255" />
       </StatusEffect>
@@ -242,11 +242,11 @@
     <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
     <ItemComponent>
 	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
-        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="2000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="2000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="2000" />
 		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
 		<ParticleEmitter particle="shrapnel" scale="2" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="15" ColorMultiplier="255,255,255,255" />
       </StatusEffect>
@@ -259,14 +259,14 @@
     <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
     <ItemComponent>
 	  <StatusEffect type="OnNotContained" targettype="This" disabledeltatime="true">
-        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="15000" selectionmode="random" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="15000" />
-        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="15000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="15000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="15000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="15000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch1.ogg" range="5000" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch2.ogg" range="5000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch3.ogg" range="5000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch4.ogg" range="5000" />
+        <Sound file="Content/Sounds/Damage/StructureCrunch5.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
 		<Explosion range="400.0" force="1.5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
 		<ParticleEmitter particle="shrapnel" scale="4" velocitymin="100" velocitymax="300" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="20" ColorMultiplier="255,255,255,255" />
       </StatusEffect>
