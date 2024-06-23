@@ -61,7 +61,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
     <Sprite texture="Content/Items/Materials/minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
-    <Fabricate suitablefabricators="refinery" requiredtime="60" amount="2">
+    <Fabricate suitablefabricators="refinery" requiredtime="15" amount="2">
       <RequiredItem identifier="WR_ore" amount="3" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -91,7 +91,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="897,896,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.55" sourcerect="2,478,47,32" origin="0.5,0.5" />
     <Body width="50" height="25" density="30" />
-    <Fabricate suitablefabricators="refinery" requiredtime="60" amount="2">
+    <Fabricate suitablefabricators="refinery" requiredtime="20" amount="2">
       <RequiredItem identifier="WR_ore" amount="6" />
     </Fabricate>
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -148,7 +148,7 @@
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
   </Item>
   <Item name="" identifier="WR_riflecrate" variantof="WR_productioncrate" Health="4">
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -160,7 +160,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_shotguncrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="2" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -196,7 +196,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -208,7 +208,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -220,7 +220,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_smgammocrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -232,7 +232,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_hmgammocrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -244,7 +244,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_medicalcrate" variantof="WR_productioncrate" Health="1" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="12" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -256,7 +256,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_bloodcrate" variantof="WR_productioncrate" Health="1" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="3" />
     </Fabricate>
     <ItemContainer capacity="8" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -268,7 +268,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_grenadecrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -281,7 +281,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_dynamitecrate" variantof="WR_productioncrate" Health="1" >
-    <Fabricate suitablefabricators="factory" requiredtime="120">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -293,9 +293,33 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_sandbagcrate" variantof="WR_productioncrate" Health="4">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_sandbag_setup:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_barbedwirecrate" variantof="WR_productioncrate" Health="4">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+	    <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_barbedwire_setup:1"  />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6" >
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="120">
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -308,7 +332,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_coalitionbodyarmorcrate" variantof="WR_productioncrate" Health="2" >
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="120">
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -320,7 +344,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_coalitiongasgrenadecrate" variantof="WR_productioncrate" Health="3" >
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="120">
+    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -332,30 +356,7 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_sandbagcrate" variantof="WR_productioncrate" Health="4">
-    <Fabricate suitablefabricators="factory" requiredtime="120">
-      <RequiredItem identifier="WR_basicmaterial" amount="1" />
-    </Fabricate>
-    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem,largeitem" />
-      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
-	    <!-- spawndata: Prefabid:SpawnNumber -->
-        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_sandbag_setup:1"  />
-      </StatusEffect>
-    </ItemContainer>
-  </Item>
-  <Item name="" identifier="WR_barbedwirecrate" variantof="WR_productioncrate" Health="4">
-    <Fabricate suitablefabricators="factory" requiredtime="120">
-      <RequiredItem identifier="WR_basicmaterial" amount="1" />
-    </Fabricate>
-    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem,largeitem" />
-      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
-	    <!-- spawndata: Prefabid:SpawnNumber -->
-        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_barbedwire_setup:1"  />
-      </StatusEffect>
-    </ItemContainer>
-  </Item>
+  <!--
   <Item name="" identifier="WR_headsetcrate" variantof="WR_productioncrate" Health="6">
     <Fabricate suitablefabricators="factory" requiredtime="120">
       <RequiredItem identifier="WR_basicmaterial" amount="1" />
@@ -363,15 +364,15 @@
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
       <Containable items="smallitem,mediumitem,largeitem" />
       <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
-	    <!-- spawndata: Prefabid:SpawnNumber -->
         <LuaHook name="WR.productionCrate.xmlhook" spawndata="headset:1"  />
       </StatusEffect>
     </ItemContainer>
   </Item>
+  -->
   <!-- Coalition End -->
   <!-- Renegade Start -->
   <Item name="" identifier="WR_renegadeshellcrate" variantof="WR_productioncrate" Health="1" >
-    <Fabricate suitablefabricators="renegadefactory" requiredtime="120">
+    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
 	  <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -384,7 +385,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_renegadebodyarmorcrate" variantof="WR_productioncrate" Health="4" >
-    <Fabricate suitablefabricators="renegadefactory" requiredtime="120">
+    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
