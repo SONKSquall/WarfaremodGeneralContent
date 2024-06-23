@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<sounds>
-  <impact_coin file="%ModDir%/Sounds/Coin1.ogg" range="300"/>
-  <impact_coin file="%ModDir%/Sounds/Coin2.ogg" range="300"/>
-  <impact_coin file="%ModDir%/Sounds/Coin3.ogg" range="300"/>
-</sounds>
