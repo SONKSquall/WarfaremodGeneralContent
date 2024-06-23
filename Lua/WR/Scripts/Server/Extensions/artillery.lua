@@ -7,8 +7,9 @@ LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Items.Components.Turret"
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Items.Components.Turret"], "maxRotation")
 
 WR.shellPrefabs = {
-    railgun = ItemPrefab.GetItemPrefab("WR_largeshell"),
-    flakcannon = ItemPrefab.GetItemPrefab("WR_shrapnelshell")
+    railgunshell = ItemPrefab.GetItemPrefab("WR_largeshell"),
+    flakbolt = ItemPrefab.GetItemPrefab("WR_shrapnelshell"),
+    flakboltexplosive = ItemPrefab.GetItemPrefab("WR_shell")
 }
 
 local artillery = class(base)
@@ -55,7 +56,7 @@ function artillery:onStart()
             -- facing right
             range = WR.Lerp(WR.InvLerp(angle,minAngle,maxAngle), minRange, maxRange)
         end
-        local shellPrefab = WR.shellPrefabs[tostring(instance.Item.Prefab.Identifier)]
+        local shellPrefab = WR.shellPrefabs[tostring(ptable["projectile"].Prefab.Identifier)] or ItemPrefab.GetItemPrefab("WR_shell")
 
         local spawnPos = nil
         Game.World.RayCast(function(fixture, point, normal, fraction)
