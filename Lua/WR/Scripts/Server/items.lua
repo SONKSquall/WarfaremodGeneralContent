@@ -106,3 +106,12 @@ Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item,
         end
     end
 end)
+
+Hook.Add("meleeWeapon.handleImpact", "WR.constructionTool", function(meleeComponent, targetBody)
+    if meleeComponent.Item.Prefab.Identifier ~= "WR_constructiontool" then return end
+    local item = meleeComponent.Item
+
+    if LuaUserData.IsTargetType(targetBody.UserData, "Barotrauma.Structure") then
+        item.Condition = item.Condition - 5
+    end
+end)
