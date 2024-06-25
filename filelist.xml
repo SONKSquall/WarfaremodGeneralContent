@@ -19,5 +19,6 @@
   <Item file="%ModDir%/Christmascontent/Gifts.xml" />
   <Item file="%ModDir%/Christmascontent/Food.xml" />
   <Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
+  <Submarine file="%ModDir%/The Oil Rig.sub" />
   <Submarine file="%ModDir%/Abridging War.sub" />
 </contentpackage>
