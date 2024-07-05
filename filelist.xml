@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Warfare General" modversion="0.2.1.3" corepackage="False" gameversion="1.2.8.0">
+<contentpackage name="Warfare General" modversion="0.2.1.4" corepackage="False" gameversion="1.2.8.0">
   <Item file="%ModDir%/Xml/Items/Tools.xml" />
   <Item file="%ModDir%/Xml/Items/Defenses.xml" />
   <Item file="%ModDir%/Xml/Items/Weapons.xml" />
   <Item file="%ModDir%/Xml/Items/PrisonerItems.xml" />
-  <Item file="%ModDir%/Xml/Items/Gameobjective.xml" />
   <Item file="%ModDir%/Xml/Items/Production.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
@@ -20,4 +19,5 @@
   <Item file="%ModDir%/Christmascontent/Food.xml" />
   <Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
   <Submarine file="%ModDir%/Abridging War.sub" />
+  <Submarine file="%ModDir%/No Man's Land testmap.sub" />
 </contentpackage>
