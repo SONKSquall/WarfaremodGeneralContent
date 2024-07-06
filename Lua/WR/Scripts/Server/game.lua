@@ -53,10 +53,13 @@ end
 
 function WR.thinkFunctions.ore()
 
-    if WR.tick % (60*60) == 0 then
+    -- ore spawn rate scales with the amount of players on the server
+    if WR.tick % math.floor(15*60 * (Game.ServerSettings.MaxPlayers / #Client.ClientList)) == 0 then
         for drillTable in WR.drills do
             local drill = drillTable[math.random(1,#drillTable)]
-            Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+            if drill then
+                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+            end
         end
     end
 
