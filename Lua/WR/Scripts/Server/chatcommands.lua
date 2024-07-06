@@ -8,14 +8,14 @@ No Man's Land is a WW1 theme PvP gamemode where two teams duke it out in a varie
 However, what separates it from most other PvP gamemodes is its POW mechanics; prisoners can be taken & converted to money for weapons.
 
 General Rules:
--Support your comrades
--Don't be a dick
--Don't wear enemy uniforms (particularly helmets).
--No spawncamping
+  -No cheating
+  -Support your comrades
+  -Don't be a dick
+  -No ERP
 
 The Rules of War:
--Do not kill those who can't fight (POWs, surrendering soldiers & wounded).
--False surrender is prohibited.
+  -Do not kill those who can't fight (POWs, surrendering soldiers & wounded).
+  -False surrender is prohibited.
 
 Use !help in chat to get a list of commands.
 ]]
@@ -29,14 +29,14 @@ local help = [[These are all possible chat commands:
 
 local rules = [[
 General Rules:
-- Support your comrades
-- Don't be a dick
-- Don't wear enemy uniforms (particularly helmets).
-- No spawncamping
+  -No cheating
+  -Support your comrades
+  -Don't be a dick
+  -No ERP
 
 The Rules of War:
-- Do not kill those who can't fight (POWs, surrendering soldiers & wounded).
-- False surrender is prohibited.]]
+  -Do not kill those who can't fight (POWs, surrendering soldiers & wounded).
+  -False surrender is prohibited.]]
 
 local medicalguide = [[Medical system:
     
