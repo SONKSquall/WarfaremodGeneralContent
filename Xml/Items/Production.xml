@@ -98,7 +98,7 @@
   </Item>
   <!-- Material End -->
   <!-- Ore Start -->
-  <Item name="" identifier="WR_orevain" category="Material" Tags="ore" description="" health="300" damagedbymeleeweapons="true" scale="0.5">
+  <Item name="" identifier="WR_orevain" category="Material" Tags="ore" description="" health="20" damagedbymeleeweapons="true" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="205,0,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="0,0,202,147" origin="0.5,0.5" />
     <Body radius="50" bodytype="Static" />
@@ -128,7 +128,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="614,150,202,147" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" maxcondition="0" sourcerect="409,150,202,147" origin="0.5,0.5" />
   </Item>
-  <Item name="" identifier="WR_ore" category="Material" Tags="smallitem,ore" maxstacksize="32" maxstacksizecharacterinventory="1" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_ore" category="Material" Tags="smallitem,ore" maxstacksize="32" maxstacksizecharacterinventory="2" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <Sprite texture="%ModDir%/Sprites/Items/Orespritesheet.png" depth="0.3" sourcerect="938,0,86,109" origin="0.5,0.5" />
     <Body radius="40" width="20" density="25" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
