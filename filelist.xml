@@ -20,4 +20,5 @@
   <Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
   <Submarine file="%ModDir%/Abridging War.sub" />
   <Submarine file="%ModDir%/No Man's Land testmap.sub" />
+  <Submarine file="%ModDir%/The Oil Rig.sub" />
 </contentpackage>
