@@ -58,7 +58,9 @@ function WR.thinkFunctions.ore()
         for drillTable in WR.drills do
             local drill = drillTable[math.random(1,#drillTable)]
             if drill then
-                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+                if not drill.OwnInventory.IsFull(true) then
+                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+                end
             end
         end
     end
