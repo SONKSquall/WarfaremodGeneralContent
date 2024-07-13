@@ -70,6 +70,7 @@ building.walls = {}
 building.containers = {}
 
 building.fortified = false
+building.destructible = true
 building.destroyed = false
 building.size = sizes.small
 
@@ -116,7 +117,7 @@ end
 
 function building:IsDestroyed()
     local damageRatio = (self:GetDamage()/self:GetHealth())
-    return damageRatio > self.size.destruction.threshold and not self.fortified
+    return damageRatio > self.size.destruction.threshold and not self.fortified and self.destructible
 end
 
 function building:Destroy(damage,frames)
@@ -196,7 +197,8 @@ function buildingManager:onStart()
                 walls = walls,
                 containers = containers,
                 rect = rect,
-                size = sizes[WR.getStringVariables(item.Tags).size]
+                size = sizes[WR.getStringVariables(item.Tags).size],
+                destructible = WR.getStringVariables(item.Tags).destructible ~= "false"
             })
         end
     end
