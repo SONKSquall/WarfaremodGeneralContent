@@ -36,6 +36,7 @@ function artillery:onStart()
         local maxRange = tonumber(tagVars["maxrange"]) or 200
         local minRange = tonumber(tagVars["minrange"]) or 25
         local spread = tonumber(tagVars["spread"]) or 25
+        spread = spread * (math.random() - 0.5)
         local range
 
         if (math.cos(math.rad(maxAngle)) < 0 and math.cos(math.rad(minAngle)) > 0) or
@@ -62,7 +63,7 @@ function artillery:onStart()
         Game.World.RayCast(function(fixture, point, normal, fraction)
             spawnPos = point
             return fraction
-        end, Vector2(instance.Item.SimPosition.X + range, hullTop), Vector2(instance.Item.SimPosition.X + (range + (math.random(spread * -1,spread))), hullTop - 100), Physics.CollisionWall)
+        end, Vector2(instance.Item.SimPosition.X + (range + spread), hullTop), Vector2(instance.Item.SimPosition.X + (range + spread), hullTop - 100), Physics.CollisionWall)
         spawnPos = WR.simPosToWorldPos(spawnPos + Vector2(0,1),true) -- small vertical buffer to prevent explosion doing no damage
 
 

@@ -8,6 +8,7 @@ WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 
 WR.shops = {}
+WR.drills = {}
 WR.Game = {}
 WR.Game.ending = false
 WR.Game.winner = ""
@@ -44,6 +45,22 @@ function WR.thinkFunctions.winner()
                 WR.Game.winner = WR.teamKeys[obj.attacker]
                 WR.Game.endGame()
                 break
+            end
+        end
+    end
+
+end
+
+function WR.thinkFunctions.ore()
+
+    -- ore spawn rate scales with the amount of players on the server
+    if WR.tick % math.floor(15*60 * (Game.ServerSettings.MaxPlayers / #Client.ClientList)) == 0 then
+        for drillTable in WR.drills do
+            local drill = drillTable[math.random(1,#drillTable)]
+            if drill then
+                if not drill.OwnInventory.IsFull(true) then
+                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+                end
             end
         end
     end
@@ -132,6 +149,23 @@ function WR.roundStartFunctions.main()
             WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
         end
     end, 60*1000)
+end
+
+function WR.roundStartFunctions.ore()
+    WR.drills = {}
+    WR.drills.unassigned = {}
+
+    if Util.GetItemsById("WR_oredrill") then
+        for drill in Util.GetItemsById("WR_oredrill") do
+            local drillID = WR.getStringVariables(drill.Tags).id
+            if drillID then
+                if not WR.drills[drillID] then WR.drills[drillID] = {} end
+                table.insert(WR.drills[drillID],drill)
+            else
+                table.insert(WR.drills.unassigned,drill)
+            end
+        end
+    end
 end
 
 WR.characterDeathFunctions = {}

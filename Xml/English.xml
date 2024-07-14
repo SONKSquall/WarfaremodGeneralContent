@@ -104,6 +104,8 @@
 <entitydescription.WR_orevain3>Regenerates 30 secs after being broken.</entitydescription.WR_orevain3>
 <entityname.WR_orevain4>Ore outcrop</entityname.WR_orevain4>
 <entitydescription.WR_orevain4>Regenerates 30 secs after being broken.</entitydescription.WR_orevain4>
+<entityname.WR_oredrill>Mining drill</entityname.WR_oredrill>
+<entitydescription.WR_oredrill>Spawns basic ore scaling to the amount of players on the server.</entitydescription.WR_oredrill>
   <!-- Structure End -->
   <!-- Material Start -->
 <entityname.WR_ore>Raw Ore</entityname.WR_ore>
