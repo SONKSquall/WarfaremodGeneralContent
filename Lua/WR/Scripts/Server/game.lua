@@ -9,6 +9,8 @@ WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 WR.shops = {}
 WR.drills = {}
+WR.frontLinePos = Vector2(0,0)
+WR.spawnPositions = {}
 WR.Game = {}
 WR.Game.ending = false
 WR.Game.winner = ""
@@ -65,6 +67,24 @@ function WR.thinkFunctions.ore()
         end
     end
 
+end
+
+function WR.thinkFunctions.calculateFrontLine()
+    if WR.tick % 60 == 0 then
+        local xCords = {}
+        local yCords = {}
+        local whights = {}
+        for char in Character.CharacterList do
+            if WR.teamKeys[char.JobIdentifier.value] then
+                local id = char.JobIdentifier.value
+                table.insert(xCords,char.WorldPosition.x)
+                table.insert(yCords,char.WorldPosition.y)
+                local whight = Vector2.Distance(char.WorldPosition,WR.spawnPositions[id])/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam)
+                table.insert(whights,whight)
+            end
+        end
+        WR.frontLinePos = Vector2(WR.weightedAverage(xCords,whights), WR.weightedAverage(yCords,whights))
+    end
 end
 
 -- designed to work with two or more teams
@@ -149,6 +169,24 @@ function WR.roundStartFunctions.main()
             WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
         end
     end, 60*1000)
+
+    WR.spawnPositions = {}
+    -- collect data
+    for spawnPoint in WayPoint.WayPointList do
+        if spawnPoint.SpawnType == 1 and spawnPoint.AssignedJob then
+            local id = spawnPoint.AssignedJob.Identifier.value
+            if not WR.spawnPositions[id] then WR.spawnPositions[id] = {} end
+            table.insert(WR.spawnPositions[id],spawnPoint.WorldPosition)
+        end
+    end
+    -- proess data
+    for key,data in pairs(WR.spawnPositions) do
+        local x = Vector2(0,0)
+        for pos in data do
+            x = Vector2.Add(x,pos)
+        end
+        WR.spawnPositions[key] = Vector2.Divide(x,#data)
+    end
 end
 
 function WR.roundStartFunctions.ore()
