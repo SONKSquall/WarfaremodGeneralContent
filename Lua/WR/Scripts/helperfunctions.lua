@@ -342,6 +342,18 @@ function WR.weightedRandom(tbl,weights)
     end
 end
 
+function WR.weightedAverage(set,weights)
+    local w = 0
+    for i=1,#weights,1 do
+        w = w + weights[i]
+    end
+    local n = 0
+    for i=1,#set,1 do
+        n = n + (weights[i] * set[i])
+    end
+    return n/w
+end
+
 function WR.simPosToWorldPos(position,inSub)
     if inSub then
         return (position * 100) + Submarine.MainSub.Position

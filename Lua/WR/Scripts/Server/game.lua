@@ -9,6 +9,8 @@ WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 WR.shops = {}
 WR.drills = {}
+WR.frontLinePos = Vector2(0,0)
+WR.spawnPositions = {}
 WR.Game = {}
 WR.Game.ending = false
 WR.Game.winner = ""
@@ -67,25 +69,34 @@ function WR.thinkFunctions.ore()
 
 end
 
--- designed to work with two or more teams
+function WR.thinkFunctions.calculateFrontLine()
+
+    if WR.tick % 60 == 0 then
+        local xCords = {}
+        local yCords = {}
+        local whights = {}
+        for char in Character.CharacterList do
+            if WR.teamKeys[char.JobIdentifier.value] then
+                local id = char.JobIdentifier.value
+                table.insert(xCords,char.WorldPosition.x)
+                table.insert(yCords,char.WorldPosition.y)
+                -- players who are further away from their spawn will have a greater affect on the front line position
+                local whight = Vector2.Distance(char.WorldPosition,WR.spawnPositions[id])/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam)
+                table.insert(whights,whight)
+            end
+        end
+        WR.frontLinePos = Vector2(WR.weightedAverage(xCords,whights), WR.weightedAverage(yCords,whights))
+    end
+
+end
+
 function WR.Game.altWinner()
 
-    local winner = ""
-    local teams = {}
-
-    -- graps all of the teams, deaths is the value that is compared, id is the value returned
-    for k,v in pairs(WR.data.stats) do
-        table.insert(teams,{id = k, deaths = v.deaths or 1})
+    if Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) > 0.5 then
+        return "coalitionteam"
+    else
+        return "renegadeteam"
     end
-
-    table.sort(teams, function(k1,k2) return k2.deaths / k1.deaths > 1 end)
-
-    -- if the first team has ten present less then deaths then the second team, then it is the winner
-    if teams[2].deaths / teams[1].deaths > 1.1 then
-        winner = teams[1].id
-    end
-
-    return winner
 end
 
 function WR.createEndMessage()
@@ -149,6 +160,24 @@ function WR.roundStartFunctions.main()
             WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
         end
     end, 60*1000)
+
+    WR.spawnPositions = {}
+    -- collect data
+    for spawnPoint in WayPoint.WayPointList do
+        if spawnPoint.SpawnType == 1 and spawnPoint.AssignedJob then
+            local id = spawnPoint.AssignedJob.Identifier.value
+            if not WR.spawnPositions[id] then WR.spawnPositions[id] = {} end
+            table.insert(WR.spawnPositions[id],spawnPoint.WorldPosition)
+        end
+    end
+    -- proess data
+    for key,data in pairs(WR.spawnPositions) do
+        local x = Vector2(0,0)
+        for pos in data do
+            x = Vector2.Add(x,pos)
+        end
+        WR.spawnPositions[key] = Vector2.Divide(x,#data)
+    end
 end
 
 function WR.roundStartFunctions.ore()
