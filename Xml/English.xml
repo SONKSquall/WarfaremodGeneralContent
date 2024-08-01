@@ -48,6 +48,8 @@
 <entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
 <entityname.WR_radio>Field Telephone</entityname.WR_radio>
 <entitydescription.WR_radio>Remote voice communications device. Messages can only be received when held. Has a ping feature to alert radios on the same frequency of a incoming message (waiting 2-3 secs after pinging before sending a message is ideal).</entitydescription.WR_radio>
+<entityname.WR_stretcher>Stretcher kit</entityname.WR_stretcher>
+<entitydescription.WR_stretcher>Designed to carryed by one person, this equipment makes transporting injured and bodies easier. Allow characters to be carryed at full speed.</entitydescription.WR_stretcher>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>

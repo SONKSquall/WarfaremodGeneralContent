@@ -32,7 +32,7 @@
       <Button text="Ping frequency" connection="signal_in">
         <StatusEffect type="OnUse" targettype="This" condition="-2" disabledeltatime="true">
           <LuaHook name="WR.transmit.xmlhook" />
-		  <Conditional Condition="gt 2" />
+          <Conditional Condition="gt 2" />
         </StatusEffect>
       </Button>
     </CustomInterface>
@@ -44,6 +44,17 @@
       </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="false"></StatusEffect>
     </Holdable>
+  </Item>
+  <Item name="" identifier="WR_stretcher" category="Medical" tags="mediumitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" sourcerect="0,0,459,57" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="45" density="20" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Stretcher wearable" rotation="-10" texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" sourcerect="475,0,37,134" depth="0.13" limb="Torso" inheritlimbdepth="false" inherittexturescale="true" origin="1.35,0.3" />
+      <StatusEffect type="OnWearing" interval="0.5" target="Character" setvalue="true" disabledeltatime="true">
+        <Affliction identifier="WR_normalwalkspeed" strength="100" />
+      </StatusEffect>
+    </Wearable>
   </Item>
   <!-- Gear End -->
 </Items>
