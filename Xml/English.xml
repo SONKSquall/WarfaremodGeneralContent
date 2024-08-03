@@ -50,6 +50,8 @@
 <entitydescription.WR_radio>Remote voice communications device. Messages can only be received when held. Has a ping feature to alert radios on the same frequency of a incoming message (waiting 2-3 secs after pinging before sending a message is ideal).</entitydescription.WR_radio>
 <entityname.WR_stretcher>Stretcher kit</entityname.WR_stretcher>
 <entitydescription.WR_stretcher>Designed to carryed by one person, this equipment makes transporting injured and bodies easier. Allow characters to be carryed at full speed.</entitydescription.WR_stretcher>
+<entityname.WR_bag>Backpack</entityname.WR_bag>
+<entitydescription.WR_bag>Equipment that carries extra anything of bluk. Provides two slots to carry large items along with other normal ones.</entitydescription.WR_bag>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
