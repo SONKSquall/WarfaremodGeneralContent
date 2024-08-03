@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Warfare General" modversion="0.2.1.10" corepackage="False" gameversion="1.5.9.1">
+<contentpackage name="Warfare General" modversion="0.2.1.11" corepackage="False" gameversion="1.5.9.1">
   <Item file="%ModDir%/Xml/Items/Tools.xml" />
   <Item file="%ModDir%/Xml/Items/Defenses.xml" />
   <Item file="%ModDir%/Xml/Items/Weapons.xml" />
