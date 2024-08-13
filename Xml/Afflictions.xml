@@ -75,13 +75,13 @@
     affectmachines="false" >
 	<Description textidentifier="afflictiondescription.WR_cardiacarrest" minstrength="0" maxstrength="60" />
     <Description textidentifier="afflictiondescription.WR_cardiacarrest.high" minstrength="60" maxstrength="100" />
-    <Effect minstrength="0" maxstrength="99" MinFaceTint="255,255,255,0" MaxFaceTint="255,255,255,100" strengthchange="1" >
+    <Effect minstrength="0" maxstrength="99" MinFaceTint="255,255,255,0" MaxFaceTint="255,255,255,100" strengthchange="0" >
 	  <StatusEffect target="Character" CheckConditionalAlways="true" >
 		<Conditional IsUnconscious="false" />
 		<ReduceAffliction type="WR_cardiacarrest" strength="100" />
 	  </StatusEffect>
     </Effect>
-	<Effect minstrength="99" maxstrength="100" MinFaceTint="255,255,255,100" MaxFaceTint="255,255,255,100" strengthchange="1" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
+	<Effect minstrength="99" maxstrength="100" MinFaceTint="255,255,255,100" MaxFaceTint="255,255,255,100" strengthchange="0" MaxVitalityDecrease="2" MultiplyByMaxVitality="true" >
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
