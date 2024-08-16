@@ -98,4 +98,25 @@
 	  </StatusEffect>
     </Effect>
   </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_stabilize"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="1000"
+	ShowIconToOthersThreshold="1000"
+    affectmachines="false" >
+    <Effect minstrength="0" maxstrength="100" strengthchange="-100" >
+	  <StatusEffect target="Character" CheckConditionalAlways="true" >
+		<Conditional IsUnconscious="true" />
+        <reduceaffliction identifier="bloodloss" strength="0.25" />
+        <reduceaffliction identifier="bleeding" strength="1.5" />
+	  </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="128,0,128,128" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
 </Afflictions>
