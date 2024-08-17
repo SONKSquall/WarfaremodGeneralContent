@@ -91,8 +91,10 @@ function WR.thinkFunctions.calculateFrontLine()
 end
 
 function WR.Game.altWinner()
-
-    if Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) > 0.5 then
+    local winFactor = ((WR.data:getStat("coalitionteam","deaths")) or 1)/(WR.data:getStat("renegadeteam","deaths") or 1)
+    -- the more death inbalance between teams, the less territory matters
+    winFactor = Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) / winFactor
+    if winFactor > 0.5 then
         return "coalitionteam"
     else
         return "renegadeteam"
