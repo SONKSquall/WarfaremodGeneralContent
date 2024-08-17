@@ -1,26 +1,32 @@
 if Game.IsMultiplayer and CLIENT then return end
 
-Hook.Add("afflictionUpdate", "WR.unconsciousbreathing", function(affliction, characterHealth, limb)
+LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.CharacterHealth"], "oxygenLowAffliction")
 
-    if affliction.Identifier ~= "oxygenlow" then return end
+Hook.Patch("Barotrauma.CharacterHealth", "UpdateOxygen", function(instance, ptable)
 
-    local canbreathe = true
+    ptable.PreventExecution = true
 
-    if characterHealth.character.HullOxygenPercentage <= 30 then
-        canbreathe = false
+    if not instance.Character.NeedsOxygen then
+        instance.oxygenLowAffliction.Strength = 0
     end
 
-    if canbreathe and characterHealth.character.IsUnconscious then
-        affliction.SetStrength(affliction.Strength + (-1 * WR.DeltaTime))
-        -- gives cardiac arrest if not already
-        if not characterHealth.GetAffliction("WR_cardiacarrest", false) then
-            WR.GiveAfflictionCharacter(characterHealth.Character, "WR_cardiacarrest", 1.1)
+    local oxygenlowResistance = instance.GetResistance(instance.oxygenLowAffliction.Prefab)
+
+    local decreaseSpeed = -5.0 * (1 - oxygenlowResistance)
+    local increaseSpeed = 10.0 * (1 + oxygenlowResistance)
+
+    if (instance.Character.OxygenAvailable > instance.InsufficientOxygenThreshold) then
+        if instance.IsUnconscious then
+            instance.ApplyAffliction(instance.Character.AnimController.MainLimb, AfflictionPrefab.Prefabs["WR_cardiacarrest"].Instantiate(1 * ptable["deltaTime"]))
+            instance.OxygenAmount = math.clamp(instance.OxygenAmount + ptable["deltaTime"] * increaseSpeed, -100, 100)
+        else
+            instance.OxygenAmount = math.clamp(instance.OxygenAmount + ptable["deltaTime"] * increaseSpeed, -100, 100)
         end
     else
-        return
+        instance.OxygenAmount = math.clamp(instance.OxygenAmount + ptable["deltaTime"] * decreaseSpeed, -100, 100)
     end
 
-end)
+end, Hook.HookMethodType.Before)
 
 Hook.Add("human.CPRSuccess", "WR.cardiacarrestcprreductionhighskill", function(animController)
 

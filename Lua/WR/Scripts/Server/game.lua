@@ -55,8 +55,8 @@ end
 
 function WR.thinkFunctions.ore()
 
-    -- ore spawn rate scales with the amount of players on the server
-    if WR.tick % math.floor(15*60 * (Game.ServerSettings.MaxPlayers / #Client.ClientList)) == 0 then
+    -- 1~ ore per player every 3 minutes
+    if WR.tick % math.floor(3*60*60 / (#Client.ClientList/2)) == 0 then
         for drillTable in WR.drills do
             local drill = drillTable[math.random(1,#drillTable)]
             if drill then
@@ -91,8 +91,10 @@ function WR.thinkFunctions.calculateFrontLine()
 end
 
 function WR.Game.altWinner()
-
-    if Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) > 0.5 then
+    local winFactor = ((WR.data:getStat("coalitionteam","deaths")) or 1)/(WR.data:getStat("renegadeteam","deaths") or 1)
+    -- the more death inbalance between teams, the less territory matters
+    winFactor = Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) / winFactor
+    if winFactor > 0.5 then
         return "coalitionteam"
     else
         return "renegadeteam"

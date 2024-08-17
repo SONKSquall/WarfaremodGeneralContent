@@ -49,10 +49,13 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" sourcerect="0,0,459,57" depth="0.6" origin="0.5,0.5" />
     <Body width="100" height="45" density="20" />
-    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" PickingTime="2.5" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Stretcher wearable" rotation="-10" texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" sourcerect="475,0,37,134" depth="0.13" limb="Torso" inheritlimbdepth="false" inherittexturescale="true" origin="1.35,0.3" />
       <StatusEffect type="OnWearing" interval="0.5" target="Character" setvalue="true" disabledeltatime="true">
         <Affliction identifier="WR_normalwalkspeed" strength="100" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="nearbycharacters" interval="0.5" range="100" setvalue="true" >
+        <Affliction identifier="WR_stabilize" strength="100" />
       </StatusEffect>
     </Wearable>
   </Item>
