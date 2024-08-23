@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Warfare General" modversion="0.2.3.1" corepackage="False" gameversion="1.5.9.1">
+<contentpackage name="Warfare General" modversion="0.2.3.0" corepackage="False" gameversion="1.5.9.1">
   <Item file="%ModDir%/Xml/Items/Tools.xml" />
   <Item file="%ModDir%/Xml/Items/Defenses.xml" />
   <Item file="%ModDir%/Xml/Items/Weapons.xml" />
@@ -21,4 +21,5 @@
   <Submarine file="%ModDir%/Abridging War.sub" />
   <Submarine file="%ModDir%/The Oil Rig.sub" />
   <Submarine file="%ModDir%/Schluchtstadt.sub" />
+  <Submarine file="%ModDir%/testmap.sub" />
 </contentpackage>
