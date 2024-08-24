@@ -286,7 +286,7 @@ function WR.stringSplit(s,sep)
         table.insert(tbl,v)
     end
 
-    return WR.Set.new(tbl)
+    return tbl
 end
 
 function WR.stringKeyVar(s)
@@ -303,7 +303,7 @@ function WR.stringKeyVar(s)
 end
 
 function WR.getStringVariables(s)
-    local input = WR.stringSplit(s)
+    local input = WR.Set.new(WR.stringSplit(s))
     local output = {}
     for k in pairs(input) do
         local key, value = WR.stringKeyVar(k)
