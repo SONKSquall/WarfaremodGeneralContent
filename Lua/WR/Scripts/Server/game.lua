@@ -1,14 +1,11 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
--- use instances to prevent the server from modifying classes
+-- use instances to prevent the server from modifying classes     <- the most cursed text ever written
 WR.buildingManager = (require"WR.Scripts.Server.Extensions.buildingmanager".new())
-WR.data = (require"WR.Scripts.Server.Extensions.data".new())
 WR.objective = (require"WR.Scripts.Server.Extensions.objective".new())
 WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 
-WR.shops = {}
-WR.drills = {}
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
 WR.Game = {}
@@ -19,7 +16,6 @@ WR.tickmax = 30*60*60
 
 WR.extensions = {
     WR.buildingManager,
-    WR.data,
     WR.objective,
     WR.artillery
 }
@@ -91,7 +87,7 @@ function WR.thinkFunctions.calculateFrontLine()
 end
 
 function WR.Game.altWinner()
-    local winFactor = ((WR.data:getStat("coalitionteam","deaths")) or 1)/(WR.data:getStat("renegadeteam","deaths") or 1)
+    local winFactor = WR.dataManager.getData("teams.coalitionteam.deaths")/WR.dataManager.getData("teams.renegadeteam.deaths")
     -- the more death inbalance between teams, the less territory matters
     winFactor = Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) / winFactor
     if winFactor > 0.5 then
@@ -131,6 +127,16 @@ function WR.roundEndFunctions.main()
 
 end
 
+function WR.roundEndFunctions.data()
+    WR.dataManager.setData("round.roundwinner",WR.Game.winner)
+    WR.dataManager.setData("round.roundlength",WR.FormatTime(WR.tick/60))
+    WR.dataManager.setData("round.map",tostring(Game.GameSession.SubmarineInfo.Name))
+    WR.dataManager.setData("round.territory",Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam))
+    WR.dataManager.save()
+    WR.dataManager.reset()
+    WR.dataManager.toggle(false)
+end
+
 WR.roundStartFunctions = {}
 
 function WR.roundStartFunctions.main()
@@ -139,16 +145,16 @@ function WR.roundStartFunctions.main()
     WR.Game.ending = false
     WR.Game.winner = ""
 
-    for v in WR.teamKeys do
-        WR.shops[v] = {}
-    end
+    WR.dataManager.toggle(true)
+    WR.dataManager.reset()
 
+    -- shops
     if Util.GetItemsById("WR_strategicexchange") then
         for shop in Util.GetItemsById("WR_strategicexchange") do
             local shopteam = WR.getStringVariables(shop.Tags)["team"]
             shopteam = WR.teamKeys[shopteam] -- remove bogus teams
             if shopteam then
-                table.insert(WR.shops[shopteam], shop)
+                WR.dataManager.addData("userdata."..shopteam.."shop",nil,function() return shop end)
             end
         end
     end
@@ -183,23 +189,25 @@ function WR.roundStartFunctions.main()
 end
 
 function WR.roundStartFunctions.ore()
-    WR.drills = {}
-    WR.drills.unassigned = {}
 
     if Util.GetItemsById("WR_oredrill") then
         for drill in Util.GetItemsById("WR_oredrill") do
             local drillID = WR.getStringVariables(drill.Tags).id
             if drillID then
-                if not WR.drills[drillID] then WR.drills[drillID] = {} end
-                table.insert(WR.drills[drillID],drill)
+                WR.dataManager.addData("userdata.drills."..drillID,nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
             else
-                table.insert(WR.drills.unassigned,drill)
+                WR.dataManager.addData("userdata.drills.unassigned",nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
             end
         end
     end
 end
 
 WR.characterDeathFunctions = {}
+
+function WR.characterDeathFunctions.log(char)
+    if not char.isHuman then return end
+    WR.dataManager.addData("teams."..char.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
+end
 
 -- for validating and initializing
 WR.teamKeys = {

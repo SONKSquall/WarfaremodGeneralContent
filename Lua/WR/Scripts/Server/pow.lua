@@ -12,7 +12,7 @@ end
 
 -- removes pows and places their items in a footlocker
 local function powhandle(targets, frendlyteam)
-    local shop = WR.shops[WR.teamKeys[frendlyteam]][1]
+    local shop = WR.dataManager.getData("teams."..WR.teamKeys[frendlyteam]..".shops")[1]
     local capturecount = 0
     for character in targets do
         if WR.IsEnemyPOW(character, frendlyteam) == true then
@@ -21,8 +21,8 @@ local function powhandle(targets, frendlyteam)
             Entity.Spawner.AddItemToSpawnQueue(footlocker, character.WorldPosition, nil, nil, function(container)
                 WR.SpawnInventoryItems(allItems, container.OwnInventory)
             end)
-            WR.data:addStat(frendlyteam,"captures",1)
-            WR.data:addStat(tostring(character.Info.Job.Prefab.Identifier.Value),"deaths",1)
+            WR.dataManager.addData("teams."..frendlyteam..".captures",nil,function(n) return n + 1 end)
+            WR.dataManager.addData("teams."..character.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
             capturecount = capturecount+1
             Entity.Spawner.AddEntityToRemoveQueue(character)
         end

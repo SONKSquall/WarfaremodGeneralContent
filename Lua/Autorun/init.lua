@@ -21,6 +21,7 @@ Hook.Add('think', 'WR.UpdateDeltaTime', function ()
     WR.DeltaTime = UpdateDeltaTime()
 end)
 
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/data.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/helperfunctions.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/weapons.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/items.lua")
