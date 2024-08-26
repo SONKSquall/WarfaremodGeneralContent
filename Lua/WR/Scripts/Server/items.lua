@@ -2,8 +2,13 @@ if Game.IsMultiplayer and CLIENT then return end
 
 WR.pointItemFunctions = {}
 WR.useItemFunctions = {}
+
 WR.equipItemFunctions = {}
+WR.unequipItemFunctions = {}
+
 WR.spawnItemFunctions = {}
+WR.removeItemFunctions = {}
+WR.deconItemFunctions = {}
 
 function WR.pointItemFunctions.WR_minedetector(item, itemUser)
 
@@ -47,9 +52,9 @@ Hook.Add("item.secondaryUse", "WR.pointItem", function(item, itemUser)
     end
 end)
 
-Hook.Add("item.use", "WR.useItem", function(item, itemUser)
+Hook.Add("item.use", "WR.useItem", function(item, itemUser, targetLimb)
     if WR.useItemFunctions[item.Prefab.Identifier.value] then
-        WR.useItemFunctions[item.Prefab.Identifier.value](item, itemUser)
+        WR.useItemFunctions[item.Prefab.Identifier.value](item, itemUser, targetLimb)
     end
 end)
 
@@ -62,6 +67,24 @@ end)
 Hook.Add("item.created", "WR.itemSpawn", function(item)
     if WR.spawnItemFunctions[item.Prefab.Identifier.value] then
         WR.spawnItemFunctions[item.Prefab.Identifier.value](item)
+    end
+end)
+
+Hook.Add("item.removed", "WR.itemRemove", function(item)
+    if WR.removeItemFunctions[item.Prefab.Identifier.value] then
+        WR.removeItemFunctions[item.Prefab.Identifier.value](item)
+    end
+end)
+
+Hook.Add("item.deconstructed", "WR.itemDecon", function(item, otherItem, userCharacter)
+    if WR.deconItemFunctions[item.Prefab.Identifier.value] then
+        WR.deconItemFunctions[item.Prefab.Identifier.value](item, otherItem, userCharacter)
+    end
+end)
+
+Hook.Add("item.unequip", "WR.itemUnequip", function(item, character)
+    if WR.unequipItemFunctions[item.Prefab.Identifier.value] then
+        WR.unequipItemFunctions[item.Prefab.Identifier.value](item, character)
     end
 end)
 
