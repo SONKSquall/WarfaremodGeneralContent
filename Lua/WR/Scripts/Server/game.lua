@@ -101,7 +101,9 @@ function WR.createEndMessage()
 
     if WR.Game.winner == "" then return "Stalemate." end
 
-    return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType((WR.data.stats[WR.teamLoser[WR.Game.winner]].deaths or 1) / (WR.data.stats[WR.Game.winner].deaths or 1))
+    local winner = WR.Game.Winner
+    local loser = WR.teamLoser[winner]
+    return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType(WR.dataManager.getData("teams."..loser..".deaths") / WR.dataManager.getData("teams."..winner..".deaths"))
 end
 
 function WR.getVictoryType(ratio)
