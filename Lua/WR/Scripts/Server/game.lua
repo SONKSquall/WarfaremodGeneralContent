@@ -5,6 +5,8 @@ WR.buildingManager = (require"WR.Scripts.Server.Extensions.buildingmanager".new(
 WR.objective = (require"WR.Scripts.Server.Extensions.objective".new())
 WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
+require"WR.Scripts.Server.hooks"
+require"WR.Scripts.Server.items"
 
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
@@ -19,7 +21,6 @@ WR.extensions = {
     WR.objective,
     WR.artillery
 }
-WR.thinkFunctions = {}
 
 function WR.thinkFunctions.main()
 
@@ -121,8 +122,6 @@ function WR.getVictoryType(ratio)
 
 end
 
-WR.roundEndFunctions = {}
-
 function WR.roundEndFunctions.main()
 
 
@@ -138,8 +137,6 @@ function WR.roundEndFunctions.data()
     WR.dataManager.reset()
     WR.dataManager.toggle(false)
 end
-
-WR.roundStartFunctions = {}
 
 function WR.roundStartFunctions.main()
     WR.tick = 0
@@ -204,14 +201,10 @@ function WR.roundStartFunctions.ore()
     end
 end
 
-WR.characterDeathFunctions = {}
-
 function WR.characterDeathFunctions.log(char)
     if not char.isHuman then return end
     WR.dataManager.addData("teams."..char.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
 end
-
-WR.characterDamageFunctions = {}
 
 function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     if hitLimb.type ~= LimbType.Head then return end
@@ -306,53 +299,3 @@ Game.AddCommand("forceend", "Ends the round with a optional winner.", function(a
     end
     WR.Game.endGame()
 end, nil, true)
-
-Hook.add("roundStart", "WR.GameStart", function()
-
-    Submarine.LockX = true
-    Submarine.LockY = true
-    for func in WR.roundStartFunctions do
-        func()
-    end
-    for obj in WR.extensions do
-        obj:Start()
-    end
-
-end)
-
-Hook.add("roundEnd", "WR.GameEnd", function()
-
-    for func in WR.roundEndFunctions do
-        func()
-    end
-
-end)
-
-Hook.add("think", "WR.think", function()
-
-    if not Game.RoundStarted or WR.Game.ending then return end
-
-    WR.tick = WR.tick+1
-
-    for func in WR.thinkFunctions do
-        func()
-    end
-end)
-
-Hook.add("character.death", "WR.Death", function(char)
-    if WR.Game.ending then return end
-
-    for func in WR.characterDeathFunctions do
-        func(char)
-    end
-
-end)
-
-Hook.add("character.applyDamage", "WR.Damage", function(charHealth, attackResult, hitLimb)
-    if WR.Game.ending then return end
-
-    for func in WR.characterDamageFunctions do
-        func(charHealth, attackResult, hitLimb)
-    end
-
-end)
