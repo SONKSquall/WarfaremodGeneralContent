@@ -34,7 +34,3 @@ dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
 
 -- for holiday stuff
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/misc.lua")
-
-if CLIENT then
-  dofile(WR.Path .. "/Lua/WR/Scripts/Client/recoildisplay.lua")
-end
