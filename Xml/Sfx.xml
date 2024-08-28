@@ -97,4 +97,60 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
+  <Item name="WR_coalitionhelmet_sfx" identifier="WR_coalitionhelmet_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Helmethit.ogg" range="400" />
+		<ParticleEmitter particle="spark" AngleMin="150" AngleMax="200" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+		<ParticleEmitter particle="spark" AngleMin="-20" AngleMax="30" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+        <ParticleEmitter particle="coalitionhelmet" AngleMin="60" AngleMax="120" VelocityMin="300" VelocityMax="350" ScaleMultiplier="0.85,0.85" ParticleAmount="1" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="WR_coalitionmedhelmet_sfx" identifier="WR_coalitionmedhelmet_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Helmethit.ogg" range="400" />
+		<ParticleEmitter particle="spark" AngleMin="150" AngleMax="200" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+		<ParticleEmitter particle="spark" AngleMin="-20" AngleMax="30" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+        <ParticleEmitter particle="coalitionmedhelmet" AngleMin="60" AngleMax="120" VelocityMin="300" VelocityMax="350" ScaleMultiplier="0.85,0.85" ParticleAmount="1" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="WR_renegadehelmet_sfx" identifier="WR_renegadehelmet_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Helmethit.ogg" range="400" />
+		<ParticleEmitter particle="spark" AngleMin="150" AngleMax="200" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+		<ParticleEmitter particle="spark" AngleMin="-20" AngleMax="30" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+        <ParticleEmitter particle="renegadehelmet" AngleMin="60" AngleMax="120" VelocityMin="300" VelocityMax="350" ScaleMultiplier="0.85,0.85" ParticleAmount="1" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="WR_renegademedhelmet_sfx" identifier="WR_renegademedhelmet_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sounds/Helmethit.ogg" range="400" />
+		<ParticleEmitter particle="spark" AngleMin="150" AngleMax="200" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+		<ParticleEmitter particle="spark" AngleMin="-20" AngleMax="30" VelocityMin="250" VelocityMax="500" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="255,255,255,255" />
+        <ParticleEmitter particle="renegademedhelmet" AngleMin="60" AngleMax="120" VelocityMin="300" VelocityMax="350" ScaleMultiplier="0.85,0.85" ParticleAmount="1" ColorMultiplier="255,255,255,255" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
 </Items>

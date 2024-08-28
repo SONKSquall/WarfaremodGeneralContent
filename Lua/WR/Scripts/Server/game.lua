@@ -211,6 +211,30 @@ function WR.characterDeathFunctions.log(char)
     WR.dataManager.addData("teams."..char.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
 end
 
+WR.characterDamageFunctions = {}
+
+function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
+    if hitLimb.type ~= LimbType.Head then return end
+    local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Head)
+
+    if not item then return end
+    if not item.HasTag("helmet") then return end
+
+    local damage = 0
+
+    for affliction in attackResult.Afflictions do
+        damage = damage + affliction.Strength
+    end
+
+    if damage > 25 and math.random() < 0.2 then
+        local sfxPrefab = ItemPrefab.GetItemPrefab(item.Prefab.Identifier.value.."_sfx")
+        if sfxPrefab then
+            Entity.Spawner.AddItemToSpawnQueue(sfxPrefab, hitLimb.worldPosition, nil, nil, nil)
+        end
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+
 -- for validating and initializing
 WR.teamKeys = {
     renegadeteam = "renegadeteam",
@@ -320,6 +344,15 @@ Hook.add("character.death", "WR.Death", function(char)
 
     for func in WR.characterDeathFunctions do
         func(char)
+    end
+
+end)
+
+Hook.add("character.applyDamage", "WR.Damage", function(charHealth, attackResult, hitLimb)
+    if WR.Game.ending then return end
+
+    for func in WR.characterDamageFunctions do
+        func(charHealth, attackResult, hitLimb)
     end
 
 end)
