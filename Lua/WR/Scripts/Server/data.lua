@@ -28,7 +28,7 @@ function WR.dataManager.setData(path,newValue)
     local step = data
     for index,key in pairs(path) do
         if index == #path then step[key] = newValue break end -- set value
-        if step[key] == nil then step[key] = {} warn("Path to data location not found, new one created at "..key) end -- create path if none is existent
+        if step[key] == nil then step[key] = {} print("Path to data location not found, new one created at "..key) end -- create path if none is existent
         step = step[key] -- advance step
     end
     return step
