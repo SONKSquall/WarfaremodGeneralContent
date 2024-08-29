@@ -87,3 +87,40 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
         limb.character.CharacterHealth.ApplyDamage(limb, AttackResult, true)
     end
 end)
+
+Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, characterUser, index, removeItemBool)
+	if characterUser == nil then return end
+
+    local reloadTimes = {
+        rifle = 4/6,
+        shotgun = 3.5/6,
+        revolver = 3/6,
+        smg = 3,
+        hmg = 6
+    }
+
+    local ammoTypes = {
+        riflebullet = "round",
+        shotgunshell = "round",
+        revolverround = "round",
+        smgmagazine = "mag",
+        hmgmagazine = "mag"
+    }
+
+    local reloadTime = reloadTimes[inventory.owner.Prefab.Identifier.value]
+    local ammoType = ammoTypes[item.Prefab.Identifier.value]
+
+    if ammoType and reloadTime and ((characterUser.CharacterHealth.GetAffliction('WR_reload', true) == nil) or ammoType == "round") then
+        WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
+        inventory.owner.Condition = 0
+
+        -- did not want to coordinate a function taking in to account bullets loaded or store data
+        Timer.NextFrame(function()
+            local endTime = math.ceil(characterUser.CharacterHealth.GetAffliction("WR_reload", true).Strength * 1000)
+            Timer.Wait(function()
+                inventory.owner.Condition = inventory.owner.MaxCondition
+            end,endTime)
+        end)
+    end
+
+end)
