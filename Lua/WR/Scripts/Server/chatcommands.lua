@@ -101,3 +101,17 @@ end
 Hook.Add("chatMessage", "WR.chatcommands", function(message,client)
     return chatcommands(message,client)
 end)
+
+Game.AddCommand("setroundlength", "Use to set a custom round length in minutes. (Works for one round)", function(args)
+    WR.tickmax = tonumber(args[1])*60*60
+    print("NEW ROUND LENGTH: ",tonumber(args[1]))
+end, nil, true)
+
+Game.AddCommand("forceend", "Ends the round with a optional winner.", function(args)
+    if args[1] then 
+        WR.Game.winner = WR.teamKeys[args[1]]
+    else
+        WR.Game.winner = WR.Game.altWinner()
+    end
+    WR.Game.endGame()
+end, nil, true)

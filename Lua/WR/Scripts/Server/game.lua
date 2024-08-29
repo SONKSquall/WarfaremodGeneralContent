@@ -7,6 +7,7 @@ WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 require"WR.Scripts.Server.hooks"
 require"WR.Scripts.Server.items"
+require"WR.Scripts.Server.weapons"
 
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
@@ -167,6 +168,9 @@ function WR.roundStartFunctions.main()
             WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
         end
     end, 60*1000)
+end
+
+function WR.roundStartFunctions.spawnPositions()
 
     WR.spawnPositions = {}
     -- collect data
@@ -187,45 +191,9 @@ function WR.roundStartFunctions.main()
     end
 end
 
-function WR.roundStartFunctions.ore()
-
-    if Util.GetItemsById("WR_oredrill") then
-        for drill in Util.GetItemsById("WR_oredrill") do
-            local drillID = WR.getStringVariables(drill.Tags).id
-            if drillID then
-                WR.dataManager.addData("userdata.drills."..drillID,nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
-            else
-                WR.dataManager.addData("userdata.drills.unassigned",nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
-            end
-        end
-    end
-end
-
 function WR.characterDeathFunctions.log(char)
     if not char.isHuman then return end
     WR.dataManager.addData("teams."..char.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
-end
-
-function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
-    if hitLimb.type ~= LimbType.Head then return end
-    local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Head)
-
-    if not item then return end
-    if not item.HasTag("helmet") then return end
-
-    local damage = 0
-
-    for affliction in attackResult.Afflictions do
-        damage = damage + affliction.Strength
-    end
-
-    if damage > 25 and math.random() < 0.2 then
-        local sfxPrefab = ItemPrefab.GetItemPrefab(item.Prefab.Identifier.value.."_sfx")
-        if sfxPrefab then
-            Entity.Spawner.AddItemToSpawnQueue(sfxPrefab, hitLimb.worldPosition, nil, nil, nil)
-        end
-        Entity.Spawner.AddEntityToRemoveQueue(item)
-    end
 end
 
 -- for validating and initializing
@@ -285,17 +253,3 @@ if Game.RoundStarted then
         obj:Start()
     end
 end
-
-Game.AddCommand("setroundlength", "Use to set a custom round length in minutes. (Works for one round)", function(args)
-    WR.tickmax = tonumber(args[1])*60*60
-    print("NEW ROUND LENGTH: ",tonumber(args[1]))
-end, nil, true)
-
-Game.AddCommand("forceend", "Ends the round with a optional winner.", function(args)
-    if args[1] then 
-        WR.Game.winner = WR.teamKeys[args[1]]
-    else
-        WR.Game.winner = WR.Game.altWinner()
-    end
-    WR.Game.endGame()
-end, nil, true)
