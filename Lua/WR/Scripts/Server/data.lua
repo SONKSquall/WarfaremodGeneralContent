@@ -75,3 +75,5 @@ function WR.dataManager.reset()
     if not File.Exists(WR.Path .. "/Lua/WR/defaultdata.lua") then error("Error: default data file not found!") end
     data = dofile(WR.Path .. "/Lua/WR/defaultdata.lua")
 end
+
+WR.dataManager.reset()
