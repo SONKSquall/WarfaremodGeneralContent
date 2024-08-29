@@ -55,7 +55,7 @@ function WR.thinkFunctions.ore()
 
     -- 1~ ore per player every 3 minutes
     if WR.tick % math.floor(3*60*60 / (#Client.ClientList/2)) == 0 then
-        for drillTable in WR.drills do
+        for drillTable in WR.dataManager.getData("userdata.drills") do
             local drill = drillTable[math.random(1,#drillTable)]
             if drill then
                 if not drill.OwnInventory.IsFull(true) then
@@ -103,7 +103,7 @@ function WR.createEndMessage()
 
     if WR.Game.winner == "" then return "Stalemate." end
 
-    local winner = WR.Game.Winner
+    local winner = WR.Game.winner
     local loser = WR.teamLoser[winner]
     return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType(WR.dataManager.getData("teams."..loser..".deaths") / WR.dataManager.getData("teams."..winner..".deaths"))
 end
