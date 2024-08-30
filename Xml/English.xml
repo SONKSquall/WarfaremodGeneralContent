@@ -189,5 +189,7 @@
   <afflictionname.WR_cardiacarrest>Cardiac arrest</afflictionname.WR_cardiacarrest>
   <afflictiondescription.WR_cardiacarrest>The patient's heart is beating in a unusual pattern and their skin is getting paler.</afflictiondescription.WR_cardiacarrest>
   <afflictiondescription.WR_cardiacarrest.high>You find no pulse and the patient's skin is ice cold.</afflictiondescription.WR_cardiacarrest.high>
+  <afflictionname.WR_reload>Reloading</afflictionname.WR_reload>
+  <afflictiondescription.WR_reload>You are reloading your weapon.</afflictiondescription.WR_reload>
   <!-- Affliction end -->
 </infotexts>
