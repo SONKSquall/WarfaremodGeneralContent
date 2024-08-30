@@ -79,6 +79,7 @@
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Renegade Eng Rig Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" limb="Torso" hidelimb="false" sourcerect="361,152,84,104" inherittexturescale="true" origin="0.4,0.575" />
       <StatValue stattype="RepairSpeed" value="2" />
+	  <StatusEffect type="OnWearing" targettype="Character" duration="0.1" tags="enginner" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">

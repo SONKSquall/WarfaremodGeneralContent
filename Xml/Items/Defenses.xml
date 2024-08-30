@@ -75,6 +75,10 @@
       <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-10" Stackable="false" >
         <sound file="%ModDir%/Sounds/Barbedwirebuild.ogg" range="500" loop="true" />
 	  </StatusEffect>
+	  <!-- eng rig allows for faster building -->
+      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true" >
+        <Conditional HasStatusTag="enginner" />
+	  </StatusEffect>
       <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
 	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
 	    <Conditional HasStatusTag="! building" />
@@ -128,6 +132,10 @@
     <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" >
       <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-12" Stackable="false" >
         <sound file="%ModDir%/Sounds/Sandbagbuild.ogg" range="500" loop="true" />
+	  </StatusEffect>
+	  <!-- eng rig allows for faster building -->
+      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true" >
+        <Conditional HasStatusTag="enginner" />
 	  </StatusEffect>
       <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
 	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
