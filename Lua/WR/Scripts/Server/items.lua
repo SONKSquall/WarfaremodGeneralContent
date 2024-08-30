@@ -43,13 +43,13 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     if not item then return end
     if not item.HasTag("helmet") then return end
 
-    local damage = 0
+    local damage = attackResult.Damage
+    if damage > 25 then
 
-    for affliction in attackResult.Afflictions do
-        damage = damage + affliction.Strength
-    end
+        for affliction in attackResult.Afflictions do
+            Timer.NextFrame(function() charHealth.ReduceAfflictionOnLimb(hitLimb,affliction.Identifier,affliction.Strength*0.9) end)
+        end
 
-    if damage > 25 and math.random() < 0.2 then
         local sfxPrefab = ItemPrefab.GetItemPrefab(item.Prefab.Identifier.value.."_sfx")
         if sfxPrefab then
             Entity.Spawner.AddItemToSpawnQueue(sfxPrefab, hitLimb.worldPosition, nil, nil, nil)
