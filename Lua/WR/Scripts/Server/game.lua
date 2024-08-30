@@ -148,6 +148,10 @@ function WR.roundStartFunctions.main()
     WR.dataManager.toggle(true)
     WR.dataManager.reset()
 
+    NetConfig.MaxHealthUpdateInterval = 0
+    NetConfig.LowPrioCharacterPositionUpdateInterval = 0
+    NetConfig.MaxEventPacketsPerUpdate = 8
+
     -- shops
     if Util.GetItemsById("WR_strategicexchange") then
         for shop in Util.GetItemsById("WR_strategicexchange") do
