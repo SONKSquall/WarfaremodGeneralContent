@@ -92,10 +92,10 @@ Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, charact
 	if characterUser == nil then return end
 
     local reloadTimes = {
-        rifle = 4/6,
-        shotgun = 3.5/6,
-        revolver = 3/6,
-        smg = 3,
+        rifle = 5/6,
+        shotgun = 4.5/6,
+        revolver = 4/6,
+        smg = 4,
         hmg = 6
     }
 
@@ -111,6 +111,12 @@ Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, charact
     local ammoType = ammoTypes[item.Prefab.Identifier.value]
 
     if ammoType and reloadTime and ((characterUser.CharacterHealth.GetAffliction('WR_reload', true) == nil) or ammoType == "round") then
+        local rig = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+        -- infantry have faster reload
+        if rig and (rig.Prefab.Identifier.value == "WR_coalitiongear" or "WR_renegadegear") then
+            reloadTime = reloadTime / 1.25
+        end
+
         WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
         inventory.owner.Condition = 0
 
