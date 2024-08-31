@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <Talent identifier="WR_coalitionrecipes" name="">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,1" sheetelementsize="128,128" />
+    <AddedRecipe itemidentifier="WR_coalitionshellcrate" />
+    <AddedRecipe itemidentifier="WR_coalitionbodyarmorcrate" />
+    <AddedRecipe itemidentifier="WR_coalitiongasgrenadecrate" />
+  </Talent>
+  <Talent identifier="WR_renegaderecipes" name="">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,1" sheetelementsize="128,128" />
+    <AddedRecipe itemidentifier="WR_renegadebodyarmorcrate" />
+    <AddedRecipe itemidentifier="WR_renegadeshellcrate" />
+  </Talent>
+</Talents>

@@ -8,6 +8,7 @@ WR.roundEndFunctions = {}
 -- character hooks
 WR.characterDeathFunctions = {}
 WR.characterDamageFunctions = {}
+WR.characterCreateFunctions = {}
 
 -- item hooks
 WR.pointItemFunctions = {}
@@ -68,6 +69,15 @@ Hook.add("character.applyDamage", "WR.Damage", function(charHealth, attackResult
 
     for func in WR.characterDamageFunctions do
         func(charHealth, attackResult, hitLimb)
+    end
+
+end)
+
+Hook.add("character.created", "WR.Spawn", function(char)
+    if WR.Game.ending then return end
+
+    for func in WR.characterCreateFunctions do
+        func(char)
     end
 
 end)

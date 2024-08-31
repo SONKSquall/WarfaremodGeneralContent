@@ -19,6 +19,7 @@
   <Item file="%ModDir%/Christmascontent/Gifts.xml" />
   <Item file="%ModDir%/Christmascontent/Food.xml" />
   <Afflictions file="%ModDir%/Christmascontent/Miscafflictions.xml" />
+  <Talents file="%ModDir%/Xml/Talents.xml" />
   <Submarine file="%ModDir%/Abridging War.sub" />
   <Submarine file="%ModDir%/The Oil Rig.sub" />
   <Submarine file="%ModDir%/Schluchtstadt.sub" />

@@ -21,7 +21,7 @@
       <IsActiveConditional Condition="gt 0.0" />
     </DecorativeSprite>'
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.82" offset="40,-30" sourcerect="944,395,74,74" origin="0.5,0.5" rotationspeed="718"><AnimationConditional IsActive="True" targetitemcomponent="Fabricator" /><IsActiveConditional Condition="gt 0.0" /></DecorativeSprite><DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.81" offset="41,-40" sourcerect="944,395,74,74" origin="0.5,0.5" rotationspeed=" 720"><AnimationConditional IsActive="True" targetitemcomponent="Fabricator" /><IsActiveConditional Condition="gt 0.0" /></DecorativeSprite><Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect"><GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" /></Fabricator><ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" /><ItemContainer capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" uilabel="" allowuioverlap="true" /></Item>
-  <Item name="" identifier="WR_factory" tags="factory,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
+  <Item name="" identifier="WR_factory" aliases="WR_coalitionfactory,WR_renegadefactory" tags="factory,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
     <Sprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="0,624,336,400" depth="0.8" />
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.84" offset="-103,99" sourcerect="908,301,116,87" />
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.81" offset="-103,99" sourcerect="825,395,114,83" />
@@ -50,8 +50,10 @@
       <Containable items="ore" />
 	</ItemContainer>
   </Item>
+  <!--
   <Item name="" identifier="WR_coalitionfactory" variantof="WR_factory" tags="factory,coalitionfactory,donttakeitems,dontsellitems" />
   <Item name="" identifier="WR_renegadefactory" variantof="WR_factory" tags="factory,renegadefactory,donttakeitems,dontsellitems" />
+  -->
   <!-- Facilitys End -->
   <!-- Material Start -->
   <Item name="" identifier="WR_basicmaterial" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light">
@@ -316,7 +318,7 @@
   </Item>
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6">
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+    <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
       <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -329,7 +331,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_coalitionbodyarmorcrate" variantof="WR_productioncrate" Health="2">
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+    <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
@@ -341,7 +343,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_coalitiongasgrenadecrate" variantof="WR_productioncrate" Health="3">
-    <Fabricate suitablefabricators="coalitionfactory" requiredtime="30">
+    <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
       <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -369,7 +371,7 @@
   <!-- Coalition End -->
   <!-- Renegade Start -->
   <Item name="" identifier="WR_renegadeshellcrate" variantof="WR_productioncrate" Health="1">
-    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
+    <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
       <RequiredItem identifier="WR_basicmaterial" amount="2" />
       <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
@@ -382,7 +384,7 @@
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_renegadebodyarmorcrate" variantof="WR_productioncrate" Health="4">
-    <Fabricate suitablefabricators="renegadefactory" requiredtime="30">
+    <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
       <RequiredItem identifier="WR_advancedmaterial" amount="1" />
     </Fabricate>
     <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">

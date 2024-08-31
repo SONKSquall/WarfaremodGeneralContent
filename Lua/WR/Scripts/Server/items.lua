@@ -111,6 +111,14 @@ function WR.thinkFunctions.antiSpam()
     end
 end
 
+function WR.characterCreateFunctions.giveRecipes(char)
+    if char.JobIdentifier == "coalitionteam" then
+        char.GiveTalent("WR_coalitionrecipes",nil)
+    elseif char.JobIdentifier == "renegadeteam" then
+        char.GiveTalent("WR_renegaderecipes",nil)
+    end
+end
+
 Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
     local spawndata = WR.getStringVariables(element.GetAttributeString("spawndata", "default value"))
     local itemSpawned = false
