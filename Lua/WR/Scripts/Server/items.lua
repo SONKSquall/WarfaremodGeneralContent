@@ -47,7 +47,10 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     if damage > 25 and math.random() < 0.2 then
 
         for affliction in attackResult.Afflictions do
-            Timer.NextFrame(function() charHealth.ReduceAfflictionOnLimb(hitLimb,affliction.Identifier,affliction.Strength*0.9) end)
+            Timer.NextFrame(function()
+                charHealth.ReduceAfflictionOnLimb(hitLimb,affliction.Identifier,affliction.Strength*0.9)
+                charHealth.ReduceAfflictionOnAllLimbs("stun",100)
+            end)
         end
 
         local sfxPrefab = ItemPrefab.GetItemPrefab(item.Prefab.Identifier.value.."_sfx")
