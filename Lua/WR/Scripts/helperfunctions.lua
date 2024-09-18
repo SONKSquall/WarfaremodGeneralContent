@@ -361,3 +361,24 @@ function WR.simPosToWorldPos(position,inSub)
         return (position * 100)
     end
 end
+
+function WR.getIndex(table,path)
+    path = WR.stringSplit(path,"&.")
+    local step = table
+    for key in path do
+        if step[key] == nil then return end
+        step = step[key]
+    end
+    return step
+end
+
+function WR.setIndex(table,path,value)
+    path = WR.stringSplit(path,"&.")
+    local step = table
+    for index,key in pairs(path) do
+        if index == #path then step[key] = value break end -- set value
+        if step[key] == nil then step[key] = {} print("Path to location not found, new one created at "..key) end -- create path if none is existent
+        step = step[key] -- advance step
+    end
+    return step
+end

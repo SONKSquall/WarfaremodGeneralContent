@@ -52,10 +52,9 @@ function WR.thinkFunctions.winner()
 end
 
 function WR.thinkFunctions.ore()
-
     -- 1~ ore per player every 3 minutes
     if WR.tick % math.floor(3*60*60 / (#Client.ClientList/2)) == 0 then
-        for drillTable in WR.dataManager.getData("userdata.drills") do
+        for drillTable in WR.data["userdata.drills"] do
             local drill = drillTable[math.random(1,#drillTable)]
             if drill then
                 if not drill.OwnInventory.IsFull(true) then
@@ -64,7 +63,6 @@ function WR.thinkFunctions.ore()
             end
         end
     end
-
 end
 
 function WR.thinkFunctions.calculateFrontLine()
@@ -89,7 +87,7 @@ function WR.thinkFunctions.calculateFrontLine()
 end
 
 function WR.Game.altWinner()
-    local winFactor = WR.dataManager.getData("teams.coalitionteam.deaths")/WR.dataManager.getData("teams.renegadeteam.deaths")
+    local winFactor = WR.data["teams.coalitionteam.deaths"]/WR.data["teams.renegadeteam.deaths"]
     -- the more death inbalance between teams, the less territory matters
     winFactor = Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam) / winFactor
     if winFactor > 0.5 then
@@ -105,7 +103,7 @@ function WR.createEndMessage()
 
     local winner = WR.Game.winner
     local loser = WR.teamLoser[winner]
-    return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType(WR.dataManager.getData("teams."..loser..".deaths") / WR.dataManager.getData("teams."..winner..".deaths"))
+    return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType(WR.data["teams."..loser..".deaths"] / WR.data["teams."..winner..".deaths"])
 end
 
 function WR.getVictoryType(ratio)
@@ -130,13 +128,12 @@ function WR.roundEndFunctions.main()
 end
 
 function WR.roundEndFunctions.data()
-    WR.dataManager.setData("round.roundwinner",WR.Game.winner)
-    WR.dataManager.setData("round.roundlength",WR.FormatTime(WR.tick/60))
-    WR.dataManager.setData("round.map",tostring(Game.GameSession.SubmarineInfo.Name))
-    WR.dataManager.setData("round.territory",Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam))
-    WR.dataManager.save()
-    WR.dataManager.reset()
-    WR.dataManager.toggle(false)
+    WR.data["round.roundwinner"] = WR.Game.winner
+    WR.data["round.roundlength"] = WR.FormatTime(WR.tick/60)
+    WR.data["round.map"] = tostring(Game.GameSession.SubmarineInfo.Name)
+    WR.data["round.territory"] = Vector2.Distance(WR.frontLinePos,WR.spawnPositions.coalitionteam)/Vector2.Distance(WR.spawnPositions.coalitionteam,WR.spawnPositions.renegadeteam)
+    WR.data.save()
+    WR.data.reset()
 end
 
 function WR.roundStartFunctions.main()
@@ -144,9 +141,6 @@ function WR.roundStartFunctions.main()
     if WR.tickmax == 0 then WR.tickmax = 30*60*60 end
     WR.Game.ending = false
     WR.Game.winner = ""
-
-    WR.dataManager.toggle(true)
-    WR.dataManager.reset()
 
     NetConfig.MaxHealthUpdateInterval = 0
     NetConfig.LowPrioCharacterPositionUpdateInterval = 0
@@ -158,7 +152,7 @@ function WR.roundStartFunctions.main()
             local shopteam = WR.getStringVariables(shop.Tags)["team"]
             shopteam = WR.teamKeys[shopteam] -- remove bogus teams
             if shopteam then
-                WR.dataManager.addData("userdata."..shopteam.."shop",nil,function() return shop end)
+                WR.data["userdata."..shopteam.."shop"] = shop
             end
         end
     end
@@ -197,7 +191,8 @@ end
 
 function WR.characterDeathFunctions.log(char)
     if not char.isHuman then return end
-    WR.dataManager.addData("teams."..char.Info.Job.Prefab.Identifier.Value..".deaths",nil,function(n) return n + 1 end)
+    local path = "teams."..char.Info.Job.Prefab.Identifier.Value..".deaths"
+    WR.data[path] = WR.data[path] + 1
 end
 
 -- for validating and initializing
@@ -247,6 +242,8 @@ function WR.Game.endGame()
         Game.EndGame()
     end,15*1000)
 end
+
+WR.data.reset()
 
 -- incase of reloadlua
 if Game.RoundStarted then

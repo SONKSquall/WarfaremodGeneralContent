@@ -67,9 +67,9 @@ function WR.roundStartFunctions.ore()
         for drill in Util.GetItemsById("WR_oredrill") do
             local drillID = WR.getStringVariables(drill.Tags).id
             if drillID then
-                WR.dataManager.addData("userdata.drills."..drillID,nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
+                WR.data["userdata.drills."..drillID] = table.insert(WR.data["userdata.drills."..drillID] or {},drill)
             else
-                WR.dataManager.addData("userdata.drills.unassigned",nil,function(t) if t == nil then t = {} end table.insert(t,drill) end)
+                WR.data["userdata.drills.unassigned"] = table.insert(WR.data["userdata.drills.unassigned"] or {},drill)
             end
         end
     end
