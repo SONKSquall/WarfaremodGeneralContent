@@ -44,7 +44,7 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     if not item.HasTag("helmet") then return end
 
     local damage = attackResult.Damage
-    if damage > 25 and math.random() < 0.2 then
+    if damage > 25 and math.random() < 0.05 then
 
         for affliction in attackResult.Afflictions do
             Timer.NextFrame(function()
