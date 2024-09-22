@@ -87,13 +87,13 @@ function WR.thinkFunctions.antiSpam()
             for key,item in pairs(worldItems) do
                 -- compares itself with all other items of the same identifier
                 for otherKey,otherItem in pairs(worldItems) do
-                    if otherKey ~= key then
+                    if item.ID ~= otherItem.ID then
                         if Vector2.Distance(item.WorldPosition,otherItem.WorldPosition) < 200 then
                             local removeItem
                             -- grab newer item
                             if item.SpawnTime > otherItem.SpawnTime then
                                 removeItem = item
-                                table.remove(worldItems,key)
+				                table.remove(worldItems,key)
                             else
                                 removeItem = otherItem
                                 table.remove(worldItems,otherKey)
