@@ -88,8 +88,8 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
     end
 end)
 
-Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, characterUser, index, removeItemBool)
-	if characterUser == nil then return end
+function WR.reload(gun,ammo,characterUser)
+	if characterUser == nil or gun == nil or characterUser == nil then return end
 
     local reloadTimes = {
         rifle = 5/6,
@@ -107,8 +107,8 @@ Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, charact
         hmgmagazine = "mag"
     }
 
-    local reloadTime = reloadTimes[inventory.owner.Prefab.Identifier.value]
-    local ammoType = ammoTypes[item.Prefab.Identifier.value]
+    local reloadTime = reloadTimes[gun.Prefab.Identifier.value]
+    local ammoType = ammoTypes[ammo.Prefab.Identifier.value]
 
     if ammoType and reloadTime and ((characterUser.CharacterHealth.GetAffliction('WR_reload', true) == nil) or ammoType == "round") then
         local rig = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
@@ -118,15 +118,22 @@ Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, charact
         end
 
         WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
-        inventory.owner.Condition = 0
+        gun.Condition = 0
 
         -- did not want to coordinate a function taking in to account bullets loaded or store data
         Timer.NextFrame(function()
             local endTime = math.ceil(characterUser.CharacterHealth.GetAffliction("WR_reload", true).Strength * 1000)
             Timer.Wait(function()
-                inventory.owner.Condition = inventory.owner.MaxCondition
+                gun.Condition = gun.MaxCondition
             end,endTime)
         end)
     end
+end
 
+Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, characterUser, index, removeItemBool)
+    WR.reload(inventory.owner,item,characterUser)
+end)
+
+Hook.Add("item.combine", "WR.reloadTimeCombineFix", function (item, deconstructor, characterUser, allowRemove)
+    WR.reload(item.RootContainer,item,characterUser)
 end)
