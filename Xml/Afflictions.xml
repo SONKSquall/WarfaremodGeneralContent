@@ -132,7 +132,7 @@
     <Effect minstrength="0" maxstrength="100" strengthchange="-100" >
 	  <StatusEffect target="Character" conditionalComparison="and" CheckConditionalAlways="true" >
 		<Conditional IsUnconscious="true" />
-		<Conditional bleeding="lt 75" />
+		<Conditional bleeding="lt 100" />
         <reduceaffliction identifier="bloodloss" strength="0.3" />
         <reduceaffliction type="bleeding" strength="0.5" />
 	  </StatusEffect>

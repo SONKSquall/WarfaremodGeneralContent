@@ -172,3 +172,12 @@ Hook.Add("meleeWeapon.handleImpact", "WR.constructionTool", function(meleeCompon
         item.Condition = item.Condition - 5
     end
 end)
+
+Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, item, targets, worldPosition)
+
+    local character = targets[1]
+
+    if character.SelectedCharacter then
+        WR.GiveAfflictionCharacter(character.SelectedCharacter, "WR_stabilize", 100)
+    end
+end)
