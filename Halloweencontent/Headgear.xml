@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Skull painted helmet" identifier="WR_halcoalitionhelmet1" variantof="WR_coalitionhelmet">
+    <Sprite name="Ghost Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,0,89,42" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Ghost Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,0,89,77" origin="0.535,0.525" />
+    </Wearable>
+  </Item>
+  <Item name="Pumpkin painted helmet" identifier="WR_halcoalitionhelmet2" variantof="WR_coalitionhelmet">
+    <Sprite name="Pumpkin Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,180,89,67" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Pumpkin Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,180,89,102" origin="0.535,0.625" />
+    </Wearable>
+  </Item>
+  <Item name="Witch's helmet" identifier="WR_halcoalitionmedhelmet1" variantof="WR_coalitionmedhelmet">
+    <Sprite name="Witch Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,77,89,67" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Witch Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,77,89,103" origin="0.535,0.625" />
+    </Wearable>
+  </Item>
+  <Item name="Spider helmet" identifier="WR_halrenegadehelmet1" variantof="WR_renegadehelmet">
+    <Sprite name="Spider Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,0,102,52" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Spider Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,0,102,92" origin="0.5,0.59" />
+    </Wearable>
+  </Item>
+  <Item name="Pirate helmet" identifier="WR_halrenegadehelmet2" variantof="WR_renegadehelmet">
+    <Sprite name="Pirate Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,174,102,42" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Pirate Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,174,102,83" origin="0.5,0.53" />
+    </Wearable>
+  </Item>
+  <Item name="Zombie helmet" identifier="WR_halrenegademedhelmet1" variantof="WR_renegademedhelmet">
+    <Sprite name="Zombie Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,92,102,42" depth="0.6" origin="0.5,0.5" />
+    <Wearable>
+      <sprite name="Zombie Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,92,102,82" origin="0.5,0.53" />
+    </Wearable>
+  </Item>
+</Items>

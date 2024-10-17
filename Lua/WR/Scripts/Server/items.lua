@@ -122,6 +122,46 @@ function WR.characterCreateFunctions.giveRecipes(char)
     end
 end
 
+function WR.spawnItemFunctions.WR_coalitionhelmet(item)
+    if not WR.HalloweenMode then return end
+    local prefab = ItemPrefab.GetItemPrefab("WR_halcoalitionhelmet" .. math.random(1,2))
+
+    Timer.NextFrame(function()
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, item.ParentInventory, nil, nil, nil, true, false, InvSlotType.Head)
+    end)
+end
+
+function WR.spawnItemFunctions.WR_coalitionmedhelmet(item)
+    if not WR.HalloweenMode then return end
+    local prefab = ItemPrefab.GetItemPrefab("WR_halcoalitionmedhelmet1")
+
+    Timer.NextFrame(function()
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, item.ParentInventory, nil, nil, nil, true, false, InvSlotType.Head)
+    end)
+end
+
+function WR.spawnItemFunctions.WR_renegadehelmet(item)
+    if not WR.HalloweenMode then return end
+    local prefab = ItemPrefab.GetItemPrefab("WR_halrenegadehelmet" .. math.random(1,2))
+
+    Timer.NextFrame(function()
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, item.ParentInventory, nil, nil, nil, true, false, InvSlotType.Head)
+    end)
+end
+
+function WR.spawnItemFunctions.WR_renegademedhelmet(item)
+    if not WR.HalloweenMode then return end
+    local prefab = ItemPrefab.GetItemPrefab("WR_halrenegademedhelmet1")
+
+    Timer.NextFrame(function()
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, item.ParentInventory, nil, nil, nil, true, false, InvSlotType.Head)
+    end)
+end
+
 Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
     local spawndata = WR.getStringVariables(element.GetAttributeString("spawndata", "default value"))
     local itemSpawned = false

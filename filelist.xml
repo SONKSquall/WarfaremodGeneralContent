@@ -8,6 +8,7 @@
   <Item file="%ModDir%/Xml/Items/Jobgear/Equipment.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Renegade.xml" />
   <Item file="%ModDir%/Xml/Items/Jobgear/Coalition.xml" />
+  <Item file="%ModDir%/Halloweencontent/Headgear.xml" />
   <Item file="%ModDir%/Xml/Sfx.xml" />
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
   <Sounds file="%ModDir%/Xml/Sounds.xml" />

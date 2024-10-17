@@ -31,3 +31,5 @@ dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
 
 -- for holiday stuff
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/misc.lua")
+
+WR.HalloweenMode = true
