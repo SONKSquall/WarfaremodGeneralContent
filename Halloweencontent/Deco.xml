@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Jack-o-Grenade" identifier="WR_lantern1" width="125" height="95" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Halloween">
+    <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="91,0,125,95" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+    <LightComponent range="100" lightcolor="200,150,0,150" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" alphablend="true" allowingameediting="false">
+      <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="90,124,99,95" depth="0.97" premultiplyalpha="false" origin="0.65,0.5" />
+    </LightComponent>
+  </Item>
+  <Item name="Jack-o-Grenade" identifier="WR_lantern2" width="87" height="121" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Halloween">
+    <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,0,87,121" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+    <LightComponent range="100" lightcolor="200,150,0,150" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" alphablend="true" allowingameediting="false">
+      <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,124,87,94" depth="0.97" premultiplyalpha="false" origin="0.5,0.4" />
+    </LightComponent>
+  </Item>
+</Items>
