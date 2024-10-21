@@ -34,4 +34,22 @@
     </Effect>
 	<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0"/>
   </Affliction>
+  <Affliction
+    name="Sugar rush"
+    identifier="WR_speedbuff"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="0"
+	ShowIconToOthersThreshold="0"
+	isbuff="true"
+    affectmachines="false" > 
+    <Effect minstrength="0" maxstrength="100" strengthchange="-3" >
+	  <StatValue stattype="MovementSpeed" value="1" />
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+    </Effect>
+	<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0"/>
+  </Affliction>
 </Afflictions>

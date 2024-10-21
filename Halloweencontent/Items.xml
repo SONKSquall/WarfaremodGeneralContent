@@ -81,5 +81,35 @@
       </StatusEffect>
     </Holdable>
   </Item>
+  <Item name="Jam" identifier="WR_jam" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Processed fruit preserves made from pomegrenades, should not explode at random. Great for when you need a pick me up to prevent death." Tags="smallitem" scale="0.5" ImpactTolerance="0.25" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="128,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,485,41,60" depth="0.6" origin="0.5,0.5" />
+    <Body width="40" height="60" density="1" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,5" holdangle="0" aimangle="45" aimable="false" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 1" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="WR_speedbuff" amount="100" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="45" velocitymin="500" velocitymax="1500" scalemin="0.4" scalemax="0.5" colormultiplier="255,200,200" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="5000" />
+        <Explosion range="100.0" force="10" showEffects="false" shockwave="true" smoke="true" decal="explosion" decalsize="0.25">
+          <Affliction identifier="stun" strength="3.5" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
   <!-- consumables end -->
 </Items>
