@@ -1,15 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="Jack-o-Grenade" identifier="WR_lantern1" width="125" height="95" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Halloween">
+  <Item name="Jack-o-Grenade" identifier="WR_lantern1" width="125" height="95" health="1" damagedbyprojectiles="true" scale="0.5" category="Decorative" Subcategory="Halloween">
     <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="91,0,124,95" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+	<Body radius="50" bodytype="Static" />
     <LightComponent range="100" lightcolor="200,150,0,150" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" alphablend="true" allowingameediting="false">
       <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="90,124,99,95" depth="0.97" premultiplyalpha="false" origin="0.65,0.5" />
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="45" velocitymin="500" velocitymax="1500" scalemin="0.4" scalemax="0.5" colormultiplier="255,255,255" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
+        <Explosion range="300.0" structuredamage="50.0" itemdamage="5" force="10" severlimbsprobability="0.5" showEffects="false" shockwave="true" smoke="true" decal="explosion" decalsize="0.25" penetration="0.25">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="bleeding" strength="100" />
+          <Affliction identifier="stun" strength="3.5" />
+        </Explosion>
+        <RemoveItem />
+      </StatusEffect>
     </LightComponent>
   </Item>
-  <Item name="Jack-o-Grenade" identifier="WR_lantern2" width="87" height="121" scale="0.5" noninteractable="true" category="Decorative" Subcategory="Halloween">
+  <Item name="Jack-o-Grenade" identifier="WR_lantern2" width="87" height="121" health="1" damagedbyprojectiles="true" scale="0.5" category="Decorative" Subcategory="Halloween">
     <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,0,87,121" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+	<Body radius="50" bodytype="Static" />
     <LightComponent range="100" lightcolor="200,150,0,150" flicker="0.3" powerconsumption="0" IsOn="true" castshadows="false" alphablend="true" allowingameediting="false">
       <sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,124,87,94" depth="0.97" premultiplyalpha="false" origin="0.5,0.4" />
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="45" velocitymin="500" velocitymax="1500" scalemin="0.4" scalemax="0.5" colormultiplier="255,255,255" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
+        <Explosion range="300.0" structuredamage="50.0" itemdamage="5" force="10" severlimbsprobability="0.5" showEffects="false" shockwave="true" smoke="true" decal="explosion" decalsize="0.25" penetration="0.25">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="bleeding" strength="100" />
+          <Affliction identifier="stun" strength="3.5" />
+        </Explosion>
+        <RemoveItem />
+      </StatusEffect>
     </LightComponent>
   </Item>
   <!-- Functional items -->
