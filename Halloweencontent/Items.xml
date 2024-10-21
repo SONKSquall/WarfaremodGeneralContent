@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+  <!-- headgear start -->
   <Item name="Skull painted helmet" identifier="WR_halcoalitionhelmet1" variantof="WR_coalitionhelmet">
     <Sprite name="Ghost Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,0,89,42" depth="0.6" origin="0.5,0.5" />
     <Wearable>
@@ -36,4 +37,28 @@
       <sprite name="Zombie Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,92,102,82" origin="0.5,0.53" />
     </Wearable>
   </Item>
+  <!-- headgear end -->
+  <!-- consumables start -->
+  <Item name="Corned Beef" identifier="WR_beef" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="A salted beef product in fresh packed tin-can straight from the home front. Be sure to share!" Tags="smallitem" scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="0,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,548,63,53" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="50" density="1" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 1" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="UseTarget" >
+        <Affliction identifier="WR_damagebuff" amount="11" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- consumables end -->
 </Items>

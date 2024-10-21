@@ -1,0 +1,19 @@
+<Afflictions>
+  <Affliction
+    name="Bully"
+    identifier="WR_damagebuff"
+    description=""
+    type=""
+    limbspecific="false"
+    indicatorlimb="Torso"
+    maxstrength="100"
+    ShowIconThreshold="0"
+	ShowIconToOthersThreshold="0"
+    affectmachines="false" > 
+    <Effect minstrength="0" maxstrength="100" strengthchange="0" >
+	  <StatValue stattype="MeleeAttackSpeed" minvalue="0.1" maxvalue="1" />
+	  <StatValue stattype="MeleeAttackMultiplier" minvalue="0.1" maxvalue="1" />
+    </Effect>
+    <icon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" color="195,136,60,255" origin="0,0"/>
+  </Affliction>
+</Afflictions>
