@@ -10,7 +10,7 @@ Hook.Patch("Barotrauma.CharacterHealth", "UpdateOxygen", function(instance, ptab
         instance.oxygenLowAffliction.Strength = 0
     end
 
-    local oxygenlowResistance = instance.GetResistance(instance.oxygenLowAffliction.Prefab)
+    local oxygenlowResistance = instance.GetResistance(instance.oxygenLowAffliction.Prefab, LimbType.None)
 
     local decreaseSpeed = -5.0 * (1 - oxygenlowResistance)
     local increaseSpeed = 10.0 * (1 + oxygenlowResistance)
