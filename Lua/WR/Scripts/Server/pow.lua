@@ -10,8 +10,17 @@ local function spawncoins(shop,amount)
 end
 
 local function trickOrTreat(picker,amount)
-    if amount <= 0 then return end
     if not picker then return end
+    if amount <= 0 then
+        local tricks = {
+            ItemPrefab.GetItemPrefab("WR_candyred"),
+            ItemPrefab.GetItemPrefab("WR_candygreen"),
+            ItemPrefab.GetItemPrefab("WR_candyblue")
+        }
+        Entity.Spawner.AddItemToSpawnQueue(tricks[math.random(1,3)], picker.Inventory, nil, nil, nil)
+        return
+    end
+
     local treats, whights = {
         ItemPrefab.GetItemPrefab("WR_bread"),
         ItemPrefab.GetItemPrefab("WR_beef"),

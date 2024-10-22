@@ -111,5 +111,32 @@
       </StatusEffect>
     </Holdable>
   </Item>
+  <Item name="Candy" identifier="WR_candybase" category="Medical" Subcategory="Halloween" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." Tags="smallitem" scale="0.5" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="44,510,14,35" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="35" density="1" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="20,15" holdangle="0" aimangle="90" aimable="false" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-100" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 1" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" >
+        <Affliction identifier="cyanidepoisoning" amount="3" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyred" variantof="WR_candybase" SpriteColor="255,0,0,255" InventoryIconColor="255,0,0,255" >
+  </Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candygreen" variantof="WR_candybase" SpriteColor="0,255,0,255" InventoryIconColor="0,255,0,255" >
+  </Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyblue" variantof="WR_candybase" SpriteColor="0,0,255,255" InventoryIconColor="0,0,255,255" >
+  </Item>
   <!-- consumables end -->
 </Items>
