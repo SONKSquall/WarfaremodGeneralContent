@@ -11,6 +11,7 @@
   <Item file="%ModDir%/Halloweencontent/Items.xml" />
   <Item file="%ModDir%/Halloweencontent/Deco.xml" />
   <Afflictions file="%ModDir%/Halloweencontent/Afflictions.xml" />
+  <Structure file="%ModDir%/Halloweencontent/Fog.xml" />
   <Item file="%ModDir%/Xml/Sfx.xml" />
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
   <Sounds file="%ModDir%/Xml/Sounds.xml" />

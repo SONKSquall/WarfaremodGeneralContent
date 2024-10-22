@@ -1,0 +1,7 @@
+<prefabs>
+  <fog name="" identifier="WR_fog" descriptionidentifier="backgroundwall" allowattachitems="false" width="1024" height="512" resizehorizontal="true" resizevertical="true" texturescale="0.5,0.5" category="Decorative" tags="backgroundwall" subcategory="backgroundwall">
+    <sprite texture="%ModDir%/Halloweencontent/spooky_fog.png" sourcerect="0,0,1024,512" depth="0.999" premultiplyalpha="false" origin="0.5,0.5" />
+    <DecorativeSprite texture="%ModDir%/Halloweencontent/bigfog.png" sourcerect="0,0,2048,1024" depth="0.998" origin="0.5,0.5" scale="60" color="255,255,255,10"
+     offset="1000,0" offsetanim="Sine" offsetanimspeed="0.04" />
+  </fog>
+</prefabs>
