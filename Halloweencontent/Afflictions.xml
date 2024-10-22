@@ -2,13 +2,13 @@
   <Affliction
     name="Bully"
     identifier="WR_damagebuff"
-    description=""
+    description="Powered by the proteins and fat in bully beef, your melee attacks are stronger."
     type=""
     limbspecific="false"
     indicatorlimb="Torso"
     maxstrength="100"
     ShowIconThreshold="0"
-	ShowIconToOthersThreshold="0"
+	ShowIconToOthersThreshold="1000"
 	isbuff="true"
     affectmachines="false" > 
     <Effect minstrength="0" maxstrength="100" strengthchange="0" >
@@ -20,13 +20,13 @@
   <Affliction
     name="Hearty"
     identifier="WR_healthbuff"
-    description=""
+    description="Fortified by carbs, your health has increased."
     type=""
     limbspecific="false"
     indicatorlimb="Torso"
     maxstrength="100"
     ShowIconThreshold="0"
-	ShowIconToOthersThreshold="0"
+	ShowIconToOthersThreshold="1000"
 	isbuff="true"
     affectmachines="false" > 
     <Effect minstrength="0" maxstrength="100" strengthchange="0" >
@@ -37,7 +37,7 @@
   <Affliction
     name="Sugar rush"
     identifier="WR_speedbuff"
-    description=""
+    description="'Sugar' is allowing for far greater speed as well as pain tolerance."
     type=""
     limbspecific="false"
     indicatorlimb="Torso"

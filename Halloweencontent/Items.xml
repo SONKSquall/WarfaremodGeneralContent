@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
   <!-- headgear start -->
-  <Item name="Skull painted helmet" identifier="WR_halcoalitionhelmet1" variantof="WR_coalitionhelmet">
+  <Item name="Skull painted helmet" identifier="WR_halcoalitionhelmet1" variantof="WR_coalitionhelmet" Subcategory="Halloween">
     <Sprite name="Ghost Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,0,89,42" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Ghost Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,0,89,77" origin="0.535,0.525" />
     </Wearable>
   </Item>
-  <Item name="Pumpkin painted helmet" identifier="WR_halcoalitionhelmet2" variantof="WR_coalitionhelmet">
+  <Item name="Pumpkin painted helmet" identifier="WR_halcoalitionhelmet2" variantof="WR_coalitionhelmet" Subcategory="Halloween">
     <Sprite name="Pumpkin Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,180,89,67" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Pumpkin Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,180,89,102" origin="0.535,0.625" />
     </Wearable>
   </Item>
-  <Item name="Witch's helmet" identifier="WR_halcoalitionmedhelmet1" variantof="WR_coalitionmedhelmet">
+  <Item name="Witch's helmet" identifier="WR_halcoalitionmedhelmet1" variantof="WR_coalitionmedhelmet" Subcategory="Halloween">
     <Sprite name="Witch Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="102,77,89,67" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Witch Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="102,77,89,103" origin="0.535,0.625" />
     </Wearable>
   </Item>
-  <Item name="Spider helmet" identifier="WR_halrenegadehelmet1" variantof="WR_renegadehelmet">
+  <Item name="Spider helmet" identifier="WR_halrenegadehelmet1" variantof="WR_renegadehelmet" Subcategory="Halloween">
     <Sprite name="Spider Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,0,102,52" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Spider Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,0,102,92" origin="0.5,0.59" />
     </Wearable>
   </Item>
-  <Item name="Pirate helmet" identifier="WR_halrenegadehelmet2" variantof="WR_renegadehelmet">
+  <Item name="Pirate helmet" identifier="WR_halrenegadehelmet2" variantof="WR_renegadehelmet" Subcategory="Halloween">
     <Sprite name="Pirate Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,174,102,42" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Pirate Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,174,102,83" origin="0.5,0.53" />
     </Wearable>
   </Item>
-  <Item name="Zombie helmet" identifier="WR_halrenegademedhelmet1" variantof="WR_renegademedhelmet">
+  <Item name="Zombie helmet" identifier="WR_halrenegademedhelmet1" variantof="WR_renegademedhelmet" Subcategory="Halloween">
     <Sprite name="Zombie Helmet" texture="%ModDir%/Halloweencontent/Headgear.png" sourcerect="0,92,102,42" depth="0.6" origin="0.5,0.5" />
     <Wearable>
       <sprite name="Zombie Helmet Wearable" texture="%ModDir%/Halloweencontent/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidewearablesoftype="Hair" sourcerect="0,92,102,82" origin="0.5,0.53" />
@@ -39,7 +39,7 @@
   </Item>
   <!-- headgear end -->
   <!-- consumables start -->
-  <Item name="Corned Beef" identifier="WR_beef" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="A salted 'beef product' in fresh packed tin-can straight from the home front. Be sure to share!" Tags="smallitem" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="Corned Beef" identifier="WR_beef" category="Medical,Material" Subcategory="Halloween" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="A salted 'beef product' in a fresh packed tin-can straight from the home front. Be sure to share! Provides melee damage boost." Tags="smallitem" scale="0.5" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="0,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,548,63,53" depth="0.6" origin="0.5,0.5" />
     <Body width="60" height="50" density="1" />
@@ -60,7 +60,7 @@
       </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="Bread" identifier="WR_bread" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Made out of a unknown grain, this stale loaf will keep your belly a little bit less empty. Spare some crumbs for your comrades." Tags="smallitem" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="Bread" identifier="WR_bread" category="Medical,Material" Subcategory="Halloween" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Made out of a unknown grain, this stale loaf will keep your belly a little bit less empty. Spare some crumbs for your comrades. Provides health boost." Tags="smallitem" scale="0.5" impactsoundtag="impact_soft">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="64,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="66,566,100,35" depth="0.6" origin="0.5,0.5" />
     <Body width="100" height="35" density="1" />
@@ -81,7 +81,7 @@
       </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="Jam" identifier="WR_jam" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Processed fruit preserves made from pomegrenades, should not explode at random. Great for when you need a pick me up to prevent death." Tags="smallitem" scale="0.5" ImpactTolerance="0.25" impactsoundtag="impact_metal_light">
+  <Item name="Jam" identifier="WR_jam" category="Medical,Material" Subcategory="Halloween" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" description="Processed fruit preserves made from pomegrenades, explodes when dropped. Gives the user greater speed and keeps you conscious even when mortally injured (for a limited time)." Tags="smallitem" scale="0.5" ImpactTolerance="0.25" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="128,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="0,485,41,60" depth="0.6" origin="0.5,0.5" />
     <Body width="40" height="60" density="1" />
