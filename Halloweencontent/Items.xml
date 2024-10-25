@@ -102,10 +102,13 @@
       </StatusEffect>
       <StatusEffect type="OnImpact" target="This">
         <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="45" velocitymin="500" velocitymax="1500" scalemin="0.4" scalemax="0.5" colormultiplier="255,200,200" />
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="5000" />
-        <Explosion range="100.0" force="10" showEffects="false" shockwave="true" smoke="true" decal="explosion" decalsize="0.25">
-          <Affliction identifier="stun" strength="3.5" />
+        <sound file="Content/Sounds/Damage/GlassBreak1.ogg" range="1000" />
+        <sound file="Content/Sounds/Damage/GlassBreak2.ogg" range="1000" />
+        <sound file="Content/Sounds/Damage/GlassBreak3.ogg" range="1000" />
+        <sound file="Content/Sounds/Damage/GlassBreak4.ogg" range="1000" />
+        <Explosion range="100.0" force="50" showEffects="false" shockwave="true" smoke="true" decal="explosion" decalsize="0.25">
+          <Affliction identifier="stun" strength="10" />
+		  <Affliction identifier="lacerations" strength="100" />
         </Explosion>
         <Remove />
       </StatusEffect>
