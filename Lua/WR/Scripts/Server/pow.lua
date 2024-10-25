@@ -46,6 +46,9 @@ local function powhandle(targets,picker)
 
             -- spawning and despawning
             local footlocker = ItemPrefab.GetItemPrefab("WR_footlocker")
+            if WR.HalloweenMode then
+                footlocker = ItemPrefab.GetItemPrefab("WR_coffin")
+            end
             Entity.Spawner.AddItemToSpawnQueue(footlocker, character.WorldPosition, nil, nil, function(container)
                 WR.SpawnInventoryItems(character.Inventory.FindAllItems(nil, false, nil), container.OwnInventory)
             end)

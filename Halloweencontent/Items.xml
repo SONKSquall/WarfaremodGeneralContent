@@ -124,7 +124,7 @@
       <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" >
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
         <Affliction identifier="cyanidepoisoning" amount="3" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
@@ -132,11 +132,31 @@
       </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyred" variantof="WR_candybase" SpriteColor="255,0,0,255" InventoryIconColor="255,0,0,255" >
-  </Item>
-  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candygreen" variantof="WR_candybase" SpriteColor="0,255,0,255" InventoryIconColor="0,255,0,255" >
-  </Item>
-  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyblue" variantof="WR_candybase" SpriteColor="0,0,255,255" InventoryIconColor="0,0,255,255" >
-  </Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyred" variantof="WR_candybase" SpriteColor="255,0,0,255" InventoryIconColor="255,0,0,255"></Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candygreen" variantof="WR_candybase" SpriteColor="0,255,0,255" InventoryIconColor="0,255,0,255"></Item>
+  <Item name="Candy" description="Melted sugar in a plastic wrapper, trick for those who don't bring offerings." identifier="WR_candyblue" variantof="WR_candybase" SpriteColor="0,0,255,255" InventoryIconColor="0,0,255,255"></Item>
   <!-- consumables end -->
+  <Item name="Coffin" description="A container for the ashes, clothes and limbs of those who have died in this conflict... or for Jerry in the boxes!" identifier="WR_coffin" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Halloweencontent/Deco.png" sourcerect="490,948,400,76" depth="0.6" origin="0.5,0.5" />
+    <Body width="400" height="75" density="25" />
+    <Holdable slots="RightHand+LeftHand" holdpos="100,-100" handle1="-160,-10" handle2="-160,-10" holdangle="-20" aimable="false" msg="ItemMsgPickUpSelect">
+	  <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.3" setvalue="true" disabledeltatime="true" />
+	</Holdable>
+    <ItemContainer capacity="20" canbeselected="false" hideitems="false" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem" hide="true" />
+    </ItemContainer>
+    <Controller UserPos="0,-20" direction="Right" canbeselected="true" AllowSelectingWhenSelectedByOther="false" selectkey="Use" drawuserbehind="true" forceusertostayattached="true" msg="itemmsggoinside">
+      <limbposition limb="Head" position="74,-40" />
+      <limbposition limb="Torso" position="74,-40" />
+      <limbposition limb="Waist" position="74,-40" />
+      <limbposition limb="LeftHand" position="74,-40" />
+      <limbposition limb="RightHand" position="74,-40" />
+      <limbposition limb="RightLeg" position="74,-40" />
+      <limbposition limb="LeftLeg" position="74,-40" />
+      <limbposition limb="RightFoot" position="74,-40" />
+      <limbposition limb="LeftFoot" position="74,-40" />
+      <StatusEffect type="OnActive" targettype="Character" delay="0.25" stackable="true" indetectable="true" DisableFocusingOnEntities="true" invisibletimer="0.1" IgnoreMeleeWeapons="true" PressureProtection="6500.0" setvalue="true" />
+    </Controller>
+  </Item>
 </Items>
