@@ -100,7 +100,10 @@ function WR.thinkFunctions.dayCycle()
 
         currentPeriod = math.min(math.ceil(WR.tick / periodInterval),#periods)
 
-        if currentPeriod >= #periods then return end
+        if currentPeriod >= #periods then
+            WR.SendMessageToAllClients("Night has fallen...",{type = ChatMessageType.Server,color = Color(255, 0, 0, 255),sender = "..."})
+            return
+        end
 
         local light = skyLights[currentLightIndex]
         local lightComp = light.GetComponentString("LightComponent")
