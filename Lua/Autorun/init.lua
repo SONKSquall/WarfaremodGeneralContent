@@ -2,7 +2,7 @@ WR = {} -- Warfare General Content Pack
 
 WR.Path = ...
 WR.Name = "Warfare (General Content Pack)"
-WR.Version = "0.2.4.11"
+WR.Version = "0.2.4.11h"
 WR.DeltaTime = 0
 local json = dofile(WR.Path .. "/Lua/json.lua")
 WR.Config = json.decode(File.Read(WR.Path .. "/config.json"))
