@@ -30,6 +30,6 @@ dofile(WR.Path .. "/Lua/WR/Scripts/Server/oxygen.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
 
 -- for holiday stuff
-WR.HalloweenMode = true
+WR.HalloweenMode = false
 
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/misc.lua")
