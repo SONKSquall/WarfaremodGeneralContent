@@ -77,35 +77,42 @@ end
 
 function WR.thinkFunctions.antiSpam()
 
-    if WR.tick % 6 ~= 0 then return end
+    if WR.tick % 60 ~= 0 then return end
 
-    local spamitems = WR.GetPrefabsByTag("WR_spamable")
+    local spamables = {
+        WR_sandbag = {
+            range = 200,
+            remove = function(item)
+                Entity.Spawner.AddItemToRemoveQueue(item)
+                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab"WR_sandbag_setup", item.WorldPosition, nil, nil, nil)
+                return item
+            end
+        },
+        WR_barbedwire = {
+            range = 100,
+            remove = function(item)
+                Entity.Spawner.AddItemToRemoveQueue(item)
+                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab"WR_barbedwire_setup", item.WorldPosition, nil, nil, nil)
+                return item
+            end
+        }
+    }
 
-    for prefab in spamitems do
-        local worldItems = Util.GetItemsById(prefab.Identifier.value)
-        if worldItems then
-            for key,item in pairs(worldItems) do
-                -- compares itself with all other items of the same identifier
-                for otherKey,otherItem in pairs(worldItems) do
-                    if item.ID ~= otherItem.ID then
-                        if Vector2.Distance(item.WorldPosition,otherItem.WorldPosition) < 200 then
-                            local removeItem
-                            -- grab newer item
-                            if item.SpawnTime > otherItem.SpawnTime then
-                                removeItem = item
-				                table.remove(worldItems,key)
-                            else
-                                removeItem = otherItem
-                                table.remove(worldItems,otherKey)
-                            end
-
-
-                            if WR.getStringVariables(item.Tags).replacementitemid then
-                                local replaceItem = ItemPrefab.GetItemPrefab(WR.getStringVariables(item.Tags).replacementitemid)
-                                Entity.Spawner.AddItemToSpawnQueue(replaceItem, removeItem.WorldPosition, nil, nil, nil)
-                            end
-
-                            Entity.Spawner.AddItemToRemoveQueue(removeItem)
+    for id,obj in pairs(spamables) do
+        local items = Util.GetItemsById(id)
+        if items then
+            for key,instance in pairs(items) do
+                for otherKey,otherInstance in pairs(items) do
+                    if instance.WorldPosition.Distance(instance.WorldPosition,otherInstance.WorldPosition) < obj.range
+                    and key ~= otherKey
+                    and (instance.body and otherInstance.body) -- item objects still exist after deleting
+                    then
+                        if instance.SpawnTime > otherInstance.SpawnTime then
+                            table.remove(items,key) -- do this so the it does not do the remove the function twice
+                            obj.remove(instance)
+                        else
+                            table.remove(items,otherKey)
+                            obj.remove(otherInstance)
                         end
                     end
                 end
