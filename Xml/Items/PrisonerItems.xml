@@ -2,7 +2,7 @@
 <Items>
   <Item name="" identifier="WR_baton" category="Weapon" Tags="smallitem,stunner,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,185,141,17" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,175,141,17" depth="0.55" origin="0.5,0.5" />
     <Body width="141" height="17" density="30" />
     <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="40,20" handle1="-25,2" handle2="-30,2" holdangle="45" reload="1" range="140" combatpriority="30" msg="itemmsgpickupselect">
       <Attack structuredamage="0" itemdamage="0" targetimpulse="10" comparison="or">
@@ -17,37 +17,38 @@
   </Item>
   <Item name="" identifier="WR_cuffs" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,handlocker" scale="0.5" impactsoundtag="impact_soft" equipconfirmationtext="handcuffequipconfirmation">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="206,0,52,24" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="158,176,52,24" depth="0.6" origin="0.5,0.5" />
     <Body width="52" height="24" density="30" />
     <Wearable slots="Any,RightHand+LeftHand" msg="ItemMsgPickUpSelect" autoequipwhenfull="false">
-      <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="RightHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
-      <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="LeftHand" sourcerect="236,27,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="RightHand" sourcerect="158,203,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
+      <sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" limb="LeftHand" sourcerect="158,203,22,18" origin="0.5,0.8" depth="0.09" inheritlimbdepth="false" inherittexturescale="true" />
       <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" lockhands="true" setvalue="true" />
-	  <StatusEffect type="OnWearing" target="NearbyCharacters" Interval="0.5" Range="200" >
-	    <LuaHook name="WR.cuffs.xmlhook" />
-	  </StatusEffect>
+      <StatusEffect type="OnWearing" target="NearbyCharacters" Interval="0.5" Range="200">
+        <LuaHook name="WR.cuffs.xmlhook" />
+      </StatusEffect>
     </Wearable>
   </Item>
-  <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
-    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="230,54,28,204" depth="0.8" origin="0.5,0.5" />
-    <Body width="28" height="204" density="20" />
+  <Item name="" identifier="WR_powhandler" category="Misc" tags="button" cargocontaineridentifier="metalcrate" scale="0.5">
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" name="Door closed" sourcerect="213,0,191,420" depth="0.8" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" name="Door opened" sourcerect="407,0,293,420" depth="0.8" origin="0.669,0.5" maxcondition="50" />
+    <Body width="190" height="420" bodytype="Static" />
     <Controller direction="None" canbepicked="true" msg="ItemMsgPressSelect">
-      <sound file="%ModDir%/Sounds/Pull1.ogg" type="OnUse" range="500.0" selectionmode="Random" />
-      <sound file="%ModDir%/Sounds/Pull2.ogg" type="OnUse" range="500.0" />
-      <sound file="%ModDir%/Sounds/Pull3.ogg" type="OnUse" range="500.0" />
+      <sound file="%ModDir%/Halloweencontent/Dooropen.ogg" type="OnUse" range="500.0" />
+      <StatusEffect type="OnPicked" target="This" Condition="50" noninteractable="true" setvalue="true" />
       <StatusEffect type="OnPicked" target="Character,NearbyCharacters" range="500.0">
         <LuaHook name="WR.powhandle.xmlhook" />
       </StatusEffect>
-      <StatusEffect type="OnPicked" target="Character" >
+      <StatusEffect type="OnPicked" target="Character">
         <LuaHook name="WR.powteamgrabber.xmlhook" />
       </StatusEffect>
+      <StatusEffect type="OnPicked" target="This" delay="3" Condition="100" setvalue="true" noninteractable="false">
+        <sound file="%ModDir%/Halloweencontent/Doorclose.ogg" range="500.0" />
+      </StatusEffect>
     </Controller>
-    <!-- leave this here so it doesn't cause weird behavior (CanBePicked does not do anything for some reason) -->
-    <Holdable attachable="true" attachedbydefault="true" AllowInGameEditing="false" PickingTime="1000" CanBePicked="false" />
   </Item>
   <Item name="" identifier="WR_footlocker" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="0,64,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,205,124,53" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,195,124,53" depth="0.6" origin="0.5,0.5" />
     <Body width="124" height="53" density="25" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="false" keepopenwhenequipped="true" movableframe="true">
@@ -56,15 +57,15 @@
   </Item>
   <Item name="" identifier="WR_currency" category="Misc" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" tags="smallitem" scale="0.35" impactsoundtag="impact_coin">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,0,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="199,230,28,28" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="127,195,28,28" depth="0.55" origin="0.5,0.5" />
     <Body width="28" height="28" density="30" />
-    <Holdable slots="Any,RightHand,LeftHand" UseHandRotationForHoldAngle="true" CanBeCombined="true" RemoveOnCombined="true" msg="itemmsgpickupselect"/>
+    <Holdable slots="Any,RightHand,LeftHand" UseHandRotationForHoldAngle="true" CanBeCombined="true" RemoveOnCombined="true" msg="itemmsgpickupselect" />
   </Item>
   <Item name="" identifier="WR_strategicexchange" tags="stratshop,donttakeitems,dontsellitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.5">
     <Sprite texture="%ModDir%/Sprites/Items/PrisonerItems.png" sourcerect="0,0,200,172" depth="0.8" origin="0.5,0.5" />
     <Fabricator canbeselected="true" powerconsumption="0" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
-	  <sound file="%ModDir%/Sounds/Exchange.ogg" type="OnActive" volume="1.5" range="250.0" loop="true" />
+      <sound file="%ModDir%/Sounds/Exchange.ogg" type="OnActive" volume="1.5" range="250.0" loop="true" />
     </Fabricator>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
