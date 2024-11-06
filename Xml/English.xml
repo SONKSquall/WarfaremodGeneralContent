@@ -88,8 +88,8 @@
 <entitydescription.WR_renegadeuniform>A uniform consisting of a army green trench coat, trousers and boots topped with leg wraps.</entitydescription.WR_renegadeuniform>
   <!-- Uniform End -->
   <!-- Structure Start -->
-<entityname.WR_powhandler>Pull Switch (Despawns POWs)</entityname.WR_powhandler>
-<entitydescription.WR_powhandler>A chain switch that removes POWs.</entitydescription.WR_powhandler>
+<entityname.WR_powhandler>Door (Despawns POWs)</entityname.WR_powhandler>
+<entitydescription.WR_powhandler>A door that removes POWs.</entitydescription.WR_powhandler>
 <entityname.WR_strategicexchange>Strategic Exchange</entityname.WR_strategicexchange>
 <entitydescription.WR_strategicexchange>A place were ammo and weapons from the home front are sent and, with the right amount money, can be bought.</entitydescription.WR_strategicexchange>
 <entityname.WR_townfabricator>Work station</entityname.WR_townfabricator>
