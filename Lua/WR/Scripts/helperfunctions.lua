@@ -1,15 +1,3 @@
-function WR.GetPrefabsByTag(tag)
-    local prefabs = {}
-
-    for prefab in ItemPrefab.Prefabs do
-        for fabtag in prefab.Tags do
-            if fabtag == tag then table.insert(prefabs,prefab) break end
-        end
-    end
-
-    return prefabs
-end
-
 function WR.GetItemsByTag(searchTag)
     local Worlditems = {}
 
@@ -18,24 +6,6 @@ function WR.GetItemsByTag(searchTag)
     end
 
     return Worlditems
-end
-
-function WR.GetItemsById(id)
-    local items = {}
-
-    for k,v in pairs(Item.ItemList) do
-        if tostring(v.Prefab.Identifier) == id then table.insert(items, v) end
-    end
-
-    return items
-end
-
-function WR.FindItemBigField(item1,item2,field)
-    if item1[field] > item2[field] then
-        return item1
-    else
-        return item2
-    end
 end
 
 function WR.Lerp (n, a, b)
@@ -47,15 +17,7 @@ function WR.InvLerp (n, a, b)
 end
 
 function WR.IsEnemyPOW(character, TeamIdentifier)
-    if character.isHuman == true
-    and character.IsDead == false
-    and character.JobIdentifier ~= TeamIdentifier
-    and character.LockHands == true
-    then
-        return true
-    else
-        return false
-    end
+    return character.isHuman == true and character.IsDead == false and character.JobIdentifier ~= TeamIdentifier and character.LockHands == true
 end
 
 -- Thanks Mellon <3
@@ -74,51 +36,6 @@ function WR.SpawnInventoryItems(Items, TargetInventory)
     end
 end
 
-function WR.IsValidPlayer(player)
-
-    if player == nil then return false end
-
-    if player.InGame and not player.SpectateOnly then
-       return true
-    else
-       return false
-    end
-
-end
-
-function WR.GetPointers(valuetable, pointertable, field)
-
-    local pointers = {}
-
-    for key,value in pairs(valuetable) do
-        for key,pointer in pairs(pointertable) do
-            if value.field == pointer.field then
-                table.insert(pointers, #pointers+1)
-                break
-            end
-        end
-    end
-
-    return pointers
-
-end
-
-function WR.NumberToEqualize(number1, number2)
-
-    if number1 == number2 then return 0 end
-
-    local result = 0
-
-    if number1 > number2 then
-        number1 = number1 - number2
-        result = number1/2
-    elseif number2 > number1 then
-        number2 = number2 - number1
-        result = number2/2
-    end
-
-    return result
-end
 
 function WR.CreateDefaultMessageFormat()
     local format = {}
@@ -381,4 +298,8 @@ function WR.setIndex(table,path,value)
         step = step[key] -- advance step
     end
     return step
+end
+
+function WR.isPointInRect(point,rect)
+    return math.abs(point.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(point.Y - rect.Y + rect.Height/2) <= rect.Height/2
 end
