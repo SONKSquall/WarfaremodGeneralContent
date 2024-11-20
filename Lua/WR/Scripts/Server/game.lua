@@ -2,12 +2,13 @@ if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
 -- use instances to prevent the server from modifying classes     <- the most cursed text ever written
 WR.buildingManager = (require"WR.Scripts.Server.Extensions.buildingmanager".new())
-WR.objective = (require"WR.Scripts.Server.Extensions.objective".new())
 WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 require"WR.Scripts.Server.hooks"
 require"WR.Scripts.Server.items"
 require"WR.Scripts.Server.weapons"
+require"WR.Scripts.Server.objective"
+require"WR.Scripts.Server.respawn"
 
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
@@ -19,7 +20,6 @@ WR.tickmax = 30*60*60
 
 WR.extensions = {
     WR.buildingManager,
-    WR.objective,
     WR.artillery
 }
 
@@ -40,11 +40,19 @@ end
 function WR.thinkFunctions.winner()
 
     if WR.tick % 6 == 0 then
-        for obj in WR.objective.areas do
+        for obj in WR.objectives do
             if obj.captured then
-                WR.Game.winner = WR.teamKeys[obj.attacker]
-                WR.Game.endGame()
-                break
+                local defender
+                for client in Client.ClientList do -- end game when all defenders are dead and the objective captured
+                    if client.Character and client.Character.JobIdentifier == obj.defender and not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character,obj.attacker)) then
+                        defender = true
+                        break
+                    end
+                end
+                if not defender then
+                    WR.Game.winner = WR.teamKeys[obj.attacker]
+                    WR.Game.endGame()
+                end
             end
         end
     end
@@ -145,6 +153,10 @@ function WR.roundStartFunctions.main()
     NetConfig.MaxHealthUpdateInterval = 0
     NetConfig.LowPrioCharacterPositionUpdateInterval = 0
     NetConfig.MaxEventPacketsPerUpdate = 8
+
+    -- disable respawn
+    Game.ServerSettings["RespawnMode"] = 1
+    Game.ServerSettings.ForcePropertyUpdate()
 
     -- shops
     if Util.GetItemsById("WR_strategicexchange") then

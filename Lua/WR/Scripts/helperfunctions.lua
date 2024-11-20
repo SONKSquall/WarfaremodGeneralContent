@@ -106,23 +106,6 @@ function WR.GiveAfflictionCharacter (character, identifier, amount)
     character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
 end
 
-function WR.ConcatTables(a, b)
-
-    for key,value in pairs(b) do
-        a[#a+1] = b[#b]
-        table.remove(b, #b)
-    end
-
-    return a
-end
-
-function WR.GivePreferedJob(client)
-
-    if not client.PreferredJob then return end
-    client.AssignedJob = JobVariant(JobPrefab.Get(client.PreferredJob), 0)
-
-end
-
 function WR.GetDeadPlayers()
 
     local players = {}
@@ -302,4 +285,49 @@ end
 
 function WR.isPointInRect(point,rect)
     return math.abs(point.X - rect.X - rect.Width/2) <= rect.Width/2 and math.abs(point.Y - rect.Y + rect.Height/2) <= rect.Height/2
+end
+
+-- stolen from sharp-shark
+
+function WR.getWaypointsByJob(job)
+	local waypoints = {}
+	for waypoint in Submarine.MainSub.GetWaypoints(false) do
+		if waypoint.AssignedJob ~= nil and waypoint.AssignedJob.Identifier == job then
+			table.insert(waypoints, waypoint)
+		end
+	end
+	if job == "" and #waypoints < 1 then
+		for waypoint in Submarine.MainSub.GetWaypoints(false) do
+			if waypoint.SpawnType == SpawnType.Human then
+				table.insert(waypoints, waypoint)
+			end
+		end
+	end
+	return waypoints
+end
+
+function WR.getRandomWaypointByJob(job)
+    local waypoints = WR.getWaypointsByJob(job)
+    return waypoints[math.random(#waypoints)]
+end
+
+function WR.spawnHuman(client,job,pos)
+
+    local info
+    if client then
+        info = client.CharacterInfo
+    else
+        info = CharacterInfo("human", "Jerett")
+    end
+    info.Job = Job(JobPrefab.Get(job), false)
+
+    local character = Character.Create(info, pos, info.Name, 0, false, false)
+
+    if client then
+        client.SetClientCharacter(character)
+    end
+
+    character.GiveJobItems(false)
+
+    return character
 end
