@@ -210,7 +210,7 @@ Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item,
         end
     end
 end)
-
+--[[
 Hook.Add("meleeWeapon.handleImpact", "WR.constructionTool", function(meleeComponent, targetBody)
     if meleeComponent.Item.Prefab.Identifier ~= "WR_constructiontool" then return end
     local item = meleeComponent.Item
@@ -219,7 +219,7 @@ Hook.Add("meleeWeapon.handleImpact", "WR.constructionTool", function(meleeCompon
         item.Condition = item.Condition - 5
     end
 end)
-
+]]
 Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, item, targets, worldPosition)
 
     local character = targets[1]

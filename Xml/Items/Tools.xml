@@ -43,16 +43,6 @@
         </StatusEffect>
       </Attack>
     </MeleeWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" depth="0.5">
-      <Containable items="WR_basicmaterial">
-        <StatusEffect type="OnContaining" target="Contained" Condition="-5" disabledeltatime="true">
-          <Conditional Condition="lt 100" TargetContainer="true" />
-        </StatusEffect>
-        <StatusEffect type="OnContaining" target="this" Condition="10" disabledeltatime="true">
-          <Conditional Condition="lt 100" />
-        </StatusEffect>
-      </Containable>
-    </ItemContainer>
     <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
   </Item>
   <!-- Tools End -->
