@@ -44,7 +44,7 @@ function WR.thinkFunctions.winner()
             if obj.captured then
                 local defender
                 for client in Client.ClientList do -- end game when all defenders are dead and the objective captured
-                    if client.Character and client.Character.JobIdentifier == obj.defender and not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character,obj.attacker)) then
+                    if client.Character and client.Character.JobIdentifier == obj.defender and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
                         defender = true
                         break
                     end
