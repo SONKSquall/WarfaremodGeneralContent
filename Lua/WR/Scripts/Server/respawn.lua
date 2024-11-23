@@ -29,4 +29,8 @@ function WR.thinkFunctions.respawn()
         end
     end
 
+    -- teams with captured objectives can spawn once
+    for area in WR.objectives do
+        WR.teamSpawnBlackList[area.defender] = area.captured
+    end
 end

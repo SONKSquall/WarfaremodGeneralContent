@@ -19,8 +19,8 @@ function WR.thinkFunctions.objective()
 
     -- if theres an attacker in the base then that team can't respawn otherwise they can
     for area in WR.objectives do
-        local enemyAlreadyPresent = WR.teamSpawnBlackList[area.defender]
-        local enemyPresent
+        local enemyAlreadyPresent = area.captured
+        local enemyPresent = false
         for client in Client.ClientList do
             if client.Character and WR.isPointInRect(client.Character.WorldPosition, area.rect) then
                 if not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character, area.defender)) and client.Character.JobIdentifier == area.attacker then
@@ -31,12 +31,11 @@ function WR.thinkFunctions.objective()
 
         -- send message when theres a state change
         if not enemyAlreadyPresent and enemyPresent then
-            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team can no longer respawn due to enemy presence in their base!",{type = ChatMessageType.Default})
+            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team will not be able to respawn after this cycle due to enemy presence in their base!",{type = ChatMessageType.Default})
         elseif enemyAlreadyPresent and not enemyPresent then
             WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team can now respawn.",{type = ChatMessageType.Default})
         end
 
-        WR.teamSpawnBlackList[area.defender] = enemyPresent
-        area.captured = (enemyPresent == true)
+        area.captured = enemyPresent
     end
 end
