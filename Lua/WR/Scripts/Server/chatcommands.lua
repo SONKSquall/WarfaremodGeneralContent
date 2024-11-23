@@ -63,7 +63,7 @@ Mechanics:
     
 Guide:
 - Immediately after a battle, scan the ground for alive enemy combatants (including unconscious soldiers) upon finding one, cuff them & stop any severe bleeding.
-- Drag the pow to a special structure called a pull switch; these are found at the spawn bunkers & landmarks. After using the prisoner will be despawned, their items put into a footlocker & money will spawn at the spawn bunker.]]
+- Drag the pow to a special door; these are found at the spawn bunkers & landmarks. After using the prisoner will be despawned, their items put into a footlocker & money will spawn at the spawn bunker.]]
 
 Hook.Add("client.connected", "WR.welcomemessage", function(client)
     local chatMessage = ChatMessage.Create("Server", welcomemessage, ChatMessageType.ServerMessageBox, nil, nil)
@@ -118,6 +118,14 @@ Game.AddCommand("setrespawninterval", "Used to set respawn interval or disable i
             WR.defaultRespawnInterval = input*60*60
             print("New respawn interval: ",input," seconds.")
         end
+    end
+end, nil, true)
+
+Game.AddCommand("forcerespawn", "Spawns all dead players.", function()
+    for client in WR.GetDeadPlayers() do
+        local jobid = client.AssignedJob.Prefab.Identifier.value
+        local spawnPoint = WR.getRandomWaypointByJob(jobid)
+        WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
     end
 end, nil, true)
 
