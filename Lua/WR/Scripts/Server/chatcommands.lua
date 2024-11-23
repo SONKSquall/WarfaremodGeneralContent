@@ -107,6 +107,21 @@ Game.AddCommand("setroundlength", "Use to set a custom round length in minutes. 
     print("NEW ROUND LENGTH: ",tonumber(args[1]))
 end, nil, true)
 
+Game.AddCommand("setrespawninterval", "Used to set respawn interval or disable it.", function(args)
+    local input = tonumber(args[1])
+    if type(input) == "number" then
+        if input <= 0 then
+            WR.respawnEnabled = false
+            print("Respawn disabled!")
+        else
+            WR.respawnEnabled = true
+            WR.defaultRespawnInterval = input*60*60
+            print("New respawn interval: ",input," seconds.")
+        end
+    end
+end, nil, true)
+
+
 Game.AddCommand("forceend", "Ends the round with a optional winner.", function(args)
     if args[1] then 
         WR.Game.winner = WR.teamKeys[args[1]]
