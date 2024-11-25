@@ -115,7 +115,7 @@ Game.AddCommand("setrespawninterval", "Used to set respawn interval or disable i
             print("Respawn disabled!")
         else
             WR.respawnEnabled = true
-            WR.defaultRespawnInterval = input*60*60
+            WR.defaultRespawnInterval = input*60
             print("New respawn interval: ",input," seconds.")
         end
     end
