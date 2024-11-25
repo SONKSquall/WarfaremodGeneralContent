@@ -22,12 +22,11 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="320,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,368,50" depth="0.55" origin="0.3,0.5" />
     <Body width="150" height="30" density="30" />
-    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect" />
-    <RangedWeapon reload="0">
-      <StatusEffect type="OnUse" target="This">
+    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect" >
+	  <StatusEffect type="OnActive" target="This">
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-    </RangedWeapon>
+	</Holdable>
   </Item>
   <Item name="" identifier="WR_constructiontool" category="Equipment" Tags="smallitem,tool,simpletool,mountableweapon,buildable" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,64,64,64" origin="0.5,0.5" />
