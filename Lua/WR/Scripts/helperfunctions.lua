@@ -316,8 +316,10 @@ function WR.spawnHuman(client,job,pos)
     local info
     if client then
         info = client.CharacterInfo
+	info.TeamID = 0
     else
         info = CharacterInfo("human", "Jerett")
+	info.TeamID = 0
     end
     info.Job = Job(JobPrefab.Get(job), false)
 
