@@ -29,7 +29,7 @@ function WR.SpawnInventoryItems(Items, TargetInventory)
         Entity.Spawner.AddItemToSpawnQueue(ItemPrefab, TargetInventory, nil, nil, function(WorldItem)
             -- Spawn item inside other items
             if ItemInventory ~= nil then
-                ItemsInInventory = Item.OwnInventory.FindAllItems(predicate, false, list)
+                local ItemsInInventory = Item.OwnInventory.FindAllItems(predicate, false, list)
                 WR.SpawnInventoryItems(ItemsInInventory, WorldItem.OwnInventory)
             end
         end)
