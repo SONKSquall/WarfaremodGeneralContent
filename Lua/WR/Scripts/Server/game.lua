@@ -9,6 +9,7 @@ require"WR.Scripts.Server.items"
 require"WR.Scripts.Server.weapons"
 require"WR.Scripts.Server.objective"
 require"WR.Scripts.Server.respawn"
+require"WR.Scripts.Server.map"
 
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
