@@ -124,10 +124,11 @@ function WR.GetDeadPlayers()
     return players
 end
 
-function WR.TableSize(t)
-    local size = 1
-    for k in pairs(t) do size = size + 1 end
-    return size
+function WR.tableSize(t)
+    if not t then return 0 end
+    local n = 0
+    for _ in t do n = n + 1 end
+    return n
 end
 
 -- set magic
@@ -176,11 +177,10 @@ end
 WR.Set.mt.__tostring = WR.Set.tostring
 
 function WR.stringSplit(s,sep)
+    if not s then return end
     local tbl = {}
 
-    if not sep then
-        sep = ","
-    end
+    sep = sep or ","
 
     for v in string.gmatch(s, '([^'..sep..']+)') do
         table.insert(tbl,v)
@@ -190,19 +190,13 @@ function WR.stringSplit(s,sep)
 end
 
 function WR.stringKeyVar(s)
-    if type(s) ~= "string" then return nil end
-
+    if not s then return end
     local _, _, key, value = string.find(s, "(.+):(.+)")
-
-    if key and value then
-        return key, value
-    else
-        return nil
-    end
-
+    return key, value
 end
 
 function WR.getStringVariables(s)
+    if not s then return end
     local input = WR.Set.new(WR.stringSplit(s))
     local output = {}
     for k in pairs(input) do
