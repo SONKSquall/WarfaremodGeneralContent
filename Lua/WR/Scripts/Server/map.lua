@@ -35,7 +35,10 @@ function WR.thinkFunctions.loot()
         if WR.tick % spawner.rate == 0 then
             local loot = WR.weightedRandom(spawner.loot,spawner.weights)
             if not spawner.item.OwnInventory.IsFull(true) then
-                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab(loot), spawner.item.OwnInventory, nil, nil, nil)
+                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab(loot), spawner.item.OwnInventory, nil, nil, function(item)
+                    -- randomize the slot the item spawns in
+                    spawner.item.OwnInventory.TryPutItem(item, math.random(0,spawner.item.OwnInventory.Capacity), true, true, nil, true, true)
+                end, false)
             end
         end
     end
