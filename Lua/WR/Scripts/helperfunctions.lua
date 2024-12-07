@@ -88,13 +88,13 @@ function WR.FormatTime(secs)
 
     local text = ""
     if hours > 0 then
-        text = text .. tostring(hours) .. " hours"
+        text = text .. tostring(hours) .. " hour(s)"
     end
     if mins > 0 then
-        text = text .. " " .. tostring(mins) .. " minutes"
+        text = text .. " " .. tostring(mins) .. " minute(s)"
     end
     if secs > 0 then
-        text = text .. " " .. tostring(secs) .. " seconds"
+        text = text .. " " .. tostring(secs) .. " second(s)"
     end
     if text == "" then text = "0 seconds" end
     return text
@@ -310,10 +310,10 @@ function WR.spawnHuman(client,job,pos)
     local info
     if client then
         info = client.CharacterInfo
-	info.TeamID = 0
+	    info.TeamID = 1
     else
         info = CharacterInfo("human", "Jerett")
-	info.TeamID = 0
+    	info.TeamID = 1
     end
     info.Job = Job(JobPrefab.Get(job), false)
 
