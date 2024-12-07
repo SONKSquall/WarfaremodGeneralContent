@@ -10,7 +10,14 @@ local allowedContainers = {
     "steelcabinet",
     "securesteelcabinet",
     "medcabinet",
-    "toxcabinet"
+    "toxcabinet",
+    "suppliescabinetwrecked",
+    "mediumsteelcabinetwrecked",
+    "mediumwindowedsteelcabinetwrecked",
+    "steelcabinetwrecked",
+    "securesteelcabinetwrecked",
+    "medcabinetwrecked",
+    "toxcabinetwrecked"
 }
 --[[
 local lootTables = {
