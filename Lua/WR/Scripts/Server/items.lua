@@ -169,6 +169,17 @@ function WR.spawnItemFunctions.WR_renegademedhelmet(item)
     end)
 end
 
+function WR.spawnItemFunctions.metalcrate(item)
+    if WR.tick < 1 then
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+function WR.spawnItemFunctions.machinepistol(item)
+    if WR.tick < 1 then
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+
 Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
     local spawndata = WR.getStringVariables(element.GetAttributeString("spawndata", "default value"))
     local itemSpawned = false
