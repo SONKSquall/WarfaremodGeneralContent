@@ -48,12 +48,12 @@ function WR.roundStartFunctions.containers()
     for id in allowedContainers do
         if Util.GetItemsById(id) then
             for item in Util.GetItemsById(id) do
-                table.insert(WR.staticContainers,item)
+                WR.staticContainers[item] = true
             end
         end
     end
 
-    for item in WR.staticContainers do
+    for item in pairs(WR.staticContainers) do
         local tags = WR.getStringVariables(item.tags)
         if tags and tags.loottable then
             local loot = WR.stringSplit(tags.loottable,";")
@@ -69,7 +69,8 @@ function WR.roundStartFunctions.containers()
     end
 
 end
-
+--[[
 function WR.getRandomContainer()
     return WR.staticContainers[math.random(#WR.staticContainers)]
 end
+]]
