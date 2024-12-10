@@ -72,7 +72,7 @@ Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance, ptable)
     if cardiacarrest.Strength < 60 then
         ignorekill = true
         local s = "You may not give in. Please wait: " .. math.ceil(60-cardiacarrest.Strength) .. " Seconds."
-        WR.SendMessagetoClient(s,client)
+        WR.SendMessagetoClient(s,client,WR.messagesFormats.block)
     end
 end, Hook.HookMethodType.Before)
 

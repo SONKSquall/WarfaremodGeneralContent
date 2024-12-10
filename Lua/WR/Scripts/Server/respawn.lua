@@ -13,9 +13,9 @@ function WR.thinkFunctions.respawn()
 
     if WR.respawnTime % 1800 == 0 and WR.respawnTime > 1 then
         if WR.respawnTime <= 1800 then
-            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.",{type = ChatMessageType.ServerMessageBoxInGame})
+            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.",WR.messagesFormats.info)
         else
-            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.",{type = ChatMessageType.Default})
+            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.")
         end
     end
 
@@ -24,7 +24,7 @@ function WR.thinkFunctions.respawn()
     WR.respawnTime = WR.defaultRespawnInterval * 1 -- planning on changing respawn time depending on battle conditions
 
     WR.AssignBalanceJobs()
-    WR.SendMessageToAllClients("Respawning...",{type = ChatMessageType.ServerMessageBoxInGame})
+    WR.SendMessageToAllClients("Respawning...",WR.messagesFormats.info)
     for client in WR.GetDeadPlayers() do
         local jobid = client.AssignedJob.Prefab.Identifier.value
         if not WR.teamSpawnBlackList[jobid] then

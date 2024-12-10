@@ -33,7 +33,7 @@ function WR.thinkFunctions.main()
     end
 
     if WR.tick % 27000 == 0 then
-        WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".",{["type"] = ChatMessageType.Server, ["sender"] = "Server"})
+        WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".")
     end
 
 end
@@ -176,7 +176,7 @@ function WR.roundStartFunctions.main()
             for door in WR.GetItemsByTag("wr_graceperiod") do
                 Entity.Spawner.AddEntityToRemoveQueue(door)
             end
-            WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
+            WR.SendMessageToAllClients("Grace period ended!")
         end
     end, 60*1000)
 end
@@ -244,10 +244,10 @@ function WR.Game.endGame()
 
     WR.Game.ending = true
 
-    WR.SendMessageToAllClients(WR.createEndMessage(),nil)
+    WR.SendMessageToAllClients(WR.createEndMessage(),WR.messagesFormats.block)
     for n=1,15 do
         Timer.Wait(function()
-            WR.SendMessageToAllClients("Round ending in "..15-n.." seconds.",{["type"] = ChatMessageType.Server, ["color"] = Color(255, 0, 0, 255), ["sender"] = "Server"})
+            WR.SendMessageToAllClients("Round ending in "..15-n.." seconds.",{color = Color(255, 0, 0, 255)})
         end,n*1000)
     end
 
