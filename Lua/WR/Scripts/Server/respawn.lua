@@ -23,7 +23,8 @@ function WR.getPlayersByJob(clients,id)
         while true do
             index = index + 1
             if index > all then return end
-            if clients[index].AssignedJob and clients[index].AssignedJob.Prefab.Identifier.value == id or clients[index].Character and clients[index].Character.JobIdentifier.value == id then
+            if clients[index].Character and clients[index].Character.JobIdentifier.value == id or
+            not clients[index].Character and clients[index].AssignedJob and clients[index].AssignedJob.Prefab.Identifier.value == id then
                 return clients[index]
             end
         end
@@ -50,7 +51,7 @@ function WR.thinkFunctions.respawn()
         end
 
         if timer.time <= 0 then
-            timer.time = WR.defaultRespawnInterval * timer.multiplier
+            timer.time = math.floor(WR.defaultRespawnInterval * timer.multiplier)
 
             for client in WR.getPlayersByJob(Client.ClientList,job) do
                 WR.SendMessagetoClient("Respawning...",client,WR.messagesFormats.info)
