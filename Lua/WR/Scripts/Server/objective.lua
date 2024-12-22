@@ -31,9 +31,9 @@ function WR.thinkFunctions.objective()
 
         -- send message when theres a state change
         if not enemyAlreadyPresent and enemyPresent then
-            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team will not be able to respawn after this cycle due to enemy presence in their base!",{type = ChatMessageType.Default})
+            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team will not be able to respawn after this cycle due to enemy presence in their base!")
         elseif enemyAlreadyPresent and not enemyPresent then
-            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team can now respawn.",{type = ChatMessageType.Default})
+            WR.SendMessageToAllClients(WR.teamWinner[area.defender] .. " team can now respawn.")
         end
 
         area.captured = enemyPresent

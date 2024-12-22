@@ -17,7 +17,10 @@ function WR.InvLerp (n, a, b)
 end
 
 function WR.IsEnemyPOW(character, TeamIdentifier)
-    return character.isHuman == true and character.IsDead == false and character.JobIdentifier ~= TeamIdentifier and character.LockHands == true
+    return character.isHuman == true and
+    character.IsDead == false and character.JobIdentifier ~= TeamIdentifier and
+    character.LockHands == true and
+    not (character.CharacterHealth.GetAfflictionStrengthByIdentifier("wr_reload", false) > 0)
 end
 
 -- Thanks Mellon <3
@@ -37,46 +40,41 @@ function WR.SpawnInventoryItems(Items, TargetInventory)
 end
 
 
-function WR.CreateDefaultMessageFormat()
-    local format = {}
-    format.type = ChatMessageType.ServerMessageBox
-    format.color = Color(255, 255, 0, 255)
-    format.sender = "Server"
-    return format
-end
+WR.messagesFormats = {
+    default = {
+        type = ChatMessageType.Default,
+        color = Color(255, 255, 255, 255),
+        sender = ""
+    },
+    info = {
+        type = ChatMessageType.ServerMessageBoxInGame,
+        color = Color(255, 255, 0, 255)
+    },
+    block = {
+        type = ChatMessageType.MessageBox
+    }
+}
 
-function WR.RepairMessageFormat(format)
-    local defaultformat = WR.CreateDefaultMessageFormat()
-
-    if format.type == nil then format.type = defaultformat.type end
-    if format.color == nil then format.color = defaultformat.color end
-    if format.sender == nil then format.sender = defaultformat.sender end
-
+function WR.fixMessageFormat(format)
+    format.type = format.type or WR.messagesFormats.default.type
+    format.color = format.color or WR.messagesFormats.default.color
+    format.sender = format.sender or WR.messagesFormats.default.sender
     return format
 end
 
 function WR.SendMessageToAllClients(messagestring,format)
-    if not format then
-        format = WR.CreateDefaultMessageFormat()
-    else
-        format = WR.RepairMessageFormat(format)
-    end
-    for key,client in pairs(Client.ClientList) do
-        local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil)
-        chatMessage.Color = format.color
+    format = WR.fixMessageFormat(format or {})
+
+    for client in Client.ClientList do
+        local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil, nil, format.color)
         Game.SendDirectChatMessage(chatMessage, client)
     end
 end
 
 function WR.SendMessagetoClient(messagestring,client,format)
-    if not format then
-        format = WR.CreateDefaultMessageFormat()
-    else
-        format = WR.RepairMessageFormat(format)
-    end
+    format = WR.fixMessageFormat(format or {})
 
-    local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil)
-    chatMessage.Color = format.color
+    local chatMessage = ChatMessage.Create(format.sender, messagestring, format.type, nil, nil, nil, format.color)
     Game.SendDirectChatMessage(chatMessage, client)
 end
 

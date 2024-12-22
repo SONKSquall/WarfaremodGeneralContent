@@ -24,6 +24,7 @@ WR.extensions = {
     WR.artillery
 }
 
+--[[
 function WR.thinkFunctions.main()
 
     if WR.tick >= WR.tickmax then
@@ -33,7 +34,27 @@ function WR.thinkFunctions.main()
     end
 
     if WR.tick % 27000 == 0 then
-        WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".",{["type"] = ChatMessageType.Server, ["sender"] = "Server"})
+        WR.SendMessageToAllClients("Round ending in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".")
+    end
+
+end
+]]
+
+function WR.thinkFunctions.main()
+
+    if WR.tick >= WR.tickmax and WR.respawnEnabled == true then
+        WR.respawnEnabled = false
+        -- respawn all players
+        for client in WR.GetDeadPlayers() do
+            local jobid = client.AssignedJob.Prefab.Identifier.value
+            local spawnPoint = WR.getRandomWaypointByJob(jobid)
+            WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
+        end
+        WR.SendMessageToAllClients("Last respawn, last team standing wins!")
+    end
+
+    if WR.tick % 27000 == 0 and WR.respawnEnabled == true and WR.tick ~= WR.tickmax then
+        WR.SendMessageToAllClients("Final respawn will be in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".")
     end
 
 end
@@ -42,10 +63,10 @@ function WR.thinkFunctions.winner()
 
     if WR.tick % 6 == 0 then
         for obj in WR.objectives do
-            if obj.captured then
-                local defender
-                for client in Client.ClientList do -- end game when all defenders are dead and the objective captured
-                    if client.Character and client.Character.JobIdentifier == obj.defender and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
+            local defender
+            if obj.captured or WR.tick > WR.tickmax then
+                for client in WR.getPlayersByJob(Client.ClientList,obj.defender) do -- end game when all defenders are dead and the objective captured
+                    if client.Character and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
                         defender = true
                         break
                     end
@@ -53,6 +74,7 @@ function WR.thinkFunctions.winner()
                 if not defender then
                     WR.Game.winner = WR.teamKeys[obj.attacker]
                     WR.Game.endGame()
+                    return
                 end
             end
         end
@@ -176,7 +198,7 @@ function WR.roundStartFunctions.main()
             for door in WR.GetItemsByTag("wr_graceperiod") do
                 Entity.Spawner.AddEntityToRemoveQueue(door)
             end
-            WR.SendMessageToAllClients("Grace period ended!",{type = ChatMessageType.Server})
+            WR.SendMessageToAllClients("Grace period ended!")
         end
     end, 60*1000)
 end
@@ -244,10 +266,10 @@ function WR.Game.endGame()
 
     WR.Game.ending = true
 
-    WR.SendMessageToAllClients(WR.createEndMessage(),nil)
+    WR.SendMessageToAllClients(WR.createEndMessage(),WR.messagesFormats.block)
     for n=1,15 do
         Timer.Wait(function()
-            WR.SendMessageToAllClients("Round ending in "..15-n.." seconds.",{["type"] = ChatMessageType.Server, ["color"] = Color(255, 0, 0, 255), ["sender"] = "Server"})
+            WR.SendMessageToAllClients("Round ending in "..15-n.." seconds.",{color = Color(255, 0, 0, 255)})
         end,n*1000)
     end
 
