@@ -24,6 +24,7 @@ WR.extensions = {
     WR.artillery
 }
 
+--[[
 function WR.thinkFunctions.main()
 
     if WR.tick >= WR.tickmax then
@@ -37,15 +38,35 @@ function WR.thinkFunctions.main()
     end
 
 end
+]]
+
+function WR.thinkFunctions.main()
+
+    if WR.tick >= WR.tickmax and WR.respawnEnabled == true then
+        WR.respawnEnabled = false
+        -- respawn all players
+        for client in WR.GetDeadPlayers() do
+            local jobid = client.AssignedJob.Prefab.Identifier.value
+            local spawnPoint = WR.getRandomWaypointByJob(jobid)
+            WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
+        end
+        WR.SendMessageToAllClients("Last respawn, last team standing wins!")
+    end
+
+    if WR.tick % 27000 == 0 and WR.respawnEnabled == true and WR.tick ~= WR.tickmax then
+        WR.SendMessageToAllClients("Final respawn will be in"..WR.FormatTime((WR.tickmax-WR.tick)/60)..".")
+    end
+
+end
 
 function WR.thinkFunctions.winner()
 
     if WR.tick % 6 == 0 then
         for obj in WR.objectives do
-            if obj.captured then
-                local defender
-                for client in Client.ClientList do -- end game when all defenders are dead and the objective captured
-                    if client.Character and client.Character.JobIdentifier == obj.defender and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
+            local defender
+            if obj.captured or WR.tick > WR.tickmax then
+                for client in WR.getPlayersByJob(Client.ClientList,obj.defender) do -- end game when all defenders are dead and the objective captured
+                    if client.Character and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
                         defender = true
                         break
                     end
@@ -53,6 +74,7 @@ function WR.thinkFunctions.winner()
                 if not defender then
                     WR.Game.winner = WR.teamKeys[obj.attacker]
                     WR.Game.endGame()
+                    return
                 end
             end
         end

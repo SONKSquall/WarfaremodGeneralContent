@@ -3,38 +3,79 @@ if CLIENT then return end
 WR.teamSpawnBlackList = {}
 
 WR.defaultRespawnInterval = 120*60
-WR.respawnTime = WR.defaultRespawnInterval -- time till respawn in ticks
+
+WR.respawns = {
+    renegadeteam = {
+        time = WR.defaultRespawnInterval,
+        multiplier = 1
+    },
+    coalitionteam = {
+        time = WR.defaultRespawnInterval,
+        multiplier = 1
+    }
+}
+
+function WR.getPlayersByJob(clients,id)
+    local index = 0
+    local all = #clients
+
+    return function()
+        while true do
+            index = index + 1
+            if index > all then return end
+            if clients[index].AssignedJob and clients[index].AssignedJob.Prefab.Identifier.value == id or clients[index].Character and clients[index].Character.JobIdentifier.value == id then
+                return clients[index]
+            end
+        end
+    end
+end
 
 WR.respawnEnabled = true
 
 function WR.thinkFunctions.respawn()
 
-    WR.respawnTime = WR.respawnTime - 1
+    if not WR.respawnEnabled then return end
 
-    if WR.respawnTime % 1800 == 0 and WR.respawnTime > 1 then
-        if WR.respawnTime <= 1800 then
-            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.",WR.messagesFormats.info)
-        else
-            WR.SendMessageToAllClients(WR.FormatTime(WR.respawnTime/60).." before respawn.")
+    for job,timer in pairs(WR.respawns) do
+        timer.time = timer.time - 1
+
+        if timer.time % 1800 == 0 and timer.time > 1 then
+            for client in WR.getPlayersByJob(Client.ClientList,job) do
+                if timer.time <= 1800 then
+                    WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client,WR.messagesFormats.info)
+                else
+                    WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client)
+                end
+            end
         end
-    end
 
-    if WR.respawnTime > 0 or not WR.respawnEnabled then return end
+        if timer.time <= 0 then
+            timer.time = WR.defaultRespawnInterval * timer.multiplier
 
-    WR.respawnTime = WR.defaultRespawnInterval * 1 -- planning on changing respawn time depending on battle conditions
+            for client in WR.getPlayersByJob(Client.ClientList,job) do
+                WR.SendMessagetoClient("Respawning...",client,WR.messagesFormats.info)
+            end
 
-    WR.AssignBalanceJobs()
-    WR.SendMessageToAllClients("Respawning...",WR.messagesFormats.info)
-    for client in WR.GetDeadPlayers() do
-        local jobid = client.AssignedJob.Prefab.Identifier.value
-        if not WR.teamSpawnBlackList[jobid] then
-            local spawnPoint = WR.getRandomWaypointByJob(jobid)
-            WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
+            WR.AssignBalanceJobs()
+            for client in WR.getPlayersByJob(WR.GetDeadPlayers(),job) do
+                if not WR.teamSpawnBlackList[job] then
+                    local spawnPoint = WR.getRandomWaypointByJob(job)
+                    WR.spawnHuman(client,job,spawnPoint.WorldPosition)
+                end
+            end
         end
     end
 
     -- teams with captured objectives can spawn once
     for area in WR.objectives do
         WR.teamSpawnBlackList[area.defender] = area.captured
+    end
+end
+
+function WR.roundStartFunctions.respawn()
+    WR.respawnEnabled = true
+    for timer in WR.respawns do
+        timer.time = WR.defaultRespawnInterval
+        timer.multiplier = 1
     end
 end

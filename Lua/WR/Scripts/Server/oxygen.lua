@@ -67,7 +67,7 @@ Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance, ptable)
     if not cardiacarrest then ignorekill = true return end
     if instance.IsDead then return end
     if not instance.IsUnconscious then return end
-    if WR.respawnTime < 900 then return end
+    if WR.respawns[instance.JobIdentifier.value].time < 900 then return end
 
     if cardiacarrest.Strength < 60 then
         ignorekill = true
