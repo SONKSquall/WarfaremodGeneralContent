@@ -54,9 +54,9 @@
 		 <Conditional Condition="gt 0" />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" target="This" delay="3" stackable="false" >
-		<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="8000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="8000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="8000" />
+		<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
         <Explosion range="500.0" ballastfloradamage="200" structuredamage="75" itemdamage="250" force="20" severlimbsprobability="2" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
           <Affliction identifier="explosiondamage" strength="250" />
           <Affliction identifier="burn" strength="30" probability="0.2" dividebylimbcount="false"/>
@@ -67,6 +67,14 @@
 		<Explosion range="2000.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
           <Affliction identifier="WR_suppression" strength="30" />
         </Explosion>
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance1.ogg" type="OnUse" range="12000" selectionmode="Random" volume="1" />
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance2.ogg" type="OnUse" range="12000" volume="1" />
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="-17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance1.ogg" type="OnUse" range="12000" selectionmode="Random" volume="1" />
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance2.ogg" type="OnUse" range="12000" volume="1" />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" target="This" delay="3.1" >
 		<Remove />
@@ -86,9 +94,9 @@
 	  <StatusEffect type="OnBroken" target="This" delay="3" stackable="false" >
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
 		<ParticleEmitter particle="spark" copyentityangle="true" anglemin="0" anglemax="360" particleamount="60" velocitymin="1000" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
-		<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="8000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="8000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="8000" />
+		<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
         <Explosion range="500.0" ballastfloradamage="200" structuredamage="10" itemdamage="30" force="20" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
           <Affliction identifier="explosiondamage" strength="50" />
 		  <Affliction identifier="lacerations" strength="300" />
@@ -101,6 +109,14 @@
 		<Explosion range="2000.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
           <Affliction identifier="WR_suppression" strength="30" />
         </Explosion>
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance1.ogg" type="OnUse" range="12000" selectionmode="Random" volume="1" />
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance2.ogg" type="OnUse" range="12000" volume="1" />
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="-17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance1.ogg" type="OnUse" range="12000" selectionmode="Random" volume="1" />
+		<Sound file="%ModDir%/Sounds/LightArtilleryDistance2.ogg" type="OnUse" range="12000" volume="1" />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" target="This" delay="3.1" >
 		<Remove />
@@ -119,8 +135,8 @@
       </StatusEffect>
 	  <StatusEffect type="OnBroken" target="This" delay="3" stackable="false" >
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
-		<sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="15000" />
-        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="15000" />
+		<sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="6000" />
         <Explosion range="750.0" ballastfloradamage="200" structuredamage="300" itemdamage="1000" force="20" severlimbsprobability="2" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
           <Affliction identifier="explosiondamage" strength="250" />
           <Affliction identifier="burn" strength="30" probability="0.2" dividebylimbcount="false"/>
@@ -131,6 +147,12 @@
 		<Explosion range="2000.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
           <Affliction identifier="WR_suppression" strength="30" />
         </Explosion>
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/HeavyArtilleryDistance.ogg" type="OnUse" range="12000" volume="1" />
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" delay="3" Offset="-17000,0" forceplaysounds="true">
+		<Sound file="%ModDir%/Sounds/HeavyArtilleryDistance.ogg" type="OnUse" range="12000" volume="1" />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" target="This" delay="3.1" >
 		<Remove />
