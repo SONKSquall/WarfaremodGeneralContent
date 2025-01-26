@@ -6,6 +6,8 @@
 <entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications.</entitydescription.WR_dynamite>
 <entityname.WR_landmine>Landmine</entityname.WR_landmine>
 <entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
+<entityname.WR_basicpistol>Service Revolver</entityname.WR_basicpistol>
+<entitydescription.WR_basicpistol>Trusty sidearm with blueprints so prevalent that it became standard for both the Coalition and Renegades.</entitydescription.WR_basicpistol>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
