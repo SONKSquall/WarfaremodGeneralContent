@@ -316,6 +316,18 @@
       </StatusEffect>
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_flamethrowercrate" variantof="WR_productioncrate" Health="2">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_advancedmaterial" amount="1" />
+    </Fabricate>
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="smallitem,mediumitem,largeitem" />
+      <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+        <!-- spawndata: Prefabid:SpawnNumber -->
+        <LuaHook name="WR.productionCrate.xmlhook" spawndata="WR_flamethrower:1" />
+      </StatusEffect>
+    </ItemContainer>
+  </Item>
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" variantof="WR_productioncrate" Health="6">
     <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">

@@ -11,8 +11,7 @@
     </Fabricate>
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,78,46" depth="0.55" origin="0.5,0.5" />
     <Body width="72" height="40" density="25" />
-    <Holdable slots="Any,RightHand" AimAngle="0.0" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect">
-	</Holdable>
+    <Holdable slots="Any,RightHand" AimAngle="0.0" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect"></Holdable>
     <RangedWeapon barrelpos="34,11" spread="10" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.75">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
@@ -20,14 +19,14 @@
       <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="6000" />
       <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="6000" />
       <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
-	  <!-- distant sounds -->
+      <!-- distant sounds -->
       <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistance.ogg" type="OnUse" range="4000" volume="1" />
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistance.ogg" type="OnUse" range="4000" volume="1" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="this" >
+      <StatusEffect type="OnUse" target="this">
         <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
@@ -36,6 +35,60 @@
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
       <Containable items="revolverammo" />
     </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_flamethrower" category="Weapon" Tags="smallitem,weapon,gun,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" depth="0.55" origin="0.5,0.5" />
+    <!-- physics body -->
+    <Body width="60" height="110" density="25" />
+    <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.1" suitableprojectiles="WR_flameprojectile">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <StatusEffect type="OnUse" target="This" condition="-0.5" disabledeltatime="true" >
+        <SpawnItem identifier="WR_flameprojectile" spawnposition="ThisInventory" count="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" Delay="2" >
+        <DropItem />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" Delay="3.5" >
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="WR_flameprojectile" type="Contained" />
+    </RangedWeapon>
+    <RepairTool barrelpos="50,0">
+      <ParticleEmitter particle="flamethrower" particlespersecond="30" scalemin="0.5" scalemax="0.6" anglemin="-10" anglemax="10" velocitymin="1000" velocitymax="1500" colormultiplier="255,150,150,210" highqualitycollisiondetection="true" />
+      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />
+    </RepairTool>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" spawnwithid="WR_flameprojectile">
+      <Containable items="WR_flameprojectile" />
+    </ItemContainer>
+    <Wearable slots="Bag+RightHand+LeftHand" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
+      <sprite name="Flame tank" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" limb="Torso" inherittexturescale="true" origin="1.3,0.5" />
+      <sprite name="Flame thrower pipe" texture="%ModDir%/Sprites/Items/Weapons.png" rotation="310" sourcerect="81,0,131,21" limb="RightHand" inherittexturescale="true" origin="0,0.5" depth="1" />
+    </Wearable>
+    <Holdable slots="Bag+RightHand+LeftHand" controlpose="true" aimpos="60,-25" handle1="-9,-7" />
+  </Item>
+  <Item name="" identifier="WR_flameprojectile" hideinmenus="true" impacttolerance="0">
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="15" height="15" density="30" />
+    <Projectile characterusable="false" launchimpulse="8.0" impulsespread="0.2" sticktocharacters="true" sticktostructures="false" sticktoitems="true">
+      <Attack penetration="0.6">
+        <Affliction identifier="burn" strength="5" />
+      </Attack>
+      <StatusEffect type="OnNotContained" targettype="This">
+        <sound file="Content/Sounds/FireSmall.ogg" type="OnActive" range="1000.0" loop="true" />
+        <ParticleEmitter particle="flamethrower" anglemin="-180" copyentityangle="false" anglemax="90" particlespersecond="5" velocitymax="200" colormultiplier="150,150,150,210" scalemin="0.7" scalemax="0.5" priority="50" />
+        <ParticleEmitter particle="smoke" particlespersecond="4" scalemin="2" scalemax="2.5" velocitymax="200" anglemax="90" anglemin="90" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" targettype="NearbyCharacters,This" targetlimb="Torso" range="200" interval="0.1" disabledeltatime="true" CheckConditionalAlways="true">
+        <Affliction identifier="burn" strength="0.25" />
+		<Affliction identifier="WR_suppression" strength="0.25" />
+        <Conditional HasStatusTag="impacted" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" tags="impacted" duration="6" stackable="false" disabledeltatime="true"></StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="10">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
   </Item>
   <!-- Firearms End -->
   <!-- Explosives Start -->

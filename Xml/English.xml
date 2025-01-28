@@ -8,6 +8,8 @@
 <entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
 <entityname.WR_basicpistol>Service Revolver</entityname.WR_basicpistol>
 <entitydescription.WR_basicpistol>Trusty sidearm with blueprints so prevalent that it became standard for both the Coalition and Renegades.</entitydescription.WR_basicpistol>
+<entityname.WR_flamethrower>Portable Flamethrower</entityname.WR_flamethrower>
+<entitydescription.WR_flamethrower>A backpack tank fill with treated gasoline piped to a nozzle ignition system. Useful for area denial and shock tactics.</entitydescription.WR_flamethrower>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -154,6 +156,8 @@
 <entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags.</entitydescription.WR_sandbagcrate>
 <entityname.WR_headsetcrate>Production Crate (Radio)</entityname.WR_headsetcrate>
 <entitydescription.WR_headsetcrate>Produces 6 headsets.</entitydescription.WR_headsetcrate>
+<entityname.WR_flamethrowercrate>Production Crate (Flamethrower)</entityname.WR_flamethrowercrate>
+<entitydescription.WR_flamethrowercrate>Produces 2 flamethrowers.</entitydescription.WR_flamethrowercrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>
