@@ -90,6 +90,23 @@
       </StatusEffect>
     </Projectile>
   </Item>
+  <Item name="" identifier="WR_flameexplosion" hideinmenus="true" >
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body radius="100" bodytype="Static" density="30" />
+    <ItemComponent characterusable="false">
+      <StatusEffect type="OnSpawn" target="This" stackable="false">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
+		<SpawnItem identifier="WR_flameprojectile" count="20" aimspread="360" rotationtype="Collider" rotation="0" />
+        <Explosion range="500.0" ballastfloradamage="200" structuredamage="75" itemdamage="0" force="20" severlimbsprobability="1" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="100" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+		<Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
   <!-- Firearms End -->
   <!-- Explosives Start -->
   <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert,packable" Health="15.0" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">

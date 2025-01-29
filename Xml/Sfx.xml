@@ -153,4 +153,15 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
+  <Item name="WR_flamethrowerleak_sfx" identifier="WR_flamethrowerleak_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+	  	<ParticleEmitter particle="blackblood" ScaleMultiplier="1,1" ParticleAmount="2" ColorMultiplier="25,25,20,255" />
+	  	<ParticleEmitter particle="blooddrop" AngleMin="150" AngleMax="200" VelocityMin="0" VelocityMax="300" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="25,25,20,255" />
+		<ParticleEmitter particle="blooddrop" AngleMin="-20" AngleMax="30" VelocityMin="0" VelocityMax="300" ScaleMultiplier="1,1" ParticleAmount="5" ColorMultiplier="25,25,20,255" />
+		<Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
 </Items>
