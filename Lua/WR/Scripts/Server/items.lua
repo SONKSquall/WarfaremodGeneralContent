@@ -61,6 +61,23 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     end
 end
 
+function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult, hitLimb)
+    if hitLimb.type ~= LimbType.Torso then return end
+    local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Bag)
+
+    if not item then return end
+    if not item.Prefab.Identifier.value == "WR_flamethrower" then return end
+
+    local damage = attackResult.Damage
+    if damage > 25 and math.random() < 0.25 then
+        Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_flamethrowerleak_sfx"), hitLimb.worldPosition, nil, nil, nil)
+        item.Condition = item.Condition - damage
+    elseif damage > 25 and math.random() > 0.75 then
+        Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_flameexplosion"), hitLimb.worldPosition, nil, nil, nil)
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+
 function WR.roundStartFunctions.ore()
 
     if Util.GetItemsById("WR_oredrill") then
@@ -233,9 +250,9 @@ end)
 ]]
 Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, item, targets, worldPosition)
 
-    local character = targets[1]
+    local owner = item.GetRootInventoryOwner()
 
-    if character.SelectedCharacter then
+    if owner.SelectedCharacter then
         WR.GiveAfflictionCharacter(character.SelectedCharacter, "WR_stabilize", 100)
     end
 end)
