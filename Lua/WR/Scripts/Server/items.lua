@@ -197,20 +197,137 @@ function WR.spawnItemFunctions.machinepistol(item)
     end
 end
 
+--[[ TODO: 
+change discriptions to match new workings
+new sprite for crates
+carryable crates
+make sure shell crates are usable
+]]
+
+WR.cratesLoadouts = {
+    -- Weapon crates start --
+    WR_riflecrate = {
+        {id = "rifle",
+        count = 4,
+        contents = {
+            {
+                id = "riflebullet",
+                count = 6
+            }
+        }}
+    },
+    WR_shotguncrate = {
+        {id = "shotgun",
+        count = 4,
+        contents = {
+            {
+                id = "shotgunshell",
+                count = 6
+            }
+        }}
+    },
+    WR_smgcrate = {
+        {id = "smg",
+        count = 2}
+    },
+    WR_hmgcrate = {
+        {id = "hmg",
+        count = 1}
+    },
+    WR_grenadecrate = {
+        {id = "fraggrenade",
+        count = 4}
+    },
+    WR_dynamitecrate = {
+        {id = "WR_dynamite",
+        count = 2}
+    },
+    WR_flamethrowercrate = {
+        {id = "WR_flamethrower",
+        count = 2}
+    },
+    -- Weapon crates end --
+    -- Ammo crates start --
+    WR_rifleammocrate = {
+        {id = "riflebullet",
+        count = 12*4}
+    },
+    WR_shotgunammocrate = {
+        {id = "shotgunshell",
+        count = 12*4}
+    },
+    WR_smgammocrate = {
+        {id = "smgmagazine",
+        count = 4}
+    },
+    WR_hmgammocrate = {
+        {id = "hmgmagazine",
+        count = 4}
+    },
+    -- Ammo crates end --
+    -- Medical crates start --
+    WR_medicalcrate = {
+        {id = "antibleeding1",
+        count = 8},
+        {id = "antibleeding3",
+        count = 4},
+        {id = "antidama1",
+        count = 8},
+        {id = "antidama2",
+        count = 8}
+    },
+    WR_bloodcrate = {
+        {id = "antibloodloss1",
+        count = 6},
+        {id = "antibloodloss2",
+        count = 2}
+    },
+    -- Medical crates end --
+    -- Defense crates start --
+    WR_sandbagcrate = {
+        {id = "WR_sandbag_setup",
+        count = 4}
+    },
+    WR_barbedwirecrate = {
+        {id = "WR_barbedwire_setup",
+        count = 4}
+    },
+    -- Defense crates end --
+    -- Coaltion crates start --
+    WR_coalitionshellcrate = {
+        {id = "railgunshell",
+        count = 6}
+    },
+    WR_coalitionbodyarmorcrate = {
+        {id = "bodyarmor",
+        count = 2}
+    },
+    WR_coalitiongasgrenadecrate = {
+        {id = "chemgrenade",
+        count = 6},
+        {id = "40mmchemgrenade",
+        count = 3}
+    },
+    -- Coaltion crates end --
+    -- Renegade crates start --
+    WR_renegadeshellcrate = {
+        {id = "flakcannonammoboxexplosive"}
+    },
+    WR_renegadebodyarmorcrate = {
+        {id = "piratebodyarmor",
+        count = 4}
+    },
+    -- Renegade crates end --
+}
+
 Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
-    local spawndata = WR.getStringVariables(element.GetAttributeString("spawndata", "default value"))
-    local itemSpawned = false
-    if item.OwnInventory.IsEmpty() and item.Condition >= 1 then
-        for id,spawnCount in pairs(spawndata) do
-            for i=tonumber(spawnCount),1,-1 do
-                Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab(id), item.OwnInventory, nil, nil, function(worldItem) end)
-            end
-        end
-        itemSpawned = true
-        item.Condition = item.Condition - 1
-    end
-    if not itemSpawned and item.OwnInventory.IsEmpty() and item.Condition == 0 then
+    local list = WR.cratesLoadouts[item.Prefab.Identifier.value]
+    local owner = item.GetRootInventoryOwner()
+
+    if list and WR.staticContainers[owner] and not owner.OwnInventory.IsFull(false) then
         Entity.Spawner.AddEntityToRemoveQueue(item)
+        -- prevent issues regarding shelfs
+        Timer.NextFrame(function() WR.spawnItems(list,owner.OwnInventory) end)
     end
 end)
 
