@@ -198,7 +198,9 @@ function WR.roundStartFunctions.main()
             for door in WR.GetItemsByTag("wr_graceperiod") do
                 Entity.Spawner.AddEntityToRemoveQueue(door)
             end
-            WR.SendMessageToAllClients("Grace period ended!")
+            if #WR.GetItemsByTag("wr_graceperiod") > 0 then
+                WR.SendMessageToAllClients("Grace period ended!")
+            end
         end
     end, 60*1000)
 end
