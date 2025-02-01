@@ -66,7 +66,7 @@ function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Bag)
 
     if not item then return end
-    if not item.Prefab.Identifier.value == "WR_flamethrower" then return end
+    if not item.HasTag("flamethrower") then return end
 
     local damage = attackResult.Damage
     if damage > 25 and math.random() < 0.25 then
