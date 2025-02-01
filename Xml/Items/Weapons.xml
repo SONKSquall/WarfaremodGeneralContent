@@ -43,7 +43,7 @@
     <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.1" suitableprojectiles="WR_flameprojectile">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
-      <StatusEffect type="OnUse" target="This" condition="-0.5" disabledeltatime="true" >
+      <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true" >
         <SpawnItem identifier="WR_flameprojectile" spawnposition="ThisInventory" count="1" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This" Delay="2" >
