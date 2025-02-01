@@ -23,7 +23,7 @@ function WR.getPlayersByJob(clients,id)
         while true do
             index = index + 1
             if index > all then return end
-            if clients[index].Character and clients[index].Character.JobIdentifier.value == id or
+            if clients[index].Character and clients[index].Character.HasJob(id) or
             not clients[index].Character and clients[index].AssignedJob and clients[index].AssignedJob.Prefab.Identifier.value == id then
                 return clients[index]
             end
@@ -41,13 +41,15 @@ function WR.thinkFunctions.respawn()
         timer.time = timer.time - 1
 
         if timer.time % 1800 == 0 and timer.time > 1 then
-            for client in WR.getPlayersByJob(Client.ClientList,job) do
                 if timer.time <= 1800 then
-                    WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client,WR.messagesFormats.info)
+                    for client in WR.getPlayersByJob(Client.ClientList,job) do
+                        WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client,WR.messagesFormats.info)
+                    end
                 else
-                    WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client)
+                    for client in WR.getPlayersByJob(WR.GetDeadPlayers(),job) do
+                        WR.SendMessagetoClient(WR.FormatTime(timer.time/60).." before respawn.",client)
+                    end
                 end
-            end
         end
 
         if timer.time <= 0 then
@@ -68,8 +70,14 @@ function WR.thinkFunctions.respawn()
     end
 
     -- teams with captured objectives can spawn once
+    local basesOccupied = 0
     for area in WR.objectives do
+        if area.captured then basesOccupied = basesOccupied + 1 end
         WR.teamSpawnBlackList[area.defender] = area.captured
+    end
+    -- if both areas are taken then both teams can respawn
+    if basesOccupied >= 2 then
+        WR.teamSpawnBlackList = {}
     end
 end
 

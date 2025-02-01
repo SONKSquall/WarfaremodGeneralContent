@@ -39,6 +39,21 @@ function WR.SpawnInventoryItems(Items, TargetInventory)
     end
 end
 
+function WR.spawnItems(itemList,inventory)
+    for obj in itemList do
+        local prefab = ItemPrefab.GetItemPrefab(obj.id)
+
+        for i=1,obj.count or 1 do
+            Entity.Spawner.AddItemToSpawnQueue(prefab, inventory, nil, nil, function(worldItem)
+                -- Spawn item inside other items
+                if obj.contents and #obj.contents > 0 then
+                    WR.spawnItems(obj.contents,worldItem.OwnInventory)
+                end
+            end)
+        end
+    end
+end
+
 
 WR.messagesFormats = {
     default = {

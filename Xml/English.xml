@@ -6,6 +6,10 @@
 <entitydescription.WR_dynamite>Not to be confused with TNT, this explosive is used for mining or blowing holes in enemy fortifications.</entitydescription.WR_dynamite>
 <entityname.WR_landmine>Landmine</entityname.WR_landmine>
 <entitydescription.WR_landmine>General purpose landmine. Turns invisible after 2.5 secs of being on the ground and then becomes active; can be picked up. Useful for slowing down enemy advances or preventing movement over an area.</entitydescription.WR_landmine>
+<entityname.WR_basicpistol>Service Revolver</entityname.WR_basicpistol>
+<entitydescription.WR_basicpistol>Trusty sidearm with blueprints so prevalent that it became standard for both the Coalition and Renegades.</entitydescription.WR_basicpistol>
+<entityname.WR_flamethrower>Portable Flamethrower</entityname.WR_flamethrower>
+<entitydescription.WR_flamethrower>A backpack tank fill with treated gasoline piped to a nozzle ignition system. Useful for area denial and shock tactics.</entitydescription.WR_flamethrower>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -123,47 +127,49 @@
   <!-- Material End -->
   <!-- Production Crate Start -->
 <entityname.WR_riflecrate>Production Crate (Rifle)</entityname.WR_riflecrate>
-<entitydescription.WR_riflecrate>Produces 4 rifles with ammo carriers.</entitydescription.WR_riflecrate>
+<entitydescription.WR_riflecrate>Produces 4 rifles. Deposit in a locker to retrieve items.</entitydescription.WR_riflecrate>
 <entityname.WR_shotguncrate>Production Crate (Shotgun)</entityname.WR_shotguncrate>
-<entitydescription.WR_shotguncrate>Produces 4 shotguns with ammo carriers.</entitydescription.WR_shotguncrate>
+<entitydescription.WR_shotguncrate>Produces 4 shotguns. Deposit in a locker to retrieve items.</entitydescription.WR_shotguncrate>
 <entityname.WR_smgcrate>Production Crate (Smg)</entityname.WR_smgcrate>
-<entitydescription.WR_smgcrate>Produces 2 smgs.</entitydescription.WR_smgcrate>
+<entitydescription.WR_smgcrate>Produces 2 smgs. Deposit in a locker to retrieve items.</entitydescription.WR_smgcrate>
 <entityname.WR_hmgcrate>Production Crate (Hmg)</entityname.WR_hmgcrate>
-<entitydescription.WR_hmgcrate>Produces a hmg.</entitydescription.WR_hmgcrate>
+<entitydescription.WR_hmgcrate>Produces a hmg. Deposit in a locker to retrieve item.</entitydescription.WR_hmgcrate>
 <entityname.WR_rifleammocrate>Production Crate (Rifle Ammo)</entityname.WR_rifleammocrate>
-<entitydescription.WR_rifleammocrate>Produces 48 rifle rounds.</entitydescription.WR_rifleammocrate>
+<entitydescription.WR_rifleammocrate>Produces 48 rifle rounds. Deposit in a locker to retrieve items.</entitydescription.WR_rifleammocrate>
 <entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
-<entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells.</entitydescription.WR_shotgunammocrate>
+<entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells. Deposit in a locker to retrieve items.</entitydescription.WR_shotgunammocrate>
 <entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>
-<entitydescription.WR_smgammocrate>Produces 4 submachine gun magazines.</entitydescription.WR_smgammocrate>
+<entitydescription.WR_smgammocrate>Produces 4 submachine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_smgammocrate>
 <entityname.WR_hmgammocrate>Production Crate (Hmg Ammo)</entityname.WR_hmgammocrate>
-<entitydescription.WR_hmgammocrate>Produces 4 machine gun magazines.</entitydescription.WR_hmgammocrate>
+<entitydescription.WR_hmgammocrate>Produces 4 machine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_hmgammocrate>
 <entityname.WR_medicalcrate>Production Crate (Medical Supplies)</entityname.WR_medicalcrate>
-<entitydescription.WR_medicalcrate>Produces assorted medical items (blood not included).</entitydescription.WR_medicalcrate>
+<entitydescription.WR_medicalcrate>Produces assorted medical items (blood not included). Deposit in a locker to retrieve items.</entitydescription.WR_medicalcrate>
 <entityname.WR_bloodcrate>Production Crate (Blood)</entityname.WR_bloodcrate>
-<entitydescription.WR_bloodcrate>Produces 6 saline and 2 blood packs.</entitydescription.WR_bloodcrate>
+<entitydescription.WR_bloodcrate>Produces 6 saline and 2 blood packs. Deposit in a locker to retrieve items.</entitydescription.WR_bloodcrate>
 <entityname.WR_grenadecrate>Production Crate (Grenade)</entityname.WR_grenadecrate>
-<entitydescription.WR_grenadecrate>Produces 4 frag grenades.</entitydescription.WR_grenadecrate>
+<entitydescription.WR_grenadecrate>Produces 4 frag grenades. Deposit in a locker to retrieve items.</entitydescription.WR_grenadecrate>
 <entityname.WR_dynamitecrate>Production Crate (Dynamite)</entityname.WR_dynamitecrate>
-<entitydescription.WR_dynamitecrate>Produces 2 dynamite.</entitydescription.WR_dynamitecrate>
+<entitydescription.WR_dynamitecrate>Produces 2 dynamite. Deposit in a locker to retrieve items.</entitydescription.WR_dynamitecrate>
 <entityname.WR_barbedwirecrate>Production Crate (Barb wire)</entityname.WR_barbedwirecrate>
-<entitydescription.WR_barbedwirecrate>Produces 4 barb wire.</entitydescription.WR_barbedwirecrate>
+<entitydescription.WR_barbedwirecrate>Produces 4 barb wire. Deposit in a locker to retrieve items.</entitydescription.WR_barbedwirecrate>
 <entityname.WR_sandbagcrate>Production Crate (Sandbag)</entityname.WR_sandbagcrate>
-<entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags.</entitydescription.WR_sandbagcrate>
+<entitydescription.WR_sandbagcrate>Produces 4 pallets of sandbags. Deposit in a locker to retrieve items.</entitydescription.WR_sandbagcrate>
 <entityname.WR_headsetcrate>Production Crate (Radio)</entityname.WR_headsetcrate>
 <entitydescription.WR_headsetcrate>Produces 6 headsets.</entitydescription.WR_headsetcrate>
+<entityname.WR_flamethrowercrate>Production Crate (Flamethrower)</entityname.WR_flamethrowercrate>
+<entitydescription.WR_flamethrowercrate>Produces 2 flamethrowers. Deposit in a locker to retrieve items.</entitydescription.WR_flamethrowercrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
-<entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells.</entitydescription.WR_coalitionshellcrate>
+<entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>
 <entityname.WR_coalitionbodyarmorcrate>Production Crate (Armor)</entityname.WR_coalitionbodyarmorcrate>
-<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 chestplates.</entitydescription.WR_coalitionbodyarmorcrate>
+<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
 <entityname.WR_coalitiongasgrenadecrate>Production Crate (Gas Grenade)</entityname.WR_coalitiongasgrenadecrate>
-<entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades.</entitydescription.WR_coalitiongasgrenadecrate>
+<entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades. Deposit in a locker to retrieve items.</entitydescription.WR_coalitiongasgrenadecrate>
 
 <entityname.WR_renegadeshellcrate>Production Crate (Artillery Shell)</entityname.WR_renegadeshellcrate>
-<entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells.</entitydescription.WR_renegadeshellcrate>
+<entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_renegadeshellcrate>
 <entityname.WR_renegadebodyarmorcrate>Production Crate (Armor)</entityname.WR_renegadebodyarmorcrate>
-<entitydescription.WR_renegadebodyarmorcrate>Produces 4 chestplates.</entitydescription.WR_renegadebodyarmorcrate>
+<entitydescription.WR_renegadebodyarmorcrate>Produces 4 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
   <!-- Production Crate End -->
   <!-- Misc start -->
 <entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>

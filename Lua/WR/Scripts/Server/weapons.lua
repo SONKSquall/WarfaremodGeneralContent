@@ -95,6 +95,7 @@ function WR.reload(gun,ammo,characterUser)
         rifle = 5/6,
         shotgun = 4.5/6,
         revolver = 4/6,
+        WR_basicpistol = 4/6,
         smg = 4,
         hmg = 6
     }
