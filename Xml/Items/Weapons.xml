@@ -11,7 +11,7 @@
     </Fabricate>
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,78,46" depth="0.55" origin="0.5,0.5" />
     <Body width="72" height="40" density="25" />
-    <Holdable slots="Any,RightHand" AimAngle="0.0" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect"></Holdable>
+    <Holdable slots="Any,RightHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect"></Holdable>
     <RangedWeapon barrelpos="34,11" spread="10" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.75">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
@@ -29,6 +29,13 @@
       <StatusEffect type="OnUse" target="this">
         <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
+	  <!-- cocking animation -->
+      <StatusEffect type="OnUse" target="this" delay="0.3" setvalue="true" targetitemcomponent="holdable" AimAngle="25" aimpos="55,5" >
+		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock1.ogg" type="OnUse" range="500" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock2.ogg" type="OnUse" range="500" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock3.ogg" type="OnUse" range="500" volume="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="this" delay="0.6" setvalue="true" targetitemcomponent="holdable" AimAngle="0" aimpos="70,5" />
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="true" ShowContainedStateIndicator="false">
