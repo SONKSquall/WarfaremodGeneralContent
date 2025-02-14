@@ -231,7 +231,7 @@ WR.cratesLoadouts = {
         count = 2}
     },
     WR_hmgcrate = {
-        {id = "hmg",
+        {id = "WR_basicmachinegun",
         count = 1}
     },
     WR_grenadecrate = {
@@ -261,7 +261,7 @@ WR.cratesLoadouts = {
         count = 4}
     },
     WR_hmgammocrate = {
-        {id = "hmgmagazine",
+        {id = "WR_machinegunmag",
         count = 4}
     },
     -- Ammo crates end --

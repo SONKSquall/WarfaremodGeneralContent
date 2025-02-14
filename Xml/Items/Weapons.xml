@@ -67,6 +67,120 @@
     </Wearable>
     <Holdable slots="Bag+RightHand+LeftHand" controlpose="true" aimpos="60,-25" handle1="-9,-7" />
   </Item>
+  <Item name="" identifier="WR_basicmachinegun" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" maxstacksize="32" maxstacksizecharacterinventory="1" impactsoundtag="impact_metal_light" spritecolor="200,200,200,255">
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,164,312,109" depth="0.55" origin="0.495,0.44" />
+    <BrokenSprite name="Machinegun Attack Mode" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.55" origin="0.495,0.53" maxcondition="90" />
+    <Body width="300" height="90" density="25" />
+    <!-- note that when changing aimpos that its value also needs to be changed in the custom interface -->
+    <Holdable slots="RightHand+LeftHand" controlpose="true" aimpos="100,0" holdpos="100,-60" holdangle="-30" handle1="-60,-24" handle2="-145,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="this,Character" SpeedMultiplier="0.0" setvalue="true" checkconditionalalways="true">
+        <Conditional hasstatustag="slow" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="this,Character" SpeedMultiplier="0.25" setvalue="true" checkconditionalalways="true">
+        <Conditional hasstatustag="slow" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+    </Holdable>
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Machinegun Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.101" origin="0.5,0.8" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.5" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.15" holdtrigger="true" barrelpos="150,12" spread="20" unskilledspread="10" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.22">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <StatusEffect type="OnUse" forceplaysounds="true">
+        <Sound file="%ModDir%/Sounds/Machinegunshot1.ogg" type="OnUse" range="6000" Volume="2" selectionmode="Random" />
+        <Sound file="%ModDir%/Sounds/Machinegunshot2.ogg" type="OnUse" range="6000" Volume="2" />
+        <Sound file="%ModDir%/Sounds/Machinegunshot3.ogg" type="OnUse" range="6000" Volume="2" />
+        <Sound file="%ModDir%/Sounds/Machinegunshot4.ogg" type="OnUse" range="6000" Volume="2" />
+        <Sound file="%ModDir%/Sounds/Machinegunshot5.ogg" type="OnUse" range="6000" Volume="2" />
+        <Sound file="%ModDir%/Sounds/Machinegunshot6.ogg" type="OnUse" range="6000" Volume="2" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" Offset="12000,0" forceplaysounds="true">
+        <Sound file="%ModDir:Warfare General%/Sounds/HmgDistance.ogg" type="OnUse" range="8000" volume="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" Offset="-12000,0" forceplaysounds="true">
+        <Sound file="%ModDir:Warfare General%/Sounds/HmgDistance.ogg" type="OnUse" range="8000" volume="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="-80" anglemax="-100" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        <Explosion range="180.0" force="0.75" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="7.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="WR_machinegunmag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="65" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" SpawnWithId="WR_machinegunmag" ShowContainedStateIndicator="false" containedspritedepth="0.54">
+      <Containable items="WR_machinegunmag" hide="false" itempos="0,0" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <!-- deploy and undeploy funcationalty -->
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.10,0.075" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+      <TickBox text="Deploy bipod">
+        <StatusEffect type="OnUse" targettype="This" duration="0.25" stackable="false" tags="slow"></StatusEffect>
+        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" condition="100" aimpos="100,0" handle2="-145,0"></StatusEffect>
+        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="20" unskilledspread="10"></StatusEffect>
+        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" aimpos="40,-50" handle2="-10,50" condition="80"></StatusEffect>
+        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="50" unskilledspread="50"></StatusEffect>
+      </TickBox>
+    </CustomInterface>
+  </Item>
+  <Item name="" identifier="WR_machinegunmag" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="stratshop" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="3" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="64,49,32,47" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="50" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="WR_machinegunround" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="WR_machinegunround" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="WR_machinegunround" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" delay="5" disabledeltatime="true">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="WR_machinegunround" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+    <Body width="17" height="6" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+      <Attack structuredamage="4" targetforce="7.5" itemdamage="4" severlimbsprobability="0.2" penetration="0.4">
+        <Affliction identifier="gunshotwound" strength="60" />
+        <Affliction identifier="bleeding" strength="11.5" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="400" selectionmode="Random" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="400" />
+        <!-- invisible explosion that gives suppression -->
+        <Explosion range="400.0" force="0.0" severlimbsprobability="0.0" showEffects="false" ignoreCover="true">
+          <Affliction identifier="WR_suppression" strength="8" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <!-- hmg rounds should not exist outside magazines -->
+      <StatusEffect type="OnNotContained" target="This" stackable="false">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
   <Item name="" identifier="WR_flameprojectile" hideinmenus="true" impacttolerance="0">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
     <Body width="15" height="15" density="30" />

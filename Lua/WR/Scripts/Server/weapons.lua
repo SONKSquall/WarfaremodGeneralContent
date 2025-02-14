@@ -97,7 +97,8 @@ function WR.reload(gun,ammo,characterUser)
         revolver = 4/6,
         WR_basicpistol = 4/6,
         smg = 4,
-        hmg = 6
+        hmg = 6,
+        WR_basicmachinegun = 6
     }
 
     local ammoTypes = {
@@ -105,7 +106,8 @@ function WR.reload(gun,ammo,characterUser)
         shotgunshell = "round",
         revolverround = "round",
         smgmagazine = "mag",
-        hmgmagazine = "mag"
+        hmgmagazine = "mag",
+        WR_machinegunmag = "mag"
     }
 
     local reloadTime = reloadTimes[gun.Prefab.Identifier.value]
