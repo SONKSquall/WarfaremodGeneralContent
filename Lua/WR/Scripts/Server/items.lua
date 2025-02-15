@@ -1,5 +1,6 @@
 if Game.IsMultiplayer and CLIENT then return end
 
+--[[
 function WR.pointItemFunctions.WR_minedetector(item, itemUser)
 
     if WR.tick % 30 ~= 0 then return end
@@ -17,6 +18,32 @@ function WR.pointItemFunctions.WR_minedetector(item, itemUser)
         end
     end
 
+end
+]]
+
+function WR.equipItemFunctions.WR_minedetector(item, itemUser)
+    WR.thinkFunctions[item] = function()
+
+        if WR.tick % 5 ~= 0 then return end
+
+        if not itemUser.HasItem(item, true) then
+            WR.thinkFunctions[item] = nil
+            return
+        end
+
+        if not Util.GetItemsById("WR_landmine") then return end -- if theres no landmines then don't do anything
+        for landmine in Util.GetItemsById("WR_landmine") do
+            if Vector2.Distance(landmine.WorldPosition, item.WorldPosition) < 500 then
+                local light = landmine.GetComponentString("LightComponent")
+                light.IsOn = true
+                -- networking
+                if SERVER then
+                    local property = light.SerializableProperties[Identifier("IsOn")]
+                    Networking.CreateEntityEvent(landmine, Item.ChangePropertyEventData(property, light))
+                end
+            end
+        end
+    end
 end
 
 function WR.equipItemFunctions.WR_whistle(item, itemUser)
