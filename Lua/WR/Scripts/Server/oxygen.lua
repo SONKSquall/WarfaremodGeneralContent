@@ -62,16 +62,17 @@ Hook.Patch("Barotrauma.Character", "ServerEventRead", function(instance, ptable)
 
     local cardiacarrest = instance.CharacterHealth.GetAffliction("WR_cardiacarrest", false)
     local client = ptable["c"]
+    local timeTillRespawn = WR.respawns[instance.JobIdentifier.value].time
 
     if not client then return end
     if not cardiacarrest then ignorekill = true return end
     if instance.IsDead then return end
     if not instance.IsUnconscious then return end
-    if WR.respawns[instance.JobIdentifier.value].time < 900 then return end
+    if timeTillRespawn < 900 then return end
 
     if cardiacarrest.Strength < 60 then
         ignorekill = true
-        local s = "You may not give in. Please wait: " .. math.ceil(60-cardiacarrest.Strength) .. " Seconds."
+        local s = "You may not give in. Please wait: " .. math.min(math.ceil(60-cardiacarrest.Strength),math.ceil(timeTillRespawn/60)-15) .. " Seconds."
         WR.SendMessagetoClient(s,client,WR.messagesFormats.block)
     end
 end, Hook.HookMethodType.Before)
