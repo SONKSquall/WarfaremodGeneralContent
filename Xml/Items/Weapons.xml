@@ -74,7 +74,7 @@
     </Wearable>
     <Holdable slots="Bag+RightHand+LeftHand" controlpose="true" aimpos="60,-25" handle1="-9,-7" />
   </Item>
-  <Item name="" identifier="WR_basicmachinegun" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" maxstacksize="32" maxstacksizecharacterinventory="1" impactsoundtag="impact_metal_light" spritecolor="200,200,200,255">
+  <Item name="" identifier="WR_basicmachinegun" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" maxstacksize="32" maxstacksizecharacterinventory="1" HideConditionBar="true" impactsoundtag="impact_metal_light" spritecolor="200,200,200,255">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,164,312,109" depth="0.55" origin="0.495,0.44" />
     <BrokenSprite name="Machinegun Attack Mode" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.55" origin="0.495,0.53" maxcondition="90" />
     <Body width="300" height="90" density="25" />
@@ -86,12 +86,11 @@
       <StatusEffect type="OnActive" target="this,Character" SpeedMultiplier="0.25" setvalue="true" checkconditionalalways="true">
         <Conditional hasstatustag="slow" />
       </StatusEffect>
-      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.5" setvalue="true" />
     </Holdable>
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Machinegun Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.101" origin="0.5,0.8" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
-      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.5" setvalue="true" disabledeltatime="true" />
+      <sprite name="Machinegun Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.3" origin="0.5,0.8" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.65" setvalue="true" disabledeltatime="true" />
     </Wearable>
     <RangedWeapon reload="0.15" holdtrigger="true" barrelpos="150,12" spread="20" unskilledspread="10" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.22">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
