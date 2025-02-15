@@ -2,7 +2,7 @@ if CLIENT then return end
 
 WR.teamSpawnBlackList = {}
 
-WR.defaultRespawnInterval = 120*60
+WR.defaultRespawnInterval = 180*60
 
 WR.respawns = {
     renegadeteam = {
@@ -16,19 +16,18 @@ WR.respawns = {
 }
 
 function WR.getPlayersByJob(clients,id)
-    local index = 0
-    local all = #clients
+    local filteredClients = {}
 
-    return function()
-        while true do
-            index = index + 1
-            if index > all then return end
-            if clients[index].Character and clients[index].Character.HasJob(id) or
-            not clients[index].Character and clients[index].AssignedJob and clients[index].AssignedJob.Prefab.Identifier.value == id then
-                return clients[index]
+    for client in clients do
+        if client then
+            if client.Character and client.Character.Info.Job.Prefab.Identifier.Contains(id) or
+            not client.Character and client.AssignedJob and client.AssignedJob.Prefab.Identifier.Contains(id) then
+                table.insert(filteredClients,client)
             end
         end
     end
+
+    return filteredClients
 end
 
 WR.respawnEnabled = true
@@ -53,7 +52,7 @@ function WR.thinkFunctions.respawn()
         end
 
         if timer.time <= 0 then
-            timer.time = math.floor(WR.defaultRespawnInterval * timer.multiplier)
+            timer.time = math.floor(WR.Lerp(WR.defaultRespawnInterval * timer.multiplier,0,WR.InvLerp(WR.tick,0,WR.tickmax) + 0.1))
 
             for client in WR.getPlayersByJob(Client.ClientList,job) do
                 WR.SendMessagetoClient("Respawning...",client,WR.messagesFormats.info)
