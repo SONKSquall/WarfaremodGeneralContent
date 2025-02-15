@@ -131,9 +131,9 @@
       <TickBox text="Deploy bipod">
         <StatusEffect type="OnUse" targettype="This" duration="0.25" stackable="false" tags="slow"></StatusEffect>
         <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" condition="100" aimpos="100,0" handle2="-145,0"></StatusEffect>
-        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="20" unskilledspread="10"></StatusEffect>
+        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="10" unskilledspread="10"></StatusEffect>
         <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" aimpos="40,-50" handle2="-10,50" condition="80"></StatusEffect>
-        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="50" unskilledspread="50"></StatusEffect>
+        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="25" unskilledspread="25"></StatusEffect>
       </TickBox>
     </CustomInterface>
   </Item>
