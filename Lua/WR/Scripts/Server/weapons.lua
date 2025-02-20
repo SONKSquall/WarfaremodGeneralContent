@@ -89,41 +89,57 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
 end)
 
 function WR.reload(gun,ammo,characterUser)
-	if characterUser == nil or gun == nil or characterUser == nil then return end
+	if not characterUser or not gun or not characterUser then return end
 
-    local reloadTimes = {
-        rifle = 5/6,
-        shotgun = 4.5/6,
-        revolver = 4/6,
-        WR_basicpistol = 4/6,
-        smg = 4,
-        hmg = 6,
-        WR_basicmachinegun = 6
+    local ammoId = ammo.Prefab.Identifier.value
+    local gunId = gun.Prefab.Identifier.value
+    local isInfantry = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes).Prefab.Identifier.value == "WR_coalitiongear" or "WR_renegadegear"
+
+    local weapons = {
+        rifle = {
+            type = "round",
+            ammo = {
+                riflebullet = 5/6,
+                ["40mmchemgrenade"] = 3
+            }
+        },
+        shotgun = {
+            type = "round",
+            ammo = {shotgunshell = 4.5/6}
+        },
+        revolver = {
+            type = "round",
+            ammo = {revolverround = 4/6}
+        },
+        WR_basicpistol = {
+            type = "round",
+            ammo = {revolverround = 4/6}
+        },
+        smg = {
+            type = "mag",
+            ammo = {smgmagazine = 4}
+        },
+        hmg = {
+            type = "mag",
+            ammo = {hmgmagazine = 6}
+        },
+        WR_machinegunmag = {
+            type = "mag",
+            ammo = {hmgmagazine = 6}
+        },
     }
 
-    local ammoTypes = {
-        riflebullet = "round",
-        shotgunshell = "round",
-        revolverround = "round",
-        smgmagazine = "mag",
-        hmgmagazine = "mag",
-        WR_machinegunmag = "mag"
-    }
+    local reloadTime = weapons[gunId] and weapons[gunId].ammo[ammoId]
+    local type = weapons[gunId] and weapons[gunId].type
 
-    local reloadTime = reloadTimes[gun.Prefab.Identifier.value]
-    local ammoType = ammoTypes[ammo.Prefab.Identifier.value]
-
-    if ammoType and reloadTime and ((characterUser.CharacterHealth.GetAffliction('WR_reload', true) == nil) or ammoType == "round") then
-        local rig = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
-        -- infantry have faster reload
-        if rig and (rig.Prefab.Identifier.value == "WR_coalitiongear" or "WR_renegadegear") then
+    if reloadTime and (characterUser.CharacterHealth.GetAffliction("WR_reload", true) == nil or type == "round") then
+        if isInfantry then
             reloadTime = reloadTime / 1.25
         end
 
         WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
         gun.Condition = 0
 
-        -- did not want to coordinate a function taking in to account bullets loaded or store data
         Timer.NextFrame(function()
             local endTime = math.ceil(characterUser.CharacterHealth.GetAffliction("WR_reload", true).Strength * 1000)
             Timer.Wait(function()
