@@ -103,6 +103,12 @@ function WR.reload(gun,ammo,characterUser)
                 ["40mmchemgrenade"] = 3
             }
         },
+        WR_basicrifle = {
+            type = "round",
+            ammo = {
+                riflebullet = 5/6,
+            }
+        },
         shotgun = {
             type = "round",
             ammo = {shotgunshell = 4.5/6}
@@ -123,9 +129,9 @@ function WR.reload(gun,ammo,characterUser)
             type = "mag",
             ammo = {hmgmagazine = 6}
         },
-        WR_machinegunmag = {
+        WR_basicmachinegun = {
             type = "mag",
-            ammo = {hmgmagazine = 6}
+            ammo = {WR_machinegunmag = 6}
         },
     }
 

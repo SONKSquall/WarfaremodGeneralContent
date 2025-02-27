@@ -29,11 +29,11 @@
       <StatusEffect type="OnUse" target="this">
         <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
       </StatusEffect>
-	  <!-- cocking animation -->
-      <StatusEffect type="OnUse" target="this" delay="0.3" setvalue="true" targetitemcomponent="holdable" AimAngle="25" aimpos="55,5" >
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock1.ogg" type="OnUse" range="500" volume="1" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock2.ogg" type="OnUse" range="500" volume="1" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverCock3.ogg" type="OnUse" range="500" volume="1" />
+      <!-- cocking animation -->
+      <StatusEffect type="OnUse" target="this" delay="0.3" setvalue="true" targetitemcomponent="holdable" AimAngle="25" aimpos="55,5">
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverCock1.ogg" type="OnUse" range="500" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverCock2.ogg" type="OnUse" range="500" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverCock3.ogg" type="OnUse" range="500" volume="1" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="this" delay="0.6" setvalue="true" targetitemcomponent="holdable" AimAngle="0" aimpos="70,5" />
       <RequiredItems items="revolverammo" type="Contained" msg="ItemMsgAmmoRequired" />
@@ -50,13 +50,13 @@
     <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.1" suitableprojectiles="WR_flameprojectile">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
-      <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true" >
+      <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true">
         <SpawnItem identifier="WR_flameprojectile" spawnposition="ThisInventory" count="1" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Delay="2" >
+      <StatusEffect type="OnBroken" target="This" Delay="2">
         <DropItem />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Delay="3.5" >
+      <StatusEffect type="OnBroken" target="This" Delay="3.5">
         <Remove />
       </StatusEffect>
       <RequiredItems items="WR_flameprojectile" type="Contained" />
@@ -129,9 +129,13 @@
       <GuiFrame relativesize="0.10,0.075" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
       <TickBox text="Deploy bipod">
         <StatusEffect type="OnUse" targettype="This" duration="0.25" stackable="false" tags="slow"></StatusEffect>
-        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" condition="100" aimpos="100,0" handle2="-145,0"></StatusEffect>
+        <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" checkconditionalalways="true" targetitemcomponent="holdable" condition="100" aimpos="100,0" handle2="-145,0">
+		  <Conditional Condition="gt 0" />  <!-- fixs reloading -->
+		</StatusEffect>
         <StatusEffect type="OnUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="10" unskilledspread="10"></StatusEffect>
-        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="holdable" aimpos="40,-50" handle2="-10,50" condition="80"></StatusEffect>
+        <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" checkconditionalalways="true" targetitemcomponent="holdable" aimpos="40,-50" handle2="-10,50" condition="80">
+		  <Conditional Condition="gt 0" /> <!-- fixs reloading -->
+		</StatusEffect>
         <StatusEffect type="OnSecondaryUse" targettype="This" setvalue="true" interval="0.25" targetitemcomponent="RangedWeapon" spread="25" unskilledspread="25"></StatusEffect>
       </TickBox>
     </CustomInterface>
@@ -201,7 +205,7 @@
       </StatusEffect>
       <StatusEffect type="OnNotContained" targettype="NearbyCharacters,This" targetlimb="Torso" range="200" interval="0.1" disabledeltatime="true" CheckConditionalAlways="true">
         <Affliction identifier="burn" strength="0.25" />
-		<Affliction identifier="WR_suppression" strength="0.25" />
+        <Affliction identifier="WR_suppression" strength="0.25" />
         <Conditional HasStatusTag="impacted" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="This" tags="impacted" duration="6" stackable="false" disabledeltatime="true"></StatusEffect>
@@ -210,7 +214,7 @@
       </StatusEffect>
     </Projectile>
   </Item>
-  <Item name="" identifier="WR_flameexplosion" hideinmenus="true" >
+  <Item name="" identifier="WR_flameexplosion" hideinmenus="true">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
     <Body radius="100" bodytype="Static" density="30" />
     <ItemComponent characterusable="false">
@@ -218,12 +222,12 @@
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
-		<SpawnItem identifier="WR_flameprojectile" count="20" aimspread="360" rotationtype="Collider" rotation="0" />
+        <SpawnItem identifier="WR_flameprojectile" count="20" aimspread="360" rotationtype="Collider" rotation="0" />
         <Explosion range="500.0" ballastfloradamage="200" structuredamage="75" itemdamage="0" force="20" severlimbsprobability="1" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
           <Affliction identifier="explosiondamage" strength="100" />
           <Affliction identifier="stun" strength="10" />
         </Explosion>
-		<Remove />
+        <Remove />
       </StatusEffect>
     </ItemComponent>
   </Item>
