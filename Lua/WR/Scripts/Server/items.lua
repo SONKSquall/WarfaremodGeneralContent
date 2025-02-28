@@ -234,7 +234,7 @@ make sure shell crates are usable
 WR.cratesLoadouts = {
     -- Weapon crates start --
     WR_riflecrate = {
-        {id = "rifle",
+        {id = "WR_basicrifle",
         count = 4,
         contents = {
             {
