@@ -107,15 +107,15 @@ function WR.reload(gun,ammo,characterUser)
         WR_basicrifle = {
             type = "round",
             ammo = {
-                riflebullet = 5/6,
-                WR_largeround = 5/6
+                riflebullet = 3.5/6,
+                WR_largeround = 3.5/6
             }
         },
         shotgun = {
             type = "round",
             ammo = {
-                shotgunshell = 4.5/6,
-                WR_shotgunround = 4.5/6
+                shotgunshell = 3/6,
+                WR_shotgunround = 3/6
             }
         },
         revolver = {
