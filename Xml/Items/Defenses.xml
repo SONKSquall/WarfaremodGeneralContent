@@ -11,7 +11,7 @@
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.33" MinDeteriorationCondition="0" RepairThreshold="80" FixDurationHighSkill="20" msg="WRItemMsgRepairTrenchingtool" hudpriority="10">
       <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
       <RequiredSkill identifier="mechanical" level="0" />
-	  <RequiredItem items="WR_trenchingtool" type="Equipped" />
+	  <RequiredItem items="buildable" type="Equipped" />
     </Repairable>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="1" maxstacksize="3" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
