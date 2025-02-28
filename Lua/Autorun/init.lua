@@ -28,6 +28,7 @@ dofile(WR.Path .. "/Lua/WR/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/chatcommands.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/oxygen.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Client/subeditor.lua")
 
 -- for holiday stuff
 WR.HalloweenMode = false
