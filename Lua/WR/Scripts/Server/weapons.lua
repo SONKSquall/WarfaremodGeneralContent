@@ -100,6 +100,7 @@ function WR.reload(gun,ammo,characterUser)
             type = "round",
             ammo = {
                 riflebullet = 5/6,
+                WR_largeround = 5/6,
                 ["40mmchemgrenade"] = 3
             }
         },
@@ -107,19 +108,29 @@ function WR.reload(gun,ammo,characterUser)
             type = "round",
             ammo = {
                 riflebullet = 5/6,
+                WR_largeround = 5/6
             }
         },
         shotgun = {
             type = "round",
-            ammo = {shotgunshell = 4.5/6}
+            ammo = {
+                shotgunshell = 4.5/6,
+                WR_shotgunround = 4.5/6
+            }
         },
         revolver = {
             type = "round",
-            ammo = {revolverround = 4/6}
+            ammo = {
+                revolverround = 4/6,
+                WR_smallround = 4/6
+            }
         },
         WR_basicpistol = {
             type = "round",
-            ammo = {revolverround = 4/6}
+            ammo = {
+                revolverround = 4/6,
+                WR_smallround = 4/6
+            }
         },
         smg = {
             type = "mag",
