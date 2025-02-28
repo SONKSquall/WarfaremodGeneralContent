@@ -2,21 +2,26 @@ Game.AddCommand("wr_replace", "", function(args)
     if #args < 1 then return end
     local itemId = tostring(args[1])
     local replacePrefab = ItemPrefab.GetItemPrefab(args[2])
-    local count = args[3]
+    local count = args[3] or 1
 
     for item in Item.ItemList do
         if item.Prefab.Identifier.value == itemId then
             local inventory = item.ParentInventory
             if inventory then
                 local index = inventory.FindIndex(item)
-
-                item.Remove()
-                if replacePrefab then
-                    for i=1,count or 1 do
-                        local replacement = Item(replacePrefab,Vector2(0,0),nil,nil)
-                        inventory.ForceToSlot(replacement,index)
-                    end
+                local amount = 0
+                for stackedItem in item.GetStackedItems() do
+                    amount = amount + 1
+                    stackedItem.Remove()
                 end
+                Timer.NextFrame(function()
+                    if replacePrefab then
+                        for i=1,(amount*count) do
+                            local replacement = Item(replacePrefab,Vector2(0,0),nil,nil)
+                            inventory.ForceToSlot(replacement,index)
+                        end
+                    end
+                end)
             else
                 local position = item.WorldPosition
 
