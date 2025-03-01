@@ -66,7 +66,7 @@ function WR.thinkFunctions.winner()
             local defender
             if obj.captured or WR.tick > WR.tickmax then
                 for client in WR.getPlayersByJob(Client.ClientList,obj.defender) do -- end game when all defenders are dead and the objective captured
-                    if client.Character and not (client.Character.IsUnconscious or client.Character.IsDead or WR.IsEnemyPOW(client.Character,obj.attacker)) then
+                    if client.Character and not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character,obj.defender)) then
                         defender = true
                         break
                     end
@@ -84,12 +84,12 @@ end
 
 function WR.thinkFunctions.ore()
     -- 1~ ore per player every 3 minutes
-    if WR.tick % math.floor(3*60*60 / (#Client.ClientList/2)) == 0 then
+    if WR.tick % math.floor(WR.Lerp(WR.InvLerp(#Client.ClientList,16,0),1800,10800)) == 0 then
         for drillTable in WR.data["userdata.drills"] do
             local drill = drillTable[math.random(1,#drillTable)]
             if drill then
                 if not drill.OwnInventory.IsFull(true) then
-                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_ore"), drill.OwnInventory, nil, nil, nil)
+                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab"WR_ore", drill.OwnInventory, nil, nil, nil)
                 end
             end
         end
@@ -182,12 +182,12 @@ function WR.roundStartFunctions.main()
     Game.ServerSettings.ForcePropertyUpdate()
 
     -- shops
-    if Util.GetItemsById("WR_strategicexchange") then
-        for shop in Util.GetItemsById("WR_strategicexchange") do
-            local shopteam = WR.getStringVariables(shop.Tags)["team"]
+    for item in Item.ItemList do
+        if item.HasTag("coindropoff") then
+            local shopteam = WR.getStringVariables(item.Tags)["team"]
             shopteam = WR.teamKeys[shopteam] -- remove bogus teams
             if shopteam then
-                WR.data["userdata."..shopteam.."shop"] = shop
+                WR.data["userdata."..shopteam.."shop"] = item
             end
         end
     end
