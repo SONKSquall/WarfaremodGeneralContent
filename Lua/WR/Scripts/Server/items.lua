@@ -238,7 +238,7 @@ WR.cratesLoadouts = {
         count = 4,
         contents = {
             {
-                id = "riflebullet",
+                id = "WR_largeround",
                 count = 6
             }
         }}
@@ -248,7 +248,7 @@ WR.cratesLoadouts = {
         count = 4,
         contents = {
             {
-                id = "shotgunshell",
+                id = "WR_shotgunround",
                 count = 6
             }
         }}
