@@ -276,11 +276,11 @@ WR.cratesLoadouts = {
     -- Weapon crates end --
     -- Ammo crates start --
     WR_rifleammocrate = {
-        {id = "riflebullet",
+        {id = "WR_largeround",
         count = 12*4}
     },
     WR_shotgunammocrate = {
-        {id = "shotgunshell",
+        {id = "WR_shotgunround",
         count = 12*4}
     },
     WR_smgammocrate = {

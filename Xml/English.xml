@@ -146,8 +146,8 @@
 <entitydescription.WR_smgcrate>Produces 2 smgs. Deposit in a locker to retrieve items.</entitydescription.WR_smgcrate>
 <entityname.WR_hmgcrate>Production Crate (Hmg)</entityname.WR_hmgcrate>
 <entitydescription.WR_hmgcrate>Produces a hmg. Deposit in a locker to retrieve item.</entitydescription.WR_hmgcrate>
-<entityname.WR_rifleammocrate>Production Crate (Rifle Ammo)</entityname.WR_rifleammocrate>
-<entitydescription.WR_rifleammocrate>Produces 48 rifle rounds. Deposit in a locker to retrieve items.</entitydescription.WR_rifleammocrate>
+<entityname.WR_rifleammocrate>Production Crate (Full Power Ammo)</entityname.WR_rifleammocrate>
+<entitydescription.WR_rifleammocrate>Produces 48 full power rounds. Deposit in a locker to retrieve items.</entitydescription.WR_rifleammocrate>
 <entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
 <entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells. Deposit in a locker to retrieve items.</entitydescription.WR_shotgunammocrate>
 <entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>
