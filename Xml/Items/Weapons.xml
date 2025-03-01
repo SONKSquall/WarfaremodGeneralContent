@@ -203,7 +203,7 @@
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Rifle Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,370,249,46" depth="0.55" canbehiddenbyotherwearables="false" rotation="85" inheritlimbdepth="true" limb="Torso" scale="0.5" origin="0.6,0.85" />
     </Wearable>
-    <RangedWeapon barrelpos="110,15" unskilledspread="5" spread="5" combatPriority="70" reload="1.5" reloadnoskill="2" reloadskillrequirement="40" drawhudwhenequipped="true" crosshairscale="0.15">
+    <RangedWeapon barrelpos="110,15" unskilledspread="3" spread="3" combatPriority="70" reload="1.5" reloadnoskill="2" reloadskillrequirement="40" drawhudwhenequipped="true" crosshairscale="0.15">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
