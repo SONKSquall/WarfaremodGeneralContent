@@ -23,7 +23,7 @@ function WR.thinkFunctions.objective()
         local enemyPresent = false
         for client in Client.ClientList do
             if client.Character and WR.isPointInRect(client.Character.WorldPosition, area.rect) then
-                if not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character, area.defender)) and client.Character.JobIdentifier == area.attacker then
+                if not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character, area.defender)) and client.Character.JobIdentifier.value == area.attacker then
                     enemyPresent = true
                 end
             end

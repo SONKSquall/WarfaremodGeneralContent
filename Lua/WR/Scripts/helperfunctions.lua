@@ -18,7 +18,7 @@ end
 
 function WR.IsEnemyPOW(character, TeamIdentifier)
     return character.isHuman == true and
-    character.IsDead == false and character.JobIdentifier ~= TeamIdentifier and
+    character.IsDead == false and character.JobIdentifier.value ~= TeamIdentifier and
     character.LockHands == true and
     not (character.CharacterHealth.GetAfflictionStrengthByIdentifier("wr_reload", false) > 0)
 end
