@@ -78,6 +78,9 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,164,312,109" depth="0.55" origin="0.495,0.44" />
     <BrokenSprite name="Machinegun Attack Mode" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.55" origin="0.495,0.53" maxcondition="90" />
     <Body width="300" height="90" density="25" />
+	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5" >
+      <RequiredItem identifier="WR_currency" amount="15" />
+    </Fabricate>
     <!-- note that when changing aimpos that its value also needs to be changed in the custom interface -->
     <Holdable slots="RightHand+LeftHand" controlpose="true" aimpos="100,0" holdpos="100,-60" holdangle="-30" handle1="-60,-24" handle2="-145,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="this,Character" SpeedMultiplier="0.0" setvalue="true" checkconditionalalways="true">
@@ -142,7 +145,7 @@
       </TickBox>
     </CustomInterface>
   </Item>
-  <Item name="" identifier="WR_machinegunmag" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_machinegunmag" category="Weapon" cargocontaineridentifier="metalcrate" health="50" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
     <Fabricate suitablefabricators="stratshop" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="3" />
     </Fabricate>

@@ -13,7 +13,7 @@
 <entityname.WR_basicmachinegun>MG-254 'Snow Melter'</entityname.WR_basicmachinegun>
 <entitydescription.WR_basicmachinegun>A large mounted machine gun converted to a man portable weapon; useful for suppression. Can feed from belt boxes or raw belts. Bipod allows for better accuracy at the cost of speed.</entitydescription.WR_basicmachinegun>
 <entityname.WR_machinegunmag>Machine Gun Belt Box</entityname.WR_machinegunmag>
-<entitydescription.WR_machinegunmag>Box containing 100 rounds of machine gun rounds.</entitydescription.WR_machinegunmag>
+<entitydescription.WR_machinegunmag>Box containing 50 rounds of machine gun rounds.</entitydescription.WR_machinegunmag>
 <entityname.WR_basicrifle>Infantry Carbine</entityname.WR_basicrifle>
 <entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
