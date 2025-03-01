@@ -55,8 +55,8 @@ local function powhandle(targets,picker)
             Entity.Spawner.AddEntityToRemoveQueue(character)
 
             local prisonerteam = character.Info.Job.Prefab.Identifier.Value
-            -- increase spawntime for captured team by 5~ second
-            WR.respawns[prisonerteam].multiplier = WR.respawns[prisonerteam].multiplier + 0.05
+
+            WR.respawns[prisonerteam].multiplier = WR.respawns[prisonerteam].multiplier + WR.Lerp(WR.InvLerp(#Client.ClientList,0,16),0.5,0.1)
 
             -- data handling
             WR.data["teams."..frendlyteam..".captures"] = WR.data["teams."..frendlyteam..".captures"] + 1

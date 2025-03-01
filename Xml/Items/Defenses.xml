@@ -11,7 +11,7 @@
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.33" MinDeteriorationCondition="0" RepairThreshold="80" FixDurationHighSkill="20" msg="WRItemMsgRepairTrenchingtool" hudpriority="10">
       <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
       <RequiredSkill identifier="mechanical" level="0" />
-	  <RequiredItem items="WR_trenchingtool" type="Equipped" />
+	  <RequiredItem items="buildable" type="Equipped" />
     </Repairable>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="1" maxstacksize="3" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
@@ -94,9 +94,10 @@
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
     <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
+	  <StatusEffect type="OnUse" targettype="this" Interval="0.25" disableDeltaTime="true" condition="-5" >
+      </StatusEffect>
       <StatusEffect type="OnUse" targettype="NearbyCharacters" Interval="0.25" disableDeltaTime="true" range="150">
-        <Affliction identifier="lacerations" strength="1" />
-        <Affliction identifier="slow" strength="40" />
+        <Affliction identifier="slow" strength="75" />
       </StatusEffect>
       <StatusEffect type="OnDamaged" targettype="This">
         <sound file="Content/Sounds/Damage/HitMetal1.ogg" range="500" selectionmode="Random" />

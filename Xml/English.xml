@@ -13,7 +13,15 @@
 <entityname.WR_basicmachinegun>MG-254 'Snow Melter'</entityname.WR_basicmachinegun>
 <entitydescription.WR_basicmachinegun>A large mounted machine gun converted to a man portable weapon; useful for suppression. Can feed from belt boxes or raw belts. Bipod allows for better accuracy at the cost of speed.</entitydescription.WR_basicmachinegun>
 <entityname.WR_machinegunmag>Machine Gun Belt Box</entityname.WR_machinegunmag>
-<entitydescription.WR_machinegunmag>Box containing 100 rounds of machine gun rounds.</entitydescription.WR_machinegunmag>
+<entitydescription.WR_machinegunmag>Box containing 50 rounds of machine gun rounds.</entitydescription.WR_machinegunmag>
+<entityname.WR_basicrifle>Infantry Carbine</entityname.WR_basicrifle>
+<entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
+<entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
+<entitydescription.WR_smallround>Low caliber round ideal for handguns and sub machine guns.</entitydescription.WR_smallround>
+<entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>
+<entitydescription.WR_largeround>Standard caliber for use in longguns such as rifles and machineguns.</entitydescription.WR_largeround>
+<entityname.WR_shotgunround>Shotgun Cartridge</entityname.WR_shotgunround>
+<entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shot guns.</entitydescription.WR_shotgunround>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -138,8 +146,8 @@
 <entitydescription.WR_smgcrate>Produces 2 smgs. Deposit in a locker to retrieve items.</entitydescription.WR_smgcrate>
 <entityname.WR_hmgcrate>Production Crate (Hmg)</entityname.WR_hmgcrate>
 <entitydescription.WR_hmgcrate>Produces a hmg. Deposit in a locker to retrieve item.</entitydescription.WR_hmgcrate>
-<entityname.WR_rifleammocrate>Production Crate (Rifle Ammo)</entityname.WR_rifleammocrate>
-<entitydescription.WR_rifleammocrate>Produces 48 rifle rounds. Deposit in a locker to retrieve items.</entitydescription.WR_rifleammocrate>
+<entityname.WR_rifleammocrate>Production Crate (Full Power Ammo)</entityname.WR_rifleammocrate>
+<entitydescription.WR_rifleammocrate>Produces 48 full power rounds. Deposit in a locker to retrieve items.</entitydescription.WR_rifleammocrate>
 <entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
 <entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells. Deposit in a locker to retrieve items.</entitydescription.WR_shotgunammocrate>
 <entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>

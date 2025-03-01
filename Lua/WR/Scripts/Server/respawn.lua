@@ -52,7 +52,7 @@ function WR.thinkFunctions.respawn()
         end
 
         if timer.time <= 0 then
-            timer.time = math.floor(WR.Lerp(WR.defaultRespawnInterval * timer.multiplier,0,WR.InvLerp(WR.tick,0,WR.tickmax) + 0.1))
+            timer.time = math.floor(WR.Lerp(WR.InvLerp(WR.tick,0,WR.tickmax),30*60,WR.defaultRespawnInterval * timer.multiplier))
 
             for client in WR.getPlayersByJob(Client.ClientList,job) do
                 WR.SendMessagetoClient("Respawning...",client,WR.messagesFormats.info)

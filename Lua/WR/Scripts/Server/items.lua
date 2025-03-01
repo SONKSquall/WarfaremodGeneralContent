@@ -234,11 +234,11 @@ make sure shell crates are usable
 WR.cratesLoadouts = {
     -- Weapon crates start --
     WR_riflecrate = {
-        {id = "rifle",
+        {id = "WR_basicrifle",
         count = 4,
         contents = {
             {
-                id = "riflebullet",
+                id = "WR_largeround",
                 count = 6
             }
         }}
@@ -248,7 +248,7 @@ WR.cratesLoadouts = {
         count = 4,
         contents = {
             {
-                id = "shotgunshell",
+                id = "WR_shotgunround",
                 count = 6
             }
         }}
@@ -276,11 +276,11 @@ WR.cratesLoadouts = {
     -- Weapon crates end --
     -- Ammo crates start --
     WR_rifleammocrate = {
-        {id = "riflebullet",
+        {id = "WR_largeround",
         count = 12*4}
     },
     WR_shotgunammocrate = {
-        {id = "shotgunshell",
+        {id = "WR_shotgunround",
         count = 12*4}
     },
     WR_smgammocrate = {

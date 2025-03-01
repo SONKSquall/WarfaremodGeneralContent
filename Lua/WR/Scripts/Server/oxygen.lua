@@ -1,4 +1,4 @@
-if Game.IsMultiplayer and CLIENT then return end
+if CLIENT then return end
 
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.CharacterHealth"], "oxygenLowAffliction")
 
