@@ -400,3 +400,21 @@ Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, ite
         WR.GiveAfflictionCharacter(character.SelectedCharacter, "WR_stabilize", 100)
     end
 end)
+
+function WR.thinkFunctions.cuffs()
+    if WR.tick % 60 == 0 then
+        for value in Character.CharacterList do
+            if value.IsHuman and value.IsKeyDown(InputType.Crouch) then
+                local item = value.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
+
+                if item and not item.Removed and item.Prefab.Identifier == "WR_cuffs" then
+                    item.Condition = item.Condition - 1.4
+
+                    if item.Condition <= 0 then
+                        Entity.Spawner.AddEntityToRemoveQueue(item)
+                    end
+                end
+            end
+        end
+    end
+end
