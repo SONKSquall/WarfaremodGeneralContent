@@ -254,8 +254,20 @@ WR.cratesLoadouts = {
         }}
     },
     WR_smgcrate = {
-        {id = "smg",
-        count = 2}
+        {id = "WR_smg",
+        count = 2,
+        contents = {
+            {
+                id = "WR_smallroundmag20",
+                count = 1,
+                contents = {
+                    {
+                        id = "WR_smallround",
+                        count = 20
+                    }
+                }
+            }
+        }}
     },
     WR_hmgcrate = {
         {id = "WR_basicmachinegun",
@@ -284,8 +296,14 @@ WR.cratesLoadouts = {
         count = 12*4}
     },
     WR_smgammocrate = {
-        {id = "smgmagazine",
-        count = 4}
+        {id = "WR_smallroundmag20",
+        count = 4,
+        contents = {
+            {
+                id = "WR_smallround",
+                count = 20
+            }
+        }}
     },
     WR_hmgammocrate = {
         {id = "WR_machinegunmag",

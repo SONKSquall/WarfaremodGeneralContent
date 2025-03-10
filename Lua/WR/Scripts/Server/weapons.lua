@@ -136,6 +136,10 @@ function WR.reload(gun,ammo,characterUser)
             type = "mag",
             ammo = {smgmagazine = 4}
         },
+        WR_smg = {
+            type = "mag",
+            ammo = {WR_smallroundmag20 = 4}
+        },
         hmg = {
             type = "mag",
             ammo = {hmgmagazine = 6}

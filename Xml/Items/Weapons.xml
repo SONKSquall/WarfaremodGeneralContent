@@ -246,6 +246,50 @@
       <Containable items="WR_largeround,rifleammo" hide="true" itempos="0,0" />
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_smg" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="10" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="215,0,151,48" depth="0.55" origin="0.5,0.5" />
+    <Body width="140" height="60" density="25" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="45,-10" aimpos="50,-10" handle1="-65,-10" handle2="30,-15" holdangle="-35" msg="ItemMsgPickUpSelect" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Submachine gun Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="215,0,151,48" canbehiddenbyotherwearables="false" rotation="85" inheritlimbdepth="true" limb="Torso" scale="0.5" origin="0.5,0.9" />
+    </Wearable>
+    <RangedWeapon reload="0.1" weapondamagemodifier="0.5" penetration="0.15" holdtrigger="true" barrelpos="62,15" spread="20" unskilledspread="20" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="6000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="6000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="6000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="6000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="6000" />
+      <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="6000" />
+      <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistance1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistance2.ogg" type="OnUse" range="4000" volume="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistance1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistance2.ogg" type="OnUse" range="4000" volume="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <RequiredItems items="WR_smallround" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" ShowContainedStateIndicator="false" containedspritedepth="0.56">
+      <Containable items="smallroundbox" hide="false" itempos="1,-7.5" >
+	    <StatusEffect type="OnInserted" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="false" >
+		</StatusEffect>
+	    <StatusEffect type="OnRemoved" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="true" >
+		</StatusEffect>
+	  </Containable>
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+  </Item>
   <Item name="" identifier="WR_flameprojectile" hideinmenus="true" impacttolerance="0">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
     <Body width="15" height="15" density="30" />
@@ -391,10 +435,10 @@
     </Projectile>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
-  <Item name="" identifier="WR_smallroundmag20" maxstacksize="16" maxstacksizecharacterinventory="1" MaxStackSizeHoldableOrWearableInventory="1" scale="0.5" Health="20" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,smgammo" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="WR_smallroundmag20" maxstacksize="16" maxstacksizecharacterinventory="1" MaxStackSizeHoldableOrWearableInventory="1" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,smallroundbox,smgammo" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="512,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="64,99,10,50" depth="0.55" origin="0.5,0.5" />
-	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="2" />
     </Fabricate>
     <Body width="15" height="50" density="25" />
@@ -402,7 +446,6 @@
       <Containable items="WR_smallround" hide="true" />
     </ItemContainer>
     <Holdable slots="RightHand,LeftHand,Any" handle1="0,0" msg="ItemMsgPickUpSelect" />
-    <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
   <!-- Firearms End -->
   <!-- Explosives Start -->
