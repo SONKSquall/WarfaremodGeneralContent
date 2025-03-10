@@ -78,7 +78,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,164,312,109" depth="0.55" origin="0.495,0.44" />
     <BrokenSprite name="Machinegun Attack Mode" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.55" origin="0.495,0.53" maxcondition="90" />
     <Body width="300" height="90" density="25" />
-	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5" >
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="15" />
     </Fabricate>
     <!-- note that when changing aimpos that its value also needs to be changed in the custom interface -->
@@ -389,6 +389,19 @@
         <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
       </StatusEffect>
     </Projectile>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <Item name="" identifier="WR_smallroundmag20" maxstacksize="16" maxstacksizecharacterinventory="1" MaxStackSizeHoldableOrWearableInventory="1" scale="0.5" Health="20" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,smgammo" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="512,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="64,99,10,50" depth="0.55" origin="0.5,0.5" />
+	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="2" />
+    </Fabricate>
+    <Body width="15" height="50" density="25" />
+    <ItemContainer hideitems="true" capacity="1" maxstacksize="20" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="WR_smallround" hide="true" />
+    </ItemContainer>
+    <Holdable slots="RightHand,LeftHand,Any" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
   <!-- Firearms End -->

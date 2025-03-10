@@ -17,11 +17,13 @@
 <entityname.WR_basicrifle>Infantry Carbine</entityname.WR_basicrifle>
 <entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
-<entitydescription.WR_smallround>Low caliber round ideal for handguns and sub machine guns.</entitydescription.WR_smallround>
+<entitydescription.WR_smallround>Low caliber round ideal for handguns and submachine guns.</entitydescription.WR_smallround>
 <entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>
 <entitydescription.WR_largeround>Standard caliber for use in longguns such as rifles and machineguns.</entitydescription.WR_largeround>
 <entityname.WR_shotgunround>Shotgun Cartridge</entityname.WR_shotgunround>
-<entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shot guns.</entitydescription.WR_shotgunround>
+<entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shotguns.</entitydescription.WR_shotgunround>
+<entityname.WR_smallroundmag20>Submachine gun maganize</entityname.WR_smallroundmag20>
+<entitydescription.WR_smallroundmag20>A 20 round maganize for use in submachine guns.</entitydescription.WR_smallroundmag20>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
