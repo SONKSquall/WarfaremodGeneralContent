@@ -100,6 +100,8 @@
 <entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
 <entityname.WR_renegadeenggear>Renegade Sapper Rig</entityname.WR_renegadeenggear>
 <entitydescription.WR_renegadeenggear>Basic rig pockets and bandolier replaced with packs for equipment and material storage. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_renegadeenggear>
+<entityname.WR_renegadearmor>Renegade Steel Armor</entityname.WR_renegadearmor>
+<entitydescription.WR_renegadearmor>Heavy duty shaped steel for highly effective protection. Useful for assault troops and machinegunners.</entitydescription.WR_renegadearmor>
   <!-- Infantry gear End -->
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>

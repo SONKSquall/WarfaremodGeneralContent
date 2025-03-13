@@ -79,7 +79,7 @@
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Renegade Eng Rig Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Renegadegear.png" limb="Torso" hidelimb="false" sourcerect="361,152,84,104" inherittexturescale="true" origin="0.4,0.575" />
       <StatValue stattype="RepairSpeed" value="2" />
-	  <StatusEffect type="OnWearing" targettype="Character" duration="0.1" tags="enginner" />
+      <StatusEffect type="OnWearing" targettype="Character" duration="0.1" tags="enginner" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
     <ItemContainer capacity="2" maxstacksize="12">
@@ -119,6 +119,27 @@
       </StatusEffect>
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
     </ItemComponent>
+  </Item>
+  <Item name="" identifier="WR_renegadearmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,128,64,64" origin="0.5,0.5" />
+    <Sprite name="Renegade Armor" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" sourcerect="185,38,80,150" depth="0.6" origin="0.5,0.35" />
+    <Body width="85" height="90" density="25" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="30,-50" handle1="-10,40" handle2="10,40"></Holdable>
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnWearing" target="Character" interval="0.9" setvalue="true">
+        <Affliction identifier="WR_forcestand" strength="1" />
+      </StatusEffect>
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,180.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="bitewounds,explosiondamage" armorsector="0.0,180.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictiontypes="bleeding" armorsector="0.0,180.0" damagemultiplier="0.0" damagesound="LimbArmor" deflectprojectiles="true" />
+      <sprite name="Renegade Armor Torso" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Renegade Armor Left Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Renegade Armor Right Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Renegade Armor Left Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Renegade Armor Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightThigh" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftThigh" />
+    </Wearable>
   </Item>
   <!-- Uniform End -->
 </Items>

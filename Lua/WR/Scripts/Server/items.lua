@@ -105,6 +105,21 @@ function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult
     end
 end
 
+function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLimb)
+    if hitLimb.type ~= LimbType.Torso or hitLimb.type ~= LimbType.RightThigh or hitLimb.type ~= LimbType.LeftThigh then return end
+    local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+
+    if not item then return end
+    if not item.Prefab.Identifier.value == "WR_renegadearmor" then return end
+
+    local damage = attackResult.Damage / 2
+    item.Condition = item.Condition - damage
+
+    if item.Condition <= 0 then
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+
 function WR.roundStartFunctions.ore()
 
     if Util.GetItemsById("WR_oredrill") then
@@ -359,8 +374,8 @@ WR.cratesLoadouts = {
         {id = "flakcannonammoboxexplosive"}
     },
     WR_renegadebodyarmorcrate = {
-        {id = "piratebodyarmor",
-        count = 4}
+        {id = "WR_renegadearmor",
+        count = 2}
     },
     -- Renegade crates end --
 }
