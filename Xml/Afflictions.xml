@@ -151,7 +151,7 @@
     ShowIconThreshold="0"
 	ShowIconToOthersThreshold="1000"
     affectmachines="false" >
-    <Effect minstrength="0" maxstrength="100" strengthchange="-1" >
+    <Effect minstrength="0" maxstrength="100" strengthchange="-100" >
 	  <StatusEffect type="OnActive" target="Character" setvalue="true">
         <!-- Prevent characters from crouching. -->
         <TriggerAnimation Type="Crouch" path="%ModDir%/Xml/Animations/HumanStandCrouch.xml" priority="20" ExpectedSpecies="Human" />

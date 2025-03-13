@@ -21,6 +21,24 @@ function WR.pointItemFunctions.WR_minedetector(item, itemUser)
 end
 ]]
 
+function WR.thinkFunctions.standAimingAroundSandbag()
+    if WR.tick % 10 ~= 0 then return end
+
+    local sandbags = Util.GetItemsById("WR_sandbag")
+    if not sandbags then return end
+
+    for client in Client.ClientList do
+        if client.Character and client.Character.AnimController.IsAiming then
+            for item in sandbags do
+                local angle = math.deg(item.body.Rotation)
+                if not item.Removed and (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
+                    WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",18)
+                end
+            end
+        end
+    end
+end
+
 function WR.equipItemFunctions.WR_minedetector(item, itemUser)
     WR.thinkFunctions[item] = function()
 
