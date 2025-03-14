@@ -262,6 +262,23 @@ function WR.spawnItemFunctions.machinepistol(item)
     end
 end
 
+function WR.spawnItemFunctions.WR_smg(item)
+    if item.OwnInventory.IsEmpty() then
+        WR.spawnItems(
+            {
+                {id = "WR_smallroundmag20",
+                contents = {
+                    {
+                        id = "WR_smallround",
+                        count = 20
+                    }
+                }}
+            },
+            item.OwnInventory
+        )
+    end
+end
+
 --[[ TODO: 
 change discriptions to match new workings
 new sprite for crates
@@ -293,19 +310,7 @@ WR.cratesLoadouts = {
     },
     WR_smgcrate = {
         {id = "WR_smg",
-        count = 2,
-        contents = {
-            {
-                id = "WR_smallroundmag20",
-                count = 1,
-                contents = {
-                    {
-                        id = "WR_smallround",
-                        count = 20
-                    }
-                }
-            }
-        }}
+        count = 2}
     },
     WR_hmgcrate = {
         {id = "WR_basicmachinegun",
@@ -335,13 +340,15 @@ WR.cratesLoadouts = {
     },
     WR_smgammocrate = {
         {id = "WR_smallroundmag20",
-        count = 4,
+        count = 2,
         contents = {
             {
                 id = "WR_smallround",
                 count = 20
             }
-        }}
+        }},
+        {id = "WR_smallround",
+        count = 80}
     },
     WR_hmgammocrate = {
         {id = "WR_machinegunmag",
