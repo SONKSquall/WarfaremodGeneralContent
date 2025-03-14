@@ -148,7 +148,7 @@
     limbspecific="false"
     indicatorlimb="Torso"
     maxstrength="100"
-    ShowIconThreshold="0"
+    ShowIconThreshold="1000"
 	ShowIconToOthersThreshold="1000"
     affectmachines="false" >
     <Effect minstrength="0" maxstrength="100" strengthchange="-100" >
