@@ -120,7 +120,7 @@
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
     </ItemComponent>
   </Item>
-  <Item name="" identifier="WR_renegadearmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="WR_renegadearmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" spritecolor="200,200,200,255">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,128,64,64" origin="0.5,0.5" />
     <Sprite name="Renegade Armor" texture="%ModDir%/Sprites/Items/Jobgear/RenegadeArmor.png" sourcerect="185,38,80,150" depth="0.6" origin="0.5,0.35" />
     <Body width="85" height="90" density="25" />
