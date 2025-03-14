@@ -94,6 +94,8 @@
 <entitydescription.WR_coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.WR_coalitionmedgear>
 <entityname.WR_coalitionenggear>Coalition Sapper Rig</entityname.WR_coalitionenggear>
 <entitydescription.WR_coalitionenggear>Standard issue rig for Coalition sappers. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_coalitionenggear>
+<entityname.WR_coalitionarmor>Coalition Plate Armor</entityname.WR_coalitionarmor>
+<entitydescription.WR_coalitionarmor>Bolted steel plates for highly effective protection. Useful for assault troops and machinegunners.</entitydescription.WR_coalitionarmor>
 <entityname.WR_renegadegear>Renegade Infantry Rig</entityname.WR_renegadegear>
 <entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
 <entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>

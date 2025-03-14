@@ -123,12 +123,17 @@ function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult
     end
 end
 
+local validArmor = {
+    WR_renegadearmor = true,
+    WR_coalitionarmor = true,
+}
+
 function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLimb)
-    if hitLimb.type ~= LimbType.Torso or hitLimb.type ~= LimbType.RightThigh or hitLimb.type ~= LimbType.LeftThigh then return end
+    if hitLimb.type ~= LimbType.Torso and hitLimb.type ~= LimbType.LeftForearm and hitLimb.type ~= LimbType.RightForearm then return end
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
 
     if not item then return end
-    if not item.Prefab.Identifier.value == "WR_renegadearmor" then return end
+    if not validArmor[item.Prefab.Identifier.value] then return end
 
     local damage = attackResult.Damage / 2
     item.Condition = item.Condition - damage
@@ -377,14 +382,12 @@ WR.cratesLoadouts = {
         count = 6}
     },
     WR_coalitionbodyarmorcrate = {
-        {id = "bodyarmor",
+        {id = "WR_coalitionarmor",
         count = 2}
     },
     WR_coalitiongasgrenadecrate = {
         {id = "chemgrenade",
-        count = 6},
-        {id = "40mmchemgrenade",
-        count = 3}
+        count = 6}
     },
     -- Coaltion crates end --
     -- Renegade crates start --
