@@ -139,6 +139,8 @@
       <sprite name="Coalition Armor Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
       <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightThigh" />
       <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftThigh" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightHand" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftHand" />
     </Wearable>
   </Item>
   <!-- Uniform End -->
