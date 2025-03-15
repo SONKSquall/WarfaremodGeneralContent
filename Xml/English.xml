@@ -86,6 +86,8 @@
 <entitydescription.WR_renegadecomhat>A fine piece of Separatist headgear. Simply wearing this can inspire confidence in those around you.</entitydescription.WR_renegadecomhat>
 <entityname.WR_coalitioncomhat>Coalition Commander Cap</entityname.WR_coalitioncomhat>
 <entitydescription.WR_coalitioncomhat>Headdress for any stalwart Coalition officer.</entitydescription.WR_coalitioncomhat>
+<entityname.WR_faceplate>Steel face plate</entityname.WR_faceplate>
+<entitydescription.WR_faceplate>A steel mask providing solid protection from gunshots, at least from the front.</entitydescription.WR_faceplate>
   <!-- Headgear End -->
   <!-- Infantry gear Start -->
 <entityname.WR_coalitiongear>Coalition Infantry Rig</entityname.WR_coalitiongear>

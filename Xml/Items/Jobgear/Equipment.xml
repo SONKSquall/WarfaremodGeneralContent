@@ -53,9 +53,9 @@
       <sprite name="Stretcher wearable" rotation="-10" texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" sourcerect="475,0,37,134" limb="Torso" inheritlimbdepth="true" inherittexturescale="true" origin="1.35,0.3" />
       <StatusEffect type="OnWearing" interval="0.5" target="Character" setvalue="true" disabledeltatime="true">
         <Affliction identifier="WR_normalwalkspeed" strength="100" />
-		<LuaHook name="WR.stretcher.xmlhook" />
+        <LuaHook name="WR.stretcher.xmlhook" />
       </StatusEffect>
-      <StatusEffect type="OnNotContained" target="nearbycharacters" interval="0.5" range="100" setvalue="true" >
+      <StatusEffect type="OnNotContained" target="nearbycharacters" interval="0.5" range="100" setvalue="true">
         <Affliction identifier="WR_stabilize" strength="100" />
       </StatusEffect>
     </Wearable>
@@ -79,6 +79,18 @@
         <Containable items="packable,smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable" />
       </SubContainer>
     </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_faceplate" category="Equipment" tags="smallitem,clothing,helmet" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" scale="0.5" spritecolor="200,200,200,255">
+    <Sprite texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" sourcerect="672,184,24,54" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="704,128,64,64" origin="0.5,0.5" />
+    <Body width="25" height="50" density="25" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,180.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="explosiondamage" armorsector="0.0,180.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictiontypes="bleeding" armorsector="0.0,180.0" damagemultiplier="0.0" damagesound="LimbArmor" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="Face Plate Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.75" hidewearablesoftype="Hair" sourcerect="672,184,24,54" origin="-0.15,0.45" />
+    </Wearable>
   </Item>
   <!-- Gear End -->
 </Items>

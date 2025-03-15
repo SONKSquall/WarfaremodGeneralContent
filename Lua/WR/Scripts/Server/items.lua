@@ -390,6 +390,8 @@ WR.cratesLoadouts = {
     },
     WR_coalitionbodyarmorcrate = {
         {id = "WR_coalitionarmor",
+        count = 2},
+        {id = "WR_faceplate",
         count = 2}
     },
     WR_coalitiongasgrenadecrate = {
@@ -403,6 +405,8 @@ WR.cratesLoadouts = {
     },
     WR_renegadebodyarmorcrate = {
         {id = "WR_renegadearmor",
+        count = 2},
+        {id = "WR_faceplate",
         count = 2}
     },
     -- Renegade crates end --
