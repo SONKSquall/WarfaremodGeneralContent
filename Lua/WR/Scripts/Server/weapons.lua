@@ -95,7 +95,12 @@ function WR.reload(gun,ammo,characterUser)
 
     local ammoId = ammo.Prefab.Identifier.value
     local gunId = gun.Prefab.Identifier.value
-    local isInfantry = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes).Prefab.Identifier.value == "WR_coalitiongear" or "WR_renegadegear"
+
+    local isInfantry = false
+    local item = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+    if item then
+        isInfantry = item.Prefab.Identifier.value == "WR_coalitiongear" or item.Prefab.Identifier.value == "WR_renegadegear"
+    end
 
     local weapons = {
         rifle = {
