@@ -184,14 +184,14 @@
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>
 <entityname.WR_coalitionbodyarmorcrate>Production Crate (Armor)</entityname.WR_coalitionbodyarmorcrate>
-<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
+<entitydescription.WR_coalitionbodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
 <entityname.WR_coalitiongasgrenadecrate>Production Crate (Gas Grenade)</entityname.WR_coalitiongasgrenadecrate>
 <entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades. Deposit in a locker to retrieve items.</entitydescription.WR_coalitiongasgrenadecrate>
 
 <entityname.WR_renegadeshellcrate>Production Crate (Artillery Shell)</entityname.WR_renegadeshellcrate>
 <entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_renegadeshellcrate>
 <entityname.WR_renegadebodyarmorcrate>Production Crate (Armor)</entityname.WR_renegadebodyarmorcrate>
-<entitydescription.WR_renegadebodyarmorcrate>Produces 4 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
+<entitydescription.WR_renegadebodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
   <!-- Production Crate End -->
   <!-- Misc start -->
 <entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>
