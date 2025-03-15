@@ -88,7 +88,6 @@
       <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,180.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="explosiondamage" armorsector="0.0,180.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictiontypes="bleeding" armorsector="0.0,180.0" damagemultiplier="0.0" damagesound="LimbArmor" deflectprojectiles="true" />
-      <SkillModifier skillidentifier="weapons" skillvalue="10" />
       <sprite name="Face Plate Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.75" hidewearablesoftype="Hair" sourcerect="672,184,24,54" origin="-0.15,0.45" />
     </Wearable>
   </Item>
