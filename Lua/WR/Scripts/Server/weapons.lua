@@ -88,6 +88,8 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
     end
 end)
 
+WR.reloadingGuns = {}
+
 function WR.reload(gun,ammo,characterUser)
 	if not characterUser or not gun or not characterUser then return end
 
@@ -113,6 +115,7 @@ function WR.reload(gun,ammo,characterUser)
         },
         shotgun = {
             type = "round",
+            noSlowDown = true,
             ammo = {
                 shotgunshell = 3/6,
                 WR_shotgunround = 3/6
@@ -134,10 +137,12 @@ function WR.reload(gun,ammo,characterUser)
         },
         smg = {
             type = "mag",
+            noSlowDown = true,
             ammo = {smgmagazine = 4}
         },
         WR_smg = {
             type = "mag",
+            noSlowDown = true,
             ammo = {WR_smallroundmag20 = 4}
         },
         hmg = {
@@ -151,22 +156,32 @@ function WR.reload(gun,ammo,characterUser)
     }
 
     local reloadTime = weapons[gunId] and weapons[gunId].ammo[ammoId]
-    local type = weapons[gunId] and weapons[gunId].type
+    --local type = weapons[gunId] and weapons[gunId].type
+    local slowDown = weapons[gunId] and not weapons[gunId].noSlowDown
 
-    if reloadTime and (characterUser.CharacterHealth.GetAffliction("WR_reload", true) == nil or type == "round") then
+    if reloadTime then
+        WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] or Timer.GetTime()
+
         if isInfantry then
             reloadTime = reloadTime / 1.25
         end
 
-        WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
+        if slowDown then
+            WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
+        end
         gun.Condition = 0
 
-        Timer.NextFrame(function()
-            local endTime = math.ceil(characterUser.CharacterHealth.GetAffliction("WR_reload", true).Strength * 1000)
+        WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] + reloadTime
+
+        local function endReload()
             Timer.Wait(function()
+                if not WR.reloadingGuns[gun.ID] then return end
+                if WR.reloadingGuns[gun.ID] - Timer.GetTime() > 0.1 then endReload() return end
                 gun.Condition = gun.MaxCondition
-            end,endTime)
-        end)
+                WR.reloadingGuns[gun.ID] = nil
+            end,(WR.reloadingGuns[gun.ID] - Timer.GetTime()) * 1000)
+        end
+        Timer.NextFrame(endReload)
     end
 end
 
