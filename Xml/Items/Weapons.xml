@@ -455,13 +455,16 @@
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="463,158,23,98" depth="0.55" maxcondition="66" mincondition="33" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="437,158,23,98" depth="0.55" maxcondition="33" mincondition="0" origin="0.5,0.5" />
     <Body width="23" height="98" density="20" />
+	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="5" />
+    </Fabricate>
     <LightComponent LightColor="255,255,0,80" Flicker="1.0" range="30" IsOn="false">
       <StatusEffect type="OnActive" targettype="This" Condition="-1.0" />
       <StatusEffect type="OnBroken" target="This">
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
-        <Explosion range="750.0" structuredamage="100.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="0.25">
+        <Explosion range="750.0" structuredamage="100.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="1">
           <Affliction identifier="explosiondamage" strength="300" />
           <Affliction identifier="bleeding" strength="100" />
           <Affliction identifier="stun" strength="7" />
@@ -483,7 +486,7 @@
         </StatusEffect>
       </Button>
     </CustomInterface>
-    <Throwable characterusable="true" slots="RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="2.0" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" slots="RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="3" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" targetitemcomponent="LightComponent" />
     </Throwable>
   </Item>
