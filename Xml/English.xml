@@ -161,7 +161,7 @@
 <entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
 <entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells. Deposit in a locker to retrieve items.</entitydescription.WR_shotgunammocrate>
 <entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>
-<entitydescription.WR_smgammocrate>Produces 4 submachine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_smgammocrate>
+<entitydescription.WR_smgammocrate>Produces 2 submachine gun magazines and 80 pistol cartridges. Deposit in a locker to retrieve items.</entitydescription.WR_smgammocrate>
 <entityname.WR_hmgammocrate>Production Crate (Hmg Ammo)</entityname.WR_hmgammocrate>
 <entitydescription.WR_hmgammocrate>Produces 4 machine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_hmgammocrate>
 <entityname.WR_medicalcrate>Production Crate (Medical Supplies)</entityname.WR_medicalcrate>
