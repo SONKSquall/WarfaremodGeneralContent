@@ -281,18 +281,13 @@ end
 
 function WR.spawnItemFunctions.WR_smg(item)
     if item.OwnInventory.IsEmpty() then
-        WR.spawnItems(
-            {
-                {id = "WR_smallroundmag20",
-                contents = {
-                    {
-                        id = "WR_smallround",
-                        count = 20
-                    }
-                }}
-            },
-            item.OwnInventory
-        )
+        WR.spawnItems({{id = "WR_smallroundmag20"}},item.OwnInventory)
+    end
+end
+
+function WR.spawnItemFunctions.WR_smallroundmag20(item)
+    if item.OwnInventory.IsEmpty() then
+        WR.spawnItems({{id = "WR_smallround",count = 20}},item.OwnInventory)
     end
 end
 
@@ -357,13 +352,7 @@ WR.cratesLoadouts = {
     },
     WR_smgammocrate = {
         {id = "WR_smallroundmag20",
-        count = 2,
-        contents = {
-            {
-                id = "WR_smallround",
-                count = 20
-            }
-        }},
+        count = 2},
         {id = "WR_smallround",
         count = 80}
     },
