@@ -39,6 +39,23 @@ function WR.thinkFunctions.standAimingAroundSandbag()
     end
 end
 
+function WR.thinkFunctions.cuffs()
+    if WR.tick % 60 ~= 0 then return end 
+    for char in Character.CharacterList do
+        if char.IsHuman and char.IsKeyDown(InputType.Crouch) then
+            local item = char.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
+
+            if item and not item.Removed and item.Prefab.Identifier == "WR_cuffs" then
+                item.Condition = item.Condition - 2
+
+                if item.Condition <= 0 then
+                    Entity.Spawner.AddEntityToRemoveQueue(item)
+                end
+            end
+        end
+    end
+end
+
 function WR.equipItemFunctions.WR_minedetector(item, itemUser)
     WR.thinkFunctions[item] = function()
 
