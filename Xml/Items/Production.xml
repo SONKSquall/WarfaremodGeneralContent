@@ -248,7 +248,6 @@
   </Item>
   <Item name="" identifier="WR_grenadecrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="2" />
       <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
 	<ItemComponent>
@@ -259,7 +258,6 @@
   </Item>
   <Item name="" identifier="WR_dynamitecrate" variantof="WR_productioncrate" Health="1">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="2" />
       <RequiredItem identifier="WR_explosivematerial" amount="1" />
     </Fabricate>
 	<ItemComponent>

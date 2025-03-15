@@ -78,7 +78,7 @@
     <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Coalition Eng Chest Rig Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Coalitiongear.png" limb="Torso" hidelimb="false" sourcerect="366,109,74,147" inherittexturescale="true" origin="0.48,0.4" />
-	  <StatValue stattype="RepairSpeed" value="2" />
+      <StatValue stattype="RepairSpeed" value="2" />
       <StatusEffect type="OnWearing" targettype="Character" duration="0.1" tags="enginner" />
     </Wearable>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="0,0-30" handle2="0,-30" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
@@ -119,6 +119,29 @@
       </StatusEffect>
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
     </ItemComponent>
+  </Item>
+  <Item name="" identifier="WR_coalitionarmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" spritecolor="200,200,200,255">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="640,128,64,64" origin="0.5,0.5" />
+    <Sprite name="Coalition Armor" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" sourcerect="192,37,67,144" depth="0.6" origin="0.5,0.35" />
+    <Body width="85" height="90" density="25" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="30,-50" handle1="-10,40" handle2="10,40"></Holdable>
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnWearing" target="Character" interval="0.9" setvalue="true">
+        <Affliction identifier="WR_forcestand" strength="100" />
+      </StatusEffect>
+      <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,180.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="explosiondamage" armorsector="0.0,180.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictiontypes="bleeding" armorsector="0.0,180.0" damagemultiplier="0.0" damagesound="LimbArmor" deflectprojectiles="true" />
+      <sprite name="Coalition Armor Torso" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightThigh" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftThigh" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightHand" />
+      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftHand" />
+    </Wearable>
   </Item>
   <!-- Uniform End -->
 </Items>

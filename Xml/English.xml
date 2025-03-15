@@ -16,12 +16,16 @@
 <entitydescription.WR_machinegunmag>Box containing 50 rounds of machine gun rounds.</entitydescription.WR_machinegunmag>
 <entityname.WR_basicrifle>Infantry Carbine</entityname.WR_basicrifle>
 <entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
+<entityname.WR_smg>Submachine gun</entityname.WR_smg>
+<entitydescription.WR_smg>Roughly engineered, open-blot automatic firearm. Uses submachine gun maganizes.</entitydescription.WR_smg>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
-<entitydescription.WR_smallround>Low caliber round ideal for handguns and sub machine guns.</entitydescription.WR_smallround>
+<entitydescription.WR_smallround>Low caliber round ideal for handguns and submachine guns.</entitydescription.WR_smallround>
 <entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>
 <entitydescription.WR_largeround>Standard caliber for use in longguns such as rifles and machineguns.</entitydescription.WR_largeround>
 <entityname.WR_shotgunround>Shotgun Cartridge</entityname.WR_shotgunround>
-<entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shot guns.</entitydescription.WR_shotgunround>
+<entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shotguns.</entitydescription.WR_shotgunround>
+<entityname.WR_smallroundmag20>Submachine gun maganize</entityname.WR_smallroundmag20>
+<entitydescription.WR_smallroundmag20>A box mag designed for holding 20 pistol cartridges for use in submachine guns.</entitydescription.WR_smallroundmag20>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -82,6 +86,8 @@
 <entitydescription.WR_renegadecomhat>A fine piece of Separatist headgear. Simply wearing this can inspire confidence in those around you.</entitydescription.WR_renegadecomhat>
 <entityname.WR_coalitioncomhat>Coalition Commander Cap</entityname.WR_coalitioncomhat>
 <entitydescription.WR_coalitioncomhat>Headdress for any stalwart Coalition officer.</entitydescription.WR_coalitioncomhat>
+<entityname.WR_faceplate>Steel face plate</entityname.WR_faceplate>
+<entitydescription.WR_faceplate>A steel mask providing solid protection from gunshots, at least from the front.</entitydescription.WR_faceplate>
   <!-- Headgear End -->
   <!-- Infantry gear Start -->
 <entityname.WR_coalitiongear>Coalition Infantry Rig</entityname.WR_coalitiongear>
@@ -90,12 +96,16 @@
 <entitydescription.WR_coalitionmedgear>Standard issue rig for Coalition physicians. Has surgical gear that makes medical procedures more effective.</entitydescription.WR_coalitionmedgear>
 <entityname.WR_coalitionenggear>Coalition Sapper Rig</entityname.WR_coalitionenggear>
 <entitydescription.WR_coalitionenggear>Standard issue rig for Coalition sappers. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_coalitionenggear>
+<entityname.WR_coalitionarmor>Coalition Plate Armor</entityname.WR_coalitionarmor>
+<entitydescription.WR_coalitionarmor>Bolted steel plates for highly effective protection. Useful for assault troops and machinegunners.</entitydescription.WR_coalitionarmor>
 <entityname.WR_renegadegear>Renegade Infantry Rig</entityname.WR_renegadegear>
 <entitydescription.WR_renegadegear>Renegade's gear: a waist belt with pockets, tied together with a camo colored bandolier.</entitydescription.WR_renegadegear>
 <entityname.WR_renegademedgear>Renegade Medic Rig</entityname.WR_renegademedgear>
 <entitydescription.WR_renegademedgear>Renegade medic's gear: two large side packs on a waist belt, and a medical bandolier filled with surgical equipment.</entitydescription.WR_renegademedgear>
 <entityname.WR_renegadeenggear>Renegade Sapper Rig</entityname.WR_renegadeenggear>
 <entitydescription.WR_renegadeenggear>Basic rig pockets and bandolier replaced with packs for equipment and material storage. Has repair tools to make maintenance faster, and also has packs capable of carrying defenses.</entitydescription.WR_renegadeenggear>
+<entityname.WR_renegadearmor>Renegade Steel Armor</entityname.WR_renegadearmor>
+<entitydescription.WR_renegadearmor>Heavy duty shaped steel for highly effective protection. Useful for assault troops and machinegunners.</entitydescription.WR_renegadearmor>
   <!-- Infantry gear End -->
   <!-- Uniform Start -->
 <entityname.WR_coalitionuniform>Coalition Fatigues</entityname.WR_coalitionuniform>
@@ -151,7 +161,7 @@
 <entityname.WR_shotgunammocrate>Production Crate (Shotgun Ammo)</entityname.WR_shotgunammocrate>
 <entitydescription.WR_shotgunammocrate>Produces 48 shotgun shells. Deposit in a locker to retrieve items.</entitydescription.WR_shotgunammocrate>
 <entityname.WR_smgammocrate>Production Crate (Smg Ammo)</entityname.WR_smgammocrate>
-<entitydescription.WR_smgammocrate>Produces 4 submachine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_smgammocrate>
+<entitydescription.WR_smgammocrate>Produces 2 submachine gun magazines and 80 pistol cartridges. Deposit in a locker to retrieve items.</entitydescription.WR_smgammocrate>
 <entityname.WR_hmgammocrate>Production Crate (Hmg Ammo)</entityname.WR_hmgammocrate>
 <entitydescription.WR_hmgammocrate>Produces 4 machine gun magazines. Deposit in a locker to retrieve items.</entitydescription.WR_hmgammocrate>
 <entityname.WR_medicalcrate>Production Crate (Medical Supplies)</entityname.WR_medicalcrate>
@@ -174,14 +184,14 @@
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>
 <entityname.WR_coalitionbodyarmorcrate>Production Crate (Armor)</entityname.WR_coalitionbodyarmorcrate>
-<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
+<entitydescription.WR_coalitionbodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
 <entityname.WR_coalitiongasgrenadecrate>Production Crate (Gas Grenade)</entityname.WR_coalitiongasgrenadecrate>
 <entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades. Deposit in a locker to retrieve items.</entitydescription.WR_coalitiongasgrenadecrate>
 
 <entityname.WR_renegadeshellcrate>Production Crate (Artillery Shell)</entityname.WR_renegadeshellcrate>
 <entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_renegadeshellcrate>
 <entityname.WR_renegadebodyarmorcrate>Production Crate (Armor)</entityname.WR_renegadebodyarmorcrate>
-<entitydescription.WR_renegadebodyarmorcrate>Produces 4 chestplates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
+<entitydescription.WR_renegadebodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
   <!-- Production Crate End -->
   <!-- Misc start -->
 <entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>

@@ -21,6 +21,41 @@ function WR.pointItemFunctions.WR_minedetector(item, itemUser)
 end
 ]]
 
+function WR.thinkFunctions.standAimingAroundSandbag()
+    if WR.tick % 10 ~= 0 then return end
+
+    local sandbags = Util.GetItemsById("WR_sandbag")
+    if not sandbags then return end
+
+    for client in Client.ClientList do
+        if client.Character and client.Character.AnimController.IsAiming then
+            for item in sandbags do
+                local angle = math.deg(item.body.Rotation)
+                if not item.Removed and (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
+                    WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",18)
+                end
+            end
+        end
+    end
+end
+
+function WR.thinkFunctions.cuffs()
+    if WR.tick % 60 ~= 0 then return end 
+    for char in Character.CharacterList do
+        if char.IsHuman and char.IsKeyDown(InputType.Crouch) then
+            local item = char.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
+
+            if item and not item.Removed and item.Prefab.Identifier == "WR_cuffs" then
+                item.Condition = item.Condition - 2
+
+                if item.Condition <= 0 then
+                    Entity.Spawner.AddEntityToRemoveQueue(item)
+                end
+            end
+        end
+    end
+end
+
 function WR.equipItemFunctions.WR_minedetector(item, itemUser)
     WR.thinkFunctions[item] = function()
 
@@ -101,6 +136,26 @@ function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult
         item.Condition = item.Condition - damage
     elseif damage > 25 and math.random() > 0.75 then
         Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_flameexplosion"), hitLimb.worldPosition, nil, nil, nil)
+        Entity.Spawner.AddEntityToRemoveQueue(item)
+    end
+end
+
+local validArmor = {
+    WR_renegadearmor = true,
+    WR_coalitionarmor = true,
+}
+
+function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLimb)
+    if hitLimb.type ~= LimbType.Torso and hitLimb.type ~= LimbType.LeftForearm and hitLimb.type ~= LimbType.RightForearm then return end
+    local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+
+    if not item then return end
+    if not validArmor[item.Prefab.Identifier.value] then return end
+
+    local damage = attackResult.Damage / 2
+    item.Condition = item.Condition - damage
+
+    if item.Condition <= 0 then
         Entity.Spawner.AddEntityToRemoveQueue(item)
     end
 end
@@ -224,6 +279,18 @@ function WR.spawnItemFunctions.machinepistol(item)
     end
 end
 
+function WR.spawnItemFunctions.WR_smg(item)
+    if item.OwnInventory.IsEmpty() then
+        WR.spawnItems({{id = "WR_smallroundmag20"}},item.OwnInventory)
+    end
+end
+
+function WR.spawnItemFunctions.WR_smallroundmag20(item)
+    if item.OwnInventory.IsEmpty() then
+        WR.spawnItems({{id = "WR_smallround",count = 20}},item.OwnInventory)
+    end
+end
+
 --[[ TODO: 
 change discriptions to match new workings
 new sprite for crates
@@ -254,7 +321,7 @@ WR.cratesLoadouts = {
         }}
     },
     WR_smgcrate = {
-        {id = "smg",
+        {id = "WR_smg",
         count = 2}
     },
     WR_hmgcrate = {
@@ -284,8 +351,10 @@ WR.cratesLoadouts = {
         count = 12*4}
     },
     WR_smgammocrate = {
-        {id = "smgmagazine",
-        count = 4}
+        {id = "WR_smallroundmag20",
+        count = 4},
+        {id = "WR_smallround",
+        count = 80}
     },
     WR_hmgammocrate = {
         {id = "WR_machinegunmag",
@@ -326,14 +395,14 @@ WR.cratesLoadouts = {
         count = 6}
     },
     WR_coalitionbodyarmorcrate = {
-        {id = "bodyarmor",
-        count = 2}
+        {id = "WR_coalitionarmor",
+        count = 4},
+        {id = "WR_faceplate",
+        count = 4}
     },
     WR_coalitiongasgrenadecrate = {
         {id = "chemgrenade",
-        count = 6},
-        {id = "40mmchemgrenade",
-        count = 3}
+        count = 6}
     },
     -- Coaltion crates end --
     -- Renegade crates start --
@@ -341,7 +410,9 @@ WR.cratesLoadouts = {
         {id = "flakcannonammoboxexplosive"}
     },
     WR_renegadebodyarmorcrate = {
-        {id = "piratebodyarmor",
+        {id = "WR_renegadearmor",
+        count = 4},
+        {id = "WR_faceplate",
         count = 4}
     },
     -- Renegade crates end --
