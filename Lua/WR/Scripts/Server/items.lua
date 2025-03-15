@@ -352,7 +352,7 @@ WR.cratesLoadouts = {
     },
     WR_smgammocrate = {
         {id = "WR_smallroundmag20",
-        count = 2},
+        count = 4},
         {id = "WR_smallround",
         count = 80}
     },
