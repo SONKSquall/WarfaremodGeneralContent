@@ -443,6 +443,16 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
 
+Hook.Add("character.giveJobItems", "WR.productionCrate", function(character, waypoint)
+    Timer.Wait(function() 
+        if character.JobIdentifier == "coalitionteam" then
+            character.GiveTalent("WR_coalitionrecipes",nil)
+        elseif character.JobIdentifier == "renegadeteam" then
+            character.GiveTalent("WR_renegaderecipes",nil)
+        end
+    end,1000)
+end)
+
 Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition)
     for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
         if radio.Item.HasTag("mobileradio") then
