@@ -30,4 +30,7 @@
   <structure name="Terrain background wall" identifier="WR_terrainbackgroundwall" allowattachitems="true" width="16" height="16" resizehorizontal="true" resizevertical="true" texturescale="0.5,0.5" category="Decorative" subcategory="backgroundwall">
     <sprite texture="%ModDir%/Sprites/Map/Backgroundwalls.png" sourcerect="0,0,832,416" depth="0.98" premultiplyalpha="false" origin="0.5,0.5" />
   </structure>
+  <structure name="Terrain background wall edge" identifier="WR_terrainbackgroundwalledge" descriptionidentifier="resizeablewallwithcollisiondetection" width="49" height="1024" resizevertical="true" category="Decorative" scale="0.5" >
+    <sprite texture="%ModDir%/Sprites/Map/Walls.png" depth="0.975" sourcerect="773,202,49,1024" origin="0.5,0.5" />
+  </structure>
 </prefabs>
