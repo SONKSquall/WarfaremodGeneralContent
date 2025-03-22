@@ -453,11 +453,17 @@ Hook.Add("character.giveJobItems", "WR.productionCrate", function(character, way
     end,1000)
 end)
 
-Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition)
+Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition, element)
+    local pingEveryone = element.GetAttributeBool("global",false)
+    print(pingEveryone)
+    local callerID = item.GetRootInventoryOwner().JobIdentifier.value
+
     for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
         if radio.Item.HasTag("mobileradio") then
             local owner = radio.Item.GetRootInventoryOwner()
-            if owner.Prefab.Identifier == "human" then
+            if pingEveryone and owner.Prefab.Identifier == "human" then
+                WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
+            elseif not pingEveryone and owner.Prefab.Identifier == "human" and owner.JobIdentifier.value == callerID then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
             end
         end
