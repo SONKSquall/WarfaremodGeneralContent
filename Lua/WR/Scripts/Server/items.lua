@@ -22,7 +22,7 @@ end
 ]]
 
 function WR.thinkFunctions.standAimingAroundSandbag()
-    if WR.tick % 10 ~= 0 then return end
+    if WR.tick % 6 ~= 0 then return end
 
     local sandbags = Util.GetItemsById("WR_sandbag")
     if not sandbags then return end
@@ -30,9 +30,11 @@ function WR.thinkFunctions.standAimingAroundSandbag()
     for client in Client.ClientList do
         if client.Character and client.Character.AnimController.IsAiming then
             for item in sandbags do
-                local angle = math.deg(item.body.Rotation)
-                if not item.Removed and (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
-                    WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",18)
+                if not item.Removed then
+                    local angle = math.deg(item.body.Rotation)
+                    if (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
+                        WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",10.5)
+                    end
                 end
             end
         end
@@ -486,4 +488,9 @@ Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, ite
     if owner.SelectedCharacter then
         WR.GiveAfflictionCharacter(character.SelectedCharacter, "WR_stabilize", 100)
     end
+end)
+
+Hook.Add("WR.slowbody.xmlhook", "WR.slowbody", function(effect, deltaTime, item, targets, worldPosition, element)
+    local divisor = element.GetAttributeFloat("factor",2)
+    item.body.LinearVelocity = item.body.LinearVelocity / divisor
 end)
