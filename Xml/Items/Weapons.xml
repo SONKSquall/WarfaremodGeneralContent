@@ -47,7 +47,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" depth="0.55" origin="0.5,0.5" />
     <!-- physics body -->
     <Body width="60" height="110" density="25" />
-    <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.1" suitableprojectiles="WR_flameprojectile">
+    <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.3" suitableprojectiles="WR_flameprojectile">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true">
@@ -342,12 +342,13 @@
         <Affliction identifier="bleeding" strength="25" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
+	    <LuaHook name="WR.suppresion.xmlhook" range="300.0" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="400" selectionmode="Random" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="300" selectionmode="Random" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="300" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="300" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="300" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="300" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
@@ -374,12 +375,13 @@
         <Affliction identifier="gunshotwound" strength="25" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
+	    <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="3" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="400" selectionmode="Random" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="500" selectionmode="Random" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="500" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
@@ -420,12 +422,13 @@
         <Affliction identifier="bleeding" strength="6" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
+	    <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="0.375" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="400" selectionmode="Random" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="400" />
-        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="400" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="500" selectionmode="Random" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss3.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss4.ogg" type="OnUse" range="500" />
+        <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss5.ogg" type="OnUse" range="500" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
         <Conditional entitytype="eq Structure" />
@@ -449,7 +452,7 @@
   </Item>
   <!-- Firearms End -->
   <!-- Explosives Start -->
-  <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert,packable" Health="15.0" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft">
+  <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert,packable" health="5" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft" damagedbyprojectiles="true">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="489,158,23,98" depth="0.55" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="463,158,23,98" depth="0.55" maxcondition="66" mincondition="33" origin="0.5,0.5" />
@@ -458,8 +461,9 @@
 	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="5" />
     </Fabricate>
-    <LightComponent LightColor="255,255,0,80" Flicker="1.0" range="30" IsOn="false">
-      <StatusEffect type="OnActive" targettype="This" Condition="-1.0" />
+    <LightComponent characterusable="true" LightColor="255,255,0,80" Flicker="1.0" range="30" IsOn="false">
+      <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+	  <StatusEffect type="OnActive" targettype="This" Condition="-1" />
       <StatusEffect type="OnBroken" target="This">
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
@@ -477,15 +481,6 @@
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" containedstateindicatorstyle="explosive">
       <Containable items="smallitem" />
     </ItemContainer>
-    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
-      <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
-      <Button text="WRcutfuse" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" Condition="-5.0" disabledeltatime="true" conditionalComparison="and">
-          <Conditional Condition="gt 5" />
-          <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
-        </StatusEffect>
-      </Button>
-    </CustomInterface>
     <Throwable characterusable="true" slots="RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="3" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" targetitemcomponent="LightComponent" />
     </Throwable>

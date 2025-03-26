@@ -197,3 +197,18 @@ end)
 Hook.Add("item.combine", "WR.reloadTimeCombineFix", function (item, deconstructor, characterUser, allowRemove)
     WR.reload(item.RootContainer,item,characterUser)
 end)
+
+Hook.Add("WR.suppresion.xmlhook", "WR.suppression", function(effect, deltaTime, item, targets, worldPosition, element)
+
+    local range = element.GetAttributeFloat("range",500)
+    local strength = element.GetAttributeFloat("strength",1)
+    local user = targets[1]
+
+    for char in Character.CharacterList do
+        local distance = Vector2.Distance(char.WorldPosition,item.WorldPosition)
+        if distance < range and char ~= user then
+            local amount = WR.Lerp(WR.InvLerp(distance,range,0),0,strength)
+            WR.GiveAfflictionCharacter(char,"WR_suppression",amount)
+        end
+    end
+end)
