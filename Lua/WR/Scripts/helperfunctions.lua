@@ -1,3 +1,20 @@
+function WR.spawn(prefab,posOrInven,callback)
+    Entity.Spawner.AddItemToSpawnQueue(prefab,posOrInven,nil,nil,callback or function() end)
+end
+
+function WR.despawn(entity)
+    Entity.Spawner.AddEntityToRemoveQueue(entity)
+end
+
+function WR.raycast(rayStart,rayEnd,collision)
+    local pos
+    Game.World.RayCast(function(fixture, point, normal, fraction)
+        pos = point
+        return fraction
+    end,rayStart,rayEnd,collision)
+    return pos
+end
+
 function WR.GetItemsByTag(searchTag)
     local Worlditems = {}
 
