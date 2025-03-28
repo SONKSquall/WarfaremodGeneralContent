@@ -357,3 +357,54 @@ function WR.spawnHuman(client,job,pos)
 
     return character
 end
+
+function WR.getLocations(filter,items)
+	filter = filter or function (item) return true end
+	items = items or Item.ItemList
+
+	local locations = {}
+	for item in items do
+		if item.Prefab.Identifier == 'WR_location' and filter(item) then
+			table.insert(locations, item)
+		end
+	end
+
+	return locations
+end
+
+function WR.getLocation(filter,items)
+	local locations = WR.getLocations(filter,items)
+	return locations[math.random(#locations)]
+end
+
+function WR.getAreas(filter,items)
+	filter = filter or function (item) return true end
+	items = items or Item.ItemList
+
+	local areas = {}
+	for item in items do
+		if item.Prefab.Identifier == 'WR_area' and filter(item) then
+			table.insert(areas, item)
+		end
+	end
+
+	return areas
+end
+
+function WR.getArea(filter,items)
+	local areas = WR.getAreas(filter,items)
+	return areas[math.random(#areas)]
+end
+
+function WR.getLinked(set)
+    for item in pairs(set) do
+        set[item] = true
+        for linked in item.linkedTo do
+            if set[linked] == nil then
+                set[linked] = true
+                set = WR.getLinked(WR.Set.union(set,WR.Set.new(linked.linkedTo)))
+            end
+        end
+    end
+    return set
+end

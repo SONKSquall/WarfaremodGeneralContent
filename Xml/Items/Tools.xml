@@ -193,5 +193,12 @@
     </Terminal>
   </Item>
   -->
+  <Item name="WR Location" identifier="WR_location" spritecolor="255,255,255" tags="WR_location" category="Miscellaneous" scale="1" linkable="true" allowedlinks="WR_location" HiddenInGame="true" noninteractable="true">
+    <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="768,128,128,128" origin="0.5,0.5" depth="0.1" />
+  </Item>
+  
+  <Item name="WR Area" identifier="WR_area" spritecolor="255,255,255" tags="WR_area" category="Miscellaneous" width="64" height="64" resizehorizontal="true" resizevertical="true" scale="1" linkable="true" allowedlinks="WR_area" HiddenInGame="true" noninteractable="true">
+    <sprite texture="%ModDir%/Sprites/Square.png" sourcerect="0,0,64,64" origin="0.5,0.5" depth="0.1" />
+  </Item>
   <!-- Misc End -->
 </Items>
