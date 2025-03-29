@@ -61,7 +61,7 @@
     ShowIconThreshold="0"
 	ShowIconToOthersThreshold="1000"
     affectmachines="false" > 
-    <Effect minstrength="0" maxstrength="100" minspeedmultiplier="0.05" maxspeedmultiplier="0.05" strengthchange="-1">
+    <Effect minstrength="0" maxstrength="100" minspeedmultiplier="0.5" maxspeedmultiplier="0.5" strengthchange="-1">
 	  <!-- <StatusEffect target="Character" lockhands="true" setvalue="true" /> -->
     </Effect>
     <icon texture="%ModDir%/Sprites/AfflictionsIcons.png" sourcerect="0,128,128,128" color="195,136,60,255" origin="0,0"/>
