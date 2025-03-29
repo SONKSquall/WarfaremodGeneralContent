@@ -22,7 +22,7 @@ end
 ]]
 
 function WR.thinkFunctions.standAimingAroundSandbag()
-    if WR.tick % 10 ~= 0 then return end
+    if WR.tick % 6 ~= 0 then return end
 
     local sandbags = Util.GetItemsById("WR_sandbag")
     if not sandbags then return end
@@ -30,9 +30,11 @@ function WR.thinkFunctions.standAimingAroundSandbag()
     for client in Client.ClientList do
         if client.Character and client.Character.AnimController.IsAiming then
             for item in sandbags do
-                local angle = math.deg(item.body.Rotation)
-                if not item.Removed and (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
-                    WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",18)
+                if not item.Removed then
+                    local angle = math.deg(item.body.Rotation)
+                    if (angle < 5 and angle > -5) and Vector2.Distance(client.Character.WorldPosition,item.WorldPosition) < 100 then
+                        WR.GiveAfflictionCharacter(client.Character,"WR_forcestand",10.5)
+                    end
                 end
             end
         end
@@ -268,14 +270,17 @@ function WR.spawnItemFunctions.WR_renegademedhelmet(item)
     end)
 end
 
-function WR.spawnItemFunctions.metalcrate(item)
-    if WR.tick < 1 then
-        Entity.Spawner.AddEntityToRemoveQueue(item)
-    end
-end
-function WR.spawnItemFunctions.machinepistol(item)
-    if WR.tick < 1 then
-        Entity.Spawner.AddEntityToRemoveQueue(item)
+function WR.roundStartFunctions.clearIllegalItems()
+    local crates = {chemicalcrate = true, metalcrate = true, mediccrate = true}
+    local set = {exosuit = true, machinepistol = true}
+    for i in Item.ItemList do
+        if set[i.Prefab.Identifier.value] then
+            print("Removed: ",i)
+            WR.despawn(i)
+        elseif crates[i.Prefab.Identifier.value] and not i.IsContained then -- oil rig has some deco crates that are inside shelfs
+            print("Removed: ",i)
+            WR.despawn(i)
+        end
     end
 end
 
@@ -302,7 +307,7 @@ WR.cratesLoadouts = {
     -- Weapon crates start --
     WR_riflecrate = {
         {id = "WR_basicrifle",
-        count = 4,
+        count = 5,
         contents = {
             {
                 id = "WR_largeround",
@@ -312,7 +317,7 @@ WR.cratesLoadouts = {
     },
     WR_shotguncrate = {
         {id = "shotgun",
-        count = 4,
+        count = 5,
         contents = {
             {
                 id = "WR_shotgunround",
@@ -344,11 +349,11 @@ WR.cratesLoadouts = {
     -- Ammo crates start --
     WR_rifleammocrate = {
         {id = "WR_largeround",
-        count = 12*4}
+        count = 60}
     },
     WR_shotgunammocrate = {
         {id = "WR_shotgunround",
-        count = 12*4}
+        count = 60}
     },
     WR_smgammocrate = {
         {id = "WR_smallroundmag20",
@@ -396,9 +401,9 @@ WR.cratesLoadouts = {
     },
     WR_coalitionbodyarmorcrate = {
         {id = "WR_coalitionarmor",
-        count = 4},
+        count = 2},
         {id = "WR_faceplate",
-        count = 4}
+        count = 2}
     },
     WR_coalitiongasgrenadecrate = {
         {id = "chemgrenade",
@@ -411,9 +416,9 @@ WR.cratesLoadouts = {
     },
     WR_renegadebodyarmorcrate = {
         {id = "WR_renegadearmor",
-        count = 4},
+        count = 2},
         {id = "WR_faceplate",
-        count = 4}
+        count = 2}
     },
     -- Renegade crates end --
 }
@@ -443,11 +448,27 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
 
-Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition)
+Hook.Add("character.giveJobItems", "WR.productionCrate", function(character, waypoint)
+    Timer.Wait(function() 
+        if character.JobIdentifier == "coalitionteam" then
+            character.GiveTalent("WR_coalitionrecipes",nil)
+        elseif character.JobIdentifier == "renegadeteam" then
+            character.GiveTalent("WR_renegaderecipes",nil)
+        end
+    end,1000)
+end)
+
+Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition, element)
+    local pingEveryone = element.GetAttributeBool("global",false)
+    print(pingEveryone)
+    local callerID = item.GetRootInventoryOwner().JobIdentifier.value
+
     for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
         if radio.Item.HasTag("mobileradio") then
             local owner = radio.Item.GetRootInventoryOwner()
-            if owner.Prefab.Identifier == "human" then
+            if pingEveryone and owner.Prefab.Identifier == "human" then
+                WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
+            elseif not pingEveryone and owner.Prefab.Identifier == "human" and owner.JobIdentifier.value == callerID then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
             end
         end
@@ -472,6 +493,7 @@ Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, ite
     end
 end)
 
+
 function WR.thinkFunctions.cuffs()
     if WR.tick % 60 == 0 then
         for value in Character.CharacterList do
@@ -489,3 +511,38 @@ function WR.thinkFunctions.cuffs()
         end
     end
 end
+
+Hook.Add("WR.slowbody.xmlhook", "WR.slowbody", function(effect, deltaTime, item, targets, worldPosition, element)
+    local divisor = element.GetAttributeFloat("factor",2)
+    item.body.LinearVelocity = item.body.LinearVelocity / divisor
+end)
+
+function WR.roundStartFunctions.artilleryConstraints()
+    WR.artilleryConstraints = WR.getLocations(function(item)
+        return item.HasTag("wr_artillerynode")
+    end)
+    table.sort(WR.artilleryConstraints,function(p1,p2)
+        return p1.WorldPosition.X < p2.WorldPosition.X
+    end)
+end
+
+Hook.Add("WR.artillery.xmlhook", "WR.artillery", function(effect, deltaTime, item, targets, worldPosition, element)
+
+    -- Constraints
+    local pos = item.WorldPosition
+    if #WR.artilleryConstraints >= 2 and (pos.X < WR.artilleryConstraints[1].WorldPosition.X or pos.X > WR.artilleryConstraints[#WR.artilleryConstraints].WorldPosition.X) then
+        return
+    end
+
+    local prefab = ItemPrefab.GetItemPrefab(element.GetAttributeString("item","WR_shell"))
+    local count = element.GetAttributeInt("count",5)
+    local spacing = element.GetAttributeFloat("interval",1)
+
+    for i=1,count do
+        Timer.Wait(function()
+            local random = element.GetAttributeFloat("dispersion",20) * (math.random() - 0.5)
+            local position = WR.simPosToWorldPos(WR.raycast(item.SimPosition + Vector2(random,50),item.SimPosition + Vector2(random,-50),Physics.CollisionWall),item.Submarine ~= nil)
+            WR.spawn(prefab,position,nil)
+        end,(spacing + i) * 1000)
+    end
+end)

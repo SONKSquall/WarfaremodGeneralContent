@@ -18,6 +18,10 @@
 <entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
 <entityname.WR_smg>Submachine gun</entityname.WR_smg>
 <entitydescription.WR_smg>Roughly engineered, open-blot automatic firearm. Uses submachine gun maganizes.</entitydescription.WR_smg>
+<entityname.WR_signalflare>Signal Flare</entityname.WR_signalflare>
+<entitydescription.WR_signalflare>A small flare desighed to fire out of a flare gun for calling artillery strikes.</entitydescription.WR_signalflare>
+<entityname.WR_flaregun>Flare gun</entityname.WR_flaregun>
+<entitydescription.WR_flaregun>Uses signaling flares to call down artillery. Can't be used in bases.</entitydescription.WR_flaregun>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
 <entitydescription.WR_smallround>Low caliber round ideal for handguns and submachine guns.</entitydescription.WR_smallround>
 <entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>
@@ -184,14 +188,14 @@
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>
 <entityname.WR_coalitionbodyarmorcrate>Production Crate (Armor)</entityname.WR_coalitionbodyarmorcrate>
-<entitydescription.WR_coalitionbodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
+<entitydescription.WR_coalitionbodyarmorcrate>Produces 2 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_coalitionbodyarmorcrate>
 <entityname.WR_coalitiongasgrenadecrate>Production Crate (Gas Grenade)</entityname.WR_coalitiongasgrenadecrate>
 <entitydescription.WR_coalitiongasgrenadecrate>Produces 6 throwable grenades and 3 rifle grenades. Deposit in a locker to retrieve items.</entitydescription.WR_coalitiongasgrenadecrate>
 
 <entityname.WR_renegadeshellcrate>Production Crate (Artillery Shell)</entityname.WR_renegadeshellcrate>
 <entitydescription.WR_renegadeshellcrate>Produces a box of small caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_renegadeshellcrate>
 <entityname.WR_renegadebodyarmorcrate>Production Crate (Armor)</entityname.WR_renegadebodyarmorcrate>
-<entitydescription.WR_renegadebodyarmorcrate>Produces 4 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
+<entitydescription.WR_renegadebodyarmorcrate>Produces 2 armor and face plates. Deposit in a locker to retrieve items.</entitydescription.WR_renegadebodyarmorcrate>
   <!-- Production Crate End -->
   <!-- Misc start -->
 <entityname.WR_currency>Strategic Currency Unit</entityname.WR_currency>
