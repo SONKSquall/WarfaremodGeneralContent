@@ -248,7 +248,7 @@
   </Item>
   <Item name="" identifier="WR_grenadecrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_explosivematerial" amount="1" />
+      <RequiredItem identifier="WR_explosivematerial" amount="2" />
     </Fabricate>
 	<ItemComponent>
 	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
@@ -258,7 +258,7 @@
   </Item>
   <Item name="" identifier="WR_dynamitecrate" variantof="WR_productioncrate" Health="1">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_explosivematerial" amount="1" />
+      <RequiredItem identifier="WR_explosivematerial" amount="2" />
     </Fabricate>
 	<ItemComponent>
 	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
