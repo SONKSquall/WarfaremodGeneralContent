@@ -494,3 +494,33 @@ Hook.Add("WR.slowbody.xmlhook", "WR.slowbody", function(effect, deltaTime, item,
     local divisor = element.GetAttributeFloat("factor",2)
     item.body.LinearVelocity = item.body.LinearVelocity / divisor
 end)
+
+function WR.roundStartFunctions.artilleryConstraints()
+    WR.artilleryConstraints = WR.getLocations(function(item)
+        return item.HasTag("wr_artillerynode")
+    end)
+    table.sort(WR.artilleryConstraints,function(p1,p2)
+        return p1.WorldPosition.X < p2.WorldPosition.X
+    end)
+end
+
+Hook.Add("WR.artillery.xmlhook", "WR.artillery", function(effect, deltaTime, item, targets, worldPosition, element)
+
+    -- Constraints
+    local pos = item.WorldPosition
+    if #WR.artilleryConstraints >= 2 and (pos.X < WR.artilleryConstraints[1].WorldPosition.X or pos.X > WR.artilleryConstraints[#WR.artilleryConstraints].WorldPosition.X) then
+        return
+    end
+
+    local prefab = ItemPrefab.GetItemPrefab(element.GetAttributeString("item","WR_shell"))
+    local count = element.GetAttributeInt("count",5)
+    local spacing = element.GetAttributeFloat("interval",1)
+
+    for i=1,count do
+        Timer.Wait(function()
+            local random = element.GetAttributeFloat("dispersion",20) * (math.random() - 0.5)
+            local position = WR.simPosToWorldPos(WR.raycast(item.SimPosition + Vector2(random,50),item.SimPosition + Vector2(random,-50),Physics.CollisionWall),item.Submarine ~= nil)
+            WR.spawn(prefab,position,nil)
+        end,(spacing + i) * 1000)
+    end
+end)

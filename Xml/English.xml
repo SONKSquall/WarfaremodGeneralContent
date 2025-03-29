@@ -18,6 +18,10 @@
 <entitydescription.WR_basicrifle>Blot-action, 6 round maganize, shortened length rifle for infantry use. Uses full power rounds.</entitydescription.WR_basicrifle>
 <entityname.WR_smg>Submachine gun</entityname.WR_smg>
 <entitydescription.WR_smg>Roughly engineered, open-blot automatic firearm. Uses submachine gun maganizes.</entitydescription.WR_smg>
+<entityname.WR_signalflare>Signal Flare</entityname.WR_signalflare>
+<entitydescription.WR_signalflare>A small flare desighed to fire out of a flare gun for calling artillery strikes.</entitydescription.WR_signalflare>
+<entityname.WR_flaregun>Flare gun</entityname.WR_flaregun>
+<entitydescription.WR_flaregun>Uses signaling flares to call down artillery.</entitydescription.WR_flaregun>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
 <entitydescription.WR_smallround>Low caliber round ideal for handguns and submachine guns.</entitydescription.WR_smallround>
 <entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>

@@ -281,12 +281,10 @@
       <RequiredItems items="WR_smallround" type="Contained" msg="ItemMsgAmmoRequired" />
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" ShowContainedStateIndicator="false" containedspritedepth="0.56">
-      <Containable items="smallroundbox" hide="false" itempos="1,-7.5" >
-	    <StatusEffect type="OnInserted" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="false" >
-		</StatusEffect>
-	    <StatusEffect type="OnRemoved" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="true" >
-		</StatusEffect>
-	  </Containable>
+      <Containable items="smallroundbox" hide="false" itempos="1,-7.5">
+        <StatusEffect type="OnInserted" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="false"></StatusEffect>
+        <StatusEffect type="OnRemoved" target="Contained" targetitemcomponent="ItemContainer" AllowDragAndDrop="true"></StatusEffect>
+      </Containable>
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
@@ -342,7 +340,7 @@
         <Affliction identifier="bleeding" strength="25" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
-	    <LuaHook name="WR.suppresion.xmlhook" range="300.0" />
+        <LuaHook name="WR.suppresion.xmlhook" range="300.0" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="300" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="300" />
@@ -375,7 +373,7 @@
         <Affliction identifier="gunshotwound" strength="25" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
-	    <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="3" />
+        <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="3" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="500" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="500" />
@@ -422,7 +420,7 @@
         <Affliction identifier="bleeding" strength="6" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
-	    <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="0.375" />
+        <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="0.375" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss1.ogg" type="OnUse" range="500" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/Bulletnearmiss2.ogg" type="OnUse" range="500" />
@@ -458,17 +456,17 @@
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="463,158,23,98" depth="0.55" maxcondition="66" mincondition="33" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="437,158,23,98" depth="0.55" maxcondition="33" mincondition="0" origin="0.5,0.5" />
     <Body width="23" height="98" density="20" />
-	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="5" />
     </Fabricate>
     <LightComponent characterusable="true" LightColor="255,255,0,80" Flicker="1.0" range="30" IsOn="false">
       <StatusEffect type="OnUse" targettype="This" IsOn="true" />
-	  <StatusEffect type="OnActive" targettype="This" Condition="-1" />
+      <StatusEffect type="OnActive" targettype="This" Condition="-1" />
       <StatusEffect type="OnBroken" target="This">
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="5000" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="5000" />
-        <Explosion range="750.0" structuredamage="100.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="1">
+        <Explosion range="500.0" structuredamage="300.0" itemdamage="1250" force="15" severlimbsprobability="0.5" debris="true" decal="explosion" decalsize="0.75" penetration="1">
           <Affliction identifier="explosiondamage" strength="300" />
           <Affliction identifier="bleeding" strength="100" />
           <Affliction identifier="stun" strength="7" />
@@ -481,9 +479,67 @@
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" containedstateindicatorstyle="explosive">
       <Containable items="smallitem" />
     </ItemContainer>
-    <Throwable characterusable="true" slots="RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="3" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" slots="Any,RightHand+LeftHand" canbecombined="false" removeoncombined="false" throwforce="3" aimpos="45,10" handle1="0,0" handle2="0,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" targetitemcomponent="LightComponent" />
     </Throwable>
+  </Item>
+  <Item name="" description="" identifier="WR_signalflare" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative,flare" impactsoundtag="impact_soft" impacttolerance="0" >
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="124,25,18,10" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="15" density="10" />
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="5" />
+    </Fabricate>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="false">
+      <StatusEffect type="OnActive" targettype="This">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" targettype="this" noninteractable="true" >
+      </StatusEffect>
+      <StatusEffect type="OnImpact" targettype="this" delay="7">
+        <LuaHook name="WR.artillery.xmlhook" item="WR_shell" count="10" interval="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" targettype="this" delay="15">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <LightComponent LightColor="255,200,0,255" Flicker="0.5" range="600" IsOn="false">
+      <StatusEffect type="OnUse" targettype="This" IsOn="true" DontCleanUp="True">
+        <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
+        <sound file="Content/Items/Tools/FlareIgnite.ogg" range="800.0" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional PhysicsBodyActive="eq true" />
+        <ParticleEmitter particle="flare" emitinterval="2.1" colormultiplier="200,255,0,255" particleamount="10" particlespersecond="60" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" />
+        <ParticleEmitter particle="FlareBubbles" particlespersecond="40" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+      </StatusEffect>
+      <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" loop="true" />
+    </LightComponent>
+  </Item>
+  <Item name="" identifier="WR_flaregun" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="150,24,62,45" depth="0.55" origin="0.5,0.5" />
+    <Body width="72" height="40" density="25" />
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="15" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect"></Holdable>
+    <RangedWeapon barrelpos="34,11" spread="1" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="5">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="6000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="6000" />
+      <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="6000" />
+      <ParticleEmitter particle="muzzleflashcoilgun" scalemax="0.25" particleamount="1" velocitymin="0" velocitymax="0" />
+      <StatusEffect type="OnUse" target="this">
+        <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <RequiredItems items="flare" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" ShowContainedStateIndicator="false" spawnwithid="WR_signalflare" >
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <Containable items="flare" />
+    </ItemContainer>
   </Item>
   <!-- Explosives End -->
   <!-- Shell Prefabs Start -->
@@ -497,7 +553,7 @@
         <sound file="%ModDir%/Sounds/Shelldrop3.ogg" range="3000" volume="2" />
         <Conditional Condition="gt 0" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" delay="3" stackable="false">
+      <StatusEffect type="OnBroken" target="This" offset="0,100" delay="3" stackable="false">
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
         <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
         <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
@@ -535,7 +591,7 @@
         <sound file="%ModDir%/Sounds/Shelldrop3.ogg" range="3000" volume="2" />
         <Conditional Condition="gt 0" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" delay="3" stackable="false">
+      <StatusEffect type="OnBroken" target="This" offset="0,100" delay="3" stackable="false">
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
         <ParticleEmitter particle="spark" copyentityangle="true" anglemin="0" anglemax="360" particleamount="60" velocitymin="1000" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
         <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" />
@@ -577,7 +633,7 @@
         <sound file="%ModDir%/Sounds/Shelldrop3.ogg" range="3000" volume="2" />
         <Conditional Condition="gt 0" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" delay="3" stackable="false">
+      <StatusEffect type="OnBroken" target="This" offset="0,100" delay="3" stackable="false">
         <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
         <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="6000" />
         <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="6000" />
