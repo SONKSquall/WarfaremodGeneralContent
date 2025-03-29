@@ -304,7 +304,7 @@ WR.cratesLoadouts = {
     -- Weapon crates start --
     WR_riflecrate = {
         {id = "WR_basicrifle",
-        count = 4,
+        count = 5,
         contents = {
             {
                 id = "WR_largeround",
@@ -314,7 +314,7 @@ WR.cratesLoadouts = {
     },
     WR_shotguncrate = {
         {id = "shotgun",
-        count = 4,
+        count = 5,
         contents = {
             {
                 id = "WR_shotgunround",
@@ -346,11 +346,11 @@ WR.cratesLoadouts = {
     -- Ammo crates start --
     WR_rifleammocrate = {
         {id = "WR_largeround",
-        count = 12*4}
+        count = 60}
     },
     WR_shotgunammocrate = {
         {id = "WR_shotgunround",
-        count = 12*4}
+        count = 60}
     },
     WR_smgammocrate = {
         {id = "WR_smallroundmag20",

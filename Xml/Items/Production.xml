@@ -118,7 +118,7 @@
       <StatusEffect type="OnBroken" target="This" Stackable="false">
         <SpawnItem identifiers="WR_ore" spawnposition="This" rotationtype="Random" aimspread="360" Impulse="20" />
       </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="15" disableDeltaTime="true" condition="1000" />
+      <StatusEffect type="OnBroken" target="This" Stackable="false" delay="60" setvalue="true" condition="20" />
     </ItemComponent>
   </Item>
   <Item name="" identifier="WR_orevain2" variantof="WR_orevain">
@@ -188,7 +188,7 @@
   </Item>
   <Item name="" identifier="WR_rifleammocrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="3" />
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
     </Fabricate>
 	<ItemComponent>
 	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
@@ -198,7 +198,7 @@
   </Item>
   <Item name="" identifier="WR_shotgunammocrate" variantof="WR_productioncrate" Health="4">
     <Fabricate suitablefabricators="factory" requiredtime="30">
-      <RequiredItem identifier="WR_basicmaterial" amount="2" />
+      <RequiredItem identifier="WR_basicmaterial" amount="1" />
     </Fabricate>
 	<ItemComponent>
 	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
