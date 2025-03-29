@@ -21,7 +21,7 @@
 <entityname.WR_signalflare>Signal Flare</entityname.WR_signalflare>
 <entitydescription.WR_signalflare>A small flare desighed to fire out of a flare gun for calling artillery strikes.</entitydescription.WR_signalflare>
 <entityname.WR_flaregun>Flare gun</entityname.WR_flaregun>
-<entitydescription.WR_flaregun>Uses signaling flares to call down artillery.</entitydescription.WR_flaregun>
+<entitydescription.WR_flaregun>Uses signaling flares to call down artillery. Can't be used in bases.</entitydescription.WR_flaregun>
 <entityname.WR_smallround>Pistol Cartridge</entityname.WR_smallround>
 <entitydescription.WR_smallround>Low caliber round ideal for handguns and submachine guns.</entitydescription.WR_smallround>
 <entityname.WR_largeround>Full Power Cartridge</entityname.WR_largeround>
