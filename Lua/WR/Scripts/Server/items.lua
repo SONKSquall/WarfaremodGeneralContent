@@ -270,14 +270,17 @@ function WR.spawnItemFunctions.WR_renegademedhelmet(item)
     end)
 end
 
-function WR.spawnItemFunctions.metalcrate(item)
-    if WR.tick < 1 then
-        Entity.Spawner.AddEntityToRemoveQueue(item)
-    end
-end
-function WR.spawnItemFunctions.machinepistol(item)
-    if WR.tick < 1 then
-        Entity.Spawner.AddEntityToRemoveQueue(item)
+function WR.roundStartFunctions.clearIllegalItems()
+    local crates = {chemicalcrate = true, metalcrate = true, mediccrate = true}
+    local set = {exosuit = true, machinepistol = true}
+    for i in Item.ItemList do
+        if set[i.Prefab.Identifier.value] then
+            print("Removed: ",i)
+            WR.despawn(i)
+        elseif crates[i.Prefab.Identifier.value] and not i.IsContained then -- oil rig has some deco crates that are inside shelfs
+            print("Removed: ",i)
+            WR.despawn(i)
+        end
     end
 end
 
