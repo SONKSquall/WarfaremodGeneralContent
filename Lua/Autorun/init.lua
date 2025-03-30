@@ -26,7 +26,7 @@ dofile(WR.Path .. "/Lua/WR/Scripts/helperfunctions.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/pow.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/game.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/chatcommands.lua")
-dofile(WR.Path .. "/Lua/WR/Scripts/Server/oxygen.lua")
+dofile(WR.Path .. "/Lua/WR/Scripts/Server/health.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Server/teambalance.lua")
 dofile(WR.Path .. "/Lua/WR/Scripts/Client/subeditor.lua")
 
