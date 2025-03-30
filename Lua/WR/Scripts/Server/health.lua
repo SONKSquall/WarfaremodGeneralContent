@@ -86,3 +86,28 @@ Hook.Patch("Barotrauma.Character", "Kill", function(instance, ptable)
        ptable.PreventExecution = true
    end
 end, Hook.HookMethodType.Before)
+
+WR.fallingPlayers = {}
+WR.fallingHeight = Vector2(0,2)
+
+function WR.thinkFunctions.fallDamage()
+    if WR.tick % 6 ~= 0 then return end
+
+    for char in Character.CharacterList do
+        if not char.IsDead and char.IsHuman then
+            local isFalling = not char.AnimController.OnGround and not char.AnimController.InWater and not char.AnimController.IsClimbing
+            local canDamage = not char.AnimController.InWater and not char.AnimController.IsClimbing
+            if isFalling then
+                WR.fallingPlayers[char] = WR.fallingPlayers[char] or {char.WorldPosition,WR.tick}
+            elseif WR.fallingPlayers[char] then
+                local displacement = WR.fallingPlayers[char][1].Y - char.WorldPosition.Y
+                if canDamage and displacement > 300 and WR.tick - WR.fallingPlayers[char][2] > 30 then
+                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(75,((displacement / 100)^2)/2),LimbType.RightFoot)
+                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(75,((displacement / 100)^2)/2),LimbType.LeftFoot)
+                    WR.GiveAfflictionCharacter(char,"WR_falldamagesound",100)
+                end
+                WR.fallingPlayers[char] = nil
+            end
+        end
+    end
+end

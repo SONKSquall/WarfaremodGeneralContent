@@ -123,6 +123,19 @@
   
   <Affliction
     name=""
+    identifier="WR_falldamagesound"
+	Duration="0.1"
+    ShowIconThreshold="1000" >
+    <Effect>
+	  <StatusEffect target="Character" >
+	    <Sound file="%ModDir%/Sounds/Falldamage1.ogg" dontmuffle="true" selectionmode="random" />
+	    <Sound file="%ModDir%/Sounds/Falldamage2.ogg" dontmuffle="true" />
+	  </StatusEffect>
+    </Effect>
+  </Affliction>
+  
+  <Affliction
+    name=""
     identifier="WR_stabilize"
     description=""
     type=""

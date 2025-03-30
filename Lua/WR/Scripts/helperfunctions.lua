@@ -132,8 +132,9 @@ function WR.FormatTime(secs)
 end
 
 -- written by Sharp-Shark
-function WR.GiveAfflictionCharacter (character, identifier, amount)
-    character.CharacterHealth.ApplyAffliction(character.AnimController.MainLimb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
+function WR.GiveAfflictionCharacter (character, identifier, amount, limbType)
+    local limb = character.AnimController.GetLimb(limbType or LimbType.Torso,nil,nil,nil)
+    character.CharacterHealth.ApplyAffliction(limb, AfflictionPrefab.Prefabs[identifier].Instantiate(amount))
 end
 
 function WR.GetDeadPlayers()
