@@ -546,3 +546,52 @@ Hook.Add("WR.artillery.xmlhook", "WR.artillery", function(effect, deltaTime, ite
         end,(spacing + i) * 1000)
     end
 end)
+
+WR.radioChannels = {
+    coalitionteam = 1,
+    renegadeteam = 2,
+    neutral = 0
+}
+
+function WR.thinkFunctions.setRadios()
+    if WR.tick % 6 ~= 0 then return end
+
+    for client in Client.ClientList do
+        if client.Character then
+            local channel = WR.radioChannels[client.Character.JobIdentifier.value]
+            local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag")}
+            for item in items do
+                local wifi = item.GetComponentString("WifiComponent")
+                wifi.Channel = channel
+
+                local property = wifi.SerializableProperties[Identifier("Channel")]
+                Networking.CreateEntityEvent(item, Item.ChangePropertyEventData(property, wifi))
+            end
+        end
+    end
+end
+
+WR.radioAreas = {}
+
+function WR.roundStartFunctions.staticRadioArea()
+    WR.radioAreas = WR.getAreas(function(item) return item.HasTag("wr_staticradio") or item.HasTag("wr_objective") end)
+end
+
+function WR.thinkFunctions.staticRadioArea()
+    if WR.tick % 6 ~= 0 then return end
+
+    for client in Client.ClientList do
+        if client.Character then
+            local item = client.Character.GetEquippedItem("WR_dogtag")
+            if item then
+                item.Condition = 10
+                for area in WR.radioAreas do
+                    if WR.isPointInRect(client.Character.WorldPosition,area.WorldRect) then
+                        item.Condition = 100
+                        break
+                    end
+                end
+            end
+        end
+    end
+end
