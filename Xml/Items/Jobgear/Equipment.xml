@@ -103,15 +103,17 @@
       <sprite name="Face Plate Wearable" texture="%ModDir%/Sprites/Items/Jobgear/Headgear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.75" hidewearablesoftype="Hair" sourcerect="672,184,24,54" origin="-0.15,0.45" />
     </Wearable>
   </Item>
-  <Item name="" identifier="WR_dogtag" category="Equipment" Tags="smallitem,identitycard" hideconditionbar="true" noninteractable="true" cargocontaineridentifier="metalcrate">
+  <Item name="" identifier="WR_dogtag" category="Equipment" Tags="smallitem,identitycard,idcard" hideconditionbar="true" NonPlayerTeamInteractable="true" cargocontaineridentifier="metalcrate">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" depth="0.5" sourcerect="500,137,12,13" origin="0.5,0.5" />
     <Body width="16" height="12" density="10.05" />
     <WifiComponent range="100000.0" LinkToChat="true" MinChatMessageInterval="0.0">
       <StatusEffect type="OnContained" targettype="This" CheckConditionalAlways="true" LinkToChat="true" >
-	    <Conditional condition="gt 0" />
+	    <Conditional condition="gt 10" />
 	  </StatusEffect>
-      <StatusEffect type="OnBroken" targettype="This" LinkToChat="false" />
+      <StatusEffect type="OnContained" targettype="This" LinkToChat="false" >
+	    <Conditional condition="lte 10" />
+	  </StatusEffect>
     </WifiComponent>
     <IdCard slots="Card" msg="ItemMsgPickUpSelect" />
   </Item>
