@@ -1,3 +1,10 @@
+LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.AnimController"], "GetAimWobble")
+
+Hook.Patch("Barotrauma.AnimController", "GetAimWobble", function(instance, ptable)
+    ptable.PreventExecution = true
+    return 0
+end, Hook.HookMethodType.Before)
+
 if CLIENT then return end
 
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.CharacterHealth"], "oxygenLowAffliction")
