@@ -125,21 +125,35 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
     end
 end
 
-function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult, hitLimb)
-    if hitLimb.type ~= LimbType.Torso then return end
+do
+
+local function isBack(degrees)
+    return (degrees > 0 and degrees < 180)
+end
+
+function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult, hitLimb, attackPos)
+    if hitLimb.type ~= LimbType.Torso and hitLimb.type ~= LimbType.Waist then return end
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Bag)
 
     if not item then return end
     if not item.HasTag("flamethrower") then return end
 
+    local normaled = Vector2.Normalize(Vector2(attackPos.Y - hitLimb.WorldPosition.Y, attackPos.X - hitLimb.WorldPosition.X))
+    local radians = math.atan2(normaled.Y,normaled.X) + hitLimb.Rotation
+    if hitLimb.IsFlipped then radians = radians * -1 end
+    if not isBack(math.deg(radians) + 180) then return end
+
+
     local damage = attackResult.Damage
-    if damage > 25 and math.random() < 0.25 then
+    if damage > 25 and math.random() < 0.5 then
         Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_flamethrowerleak_sfx"), hitLimb.worldPosition, nil, nil, nil)
         item.Condition = item.Condition - damage
-    elseif damage > 25 and math.random() > 0.75 then
+    elseif damage > 25 and math.random() > 0.5 then
         Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab("WR_flameexplosion"), hitLimb.worldPosition, nil, nil, nil)
         Entity.Spawner.AddEntityToRemoveQueue(item)
     end
+end
+
 end
 
 local validArmor = {
@@ -594,4 +608,28 @@ function WR.thinkFunctions.staticRadioArea()
             end
         end
     end
+end
+
+do
+
+local hitsThisTick = {}
+
+Hook.Add("WR.flameprojectiledamage.xmlhook", "WR.flameprojectiledamage", function(effect, deltaTime, item, targets, worldPosition, element)
+    if not targets[1] then return end
+    for char in targets do
+        if (hitsThisTick[char] == nil or hitsThisTick[char] < 5) and not WR.raycast(item.SimPosition,char.SimPosition,Physics.CollisionWall) then -- ray hits nothing
+            local damage = element.GetAttributeFloat("damage",25/5)
+            WR.GiveAfflictionCharacter(char,"burn",damage*deltaTime)
+            WR.GiveAfflictionCharacter(char,"slow",50/5*deltaTime)
+            WR.GiveAfflictionCharacter(char,"WR_suppression",10/5*deltaTime)
+
+            hitsThisTick[char] = (hitsThisTick[char] or 0) + 1
+        end
+    end
+end)
+
+function WR.thinkFunctions.resetBurnedChars()
+    hitsThisTick = {}
+end
+
 end

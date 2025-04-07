@@ -64,14 +64,25 @@ Hook.add("character.death", "WR.Death", function(char)
 
 end)
 
+do
+
+local addtionalArgs = {}
+
 Hook.add("character.applyDamage", "WR.Damage", function(charHealth, attackResult, hitLimb)
     if WR.Game.ending then return end
 
     for func in WR.characterDamageFunctions do
-        func(charHealth, attackResult, hitLimb)
+        func(charHealth, attackResult, hitLimb, table.unpack(addtionalArgs))
     end
 
 end)
+
+Hook.add("character.damageLimb", "WR.Damage", function(character, worldPosition, hitLimb, afflictions, stun, playSound, attackImpulse, attacker, damageMultiplier, allowingStacking, penetration, shouldImplode)
+    addtionalArgs = {worldPosition,attacker}
+end)
+
+end
+
 
 Hook.add("character.created", "WR.Spawn", function(char)
     if WR.Game.ending then return end

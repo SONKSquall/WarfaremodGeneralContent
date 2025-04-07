@@ -47,7 +47,7 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" depth="0.55" origin="0.5,0.5" />
     <!-- physics body -->
     <Body width="60" height="110" density="25" />
-    <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.3" suitableprojectiles="WR_flameprojectile">
+    <RangedWeapon barrelpos="125,0" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.2" suitableprojectiles="WR_flameprojectile">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true">
@@ -61,12 +61,15 @@
       </StatusEffect>
       <RequiredItems items="WR_flameprojectile" type="Contained" />
     </RangedWeapon>
-    <RepairTool barrelpos="50,0">
+    <RepairTool barrelpos="50,0" firedamage="30.0" structurefixamount="2.0" range="400">
+      <StatusEffect type="OnSuccess" targettype="UseTarget" targetlimb="torso" >
+        <Affliction identifier="burn" amount="30" />
+      </StatusEffect>
       <ParticleEmitter particle="flamethrower" particlespersecond="30" scalemin="0.5" scalemax="0.6" anglemin="-10" anglemax="10" velocitymin="1000" velocitymax="1500" colormultiplier="255,150,150,210" highqualitycollisiondetection="true" />
       <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />
     </RepairTool>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" spawnwithid="WR_flameprojectile">
-      <Containable items="WR_flameprojectile" />
+	  <Containable items="WR_flameprojectile" />
     </ItemContainer>
     <Wearable slots="Bag+RightHand+LeftHand" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
       <sprite name="Flame tank" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" limb="Torso" inherittexturescale="true" origin="1.3,0.5" />
@@ -291,25 +294,26 @@
   <Item name="" identifier="WR_flameprojectile" hideinmenus="true" impacttolerance="0">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
     <Body width="15" height="15" density="30" />
-    <Projectile characterusable="false" launchimpulse="8.0" impulsespread="0.2" sticktocharacters="true" sticktostructures="false" sticktoitems="true">
-      <Attack penetration="0.6">
-        <Affliction identifier="burn" strength="5" />
-      </Attack>
-      <StatusEffect type="OnNotContained" targettype="This">
-        <sound file="Content/Sounds/FireSmall.ogg" type="OnActive" range="1000.0" loop="true" />
-        <ParticleEmitter particle="flamethrower" anglemin="-180" copyentityangle="false" anglemax="90" particlespersecond="5" velocitymax="200" colormultiplier="150,150,150,210" scalemin="0.7" scalemax="0.5" priority="50" />
-        <ParticleEmitter particle="smoke" particlespersecond="4" scalemin="2" scalemax="2.5" velocitymax="200" anglemax="90" anglemin="90" />
+    <Projectile characterusable="false" launchimpulse="8.0" impulsespread="0.2" sticktocharacters="true" sticktostructures="true" sticktoitems="true">
+      <StatusEffect type="OnNotContained" target="This" delay="0.5" stackable="false" checkconditionalalways="true" >
+	    <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+		<Use />
       </StatusEffect>
-      <StatusEffect type="OnNotContained" targettype="NearbyCharacters,This" targetlimb="Torso" range="200" interval="0.1" disabledeltatime="true" CheckConditionalAlways="true">
-        <Affliction identifier="burn" strength="0.25" />
-        <Affliction identifier="WR_suppression" strength="0.25" />
-        <Conditional HasStatusTag="impacted" />
-      </StatusEffect>
-      <StatusEffect type="OnImpact" target="This" tags="impacted" duration="6" stackable="false" disabledeltatime="true"></StatusEffect>
-      <StatusEffect type="OnImpact" target="This" delay="10">
+      <StatusEffect type="OnNotContained" target="This" delay="10" stackable="false">
         <Remove />
       </StatusEffect>
     </Projectile>
+	<ItemComponent IsActive="false">
+      <StatusEffect type="OnUse" target="This" IsActive="true" />
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="200" >
+        <LuaHook name="WR.flameprojectiledamage.xmlhook" />
+	  </StatusEffect>
+      <StatusEffect type="OnUse" target="This" duration="10" stackable="false" >
+        <sound file="Content/Sounds/FireSmall.ogg" range="1000.0" loop="true" />
+        <ParticleEmitter particle="flamethrower" anglemin="-180" copyentityangle="false" anglemax="90" particlespersecond="5" velocitymax="200" colormultiplier="150,150,150,210" scalemin="0.7" scalemax="0.5" priority="50" />
+        <ParticleEmitter particle="smoke" particlespersecond="4" scalemin="2" scalemax="2.5" velocitymax="200" anglemax="90" anglemin="90" />
+	  </StatusEffect>
+	</ItemComponent>
   </Item>
   <Item name="" identifier="WR_flameexplosion" hideinmenus="true">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
@@ -486,21 +490,21 @@
   <Item name="" description="" identifier="WR_signalflare" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative,flare" impactsoundtag="impact_soft" impacttolerance="0" >
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="124,25,18,10" depth="0.55" origin="0.5,0.5" />
-    <Body width="20" height="15" density="10" />
+    <Body width="20" height="15" gravityscale="0.1" lineardamping="0.75" density="10" />
     <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="5" />
     </Fabricate>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="false">
-      <StatusEffect type="OnActive" targettype="This">
-        <Use />
+      <StatusEffect type="OnActive" targettype="This" >
+		<Use />
       </StatusEffect>
-      <StatusEffect type="OnImpact" targettype="this" noninteractable="true" >
+      <StatusEffect type="OnUse" targettype="this" noninteractable="true" >
       </StatusEffect>
-      <StatusEffect type="OnImpact" targettype="this" delay="7">
+      <StatusEffect type="OnUse" targettype="this" delay="5">
         <LuaHook name="WR.artillery.xmlhook" item="WR_shell" count="10" interval="0.5" />
       </StatusEffect>
-      <StatusEffect type="OnImpact" targettype="this" delay="15">
+      <StatusEffect type="OnUse" targettype="this" delay="15">
         <Remove />
       </StatusEffect>
     </Projectile>
