@@ -409,3 +409,57 @@ function WR.getLinked(set)
     end
     return set
 end
+
+do
+    local set = {
+        renegadeteam = "coalitionteam",
+        coalitionteam = "renegadeteam"
+    }
+
+    function WR.defender(s)
+        if s == "renegadeteam" or s == "coalitionteam" then
+            return s
+        end
+        return nil
+    end
+
+    function WR.attacker(s)
+        return set[s]
+    end
+
+    function WR.enemy(s1,s2)
+        return WR.defender(s1) == WR.attacker(s2)
+    end
+end
+
+do
+    local function getFieldSafe(obj,keys)
+        if type(keys) ~= "table" or obj == nil then return end
+        local step = obj
+        for key in keys do
+            if pcall(function() return step[key] end) then
+                step = step[key]
+            else
+                return
+            end
+        end
+        return step
+    end
+
+    function WR.id(obj,path)
+        path = path or {}
+        path[#path+1], path[#path+2] = "Prefab", "Identifier"
+        return getFieldSafe(obj,path)
+    end
+end
+
+function WR.hitAngle(pos,entity,constraints)
+    if not constraints then constraints = {0,360} end
+    if not pos or not entity then return end
+
+    local normaled = Vector2.Normalize(Vector2(pos.Y - entity.WorldPosition.Y, pos.X - entity.WorldPosition.X))
+    local radians = (math.atan2(normaled.Y,normaled.X) + entity.body.TransformedRotation)
+    local angle = math.deg(radians) + 180
+
+    return (angle > constraints[1] and angle < constraints[2]), radians
+end
