@@ -1,18 +1,5 @@
 if CLIENT then return end
 
-WR.objectives = {}
-
-function WR.roundStartFunctions.objective()
-
-    WR.objectives = {}
-    for area in Util.GetItemsById("label") do
-        if area.HasTag("wr_objective") then
-            local tags = WR.getStringVariables(area.Tags)
-            WR.objectives = table.insert(WR.objectives, {defender = tags.defender, attacker = tags.attacker, rect = area.WorldRect, captured = false})
-        end
-    end
-end
-
 function WR.thinkFunctions.objective()
 
     if WR.tick % 60 ~= 0 then return end

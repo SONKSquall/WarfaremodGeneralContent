@@ -81,6 +81,89 @@ function WR.roundStartFunctions.containers()
     end
 
 end
+
+WR.objectives = {}
+
+function WR.roundStartFunctions.objectives()
+    WR.objectives = {}
+    for area in WR.getAreas(function(item) return item.HasTag("wr_objective") end) do
+        local tags = WR.getStringVariables(area.tags)
+        table.insert(WR.objectives,
+        {
+            attacker = WR.attacker(tags.team or tags.defender) or "renegadeteam",
+            defender = WR.defender(tags.team or tags.defender) or "coalitionteam",
+            rect = area.WorldRect,
+            captured = false
+        })
+    end
+end
+
+WR.buildings = {}
+
+do
+
+    local function getDamage(tbl)
+        local damage = 0
+        for wall in tbl do
+            for n=0,wall.SectionCount do
+                damage = damage + (wall.SectionDamage(n))
+            end
+        end
+        return damage
+    end
+
+    local function getHealth(tbl)
+        local health = 0
+        for wall in tbl do
+            for n=1,wall.SectionCount do
+                health = health + wall.MaxHealth
+            end
+        end
+        return health
+    end
+
+
+    function WR.roundStartFunctions.buildings()
+        WR.buildings = {}
+        for area in WR.getAreas(function(item) return item.HasTag("wr_building") end) do
+            local walls = {}
+
+            for wall in Structure.WallList do
+                if wall.MaxHealth < 1000 and not wall.Indestructible and not wall.IsPlatform then
+                    if WR.isPointInRect(wall.WorldPosition,area.WorldRect) then
+                        table.insert(walls,wall)
+                    end
+                end
+            end
+
+            local threshold = tonumber(WR.getStringVariables(area.tags).threshold) or 0.75
+
+            table.insert(WR.buildings,
+            {
+                item = area,
+                walls = walls,
+                threshold = threshold,
+                getHealth = getHealth,
+                getDamage = getDamage
+            })
+        end
+    end
+
+end
+
+function WR.thinkFunctions.buildings()
+    if WR.tick % 60 ~= 0 then return end
+
+    for building in WR.buildings do
+        if building.getDamage(building.walls)/building.getHealth(building.walls) > building.threshold then
+            for wall in building.walls do
+                if building.getDamage{wall}/building.getHealth{wall} == 1 then
+                    wall.Indestructible = true
+                end
+            end
+        end
+    end
+end
 --[[
 function WR.getRandomContainer()
     return WR.staticContainers[math.random(#WR.staticContainers)]
