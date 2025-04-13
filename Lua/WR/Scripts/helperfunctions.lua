@@ -365,7 +365,7 @@ function WR.getLocations(filter,items)
 
 	local locations = {}
 	for item in items do
-		if item.Prefab.Identifier == 'WR_location' and filter(item) then
+		if item.Prefab.Identifier == "WR_location" and filter(item) then
 			table.insert(locations, item)
 		end
 	end
@@ -378,18 +378,27 @@ function WR.getLocation(filter,items)
 	return locations[math.random(#locations)]
 end
 
-function WR.getAreas(filter,items)
-	filter = filter or function (item) return true end
-	items = items or Item.ItemList
+do
 
-	local areas = {}
-	for item in items do
-		if item.Prefab.Identifier == 'WR_area' and filter(item) then
-			table.insert(areas, item)
-		end
-	end
+    local set = {
+        WR_area = true,
+        label = true -- backwards compatibility
+    }
 
-	return areas
+    function WR.getAreas(filter,items)
+    	filter = filter or function (item) return true end
+    	items = items or Item.ItemList
+
+    	local areas = {}
+    	for item in items do
+    		if set[WR.id(item)] and filter(item) then
+    			table.insert(areas, item)
+    		end
+    	end
+
+    	return areas
+    end
+
 end
 
 function WR.getArea(filter,items)
@@ -432,25 +441,25 @@ do
     end
 end
 
-do
-    local function getFieldSafe(obj,keys)
-        if type(keys) ~= "table" or obj == nil then return end
-        local step = obj
-        for key in keys do
-            if pcall(function() return step[key] end) then
-                step = step[key]
-            else
-                return
-            end
-        end
-        return step
-    end
 
-    function WR.id(obj,path)
-        path = path or {}
-        path[#path+1], path[#path+2] = "Prefab", "Identifier"
-        return getFieldSafe(obj,path)
+function WR.getFieldSafe(obj,key)
+    local success, value = pcall(function() return obj[key] end)
+    if success then
+        return value
+    else
+        print("failed to get field: "..tostring(key or nil).." from: "..tostring(obj or nil).." error: "..value)
     end
+end
+
+ function WR.id(obj,path)
+    path = path or {}
+    path[#path+1], path[#path+2] = "Prefab", "Identifier"
+    local step = obj
+    for key in path do
+        step = WR.getFieldSafe(step,key)
+        if step == nil then return end
+    end
+    return tostring(step)
 end
 
 function WR.hitAngle(pos,entity,constraints)
