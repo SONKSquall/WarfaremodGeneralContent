@@ -229,14 +229,6 @@ function WR.thinkFunctions.antiSpam()
     end
 end
 
-function WR.characterCreateFunctions.giveRecipes(char)
-    if char.JobIdentifier == "coalitionteam" then
-        char.GiveTalent("WR_coalitionrecipes",nil)
-    elseif char.JobIdentifier == "renegadeteam" then
-        char.GiveTalent("WR_renegaderecipes",nil)
-    end
-end
-
 function WR.spawnItemFunctions.WR_coalitionhelmet(item)
     if not WR.HalloweenMode then return end
     local prefab = ItemPrefab.GetItemPrefab("WR_halcoalitionhelmet" .. math.random(1,2))
@@ -456,7 +448,7 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
 end)
 
 Hook.Add("character.giveJobItems", "WR.productionCrate", function(character, waypoint)
-    Timer.Wait(function() 
+    Timer.Wait(function()
         if character.JobIdentifier == "coalitionteam" then
             character.GiveTalent("WR_coalitionrecipes",nil)
         elseif character.JobIdentifier == "renegadeteam" then
