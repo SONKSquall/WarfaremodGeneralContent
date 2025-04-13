@@ -127,10 +127,6 @@ end
 
 do
 
-local function isBack(degrees)
-    return (degrees > 0 and degrees < 180)
-end
-
 function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult, hitLimb, attackPos)
     if hitLimb.type ~= LimbType.Torso and hitLimb.type ~= LimbType.Waist then return end
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.Bag)
@@ -138,10 +134,7 @@ function WR.characterDamageFunctions.flametankExpolsion(charHealth, attackResult
     if not item then return end
     if not item.HasTag("flamethrower") then return end
 
-    local normaled = Vector2.Normalize(Vector2(attackPos.Y - hitLimb.WorldPosition.Y, attackPos.X - hitLimb.WorldPosition.X))
-    local radians = math.atan2(normaled.Y,normaled.X) + hitLimb.Rotation
-    if hitLimb.IsFlipped then radians = radians * -1 end
-    if not isBack(math.deg(radians) + 180) then return end
+    if not WR.hitAngle(attackPos,hitLimb,{0,180}) then return end
 
 
     local damage = attackResult.Damage
