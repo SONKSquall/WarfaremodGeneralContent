@@ -88,19 +88,9 @@ Hook.Add("baton_attack", "WR_BatonImpact", function(effect, deltaTime, item, tar
     end
 end)
 
-WR.reloadingGuns = {}
+do
 
-function WR.reload(gun,ammo,characterUser)
-	if not characterUser or not gun or not characterUser then return end
-
-    local ammoId = ammo.Prefab.Identifier.value
-    local gunId = gun.Prefab.Identifier.value
-
-    local isInfantry = false
-    local item = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
-    if item then
-        isInfantry = item.Prefab.Identifier.value == "WR_coalitiongear" or item.Prefab.Identifier.value == "WR_renegadegear"
-    end
+    WR.reloadingGuns = {}
 
     local weapons = {
         rifle = {
@@ -160,34 +150,47 @@ function WR.reload(gun,ammo,characterUser)
         },
     }
 
-    local reloadTime = weapons[gunId] and weapons[gunId].ammo[ammoId]
-    --local type = weapons[gunId] and weapons[gunId].type
-    local slowDown = weapons[gunId] and not weapons[gunId].noSlowDown
+    function WR.reload(gun,ammo,characterUser)
+    	if not characterUser or not gun or not characterUser then return end
 
-    if reloadTime then
-        WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] or Timer.GetTime()
+        local ammoId = WR.id(ammo)
+        local gunId = WR.id(gun)
 
-        if isInfantry then
-            reloadTime = reloadTime / 1.25
+        local isInfantry = false
+        local item = characterUser.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+        isInfantry = WR.id(item) == "WR_coalitiongear" or WR.id(item) == "WR_renegadegear"
+
+
+        local reloadTime = weapons[gunId] and weapons[gunId].ammo[ammoId]
+        --local type = weapons[gunId] and weapons[gunId].type
+        local slowDown = weapons[gunId] and not weapons[gunId].noSlowDown
+
+        if reloadTime then
+            WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] or Timer.GetTime()
+
+            if isInfantry then
+                reloadTime = reloadTime / 1.25
+            end
+
+            if slowDown then
+                WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
+            end
+            gun.Condition = 0
+
+            WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] + reloadTime
+
+            local function endReload()
+                Timer.Wait(function()
+                    if not WR.reloadingGuns[gun.ID] then return end
+                    if WR.reloadingGuns[gun.ID] - Timer.GetTime() > 0.1 then endReload() return end
+                    gun.Condition = gun.MaxCondition
+                    WR.reloadingGuns[gun.ID] = nil
+                end,(WR.reloadingGuns[gun.ID] - Timer.GetTime()) * 1000)
+            end
+            Timer.NextFrame(endReload)
         end
-
-        if slowDown then
-            WR.GiveAfflictionCharacter(characterUser,"WR_reload",reloadTime)
-        end
-        gun.Condition = 0
-
-        WR.reloadingGuns[gun.ID] = WR.reloadingGuns[gun.ID] + reloadTime
-
-        local function endReload()
-            Timer.Wait(function()
-                if not WR.reloadingGuns[gun.ID] then return end
-                if WR.reloadingGuns[gun.ID] - Timer.GetTime() > 0.1 then endReload() return end
-                gun.Condition = gun.MaxCondition
-                WR.reloadingGuns[gun.ID] = nil
-            end,(WR.reloadingGuns[gun.ID] - Timer.GetTime()) * 1000)
-        end
-        Timer.NextFrame(endReload)
     end
+
 end
 
 Hook.Add("inventoryPutItem", "WR.reloadTime", function (inventory, item, characterUser, index, removeItemBool)
