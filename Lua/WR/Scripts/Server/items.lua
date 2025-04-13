@@ -47,7 +47,7 @@ function WR.thinkFunctions.cuffs()
         if char.IsHuman and char.IsKeyDown(InputType.Crouch) then
             local item = char.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
 
-            if item and not item.Removed and item.Prefab.Identifier == "WR_cuffs" then
+            if item and not item.Removed and WR.id(item) == "WR_cuffs" then
                 item.Condition = item.Condition - 2
 
                 if item.Condition <= 0 then
@@ -117,7 +117,7 @@ function WR.characterDamageFunctions.helmet(charHealth, attackResult, hitLimb)
             end)
         end
 
-        local sfxPrefab = ItemPrefab.GetItemPrefab(item.Prefab.Identifier.value.."_sfx")
+        local sfxPrefab = ItemPrefab.GetItemPrefab(WR.id(item).."_sfx")
         if sfxPrefab then
             Entity.Spawner.AddItemToSpawnQueue(sfxPrefab, hitLimb.worldPosition, nil, nil, nil)
         end
@@ -159,7 +159,7 @@ function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLi
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
 
     if not item then return end
-    if not validArmor[item.Prefab.Identifier.value] then return end
+    if not validArmor[WR.id(item)] then return end
 
     local damage = attackResult.Damage / 2
     item.Condition = item.Condition - damage
@@ -273,10 +273,10 @@ function WR.roundStartFunctions.clearIllegalItems()
     local crates = {chemicalcrate = true, metalcrate = true, mediccrate = true}
     local set = {exosuit = true, machinepistol = true}
     for i in Item.ItemList do
-        if set[i.Prefab.Identifier.value] then
+        if set[WR.id(i)] then
             print("Removed: ",i)
             WR.despawn(i)
-        elseif crates[i.Prefab.Identifier.value] and not i.IsContained then -- oil rig has some deco crates that are inside shelfs
+        elseif crates[WR.id(i)] and not i.IsContained then -- oil rig has some deco crates that are inside shelfs
             print("Removed: ",i)
             WR.despawn(i)
         end
@@ -423,7 +423,7 @@ WR.cratesLoadouts = {
 }
 
 Hook.Add("WR.productionCrate.xmlhook", "WR.productionCrate", function(effect, deltaTime, item, targets, worldPosition, element)
-    local list = WR.cratesLoadouts[item.Prefab.Identifier.value]
+    local list = WR.cratesLoadouts[WR.id(item)]
     local owner = item.GetRootInventoryOwner()
 
     if list and WR.staticContainers[owner] and not owner.OwnInventory.IsFull(false) then
@@ -465,9 +465,9 @@ Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item,
     for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
         if radio.Item.HasTag("mobileradio") then
             local owner = radio.Item.GetRootInventoryOwner()
-            if pingEveryone and owner.Prefab.Identifier == "human" then
+            if pingEveryone and WR.id(owner) == "human" then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
-            elseif not pingEveryone and owner.Prefab.Identifier == "human" and owner.JobIdentifier.value == callerID then
+            elseif not pingEveryone and WR.id(owner) == "human" and owner.JobIdentifier.value == callerID then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
             end
         end
@@ -499,7 +499,7 @@ function WR.thinkFunctions.cuffs()
             if value.IsHuman and value.IsKeyDown(InputType.Crouch) then
                 local item = value.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
 
-                if item and not item.Removed and item.Prefab.Identifier == "WR_cuffs" then
+                if item and not item.Removed and WR.id(item)== "WR_cuffs" then
                     item.Condition = item.Condition - 1.4
 
                     if item.Condition <= 0 then

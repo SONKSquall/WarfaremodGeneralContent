@@ -46,7 +46,7 @@ function WR.thinkFunctions.main()
         WR.respawnEnabled = false
         -- respawn all players
         for client in WR.GetDeadPlayers() do
-            local jobid = client.AssignedJob.Prefab.Identifier.value
+            local jobid = WR.id(client,{"AssignedJob"})
             local spawnPoint = WR.getRandomWaypointByJob(jobid)
             WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
         end
@@ -228,7 +228,7 @@ end
 
 function WR.characterDeathFunctions.log(char)
     if not char.isHuman then return end
-    local path = "teams."..char.Info.Job.Prefab.Identifier.Value..".deaths"
+    local path = "teams."..WR.id(char,{"Info","Job"})..".deaths"
     WR.data[path] = WR.data[path] + 1
 end
 

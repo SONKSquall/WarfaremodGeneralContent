@@ -15,9 +15,9 @@ function WR.AssignBalanceJobs()
                     client.AssignedJob = WR.renegadeJob
                     amountRenegade = amountRenegade + 1
                 end
-            elseif client.AssignedJob.Prefab.Identifier == 'renegadeteam' then
+            elseif WR.id(client,{"AssignedJob"}) == "renegadeteam" then
                 amountRenegade = amountRenegade + 1
-            elseif client.AssignedJob.Prefab.Identifier == 'coalitionteam' then
+            elseif WR.id(client,{"AssignedJob"}) == 'coalitionteam' then
                 amountCoalition = amountCoalition + 1
             end
         end
@@ -31,7 +31,7 @@ function WR.AssignBalanceJobs()
         local amount = math.abs(difference) - 2
         for client in deadPlayers do
             if client.AssignedJob ~= nil then
-                if client.AssignedJob.Prefab.Identifier == 'coalitionteam' then
+                if WR.id(client,{"AssignedJob"}) == 'coalitionteam' then
                     client.AssignedJob = WR.renegadeJob
                     amount = amount - 1
                     if amount <= 0 then
@@ -44,7 +44,7 @@ function WR.AssignBalanceJobs()
         local amount = math.abs(difference) - 2
         for client in deadPlayers do
             if client.AssignedJob ~= nil then
-                if client.AssignedJob.Prefab.Identifier == 'renegadeteam' then
+                if WR.id(client,{"AssignedJob"}) == 'renegadeteam' then
                     client.AssignedJob = WR.coalitionJob
                     amount = amount - 1
                     if amount <= 0 then

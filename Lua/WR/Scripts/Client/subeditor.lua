@@ -5,7 +5,7 @@ Game.AddCommand("wr_replace", "", function(args)
     local count = args[3] or 1
 
     for item in Item.ItemList do
-        if item.Prefab.Identifier.value == itemId then
+        if WR.id(item) == itemId then
             local inventory = item.ParentInventory
             if inventory then
                 local index = inventory.FindIndex(item)
@@ -43,7 +43,7 @@ Game.AddCommand("wr_fill", "", function(args)
     local count = args[3]
 
     for item in Item.ItemList do
-        if item.Prefab.Identifier.value == itemId then
+        if WR.id(item) == itemId then
             local inventory = item.OwnInventory
             for i=1,count or 1 do
                 local fillItem = Item(fillPrefab,item.WorldPosition,nil,nil)

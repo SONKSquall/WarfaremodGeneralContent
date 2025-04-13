@@ -19,11 +19,9 @@ function WR.getPlayersByJob(clients,id)
     local filteredClients = {}
 
     for client in clients do
-        if client then
-            if client.Character and client.Character.Info.Job.Prefab.Identifier.Contains(id) or
-            not client.Character and client.AssignedJob and client.AssignedJob.Prefab.Identifier.Contains(id) then
-                table.insert(filteredClients,client)
-            end
+        if WR.id(client,{"Character","Info","Job"}) == id or
+        not client.Character and WR.id(client,{"AssignedJob"}) == id then
+            table.insert(filteredClients,client)
         end
     end
 

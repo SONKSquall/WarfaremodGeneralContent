@@ -57,7 +57,7 @@ function artillery:onStart()
             -- facing right
             range = WR.Lerp(WR.InvLerp(angle,minAngle,maxAngle), minRange, maxRange)
         end
-        local shellPrefab = WR.shellPrefabs[tostring(ptable["projectile"].Prefab.Identifier)] or ItemPrefab.GetItemPrefab("WR_shell")
+        local shellPrefab = WR.shellPrefabs[WR.id(ptable["projectile"])] or ItemPrefab.GetItemPrefab("WR_shell")
 
         local spawnPos = nil
         Game.World.RayCast(function(fixture, point, normal, fraction)

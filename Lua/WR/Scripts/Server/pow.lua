@@ -38,7 +38,7 @@ end
 
 -- removes pows and places their items in a footlocker
 local function powhandle(targets,picker)
-    local frendlyteam = picker.Info.Job.Prefab.Identifier.Value
+    local frendlyteam = WR.id(picker,{"Info","Job"})
     local shop = WR.data["userdata."..WR.teamKeys[frendlyteam].."shop"]
     local capturecount = 0
     for character in targets do
@@ -54,7 +54,7 @@ local function powhandle(targets,picker)
             end)
             Entity.Spawner.AddEntityToRemoveQueue(character)
 
-            local prisonerteam = character.Info.Job.Prefab.Identifier.Value
+            local prisonerteam = WR.id(character,{"Info","Job"})
 
             WR.respawns[prisonerteam].multiplier = WR.respawns[prisonerteam].multiplier + WR.Lerp(WR.InvLerp(#Client.ClientList,0,16),0.5,0.1)
 

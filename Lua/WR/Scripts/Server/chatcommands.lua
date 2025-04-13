@@ -123,7 +123,7 @@ end, nil, true)
 
 Game.AddCommand("forcerespawn", "Spawns all dead players.", function()
     for client in WR.GetDeadPlayers() do
-        local jobid = client.AssignedJob.Prefab.Identifier.value
+        local jobid = WR.id(client,{"AssignedJob"})
         local spawnPoint = WR.getRandomWaypointByJob(jobid)
         WR.spawnHuman(client,jobid,spawnPoint.WorldPosition)
     end

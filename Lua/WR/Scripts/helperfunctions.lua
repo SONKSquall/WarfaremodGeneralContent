@@ -365,7 +365,7 @@ function WR.getLocations(filter,items)
 
 	local locations = {}
 	for item in items do
-		if item.Prefab.Identifier == "WR_location" and filter(item) then
+		if WR.id(item) == "WR_location" and filter(item) then
 			table.insert(locations, item)
 		end
 	end
