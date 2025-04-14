@@ -42,7 +42,7 @@ function WR.thinkFunctions.standAimingAroundSandbag()
 end
 
 function WR.thinkFunctions.cuffs()
-    if WR.tick % 60 ~= 0 then return end 
+    if WR.tick % 60 ~= 0 then return end
     for char in Character.CharacterList do
         if char.IsHuman and char.IsKeyDown(InputType.Crouch) then
             local item = char.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)

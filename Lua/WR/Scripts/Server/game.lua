@@ -19,7 +19,6 @@ WR.tick = 0
 WR.tickmax = 30*60*60
 
 WR.extensions = {
-    WR.buildingManager,
     WR.artillery
 }
 

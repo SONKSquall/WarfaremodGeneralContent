@@ -4,22 +4,22 @@ WR.staticContainers = {}
 WR.lootSpawners = {}
 
 local allowedContainers = {
-    "suppliescabinet",
-    "mediumsteelcabinet",
-    "mediumwindowedsteelcabinet",
-    "steelcabinet",
-    "securesteelcabinet",
-    "medcabinet",
-    "toxcabinet",
-    "suppliescabinetwrecked",
-    "mediumsteelcabinetwrecked",
-    "mediumwindowedsteelcabinetwrecked",
-    "steelcabinetwrecked",
-    "securesteelcabinetwrecked",
-    "medcabinetwrecked",
-    "toxcabinetwrecked",
-    "railgunshellrack",
-    "coilgunammoshelf"
+    suppliescabinet = true,
+    mediumsteelcabinet = true,
+    mediumwindowedsteelcabinet = true,
+    steelcabinet = true,
+    securesteelcabinet = true,
+    medcabinet = true,
+    toxcabinet = true,
+    suppliescabinetwrecked = true,
+    mediumsteelcabinetwrecked = true,
+    mediumwindowedsteelcabinetwrecked = true,
+    steelcabinetwrecked = true,
+    securesteelcabinetwrecked = true,
+    medcabinetwrecked = true,
+    toxcabinetwrecked = true,
+    railgunshellrack = true,
+    coilgunammoshelf = true
 }
 --[[
 local lootTables = {
@@ -57,11 +57,10 @@ function WR.roundStartFunctions.containers()
 
     WR.staticContainers = {}
     WR.lootSpawners = {}
-    for id in allowedContainers do
-        if Util.GetItemsById(id) then
-            for item in Util.GetItemsById(id) do
-                WR.staticContainers[item] = true
-            end
+    for item in Item.ItemList do
+        if allowedContainers[WR.id(item)] then
+            print("Added ",item," to the container list!")
+            WR.staticContainers[item] = true
         end
     end
 
