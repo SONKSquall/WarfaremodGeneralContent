@@ -1,7 +1,6 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
 -- use instances to prevent the server from modifying classes     <- the most cursed text ever written
-WR.buildingManager = (require"WR.Scripts.Server.Extensions.buildingmanager".new())
 WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
 
 require"WR.Scripts.Server.hooks"

@@ -492,25 +492,6 @@ Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, ite
     end
 end)
 
-
-function WR.thinkFunctions.cuffs()
-    if WR.tick % 60 == 0 then
-        for value in Character.CharacterList do
-            if value.IsHuman and value.IsKeyDown(InputType.Crouch) then
-                local item = value.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
-
-                if item and not item.Removed and WR.id(item)== "WR_cuffs" then
-                    item.Condition = item.Condition - 1.4
-
-                    if item.Condition <= 0 then
-                        Entity.Spawner.AddEntityToRemoveQueue(item)
-                    end
-                end
-            end
-        end
-    end
-end
-
 Hook.Add("WR.slowbody.xmlhook", "WR.slowbody", function(effect, deltaTime, item, targets, worldPosition, element)
     local divisor = element.GetAttributeFloat("factor",2)
     item.body.LinearVelocity = item.body.LinearVelocity / divisor
