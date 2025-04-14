@@ -1,0 +1,3 @@
+<contentpackage name="Warfare Overrides" modversion="0.0.2" gameversion="0.21.6.0" corepackage="false">
+	<Item file="%ModDir%/Xml/Overrides.xml" />
+</contentpackage>

@@ -1,0 +1,5 @@
+<contentpackage name="Warfare Jobs" modversion="0.1.1" gameversion="0.21.6.0" corepackage="false">
+    <Jobs file="%Moddir%/Xml/Jobs.xml" />
+    <Jobs file="%Moddir%/Xml/Jobsoverrides.xml" />
+	<Text file="%ModDir%/Xml/English.xml" />
+</contentpackage>

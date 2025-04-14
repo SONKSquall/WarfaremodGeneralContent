@@ -1,0 +1,16 @@
+<!-- Overrides all normal jobs to be hidden -->  
+<Jobs>
+<Override>
+  <Job identifier="captain" minnumber="0" maxnumber="0"  HiddenJob="true"/>
+
+  <Job identifier="engineer" minnumber="0" maxnumber="0" HiddenJob="true"/>
+
+  <Job identifier="mechanic" minnumber="0" maxnumber="0" HiddenJob="true"/>
+
+  <Job identifier="medicaldoctor" minnumber="0" maxnumber="0" HiddenJob="true"/>
+  
+  <Job identifier="assistant" minnumber="0" maxnumber="0" HiddenJob="true"/> 
+
+  <Job identifier="securityofficer"	minnumber="0" maxnumber="0" HiddenJob="true"/>
+</Override>
+</Jobs>

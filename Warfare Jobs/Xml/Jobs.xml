@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Jobs>
+  <Job identifier="coalitionteam" minnumber="0" maxnumber="16" minkarma="45" initialcount="1" uicolor="0.2,0.2,0.9" vitalitymodifier="0" idlebehavior="StayInHull">
+    <Jobicon>
+      <sprite texture="%Moddir%/UI/Jobicons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
+    </Jobicon>
+    <JobiconSmall>
+      <sprite texture="%Moddir%/UI/Jobicons.png" sourcerect="0,128,28,28" origin="0.5,0.5" />
+    </JobiconSmall>
+    <Skills>
+      <Skill identifier="helm" level="25" />
+      <Skill identifier="weapons" level="25" primary="true" />
+      <Skill identifier="mechanical" level="25" />
+      <Skill identifier="electrical" level="25" />
+      <Skill identifier="medical" level="25" />
+    </Skills>
+    <ItemSet>
+      <Item identifier="WR_dogtag" equip="true" showpreview="false" />
+      <Item identifier="WR_coalitionhelmet" equip="true" />
+      <Item identifier="WR_coalitionuniform" equip="true" />
+      <Item identifier="WR_coalitiongear" equip="true" outfit="true" />
+      <Item identifier="WR_basicpistol" equip="false">
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+      </Item>
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="opium" showpreview="false" />
+      <Item identifier="opium" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="WR_trenchingtool" equip="false" />
+      <Item identifier="WR_radio" equip="false" />
+      <Item identifier="WR_cuffs" equip="false" />
+      <PreviewSprites dims="120,109">
+        <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_1.png" sourcerect="2,38,120,109" offset="0,0" />
+        <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_1.png" sourcerect="121,0,76,80" offset="-20,15" />
+      </PreviewSprites>
+    </ItemSet>
+    <AutonomousObjectives>
+      <Order identifier="fightintruders" prioritymodifier="1" />
+      <Order identifier="extinguishfires" prioritymodifier="1" />
+      <Order identifier="rescue" prioritymodifier="1" />
+      <Order identifier="steer" option="maintainposition" prioritymodifier="1" />
+      <Order identifier="operatereactor" option="powerup" prioritymodifier="0.1" />
+      <Order identifier="fixleaks" prioritymodifier="0.1" />
+    </AutonomousObjectives>
+    <AppropriateOrders>
+      <Order identifier="steer" />
+    </AppropriateOrders>
+  </Job>
+  <Job identifier="renegadeteam" minnumber="0" maxnumber="16" minkarma="45" initialcount="1" uicolor="0.2,0.9,0.2" vitalitymodifier="0" idlebehavior="StayInHull">
+    <Jobicon>
+      <sprite texture="%Moddir%/UI/Jobicons.png" sourcerect="128,0,128,128" origin="0.5,0.5" />
+    </Jobicon>
+    <JobiconSmall>
+      <sprite texture="%Moddir%/UI/Jobicons.png" sourcerect="28,128,28,28" origin="0.5,0.5" />
+    </JobiconSmall>
+    <Skills>
+      <Skill identifier="helm" level="25" />
+      <Skill identifier="weapons" level="25" primary="true" />
+      <Skill identifier="mechanical" level="25" />
+      <Skill identifier="electrical" level="25" />
+      <Skill identifier="medical" level="25" />
+    </Skills>
+    <ItemSet>
+      <Item identifier="WR_dogtag" equip="true" showpreview="false" />
+      <Item identifier="WR_renegadehelmet" equip="true" />
+      <Item identifier="WR_renegadeuniform" equip="true" />
+      <Item identifier="WR_renegadegear" equip="true" outfit="true" />
+      <Item identifier="WR_basicpistol" equip="false">
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+        <Item identifier="WR_smallround" />
+      </Item>
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="WR_smallround" showpreview="false" />
+      <Item identifier="opium" showpreview="false" />
+      <Item identifier="opium" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="antibleeding1" showpreview="false" />
+      <Item identifier="WR_trenchingtool" equip="false" />
+      <Item identifier="WR_radio" equip="false" />
+      <Item identifier="WR_cuffs" equip="false" />
+      <PreviewSprites dims="120,109">
+        <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_1.png" sourcerect="2,38,120,109" offset="0,0" />
+        <sprite texture="Content/Items/Jobgear/Captain/captain_torso_[GENDER]_1.png" sourcerect="121,0,76,80" offset="-20,15" />
+      </PreviewSprites>
+    </ItemSet>
+  </Job>
+</Jobs>
