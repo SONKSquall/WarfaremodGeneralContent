@@ -22,11 +22,29 @@
       <SlotIcon slotindex="5" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
+  <Item name="" identifier="WR_largeradio" category="Equipment" tags="mediumitem,mobileradio" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="443,70,69,159" depth="0.6" origin="0.5,0.5" />
+    <Body width="70" height="150" density="20" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Radio Pack wearable" texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="403,70,37,159" depth="0.5" limb="Torso" inherittexturescale="true" origin="1.5,0.8" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.8" setvalue="true" disabledeltatime="true" />
+	  <StatusEffect type="OnWearing" target="this" >
+	    <sound file="%ModDir%/Sounds/RadioStatic.ogg" range="500" volume="0.25" loop="true" />
+	  </StatusEffect>
+	  <StatusEffect type="OnNotContained" target="this" >
+	    <sound file="%ModDir%/Sounds/RadioStatic.ogg" range="500" volume="0.25" loop="true" />
+	  </StatusEffect>
+    </Wearable>
+    <ItemContainer capacity="6" MaxStackSize="12" hideitems="true" depth="0.5">
+      <Containable items="smallitem" excludeditems="WR_barbedwire_setup,WR_sandbag_setup,medpackable,packable" />
+    </ItemContainer>
+  </Item>
   <Item name="" identifier="WR_radio" scale="0.5" category="Equipment" tags="smallitem,mobileradio" description="" cargocontaineridentifier="metalcrate" health="30" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="160,188,38,68" depth="0.6" origin="0.5,0.5" />
     <Body width="25" height="60" density="15" />
-    <WifiComponent range="5000.0" LinkToChat="true" MinChatMessageInterval="0.0" />
+    <WifiComponent range="100000.0" LinkToChat="true" MinChatMessageInterval="0.0" />
     <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
       <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
       <Button text="Ping All" connection="signal_in">
@@ -48,12 +66,12 @@
       <StatusEffect type="OnContained" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="true">
         <Conditional Condition="gt 2" />
       </StatusEffect>
-      <StatusEffect type="OnContained" targettype="This" interval="0.1" Channel="0" >
-	    <Conditional hasstatustag="coalition" TargetContainer="true" />
-	  </StatusEffect>
-      <StatusEffect type="OnContained" targettype="This" interval="0.1" Channel="1" >
-	    <Conditional hasstatustag="renegade" TargetContainer="true" />
-	  </StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" interval="0.1" Channel="0">
+        <Conditional hasstatustag="coalition" TargetContainer="true" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" interval="0.1" Channel="1">
+        <Conditional hasstatustag="renegade" TargetContainer="true" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="false"></StatusEffect>
     </Holdable>
   </Item>
@@ -108,12 +126,12 @@
     <Sprite texture="%ModDir%/Sprites/Items/Jobgear/NeutralGear.png" depth="0.5" sourcerect="500,137,12,13" origin="0.5,0.5" />
     <Body width="16" height="12" density="10.05" />
     <WifiComponent range="100000.0" LinkToChat="true" MinChatMessageInterval="0.0">
-      <StatusEffect type="OnContained" targettype="This" CheckConditionalAlways="true" LinkToChat="true" >
-	    <Conditional condition="gt 10" />
-	  </StatusEffect>
-      <StatusEffect type="OnContained" targettype="This" LinkToChat="false" >
-	    <Conditional condition="lte 10" />
-	  </StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" CheckConditionalAlways="true" LinkToChat="true">
+        <Conditional condition="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" targettype="This" LinkToChat="false">
+        <Conditional condition="lte 10" />
+      </StatusEffect>
     </WifiComponent>
     <IdCard slots="Card" msg="ItemMsgPickUpSelect" />
   </Item>

@@ -6,12 +6,12 @@
     <BrokenSprite texture="%ModDir%/Sprites/Items/Townfabricator.png" sourcerect="0,458,301,228" depth="0.8" maxcondition="0" origin="0.5,0.5" />
     <Fabricator canbeselected="true" powerconsumption="0" FabricationSpeed="0.5" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
-      <sound file="Content/Items/Fabricators/Fabricator.ogg" type="OnActive" range="250.0" loop="true"/>
+      <sound file="Content/Items/Fabricators/Fabricator.ogg" type="OnActive" range="250.0" loop="true" />
     </Fabricator>
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.33" MinDeteriorationCondition="0" RepairThreshold="80" FixDurationHighSkill="20" msg="WRItemMsgRepairTrenchingtool" hudpriority="10">
       <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
       <RequiredSkill identifier="mechanical" level="0" />
-	  <RequiredItem items="buildable" type="Equipped" />
+      <RequiredItem items="buildable" type="Equipped" />
     </Repairable>
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="1" maxstacksize="3" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
@@ -21,7 +21,7 @@
       <RequiredItem identifier="WR_currency" amount="2" />
     </Fabricate>
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="256,64,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,231,80,25" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="354,487,80,25" depth="0.55" origin="0.5,0.5" />
     <Body width="80" height="20" density="12" />
     <MotionSensor range="15" target="Human,Monster" minimumvelocity="1" detectownmotion="false" canbeselected="false">
       <!-- decreases condition by 20 every second until it reachs 50 -->
@@ -67,26 +67,26 @@
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
-	<Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
+    <Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="384,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,0,254,78" depth="0.55" origin="0.5,0.5" />
     <Body width="254" height="55" density="12" />
-    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="0,20" handle1="50,-20" handle2="40,-20" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" >
-      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-10" Stackable="false" >
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="0,20" handle1="50,-20" handle2="40,-20" swingamount="10,20" swingspeed="1" SwingWhenAiming="true">
+      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-10" Stackable="false">
         <sound file="%ModDir%/Sounds/Barbedwirebuild.ogg" range="500" loop="true" />
-	  </StatusEffect>
-	  <!-- eng rig allows for faster building -->
-      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true" >
+      </StatusEffect>
+      <!-- eng rig allows for faster building -->
+      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true">
         <Conditional HasStatusTag="enginner" />
-	  </StatusEffect>
+      </StatusEffect>
       <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
-	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
-	    <Conditional HasStatusTag="! building" />
-	  </StatusEffect>
-	  <StatusEffect type="OnBroken" targettype="This" >
-	    <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_barbedwire" distance="100" />
-		<RemoveItem />
-	  </StatusEffect>
+      <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true">
+        <Conditional HasStatusTag="! building" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This">
+        <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_barbedwire" distance="100" />
+        <RemoveItem />
+      </StatusEffect>
     </Holdable>
   </Item>
   <Item name="" identifier="WR_barbedwire" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense" DamagedByExplosions="true" ExplosionDamageMultiplier="0.25" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
@@ -94,8 +94,6 @@
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
     <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
-	  <StatusEffect type="OnUse" targettype="this" Interval="0.25" disableDeltaTime="true" condition="-5" >
-      </StatusEffect>
       <StatusEffect type="OnUse" targettype="NearbyCharacters" Interval="0.25" disableDeltaTime="true" range="150">
         <Affliction identifier="slow" strength="75" />
       </StatusEffect>
@@ -126,26 +124,26 @@
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
       <RequiredItem identifier="WR_currency" />
     </Fabricate>
-	<Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
+    <Fabricate suitablefabricators="defencefabricator" requiredtime="60" amount="1" />
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,153,128,99" depth="0.55" origin="0.5,0.5" />
     <Body width="128" height="90" density="12" />
-    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40" swingamount="10,20" swingspeed="1" SwingWhenAiming="true" >
-      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-12" Stackable="false" >
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" Aimable="false" msg="ItemMsgDetach" HoldPos="70,-40" handle1="-20,-40" handle2="-20,-40" swingamount="10,20" swingspeed="1" SwingWhenAiming="true">
+      <StatusEffect type="OnSecondaryUse" targettype="This" duration="0.1" tags="building" condition="-12" Stackable="false">
         <sound file="%ModDir%/Sounds/Sandbagbuild.ogg" range="500" loop="true" />
-	  </StatusEffect>
-	  <!-- eng rig allows for faster building -->
-      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true" >
+      </StatusEffect>
+      <!-- eng rig allows for faster building -->
+      <StatusEffect type="OnSecondaryUse" targettype="This,Character" condition="-5" CheckConditionalAlways="true">
         <Conditional HasStatusTag="enginner" />
-	  </StatusEffect>
+      </StatusEffect>
       <StatusEffect type="OnSecondaryUse" targettype="Character" SpeedMultiplier="0.25" setValue="true" />
-	  <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true" >
-	    <Conditional HasStatusTag="! building" />
-	  </StatusEffect>
-	  <StatusEffect type="OnBroken" targettype="This" >
-	    <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_sandbag" distance="50" />
-		<RemoveItem />
-	  </StatusEffect>
+      <StatusEffect type="Always" targettype="This" interval="0.5" condition="100" setValue="true" CheckConditionalAlways="true">
+        <Conditional HasStatusTag="! building" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This">
+        <LuaHook name="WR.defenseBuilt.xmlhook" prefab="WR_sandbag" distance="50" />
+        <RemoveItem />
+      </StatusEffect>
     </Holdable>
   </Item>
   <Item name="" identifier="WR_sandbag" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem,defense" Health="100" DamagedByExplosions="true" ExplosionDamageMultiplier="2.5" DamagedByProjectiles="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_soft">

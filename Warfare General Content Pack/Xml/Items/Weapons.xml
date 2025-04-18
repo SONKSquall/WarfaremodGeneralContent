@@ -456,9 +456,9 @@
   <!-- Explosives Start -->
   <Item name="" identifier="WR_dynamite" category="Weapon" description="" Scale="0.5" Tags="smallitem,explosive,demolitionsexpert,packable" health="5" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="explosivecrate" impactsoundtag="impact_soft" damagedbyprojectiles="true">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="489,158,23,98" depth="0.55" origin="0.5,0.5" />
-    <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="463,158,23,98" depth="0.55" maxcondition="66" mincondition="33" origin="0.5,0.5" />
-    <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="437,158,23,98" depth="0.55" maxcondition="33" mincondition="0" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="489,414,23,98" depth="0.55" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="463,414,23,98" depth="0.55" maxcondition="66" mincondition="33" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="437,414,23,98" depth="0.55" maxcondition="33" mincondition="0" origin="0.5,0.5" />
     <Body width="23" height="98" density="20" />
     <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
       <RequiredItem identifier="WR_currency" amount="5" />

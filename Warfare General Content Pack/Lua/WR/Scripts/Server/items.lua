@@ -42,7 +42,7 @@ function WR.thinkFunctions.standAimingAroundSandbag()
 end
 
 function WR.thinkFunctions.cuffs()
-    if WR.tick % 60 ~= 0 then return end
+    if WR.tick % 60 ~= 0 then return end 
     for char in Character.CharacterList do
         if char.IsHuman and char.IsKeyDown(InputType.Crouch) then
             local item = char.Inventory.GetItemInLimbSlot(InvSlotType.RightHand)
@@ -551,22 +551,39 @@ function WR.thinkFunctions.setRadios()
     end
 end
 
-WR.radioAreas = {}
+WR.staticRadioAreas = {}
 
 function WR.roundStartFunctions.staticRadioArea()
-    WR.radioAreas = WR.getAreas(function(item) return item.HasTag("wr_staticradio") or item.HasTag("wr_objective") end)
+    WR.staticRadioAreas = WR.getAreas(function(item) return item.HasTag("wr_staticradio") or item.HasTag("wr_objective") end)
 end
 
-function WR.thinkFunctions.staticRadioArea()
+function WR.radioAreas()
+    local rects = {}
+    local largeRadios = Util.GetItemsById("WR_largeradio") or {}
+
+    for item in WR.staticRadioAreas do
+        table.insert(rects,item.WorldRect)
+    end
+
+    local size = 500
+    for item in largeRadios do
+        local rect = Rectangle(item.WorldPosition.X - size,item.WorldPosition.Y + size,size*2,size*2)
+        table.insert(rects,rect)
+    end
+    return rects
+end
+
+function WR.thinkFunctions.staticRadio()
     if WR.tick % 6 ~= 0 then return end
+    local radioRects = WR.radioAreas()
 
     for client in Client.ClientList do
         if client.Character then
             local item = client.Character.GetEquippedItem("WR_dogtag")
             if item then
                 item.Condition = 10
-                for area in WR.radioAreas do
-                    if WR.isPointInRect(client.Character.WorldPosition,area.WorldRect) then
+                for rect in radioRects do
+                    if WR.isPointInRect(client.Character.WorldPosition,rect) then
                         item.Condition = 100
                         break
                     end
@@ -596,6 +613,4 @@ end)
 
 function WR.thinkFunctions.resetBurnedChars()
     hitsThisTick = {}
-end
-
 end
