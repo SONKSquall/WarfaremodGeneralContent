@@ -133,14 +133,21 @@
       <damagemodifier afflictionidentifiers="explosiondamage" armorsector="0.0,180.0" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictiontypes="bleeding" armorsector="0.0,180.0" damagemultiplier="0.0" damagesound="LimbArmor" deflectprojectiles="true" />
       <sprite name="Coalition Armor Torso" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="Coalition Armor Left Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" inheritlimbdepth="false" depth="0.9" />
       <sprite name="Coalition Armor Right Upper Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="Coalition Armor Left Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="Coalition Armor Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
-      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightThigh" />
-      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftThigh" />
-      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="RightHand" />
-      <sprite name="Invisable Protection" texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,1,1" limb="LeftHand" />
+      <sprite name="Coalition Armor Left Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" inheritlimbdepth="false" depth="0.9" />
+      <sprite name="Coalition Armor Right Lower Arm" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Leg" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightThigh" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Leg" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftThigh" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Lower Leg" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightLeg" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Lower Leg" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftLeg" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Shoe" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightFoot" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Shoe" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftFoot" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Right Hand" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Coalition Armor Left Hand" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" inheritlimbdepth="false" depth="0.9" />
+      <!-- straps -->
+      <sprite name="Coalition Armor Left Lower Arm Strap" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" sourcerect="482,0,30,20" origin="0.5,0.35" />
+	  <sprite name="Coalition Armor Left Upper Arm Strap" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" sourcerect="482,0,30,20" origin="0.5,0.35" />
     </Wearable>
   </Item>
   <!-- Uniform End -->
