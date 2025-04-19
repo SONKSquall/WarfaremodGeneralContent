@@ -459,15 +459,15 @@ end)
 
 Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition, element)
     local pingEveryone = element.GetAttributeBool("global",false)
-    print(pingEveryone)
     local callerID = item.GetRootInventoryOwner().JobIdentifier.value
+    local radioOwner = item.GetRootInventoryOwner()
 
     for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
         if radio.Item.HasTag("mobileradio") then
             local owner = radio.Item.GetRootInventoryOwner()
-            if pingEveryone and WR.id(owner) == "human" then
+            if pingEveryone and WR.id(owner) == "Human" and radioOwner ~= owner then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
-            elseif not pingEveryone and WR.id(owner) == "human" and owner.JobIdentifier.value == callerID then
+            elseif not pingEveryone and WR.id(owner) == "human" and owner.JobIdentifier.value == callerID and owner ~= radio then
                 WR.GiveAfflictionCharacter(owner,"WR_callsound",100)
             end
         end
@@ -539,7 +539,7 @@ function WR.thinkFunctions.setRadios()
     for client in Client.ClientList do
         if client.Character then
             local channel = WR.radioChannels[client.Character.JobIdentifier.value]
-            local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag")}
+            local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag"), client.Character.GetEquippedItem("WR_largeradio")}
             for item in items do
                 local wifi = item.GetComponentString("WifiComponent")
                 wifi.Channel = channel
