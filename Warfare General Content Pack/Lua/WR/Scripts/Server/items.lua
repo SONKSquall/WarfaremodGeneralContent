@@ -614,3 +614,66 @@ end)
 function WR.thinkFunctions.resetBurnedChars()
     hitsThisTick = {}
 end
+
+end
+
+WR.officerBuffedChars = {}
+
+do
+    local set = {
+        WR_coalitioncomhat = true,
+        WR_renegadecomhat = true
+    }
+
+    function WR.thinkFunctions.commanderBuff()
+        if WR.tick % 15 ~= 0 then return end
+        local officers = {}
+        local soldiers = {}
+
+        for char in Character.CharacterList do
+            local item = char.Inventory.GetItemInLimbSlot(InvSlotType.Head)
+            if char.IsHuman and not char.IsDead and not char.IsUnconscious then
+                if item and set[WR.id(item)] then
+                    officers[char] = true
+                else
+                    soldiers[char] = true
+                end
+            end
+        end
+
+        if WR.tableSize(officers) <= 0 then
+            WR.officerBuffedChars = {}
+            return
+        end
+
+        for officer in pairs(officers) do
+            WR.officerBuffedChars[officer] = nil
+            for char in pairs(soldiers) do
+                if Vector2.Distance(officer.WorldPosition,char.WorldPosition) < 750 and not WR.enemy(WR.id(officer,{"Info","Job"}),WR.id(char,{"Info","Job"})) then
+                    soldiers[char] = nil
+                    WR.officerBuffedChars[char] = true
+                else
+                    WR.officerBuffedChars[char] = nil
+                end
+            end
+        end
+    end
+
+    function WR.thinkFunctions.buffChars()
+        if WR.tick % 10 ~= 0 then return end
+
+        for char in Character.CharacterList do
+            if WR.officerBuffedChars[char] then
+                local affliction = char.CharacterHealth.GetAffliction("haste")
+                if affliction then
+                    affliction.SetStrength(400)
+                else
+                    WR.GiveAfflictionCharacter(char,"haste",400)
+                end
+            else
+                local affliction = char.CharacterHealth.GetAffliction("haste")
+                if affliction then affliction.SetStrength(0) end
+            end
+        end
+    end
+end
