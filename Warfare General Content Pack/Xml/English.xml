@@ -78,6 +78,8 @@
 <entitydescription.WR_bag>Equipment that carries extra anything of bluk. Provides two slots to carry large items along with other normal ones.</entitydescription.WR_bag>
 <entityname.WR_dogtag>Identification Badge</entityname.WR_dogtag>
 <entitydescription.WR_dogtag>A small metal piece ingrave with your name, date of birth and battalion; just incase your face (or entire body) is destroyed.</entitydescription.WR_dogtag>
+<entityname.WR_largeradio>Radio Pack</entityname.WR_largeradio>
+<entitydescription.WR_largeradio>A large transmitter and receiver that can be worn as a backpack or simply placed for long range communications. Also has space for a small amount of equipment.</entitydescription.WR_largeradio>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>
