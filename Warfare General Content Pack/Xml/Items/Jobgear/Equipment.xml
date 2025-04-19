@@ -22,7 +22,7 @@
       <SlotIcon slotindex="5" texture="%ModDir%/UI/Sloticons.png" sourcerect="64,0,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="WR_largeradio" category="Equipment" tags="mediumitem,mobileradio" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="WR_largeradio" category="Equipment" tags="mediumitem,mobileradio,mobilecontainer" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_metal_heavy">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="896,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="443,70,69,159" depth="0.6" origin="0.5,0.5" />
     <Body width="70" height="150" density="20" />

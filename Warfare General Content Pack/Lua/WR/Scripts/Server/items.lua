@@ -554,7 +554,7 @@ end
 WR.staticRadioAreas = {}
 
 function WR.roundStartFunctions.staticRadioArea()
-    WR.staticRadioAreas = WR.getAreas(function(item) return item.HasTag("wr_staticradio") or item.HasTag("wr_objective") end)
+    WR.staticRadioAreas = WR.getAreas(function(item) return item.HasTag("wr_radioarea") or item.HasTag("wr_objective") end)
 end
 
 function WR.radioAreas()
