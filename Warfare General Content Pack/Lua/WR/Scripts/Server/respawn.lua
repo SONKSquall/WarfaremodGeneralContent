@@ -57,6 +57,12 @@ function WR.thinkFunctions.respawn()
             end
 
             WR.AssignBalanceJobs()
+            for char in Character.CharacterList do
+                if char.IsDead or not char.IsHuman then
+                    char.DespawnNow()
+                end
+            end
+
             for client in WR.getPlayersByJob(WR.GetDeadPlayers(),job) do
                 if not WR.teamSpawnBlackList[job] then
                     local spawnPoint = WR.getRandomWaypointByJob(job)
