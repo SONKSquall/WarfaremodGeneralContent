@@ -467,7 +467,7 @@ function WR.hitAngle(pos,entity,constraints)
     if not pos or not entity then return end
 
     local normaled = Vector2.Normalize(Vector2(pos.Y - entity.WorldPosition.Y, pos.X - entity.WorldPosition.X))
-    local radians = (math.atan2(normaled.Y,normaled.X) + entity.body.TransformedRotation)
+    local radians = (math.atan2(normaled.Y,normaled.X) + entity.body.Rotation) * entity.body.Dir
     local angle = math.deg(radians) + 180
 
     return (angle > constraints[1] and angle < constraints[2]), radians
