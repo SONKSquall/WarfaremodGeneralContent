@@ -120,7 +120,7 @@
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
     </ItemComponent>
   </Item>
-  <Item name="" identifier="WR_coalitionarmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" spritecolor="200,200,200,255">
+  <Item name="" identifier="WR_coalitionarmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" spritecolor="200,200,200,255" health="200" >
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="640,128,64,64" origin="0.5,0.5" />
     <Sprite name="Coalition Armor" texture="%ModDir%/Sprites/Items/Jobgear/CoalitionArmor.png" sourcerect="192,37,67,144" depth="0.6" origin="0.5,0.35" />
     <Body width="85" height="90" density="25" />

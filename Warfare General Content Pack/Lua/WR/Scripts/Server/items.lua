@@ -154,14 +154,31 @@ local validArmor = {
     WR_coalitionarmor = true,
 }
 
-function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLimb)
-    if hitLimb.type ~= LimbType.Torso and hitLimb.type ~= LimbType.LeftForearm and hitLimb.type ~= LimbType.RightForearm then return end
+local armoredLimbs = {
+    [LimbType.Torso] = true,
+    [LimbType.LeftArm] = true,
+    [LimbType.LeftForearm] = true,
+    [LimbType.LeftThigh] = true,
+    [LimbType.LeftLeg] = true,
+    [LimbType.LeftFoot] = true,
+    [LimbType.RightArm] = true,
+    [LimbType.RightForearm] = true,
+    [LimbType.RightThigh] = true,
+    [LimbType.RightLeg] = true,
+    [LimbType.RightFoot] = true
+}
+
+function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLimb, worldPosition, attacker, originalDamage, penetration)
+    if not armoredLimbs[hitLimb.type] then return end
+    if not WR.hitAngle(worldPosition,hitLimb,{180,360}) then return end
+    if not penetration or originalDamage < 1 then return end
+
     local item = charHealth.Character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
 
     if not item then return end
     if not validArmor[WR.id(item)] then return end
 
-    local damage = attackResult.Damage / 2
+    local damage = (originalDamage / 2) * math.abs(penetration - 1) -- there is a damage reduction for humans atm so we divide to compensate
     item.Condition = item.Condition - damage
 
     if item.Condition <= 0 then
