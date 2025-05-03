@@ -2,7 +2,7 @@ LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.AnimController"], "GetA
 
 Hook.Patch("Barotrauma.AnimController", "GetAimWobble", function(instance, ptable)
     ptable.PreventExecution = true
-    return 0
+    return Single(0)
 end, Hook.HookMethodType.Before)
 
 if CLIENT then return end
