@@ -173,7 +173,8 @@
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
       <Attack structuredamage="4" targetforce="7.5" itemdamage="4" severlimbsprobability="0.2" penetration="0.4">
-        <Affliction identifier="gunshotwound" strength="60" />
+        <!--Affliction identifier="gunshotwound" strength="60" /-->
+		<Affliction identifier="gunshotwound" strength="45" />
         <Affliction identifier="bleeding" strength="11.5" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -340,7 +341,8 @@
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
       <Attack structuredamage="10" targetforce="10" itemdamage="10" severlimbsprobability="0.2" penetration="0.1">
-        <Affliction identifier="gunshotwound" strength="70" />
+        <!--Affliction identifier="gunshotwound" strength="70" /-->
+		<Affliction identifier="gunshotwound" strength="56" />
         <Affliction identifier="bleeding" strength="25" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -368,14 +370,17 @@
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
       <Attack structuredamage="15" targetforce="12" itemdamage="15" severlimbsprobability="0.5" penetration="0.45">
         <!-- Two shots to the body will down -->
-        <Affliction identifier="gunshotwound" strength="105" />
+        <!--Affliction identifier="gunshotwound" strength="105" /-->
+		<Affliction identifier="gunshotwound" strength="75" />
         <Affliction identifier="bleeding" strength="33" />
       </Attack>
       <!-- One shot to the head will down -->
+	  <!--
       <StatusEffect type="OnImpact" target="Limb">
         <Conditional LimbType="Head" />
         <Affliction identifier="gunshotwound" strength="25" />
       </StatusEffect>
+	  -->
       <StatusEffect type="OnImpact" target="UseTarget">
         <LuaHook name="WR.suppresion.xmlhook" range="500.0" strength="3" />
         <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
@@ -402,7 +407,8 @@
     <Projectile characterusable="false" hitscan="true" hitscancount="8" removeonhit="true" spread="15">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
       <Attack structuredamage="1" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
-        <Affliction identifier="gunshotwound" strength="16" />
+        <!--Affliction identifier="gunshotwound" strength="16" /-->
+		<Affliction identifier="gunshotwound" strength="12" />
         <Affliction identifier="bleeding" strength="6" />
       </Attack>
       <!-- does more bleeding when a limb is shot -->
