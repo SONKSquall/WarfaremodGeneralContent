@@ -78,7 +78,12 @@ Hook.add("character.applyDamage", "WR.Damage", function(charHealth, attackResult
 end)
 
 Hook.add("character.damageLimb", "WR.Damage", function(character, worldPosition, hitLimb, afflictions, stun, playSound, attackImpulse, attacker, damageMultiplier, allowingStacking, penetration, shouldImplode)
-    addtionalArgs = {worldPosition,attacker}
+    local damage = 0
+    for a in afflictions do
+        damage = damage + a.GetVitalityDecrease(character.CharacterHealth)
+    end
+    damage = damage * damageMultiplier
+    addtionalArgs = {worldPosition,attacker,damage,penetration}
 end)
 
 end
