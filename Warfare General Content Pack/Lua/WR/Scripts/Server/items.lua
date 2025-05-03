@@ -571,23 +571,23 @@ end
 WR.staticRadioAreas = {}
 
 function WR.roundStartFunctions.staticRadioArea()
-    WR.staticRadioAreas = WR.getAreas(function(item) return item.HasTag("wr_radioarea") or item.HasTag("wr_objective") end)
+    WR.staticRadioAreas = {}
+
+    local areas = WR.getAreas(function(item) return item.HasTag("wr_radioarea") or item.HasTag("wr_objective") end)
+    for area in areas do
+        WR.staticRadioAreas[area] = area.WorldRect
+    end
 end
 
 function WR.radioAreas()
-    local rects = {}
     local largeRadios = Util.GetItemsById("WR_largeradio") or {}
-
-    for item in WR.staticRadioAreas do
-        table.insert(rects,item.WorldRect)
-    end
 
     local size = 500
     for item in largeRadios do
-        local rect = Rectangle(item.WorldPosition.X - size,item.WorldPosition.Y + size,size*2,size*2)
-        table.insert(rects,rect)
+        WR.staticRadioAreas[item] = WR.staticRadioAreas[item] or Rectangle(0,0,size*2,size*2)
+        WR.staticRadioAreas[item].X, WR.staticRadioAreas[item].Y = item.WorldPosition.X - size,item.WorldPosition.Y + size
     end
-    return rects
+    return WR.staticRadioAreas
 end
 
 function WR.thinkFunctions.staticRadio()
