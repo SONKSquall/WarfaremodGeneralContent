@@ -640,6 +640,7 @@ end
 
 end
 
+--[[
 WR.officerBuffedChars = {}
 
 do
@@ -699,6 +700,8 @@ do
             end
         end
     end
+end
+--]]
 do
 
     local set = {
