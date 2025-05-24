@@ -405,11 +405,11 @@
     <Body width="20" height="10" density="30" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <!--When fired, spawns 8 projectiles simultaneously.-->
-    <Projectile characterusable="false" hitscan="true" hitscancount="8" removeonhit="true" spread="15">
-      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
+    <Projectile characterusable="false" hitscan="true" StaticSpread="true" hitscancount="5" removeonhit="true" spread="3">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,1" />
       <Attack structuredamage="1" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
         <!--Affliction identifier="gunshotwound" strength="16" /-->
-		<Affliction identifier="gunshotwound" strength="12" />
+		<Affliction identifier="gunshotwound" strength="28" />
         <Affliction identifier="bleeding" strength="6" />
       </Attack>
       <!-- does more bleeding when a limb is shot -->
