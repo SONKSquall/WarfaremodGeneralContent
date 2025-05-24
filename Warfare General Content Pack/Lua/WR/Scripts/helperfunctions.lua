@@ -406,13 +406,18 @@ function WR.getArea(filter,items)
 	return areas[math.random(#areas)]
 end
 
-function WR.getLinked(set)
-    for item in pairs(set) do
-        set[item] = true
-        for linked in item.linkedTo do
-            if set[linked] == nil then
-                set[linked] = true
-                set = WR.getLinked(WR.Set.union(set,WR.Set.new(linked.linkedTo)))
+function WR.getLinked(entity,filter,ignore)
+    local set = {[entity] = true}
+    local linked = entity.linkedTo
+    ignore = ignore or {[entity] = true}
+    filter = filter or function(item) return true end
+
+    for item in linked do
+        if not ignore[item] and filter(item) then
+            set[item] = true
+            ignore[item] = true
+            for value in pairs(WR.getLinked(item,filter,ignore)) do
+                set[value] = true
             end
         end
     end
