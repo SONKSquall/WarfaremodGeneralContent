@@ -93,7 +93,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
     <Body width="150" height="150" density="12" />
-    <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
+    <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false" AllowInGameEditing="false" >
       <StatusEffect type="OnUse" targettype="NearbyCharacters" Interval="0.25" disableDeltaTime="true" range="150">
         <Affliction identifier="slow" strength="75" />
       </StatusEffect>
@@ -105,6 +105,10 @@
         <sound file="Content/Sounds/Damage/HitMetal5.ogg" range="500" />
         <sound file="Content/Sounds/Damage/HitMetal6.ogg" range="500" />
       </StatusEffect>
+      <StatusEffect type="OnDamaged" targettype="This" Duration="4" noninteractable="true" tags="disallowinteraction" />
+	  <StatusEffect type="Always" targettype="This" interval="1" noninteractable="false" checkconditionalalways="true" >
+		<Conditional hasstatustag="! disallowinteraction" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This">
         <sound file="Content/Sounds/Damage/StructureBlunt4.ogg" range="500" selectionmode="Random" />
         <sound file="Content/Sounds/Damage/StructureBlunt5.ogg" range="500" />
@@ -113,12 +117,17 @@
         <RemoveItem />
       </StatusEffect>
     </MotionSensor>
-    <Pickable slots="Any" msg="itemmsgpickupselect" pickkey="Select" PickingTime="15.0">
+    <Pickable slots="Any" msg="itemmsgpickupuse" pickkey="Action" PickingTime="15.0">
       <StatusEffect type="OnContained" targettype="This" Interval="1">
-        <SpawnItem identifier="WR_barbedwire_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
+	    <SpawnItem identifier="WR_barbedwire_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
         <RemoveItem />
       </StatusEffect>
     </Pickable>
+    <Repairable selectkey="Select" header="mechanicalrepairsheader" deteriorationspeed="0" RepairThreshold="90" fixDurationLowSkill="30" FixDurationHighSkill="30" msg="WRitemmsgrepairtrenchingtoolalt" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="0" />
+	  <RequiredItem items="buildable" type="Equipped" />
+    </Repairable>
   </Item>
   <Item name="" identifier="WR_sandbag_setup" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="mediumitem" Scale="0.5" impactsoundtag="impact_metal_light">
     <Fabricate suitablefabricators="stratshop" requiredtime="5" amount="4">
@@ -150,7 +159,7 @@
     <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="153,81,88,253" depth="0.01" origin="0.5,0.45" />
     <Body width="50" height="252" density="12" />
-    <Pickable slots="Any" msg="itemmsgpickupselect" pickkey="Select" PickingTime="15.0">
+    <Pickable slots="Any" msg="itemmsgpickupuse" pickkey="Action" PickingTime="15.0" >
       <StatusEffect type="OnContained" targettype="This" Interval="1">
         <SpawnItem identifier="WR_sandbag_setup" spawnposition="SameInventory" rotationtype="Fixed" rotation="0" />
         <RemoveItem />
@@ -161,9 +170,18 @@
         <sound file="Content/Sounds/Damage/HitArmor3.ogg" range="500" />
         <sound file="Content/Sounds/Damage/HitArmor4.ogg" range="500" />
       </StatusEffect>
+      <StatusEffect type="OnDamaged" targettype="This" Duration="4" noninteractable="true" tags="disallowinteraction" />
+	  <StatusEffect type="Always" targettype="This" interval="1" noninteractable="false" checkconditionalalways="true" >
+		<Conditional hasstatustag="! disallowinteraction" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This">
         <RemoveItem />
       </StatusEffect>
     </Pickable>
+    <Repairable selectkey="Select" header="mechanicalrepairsheader" deteriorationspeed="0" RepairThreshold="90" fixDurationLowSkill="30" FixDurationHighSkill="30" msg="WRitemmsgrepairtrenchingtoolalt" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+	  <RequiredSkill identifier="mechanical" level="0" />
+      <RequiredItem items="digable" type="Equipped" />
+    </Repairable>
   </Item>
 </Items>

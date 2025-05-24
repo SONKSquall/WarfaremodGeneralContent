@@ -219,6 +219,8 @@
 <WRcutfuse>Shorten fuse (by 5 seconds)</WRcutfuse>
 <WRitemmsgrepairtrenchingtool>[[use]] Repair (Entrenching tool)</WRitemmsgrepairtrenchingtool>
 <WRitemmsgforceopentrenchingtool>[[use]] Dig (Entrenching tool)</WRitemmsgforceopentrenchingtool>
+<WRitemmsgrepairtrenchingtoolalt>[[select]] Repair (Entrenching tool)</WRitemmsgrepairtrenchingtoolalt>
+<WRitemmsgforceopentrenchingtoolalt>[[select]] Dig (Entrenching tool)</WRitemmsgforceopentrenchingtoolalt>
 <WRproductionlicense>Production license expired.</WRproductionlicense>
   <!-- Misc end -->
   <!-- Affliction start -->
