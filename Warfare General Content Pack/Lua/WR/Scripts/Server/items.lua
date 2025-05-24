@@ -511,7 +511,7 @@ Hook.Add("WR.stretcher.xmlhook", "WR.stretcher", function(effect, deltaTime, ite
     local owner = item.GetRootInventoryOwner()
 
     if owner.SelectedCharacter then
-        WR.GiveAfflictionCharacter(character.SelectedCharacter, "WR_stabilize", 100)
+        WR.GiveAfflictionCharacter(owner.SelectedCharacter, "WR_stabilize", 100)
     end
 end)
 
