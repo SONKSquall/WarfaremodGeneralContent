@@ -312,6 +312,12 @@ function WR.spawnItemFunctions.WR_smallroundmag20(item)
     end
 end
 
+function WR.spawnItemFunctions.WR_machinegunmag(item)
+    if item.OwnInventory.IsEmpty() then
+        WR.spawnItems({{id = "WR_largeround",count = 50}},item.OwnInventory)
+    end
+end
+
 --[[ TODO: 
 change discriptions to match new workings
 new sprite for crates

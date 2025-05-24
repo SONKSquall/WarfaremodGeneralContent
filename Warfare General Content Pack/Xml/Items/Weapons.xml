@@ -98,7 +98,7 @@
       <sprite name="Machinegun Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,276,312,91" depth="0.3" origin="0.5,0.8" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" limb="Torso" scale="0.5" />
       <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.65" setvalue="true" disabledeltatime="true" />
     </Wearable>
-    <RangedWeapon reload="0.15" holdtrigger="true" barrelpos="150,12" spread="20" unskilledspread="10" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.22">
+    <RangedWeapon reload="0.15" WeaponDamageModifier="0.6" holdtrigger="true" barrelpos="145,12" spread="20" unskilledspread="10" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.22">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="mgmuzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" colormultiplier="255,255,255,255" />
@@ -124,7 +124,7 @@
       <StatusEffect type="OnUse" target="Contained">
         <Use />
       </StatusEffect>
-      <RequiredItems items="WR_machinegunmag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredItems items="WR_largeround" type="Contained" msg="ItemMsgAmmoRequired" />
       <RequiredSkill identifier="weapons" level="65" />
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" SpawnWithId="WR_machinegunmag" ShowContainedStateIndicator="false" containedspritedepth="0.54">
@@ -155,16 +155,12 @@
     </Fabricate>
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="64,49,32,47" depth="0.55" origin="0.5,0.5" />
     <Body width="30" height="50" density="25" />
-    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="WR_machinegunround" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
-      <Containable items="WR_machinegunround" />
-      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
-        <SpawnItem identifiers="WR_machinegunround" spawnposition="ThisInventory" />
-      </StatusEffect>
-      <StatusEffect type="OnBroken" target="This" delay="5" disabledeltatime="true">
-        <Remove />
-      </StatusEffect>
+    <ItemContainer hideitems="true" capacity="2" maxstacksize="25" containedstateindicatorstyle="bullet" ShowTotalStackCapacityInContainedStateIndicator="true">
+      <Containable items="WR_largeround" >
+	    <StatusEffect type="OnInserted" target="Contained" noninteractable="true"></StatusEffect>
+	  </Containable>
     </ItemContainer>
-    <Holdable canBeCombined="true" slots="RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
   <Item name="" identifier="WR_machinegunround" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
