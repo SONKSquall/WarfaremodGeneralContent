@@ -699,4 +699,75 @@ do
             end
         end
     end
+do
+
+    local set = {
+        WR_coalitioncomhat = true,
+        WR_renegadecomhat = true
+    }
+
+    local itemMessages = {
+        WR_bugle = function(t)
+            if t.isSelf then
+                return "You gave the order to go "..t.facing.."."
+            else
+                return "An officer ("..t.name..") orders you to go "..t.facing..", they're "..math.ceil(t.distance).." meters away to your "..t.dirTo.."."
+            end
+        end,
+        WR_gong = function(t)
+            if t.isSelf then
+                return "You gave the order to regroup."
+            else
+                return "An officer ("..t.name..") orders you to regroup, they're "..math.ceil(t.distance).." meters away to your "..t.dirTo.."."
+            end
+        end
+    }
+
+    local sfx = {
+        WR_bugle = ItemPrefab.GetItemPrefab"WR_bugle_sfx",
+        WR_gong = ItemPrefab.GetItemPrefab"WR_gong_sfx"
+    }
+
+    local function getFormatVars(officerChar,char)
+        local t = {
+            name = officerChar.Name,
+            facing = "right",
+            dirTo = "right",
+            distance = 0,
+            isSelf = officerChar == char
+        }
+
+        if officerChar.IsFlipped then t.facing = "left" end
+
+        t.distance = math.ceil(Vector2.Distance(char.WorldPosition,officerChar.WorldPosition) / 100)
+
+        if officerChar.WorldPosition.X - char.WorldPosition.X < 0 then t.dirTo = "left" end
+
+        return t
+    end
+
+    Hook.Add("WR.organize.xmlhook", "WR.organize", function(effect, deltaTime, item, targets, worldPosition, element)
+        local owner = item.GetRootInventoryOwner()
+        if not LuaUserData.IsTargetType(owner, "Barotrauma.Character") then return end
+
+        local headItem = owner.Inventory.GetItemInLimbSlot(InvSlotType.Head)
+        if not set[WR.id(headItem)] then return end
+
+        local itemID = WR.id(item)
+        local ownerTeam = WR.defender(WR.id(owner,{"Info","Job"}))
+
+
+        for c in Client.ClientList do
+            local char = c.Character
+            local charTeam = WR.defender(WR.id(char,{"Info","Job"}))
+
+            if charTeam == ownerTeam then
+                local message = itemMessages[itemID](getFormatVars(owner,char))
+                WR.SendMessagetoClient(message,c)
+            end
+        end
+
+        WR.spawn(sfx[itemID],item.WorldPosition)
+    end)
+
 end

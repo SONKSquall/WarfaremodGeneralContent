@@ -69,7 +69,7 @@
 <entityname.WR_whistle>Trench whistle</entityname.WR_whistle>
 <entitydescription.WR_whistle>Small metal whistle, used for issuing offensive orders.</entitydescription.WR_whistle>
 <entityname.WR_gong>Gong</entityname.WR_gong>
-<entitydescription.WR_gong>Makeshift gong composed of a empty shell casing and a wooden bat. Used for alerting of enemy movements.</entitydescription.WR_gong>
+<entitydescription.WR_gong>(Requires an officer hat) Makeshift gong composed of a empty shell casing and a wooden stick. Gives a regroup order to all teammates.</entitydescription.WR_gong>
 <entityname.WR_radio>Field Telephone</entityname.WR_radio>
 <entitydescription.WR_radio>Remote voice communications device. Messages can only be received when held. Has a ping feature to alert radios on the same frequency of a incoming message (waiting 2-3 secs after pinging before sending a message is ideal).</entitydescription.WR_radio>
 <entityname.WR_stretcher>Stretcher kit</entityname.WR_stretcher>
@@ -80,6 +80,8 @@
 <entitydescription.WR_dogtag>A small metal piece ingrave with your name, date of birth and battalion; just incase your face (or entire body) is destroyed.</entitydescription.WR_dogtag>
 <entityname.WR_largeradio>Radio Pack</entityname.WR_largeradio>
 <entitydescription.WR_largeradio>A large transmitter and receiver that can be worn as a backpack or simply placed for long range communications. Also has space for a small amount of equipment.</entitydescription.WR_largeradio>
+<entityname.WR_bugle>Officer Bugle</entityname.WR_bugle>
+<entitydescription.WR_bugle>(Requires an officer hat) Brass horn, used for issuing offensive orders. Gives a directional order in the direction you're facing to all teammates.</entitydescription.WR_bugle>
   <!-- Gear End -->
   <!-- Headgear Start -->
 <entityname.WR_coalitionhelmet>Coalition Pickelhelm</entityname.WR_coalitionhelmet>

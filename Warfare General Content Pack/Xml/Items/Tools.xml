@@ -22,11 +22,11 @@
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="320,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,114,368,50" depth="0.55" origin="0.3,0.5" />
     <Body width="150" height="30" density="30" />
-    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect" >
-	  <StatusEffect type="OnActive" target="This">
+    <Holdable slots="RightHand+LeftHand,Any" Aimable="false" HoldPos="30,-20" HoldAngle="-30" handle1="-40,15" handle2="40,15" msg="itemmsgpickupselect">
+      <StatusEffect type="OnActive" target="This">
         <Sound file="Content/Sounds/RadioStatic.ogg" range="150" loop="true" FrequencyMultiplier="0.5" />
       </StatusEffect>
-	</Holdable>
+    </Holdable>
   </Item>
   <Item name="" identifier="WR_constructiontool" category="Equipment" Tags="smallitem,tool,simpletool,mountableweapon,digable,buildable" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="832,64,64,64" origin="0.5,0.5" />
@@ -133,6 +133,7 @@
       <Containable items="rifleammo" excludeditems="" />
     </ItemContainer>
   </Item>
+  <!--
   <Item name="" identifier="WR_whistle" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="101,244,46,12" depth="0.55" origin="0.5,0.5" />
@@ -157,23 +158,35 @@
       </Button>
     </CustomInterface>
   </Item>
+  -->
   <Item name="" identifier="WR_gong" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="576,64,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Gongspritesheet.png" sourcerect="0,0,90,104" depth="0.55" origin="0.5,0.5" />
     <BrokenSprite texture="%ModDir%/Sprites/Items/Gongspritesheet.png" sourcerect="0,107,67,104" depth="0.8" maxcondition="90" origin="0.5,0.5" />
     <Body width="90" height="92" density="30" />
+	<RangedWeapon reload="1" />
     <Holdable slots="LeftHand+RightHand,Any" Aimable="false" HoldPos="40,0" HoldAngle="0" handle1="-20,-40" handle2="25,-20" msg="itemmsgpickupselect">
-      <StatusEffect type="OnActive" targettype="This" interval="0.1" Condition="89" setvalue="true" disabledeltatime="true" />
+      <StatusEffect type="OnActive" targettype="This" interval="0.1" Condition="90" setvalue="true" disabledeltatime="true" />
       <StatusEffect type="OnNotContained" targettype="This" interval="0.1" Condition="100" setvalue="true" disabledeltatime="true" />
+	  <StatusEffect type="OnUse" target="this" range="1500" checkconditionalalways="true" >
+	    <Conditional hasstatustag="! disallow" />
+        <LuaHook name="WR.organize.xmlhook" />
+      </StatusEffect>
+	  <StatusEffect type="OnUse" target="this" duration="20" delay="1.5" tags="disallow" stackable="false" />
     </Holdable>
-    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
-      <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
-      <Button text="Ring" connection="signal_out1">
-        <StatusEffect type="OnUse" targettype="This" duration="4" Stackable="false" disabledeltatime="true">
-          <Sound file="%ModDir%/Sounds/Gong1.ogg" volume="5" range="15000" selectionmode="random" />
-        </StatusEffect>
-      </Button>
-    </CustomInterface>
+  </Item>
+  <Item name="" identifier="WR_bugle" aliases="WR_whistle" category="Equipment" Tags="smallitem,command" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="960,128,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Equipment.png" sourcerect="0,252,88,48" depth="0.55" origin="0.5,0.5" />
+    <Body width="85" height="50" density="30" />
+	<RangedWeapon reload="1" />
+    <Holdable slots="LeftHand,Any" aimpos="40,10" HoldAngle="0" handle1="0,0" handle2="0,-20" msg="itemmsgpickupselect">
+      <StatusEffect type="OnUse" target="this" range="1500">
+        <LuaHook name="WR.organize.xmlhook" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="this" setvalue="true" condition="0" />
+	  <StatusEffect type="OnBroken" target="this" setvalue="true" condition="100" delay="20" stackable="false" />
+    </Holdable>
   </Item>
   <!-- Gear End -->
   <!-- Misc Start -->

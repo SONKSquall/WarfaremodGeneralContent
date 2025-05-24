@@ -164,4 +164,27 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
+  <Item name="WR_bugle_sfx" identifier="WR_bugle_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+	    <Sound file="%ModDir%/Sounds/Bugle1.ogg" range="15000" volume="0.75" selectionmode="random" />
+	    <Sound file="%ModDir%/Sounds/Bugle2.ogg" range="15000" volume="0.75" />
+	    <Sound file="%ModDir%/Sounds/Bugle3.ogg" range="15000" volume="0.75" />
+	    <Sound file="%ModDir%/Sounds/Bugle4.ogg" range="15000" volume="0.75" />
+        <ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+		<Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="WR_gong_sfx" identifier="WR_gong_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+	    <Sound file="%ModDir%/Sounds/Gong1.ogg" range="15000" />
+        <ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+		<Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
 </Items>
