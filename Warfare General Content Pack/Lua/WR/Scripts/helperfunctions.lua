@@ -477,3 +477,16 @@ function WR.hitAngle(pos,entity,constraints)
 
     return (angle > constraints[1] and angle < constraints[2]), radians
 end
+
+function WR.getAllInventoryItemsRecursive(inventory,t)
+    local items = t or {}
+
+    if not inventory then return t end
+    for item in inventory.GetAllItems(false) do
+        items[item] = true
+        if item.OwnInventory ~= nil then
+            items = WR.getAllInventoryItemsRecursive(item.OwnInventory,items)
+        end
+    end
+    return items
+end
