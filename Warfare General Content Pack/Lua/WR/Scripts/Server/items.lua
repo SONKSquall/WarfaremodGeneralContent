@@ -560,7 +560,7 @@ function WR.thinkFunctions.setRadios()
     if WR.tick % 6 ~= 0 then return end
 
     for client in Client.ClientList do
-        if client.Character then
+        if client.Character and not client.Character.GetEquippedItem("WR_cuffs") then
             local channel = WR.radioChannels[client.Character.JobIdentifier.value]
             local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag"), client.Character.GetEquippedItem("WR_largeradio")}
             for item in items do
@@ -639,7 +639,6 @@ function WR.thinkFunctions.resetBurnedChars()
 end
 
 end
-
 --[[
 WR.officerBuffedChars = {}
 
@@ -702,6 +701,45 @@ do
     end
 end
 --]]
+--[[
+do
+
+    local timeOut = {}
+
+    Hook.Add("WR.bugle.xmlhook", "WR.bugle", function(effect, deltaTime, item, targets, worldPosition, element)
+        local owner = item.GetRootInventoryOwner()
+        if not LuaUserData.IsTargetType(owner, "Barotrauma.Character") then return end
+
+        if timeOut[item] and Timer.GetTime() - timeOut[item] < 25 then
+            if (Timer.GetTime() - timeOut[item]) > 5 and WR.tick % 120 == 0 then
+                for c in Client.ClientList do
+                    if c.Character == owner then
+                        local message = "You may not use the bugle at this time, please wait "..math.ceil(25 - (Timer.GetTime() - timeOut[item])).." seconds!"
+                        WR.SendMessagetoClient(message,c)
+                    end
+                end
+            end
+            return
+        end
+
+        local ownerTeam = WR.defender(WR.id(owner,{"Info","Job"}))
+        if not ownerTeam then return end
+
+        for char in targets do
+            local charTeam = WR.defender(WR.id(char,{"Info","Job"}))
+            if char ~= owner and ownerTeam == charTeam then
+                -- give affliction
+            end
+        end
+
+        WR.spawn(ItemPrefab.GetItemPrefab"WR_whistle_sfxshort",item.WorldPosition)
+
+        timeOut[item] = Timer.GetTime()
+    end)
+
+end
+]]
+
 do
 
     local set = {
@@ -730,6 +768,7 @@ do
         WR_bugle = ItemPrefab.GetItemPrefab"WR_bugle_sfx",
         WR_gong = ItemPrefab.GetItemPrefab"WR_gong_sfx"
     }
+
 
     local function getFormatVars(officerChar,char)
         local t = {
@@ -772,5 +811,41 @@ do
 
         WR.spawn(sfx[itemID],item.WorldPosition)
     end)
+
+end
+
+function WR.interactable(item,bool)
+    if item.NonInteractable == bool then return end
+    item.NonInteractable = bool
+
+    local property = item.SerializableProperties[Identifier("NonInteractable")]
+    Networking.CreateEntityEvent(item, Item.ChangePropertyEventData(property, item))
+end
+
+do
+
+    local medical = {
+        antibleeding1 = true,
+        antibleeding2 = true,
+        antibleeding3 = true,
+        antibloodloss1 = true,
+        antibloodloss2 = true,
+        opium = true,
+        antidama1 = true,
+        antidama2 = true
+    }
+
+    function WR.thinkFunctions.disallowMedsArmor()
+        if WR.tick % 180 ~= 0 then return end
+
+        for char in Character.CharacterList do
+            local hasArmor = char.GetEquippedItem("WR_coalitionarmor",InvSlotType.OuterClothes) ~= nil or char.GetEquippedItem("WR_renegadearmor",InvSlotType.OuterClothes) ~= nil
+            for item in pairs(WR.getAllInventoryItemsRecursive(char.Inventory)) do
+                if medical[WR.id(item)] then
+                    WR.interactable(item,hasArmor)
+                end
+            end
+        end
+    end
 
 end
