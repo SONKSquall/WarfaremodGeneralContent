@@ -1173,10 +1173,12 @@
       <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="6000" />
       <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="6000" />
 	  <StatusEffect type="OnUse" Offset="10500,0" forceplaysounds="true">
-		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistance.ogg" type="OnUse" range="6000" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistant1.ogg" type="OnUse" range="6000" volume="0.75" selectionmode="random" />
+		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistant2.ogg" type="OnUse" range="6000" volume="0.75" />
       </StatusEffect>
 	  <StatusEffect type="OnUse" Offset="-10500,0" forceplaysounds="true">
-		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistance.ogg" type="OnUse" range="6000" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistant1.ogg" type="OnUse" range="6000" volume="0.75" selectionmode="random" />
+		<Sound file="%ModDir:Warfare General%/Sounds/ShotgunDistant2.ogg" type="OnUse" range="6000" volume="0.75" />
       </StatusEffect>
       <StatusEffect type="OnUse" >
         <Explosion range="150.0" force="2.5" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
@@ -1479,10 +1481,12 @@
         <Remove />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" Offset="12000,0" forceplaysounds="true">
-		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistance.ogg" range="8000" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" />
       </StatusEffect>
 	  <StatusEffect type="OnBroken" Offset="-12000,0" forceplaysounds="true">
-		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistance.ogg" range="8000" volume="1" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" />
       </StatusEffect>
       <!-- Skip the removal of safeties and explode immediatly if inside of a detonator, railgun shell or a depth charge-->
       <StatusEffect type="OnUse" targettype="This" Condition="0" setvalue="true" comparison="OR">
