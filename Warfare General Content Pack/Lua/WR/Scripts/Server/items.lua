@@ -478,13 +478,15 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
 
-Hook.Add("character.giveJobItems", "WR.productionCrate", function(character, waypoint)
+Hook.Add("character.created", "WR.recipes", function(character)
     Timer.Wait(function()
         if character.JobIdentifier == "coalitionteam" then
             character.GiveTalent("WR_coalitionrecipes",nil)
         elseif character.JobIdentifier == "renegadeteam" then
             character.GiveTalent("WR_renegaderecipes",nil)
         end
+        print("has coalition = ",character.HasTalent("WR_coalitionrecipes"))
+        print("has renegade = ",character.HasTalent("WR_renegaderecipes"))
     end,1000)
 end)
 

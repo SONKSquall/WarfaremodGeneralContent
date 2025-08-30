@@ -336,27 +336,41 @@ function WR.getRandomWaypointByJob(job)
     return waypoints[math.random(#waypoints)]
 end
 
-function WR.spawnHuman(client,job,pos)
+do
 
-    local info
-    if client then
-        info = client.CharacterInfo
-	    info.TeamID = 1
-    else
-        info = CharacterInfo("human", "Jerett")
-    	info.TeamID = 1
+    local set = {
+        renegadeteam = "WR_renegaderecipes",
+        coalitionteam = "WR_coalitionrecipes"
+    }
+
+    function WR.spawnHuman(client,job,pos)
+
+        local info
+        if client then
+            info = client.CharacterInfo
+    	    info.TeamID = 1
+        else
+            info = CharacterInfo("human", "Jerett")
+        	info.TeamID = 1
+        end
+        info.Job = Job(JobPrefab.Get(job), false)
+
+        local character = Character.Create(info, pos, info.Name, 0, false, false)
+
+        if client then
+            client.SetClientCharacter(character)
+        end
+
+        print(WR.id(job))
+        if set[WR.id(job)] then
+            character.GiveTalent(set[WR.id(job)])
+        end
+
+        character.GiveJobItems(false)
+
+        return character
     end
-    info.Job = Job(JobPrefab.Get(job), false)
 
-    local character = Character.Create(info, pos, info.Name, 0, false, false)
-
-    if client then
-        client.SetClientCharacter(character)
-    end
-
-    character.GiveJobItems(false)
-
-    return character
 end
 
 function WR.getLocations(filter,items)
