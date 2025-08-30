@@ -206,12 +206,33 @@
     </Terminal>
   </Item>
   -->
-  <Item name="WR Location" identifier="WR_location" spritecolor="255,255,255" tags="WR_location" category="Miscellaneous" scale="1" linkable="true" allowedlinks="WR_location" HiddenInGame="true" noninteractable="true">
+  <Item name="WR Location" identifier="WR_location" spritecolor="255,255,255" tags="WR_location" category="Miscellaneous" scale="1" linkable="true" allowedlinks="WR_location,WR_area" HiddenInGame="true" noninteractable="true">
     <sprite texture="Content/UI/CommandUIAtlas.png" sourcerect="768,128,128,128" origin="0.5,0.5" depth="0.1" />
   </Item>
-  
-  <Item name="WR Area" identifier="WR_area" spritecolor="255,255,255" tags="WR_area" category="Miscellaneous" width="64" height="64" resizehorizontal="true" resizevertical="true" scale="1" linkable="true" allowedlinks="WR_area" HiddenInGame="true" noninteractable="true">
+  <Item name="WR Area" identifier="WR_area" spritecolor="255,255,255" tags="WR_area" category="Miscellaneous" width="64" height="64" resizehorizontal="true" resizevertical="true" scale="1" linkable="true" allowedlinks="WR_area,WR_location" HiddenInGame="true" noninteractable="true">
     <sprite texture="%ModDir%/Sprites/Square.png" sourcerect="0,0,64,64" origin="0.5,0.5" depth="0.1" />
+  </Item>
+  <Item name="Blockage" identifier="WR_debris" spritecolor="0,255,0" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,defense" DamagedByExplosions="true" ExplosionDamageMultiplier="1.5" DamagedByMeleeWeapons="true" InteractDistance="100" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,150,150" depth="0.01" origin="0.5,0.5" />
+    <Body width="150" height="150" bodytype="Static" />
+    <MotionSensor range="40" target="Human,Monster" minimumvelocity="2" detectownmotion="false" canbeselected="false">
+      <StatusEffect type="OnUse" targettype="this,NearbyCharacters" Interval="0.25" disableDeltaTime="true" checkconditionalalways="true" range="150">
+        <Affliction identifier="slow" strength="100" />
+        <Conditional condition="gt 50" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="this" Interval="0.25" condition="-1" disableDeltaTime="true" checkconditionalalways="true">
+        <Conditional condition="lt 50" />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" targettype="This">
+        <sound file="Content/Sounds/Damage/HitMetal1.ogg" range="500" selectionmode="Random" />
+        <sound file="Content/Sounds/Damage/HitMetal2.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal3.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal4.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal5.ogg" range="500" />
+        <sound file="Content/Sounds/Damage/HitMetal6.ogg" range="500" />
+      </StatusEffect>
+    </MotionSensor>
   </Item>
   <!-- Misc End -->
 </Items>

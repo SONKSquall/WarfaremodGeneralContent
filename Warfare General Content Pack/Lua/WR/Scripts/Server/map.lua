@@ -163,6 +163,60 @@ function WR.thinkFunctions.buildings()
         end
     end
 end
+
+WR.obstacles = {}
+
+do
+
+    local obstacles = {
+        WR_debris = {rate = 0.5}
+    }
+
+    function WR.thinkFunctions.obstacles()
+        if WR.tick % 60 ~= 0 then return end
+
+        for item in pairs(WR.getObstacles()) do
+            item.Condition = item.Condition + obstacles[WR.id(item)].rate
+        end
+    end
+
+    function WR.roundStartFunctions.obstacles()
+        WR.obstacles = {}
+    end
+
+    function WR.getObstacles()
+        for id in pairs(obstacles) do
+            local array = Util.GetItemsById(id)
+            if array then
+                for item in array do
+                    WR.obstacles[item] = not item.Removed or nil
+                end
+            end
+        end
+        return WR.obstacles
+    end
+
+    --[[function WR.registerObstacle(name,info)
+        if not name or not info then return end
+
+        WR.spawnItemFunctions[name] = function(v)
+            print(WR.id(v))
+            WR.obstacles[v] = true
+        end
+        WR.removeItemFunctions[name] = function(v)
+            print(WR.id(v))
+            WR.obstacles[v] = nil
+        end
+
+        obstacles[name] = {
+            rate = info.rate
+        }
+    end
+
+    WR.registerObstacle("WR_debris",{rate = 0.5})]]
+
+end
+
 --[[
 function WR.getRandomContainer()
     return WR.staticContainers[math.random(#WR.staticContainers)]
