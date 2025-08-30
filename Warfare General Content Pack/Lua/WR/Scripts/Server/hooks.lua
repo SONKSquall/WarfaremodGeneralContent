@@ -46,7 +46,7 @@ end)
 
 Hook.add("think", "WR.think", function()
 
-    if not Game.RoundStarted or WR.Game.ending then return end
+    if not Game.RoundStarted then return end
 
     WR.tick = WR.tick+1
 
