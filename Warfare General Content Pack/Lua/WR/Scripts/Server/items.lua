@@ -779,6 +779,12 @@ do
         antidama2 = true
     }
 
+    local set = {
+        WR_coalitionarmor = true,
+        WR_renegadearmor = true
+    }
+
+    --[[
     function WR.thinkFunctions.disallowMedsArmor()
         if WR.tick % 180 ~= 0 then return end
 
@@ -791,6 +797,22 @@ do
             end
         end
     end
+    ]]
+
+    Hook.Patch("Barotrauma.Item", "ApplyTreatment", function(instance, ptable)
+        local user = ptable["user"]
+        local patient = ptable["character"]
+        if not user then return end
+        if user ~= patient then return end
+        if not medical[WR.id(instance)] then return end
+
+
+        local outerClothes = user.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+        if outerClothes and set[WR.id(outerClothes)] then
+            WR.SendMessagetoClient("You can't heal yourself while wearing armor!",Util.FindClientCharacter(ptable["user"]),{color = Color(255,0,0)})
+            ptable.PreventExecution = true
+        end
+    end, Hook.HookMethodType.Before)
 
 end
 
