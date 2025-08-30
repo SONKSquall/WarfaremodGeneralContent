@@ -29,5 +29,5 @@
   <Submarine file="%ModDir%/The Oil Rig.sub" />
   <Submarine file="%ModDir%/Schluchtstadt.sub" />
   <Submarine file="%ModDir%/testmap.sub" />
-  <Submarine file="%ModDir%/Unsafe Subway.sub />
+  <Submarine file="%ModDir%/Unsafe Subway.sub" />
 </contentpackage>
