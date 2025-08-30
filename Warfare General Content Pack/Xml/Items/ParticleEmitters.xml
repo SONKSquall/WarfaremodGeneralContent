@@ -1,0 +1,17 @@
+<Items>
+  <Item name="Cinder Emitter" identifier="cinderemitter" category="Decorative" description="Smell the burning ashes" Tags="" scale="0.25" isshootable="false" spritecolor="255,255,255,255" hiddeningame="true">
+    <sprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,255,255" depth="0.55" origin="0.5,0.5" />
+    <DecorativeSprite texture="%ModDir%/Sprites/Items/Defenses.png" sourcerect="0,0,255,255" offset="0,84" depth="0.56" origin="0.5,0.5" />
+    <LightComponent canbeselected="false" IsOn="True" lightcolor="0,0,0,0" castshadows="false" allowingameediting="false" range="1">
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="cinders" anglemin="0" anglemax="360" particlespersecond="36" velocitymin="0" velocitymax="50" scalemin="0.80" scalemax="1.00" distancemin="0" distancemax="1024" />
+      </StatusEffect>
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+    </ConnectionPanel>
+  </Item>
+</Items>

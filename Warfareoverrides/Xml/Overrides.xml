@@ -1059,7 +1059,7 @@
       <StatValue stattype="MovementSpeed" value="-0.2" />
     </Holdable>
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
-      <StatusEffect type="OnUse" target="This" condition="-0.50" disabledeltatime="true">
+      <StatusEffect type="OnUse" target="This" condition="-0.65" disabledeltatime="true">
         <RequiredItem items="chaingunbolt" type="Contained" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
@@ -1075,7 +1075,7 @@
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
     <Projectile characterusable="false" launchimpulse="0" spread="9.5" removeonhit="true" damagedoors="true">
       <Attack structuredamage="8" itemdamage="12" severlimbsprobability="0.1" penetration="0.0">
-        <Affliction identifier="lacerations" strength="30" />
+        <Affliction identifier="lacerations" strength="35" />
         <Affliction identifier="bleeding" strength="2" />
       </Attack>
       <StatusEffect type="OnActive" target="This">
@@ -1101,7 +1101,7 @@
 <Item name="" 
         description=""
         identifier="chaingun" Tags="turret" category="Machine,Weapon" subcategory="subweapons" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="chaingunequipment">
-    <Sprite texture="Loaders.png" depth="0.01" sourcerect="0,0,256,256" canflipy="false" />
+    <Sprite texture="Content/Items/Weapons/Loaders.png" depth="0.01" sourcerect="0,0,256,256" canflipy="false" />
     <MinimapIcon name="Command_Weapons_Chaingun" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,896,128,128" />
     <SwappableItem price="6000" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
       <SchematicSprite texture="Content/UI/WeaponUI.png" sourcerect="512,0,256,389" />
@@ -1110,7 +1110,7 @@
     </SwappableItem>
     <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="387,810,106,65" origin="0.5,0.5" />
     <StaticBody width="80" radius="80" />
-    <Turret launchimpulse="150" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="0.4" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="180,360" powerconsumption="400.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.1" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1" ChargeSoundWindupPitchSlide="0.3,1.0">
+    <Turret launchimpulse="80" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="0.4" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="180,360" powerconsumption="400.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.1" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1" ChargeSoundWindupPitchSlide="0.3,1.0">
       <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot1.ogg" type="OnUse" range="10000" selectionmode="Random" />
       <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot2.ogg" type="OnUse" range="10000" />
       <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot3.ogg" type="OnUse" range="10000" />
