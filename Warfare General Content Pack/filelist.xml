@@ -16,6 +16,7 @@
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
   <Sounds file="%ModDir%/Xml/Sounds.xml" />
   <Particles file="%ModDir%/Xml/Particles.xml" />
+  <Item file="%ModDir%/Xml/Items/ParticleEmitters.xml" />
   <Text file="%ModDir%/Xml/English.xml" />
   <UIStyle file="%ModDir%/Xml/Style.xml" />
   <Structure file="%ModDir%/Xml/Prefabs.xml" />
@@ -28,4 +29,5 @@
   <Submarine file="%ModDir%/The Oil Rig.sub" />
   <Submarine file="%ModDir%/Schluchtstadt.sub" />
   <Submarine file="%ModDir%/testmap.sub" />
+  <Submarine file="%ModDir%/Unsafe Subway.sub />
 </contentpackage>

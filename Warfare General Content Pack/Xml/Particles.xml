@@ -18,4 +18,13 @@
   <mgmuzzleflash lifetime="0.15" startdelaymin="0" startdelaymax="0" angularvelocitymin="0" angularvelocitymax="0" startrotationmin="0" startrotationmax="0" rotatetodirection="False" drag="0" waterdrag="0" velocitychange="0,0" velocitychangewater="0,0" collisionradius="1" usecollision="False" deleteoncollision="False" friction="0.5" restitution="0.5" startsizemin="0.8,0.8" startsizemax="1,1" growtime="0.02" startcolor="255,255,255,255" endcolor="255,255,255,0" drawtarget="Both" drawontop="True" blendstate="Additive" loopanim="False" sizechangemin="0,0" sizechangemax="0,0" animduration="1" lifetimemin="0" middlecolor="255,255,255,255" usemiddlecolor="False" priority="5">
     <sprite texture="%ModDir%/Sprites/ParticleAtlas.png" sourcerect="0,33,35,28" origin="0.15,0.5" premultiplyalpha="false" />
   </mgmuzzleflash>
+  <cinders lifetime="6" lifetimemin="0" angularvelocitymin="-250" angularvelocitymax="250" startrotationmin="0" startrotationmax="360" rotatetodirection="False" drag="1" waterdrag="2" velocitychange="-0.4,-0.2" velocitychangewater="0,-0.1" collisionradius="5" usecollision="False" deleteoncollision="False" friction="0.01" restitution="0.01" startsizemin="0.3,0.3" startsizemax="0.4,0.4" sizechangemin="-0.1,-0.1" sizechangemax="-0.1,-0.1" growtime="2" startcolor="255,75,45,255" middlecolor="255,125,25,225" endcolor="175,55,25,155" usemiddlecolor="True" drawtarget="Air" blendstate="AlphaBlend" animduration="1" loopanim="True" startdelaymin="0" startdelaymax="0" drawontop="True">
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="0,64,32,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="32,64,32,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="64,64,32,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="96,64,32,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="128,64,32,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="160,64,48,32" />
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="208,64,48,32" />
+  </cinders>
 </prefabs>
