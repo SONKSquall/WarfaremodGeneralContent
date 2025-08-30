@@ -367,6 +367,10 @@ WR.cratesLoadouts = {
         {id = "WR_flamethrower",
         count = 2}
     },
+    WR_mortarcrate = {
+        {id = "WR_mortar",
+        count = 1}
+    },
     -- Weapon crates end --
     -- Ammo crates start --
     WR_rifleammocrate = {
@@ -386,6 +390,10 @@ WR.cratesLoadouts = {
     WR_hmgammocrate = {
         {id = "WR_machinegunmag",
         count = 4}
+    },
+    WR_launchgrenadecrate = {
+        {id = "WR_launchgrenade",
+        count = 3}
     },
     -- Ammo crates end --
     -- Medical crates start --
@@ -922,3 +930,17 @@ do
     end)
 
 end
+
+Hook.Add("WR.mortarpenalty.xmlhook", "WR.mortarpenalty", function(effect, deltaTime, item, targets, worldPosition, element)
+    local character = targets[1]
+    local isHoldingSideways = math.cos(item.body.Rotation) > 0.85
+    local isHoldingDownwards = (math.sin(item.body.Rotation) < 0 and item.body.Dir == 1) or (math.sin(item.body.Rotation) > 0 and item.body.Dir == -1)
+
+    if isHoldingSideways or isHoldingDownwards then
+        WR.GiveAfflictionCharacter(character,"stun",4)
+        WR.GiveAfflictionCharacter(character,"blunttrauma",50)
+        Timer.NextFrame(function ()
+            WR.spawn(ItemPrefab.GetItemPrefab"WR_mortarmisfire_sfx",character.WorldPosition)
+        end)
+    end
+end)

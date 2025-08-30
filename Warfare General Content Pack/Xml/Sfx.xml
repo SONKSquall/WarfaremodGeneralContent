@@ -187,4 +187,14 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
+  <Item name="WR_mortarmisfire_sfx" identifier="WR_mortarmisfire_sfx" spritecolor="0,0,0,0" hideinmenus="true">
+    <sprite texture="%ModDir%/Sprites/notexture.png" sourcerect="0,0,64,64" depth="1" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" targettype="This" disabledeltatime="true">
+        <ParticleEmitter particle="shockwave" AngleMax="360" ScaleMultiplier="1,1" ParticlesPerSecond="4" ColorMultiplier="255,255,255,255" />
+		<Explosion range="400.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+		<Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
 </Items>

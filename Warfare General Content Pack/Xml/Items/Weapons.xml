@@ -4,11 +4,6 @@
   <!-- Melee Weapons End -->
   <!-- Firearms Start -->
   <Item name="" identifier="WR_basicpistol" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
-    <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true">
-      <RequiredSkill identifier="weapons" level="35" />
-      <RequiredItem identifier="steel" amount="2" />
-      <RequiredItem identifier="plastic" />
-    </Fabricate>
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,78,46" depth="0.55" origin="0.5,0.5" />
     <Body width="72" height="40" density="25" />
     <Holdable slots="Any,RightHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect"></Holdable>
@@ -22,13 +17,13 @@
       <!-- distant sounds -->
       <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant1.ogg" type="OnUse" range="4000" volume="0.8" selectionmode="Random" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant1.ogg" type="OnUse" range="4000" volume="0.8" selectionmode="Random" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="this">
         <Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
@@ -66,14 +61,14 @@
       <RequiredItems items="WR_flameprojectile" type="Contained" />
     </RangedWeapon>
     <RepairTool barrelpos="50,0" firedamage="30.0" structurefixamount="2.0" range="400">
-      <StatusEffect type="OnSuccess" targettype="UseTarget" targetlimb="torso" >
+      <StatusEffect type="OnSuccess" targettype="UseTarget" targetlimb="torso">
         <Affliction identifier="burn" amount="30" />
       </StatusEffect>
       <ParticleEmitter particle="flamethrower" particlespersecond="30" scalemin="0.5" scalemax="0.6" anglemin="-10" anglemax="10" velocitymin="1000" velocitymax="1500" colormultiplier="255,150,150,210" highqualitycollisiondetection="true" />
       <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />
     </RepairTool>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" spawnwithid="WR_flameprojectile">
-	  <Containable items="WR_flameprojectile" />
+      <Containable items="WR_flameprojectile" />
     </ItemContainer>
     <Wearable slots="Bag+RightHand+LeftHand" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
       <sprite name="Flame tank" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,49,61,112" limb="Torso" inherittexturescale="true" origin="1.3,0.5" />
@@ -106,7 +101,7 @@
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="mgmuzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" colormultiplier="255,255,255,255" />
-	  <ParticleEmitter particle="steamspray" AngleMin="35" AngleMax="-35" VelocityMin="30" VelocityMax="125" ScaleMultiplier="0.5,0.5" colormultiplier="255,255,255,150" particleamount="1" Angle="35" Velocity="30" />
+      <ParticleEmitter particle="steamspray" AngleMin="35" AngleMax="-35" VelocityMin="30" VelocityMax="125" ScaleMultiplier="0.5,0.5" colormultiplier="255,255,255,150" particleamount="1" Angle="35" Velocity="30" />
       <StatusEffect type="OnUse" forceplaysounds="true">
         <Sound file="%ModDir%/Sounds/Machinegunshot1.ogg" type="OnUse" range="6000" Volume="2" selectionmode="Random" />
         <Sound file="%ModDir%/Sounds/Machinegunshot2.ogg" type="OnUse" range="6000" Volume="2" />
@@ -117,11 +112,11 @@
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="12000,0" forceplaysounds="true">
         <!-- <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant1.ogg" type="OnUse" range="8000" volume="1" selectionmode="random" /> -->
-		<Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="-12000,0" forceplaysounds="true">
         <!-- <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant1.ogg" type="OnUse" range="8000" volume="1" selectionmode="random" /> -->
-		<Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
       </StatusEffect>
       <StatusEffect type="OnUse">
         <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="-80" anglemax="-100" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
@@ -162,9 +157,9 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="64,49,32,47" depth="0.55" origin="0.5,0.5" />
     <Body width="30" height="50" density="25" />
     <ItemContainer hideitems="true" capacity="2" maxstacksize="25" containedstateindicatorstyle="bullet" ShowTotalStackCapacityInContainedStateIndicator="true">
-      <Containable items="WR_largeround" >
-	    <StatusEffect type="OnInserted" target="Contained" noninteractable="true"></StatusEffect>
-	  </Containable>
+      <Containable items="WR_largeround">
+        <StatusEffect type="OnInserted" target="Contained" noninteractable="true"></StatusEffect>
+      </Containable>
     </ItemContainer>
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
@@ -177,7 +172,7 @@
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
       <Attack structuredamage="4" targetforce="7.5" itemdamage="4" severlimbsprobability="0.2" penetration="0.4">
         <!--Affliction identifier="gunshotwound" strength="60" /-->
-		<Affliction identifier="gunshotwound" strength="45" />
+        <Affliction identifier="gunshotwound" strength="45" />
         <Affliction identifier="bleeding" strength="11.5" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -213,7 +208,7 @@
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Rifle Worn" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,370,249,46" depth="0.55" canbehiddenbyotherwearables="false" rotation="85" inheritlimbdepth="true" limb="Torso" scale="0.5" origin="0.6,0.85" />
     </Wearable>
-    <RangedWeapon barrelpos="110,15" unskilledspread="3" spread="3" combatPriority="70" reload="1.5" reloadnoskill="2" reloadskillrequirement="40" drawhudwhenequipped="true" crosshairscale="0.15">
+    <RangedWeapon barrelpos="110,15" launchimpulse="12.0" unskilledspread="3" spread="3" combatPriority="70" reload="1.5" reloadnoskill="2" reloadskillrequirement="40" drawhudwhenequipped="true" crosshairscale="0.15">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
@@ -241,18 +236,22 @@
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="10500,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant1.ogg" type="OnUse" range="6000" volume="1" selectionmode="Random" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="-10500,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant1.ogg" type="OnUse" range="6000" volume="1" selectionmode="Random" />
-		<Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
+        <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
       </StatusEffect>
-      <RequiredItems items="rifleammo" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredItems items="rifleammo,grenade" type="Contained" msg="ItemMsgAmmoRequired" />
       <RequiredSkill identifier="weapons" level="60" />
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" ShowContainedStateIndicator="false" containedspritedepth="0.56">
+    <ItemContainer capacity="1" maxstacksize="6" hideitems="false" ShowContainedStateIndicator="false" containedspritedepth="0.54">
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
       <Containable items="WR_largeround,rifleammo" hide="true" itempos="0,0" />
+      <Containable items="grenadelauncher" hide="false" itempos="65,7.5" >
+		<StatusEffect type="OnInserted" target="This" targetitemcomponent="rangedweapon" reload="3" reloadnoskill="4"></StatusEffect>
+		<StatusEffect type="OnRemoved" target="This" targetitemcomponent="rangedweapon" reload="1.5" reloadnoskill="2"></StatusEffect>
+	  </Containable>
     </ItemContainer>
   </Item>
   <Item name="" identifier="WR_smg" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
@@ -277,11 +276,11 @@
       <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="6000" />
       <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="0.75" />
-		<Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
       </StatusEffect>
       <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="0.75" />
-		<Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
+        <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
       </StatusEffect>
       <StatusEffect type="OnUse">
         <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
@@ -301,25 +300,25 @@
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
     <Body width="15" height="15" density="30" />
     <Projectile characterusable="false" launchimpulse="8.0" impulsespread="0.2" sticktocharacters="true" sticktostructures="true" sticktoitems="true">
-      <StatusEffect type="OnNotContained" target="This" delay="0.5" stackable="false" checkconditionalalways="true" >
-	    <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
-		<Use />
+      <StatusEffect type="OnNotContained" target="This" delay="0.5" stackable="false" checkconditionalalways="true">
+        <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+        <Use />
       </StatusEffect>
       <StatusEffect type="OnNotContained" target="This" delay="10" stackable="false">
         <Remove />
       </StatusEffect>
     </Projectile>
-	<ItemComponent IsActive="false">
+    <ItemComponent IsActive="false">
       <StatusEffect type="OnUse" target="This" IsActive="true" />
-      <StatusEffect type="OnActive" target="NearbyCharacters" range="200" >
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="200">
         <LuaHook name="WR.flameprojectiledamage.xmlhook" />
-	  </StatusEffect>
-      <StatusEffect type="OnUse" target="This" duration="10" stackable="false" >
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" duration="10" stackable="false">
         <sound file="Content/Sounds/FireSmall.ogg" range="1000.0" loop="true" />
         <ParticleEmitter particle="flamethrower" anglemin="-180" copyentityangle="false" anglemax="90" particlespersecond="5" velocitymax="200" colormultiplier="150,150,150,210" scalemin="0.7" scalemax="0.5" priority="50" />
         <ParticleEmitter particle="smoke" particlespersecond="4" scalemin="2" scalemax="2.5" velocitymax="200" anglemax="90" anglemin="90" />
-	  </StatusEffect>
-	</ItemComponent>
+      </StatusEffect>
+    </ItemComponent>
   </Item>
   <Item name="" identifier="WR_flameexplosion" hideinmenus="true">
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
@@ -347,7 +346,7 @@
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6" />
       <Attack structuredamage="10" targetforce="10" itemdamage="10" severlimbsprobability="0.2" penetration="0.1">
         <!--Affliction identifier="gunshotwound" strength="70" /-->
-		<Affliction identifier="gunshotwound" strength="56" />
+        <Affliction identifier="gunshotwound" strength="56" />
         <Affliction identifier="bleeding" strength="25" />
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -376,11 +375,11 @@
       <Attack structuredamage="15" targetforce="12" itemdamage="15" severlimbsprobability="0.5" penetration="0.45">
         <!-- Two shots to the body will down -->
         <!--Affliction identifier="gunshotwound" strength="105" /-->
-		<Affliction identifier="gunshotwound" strength="75" />
+        <Affliction identifier="gunshotwound" strength="75" />
         <Affliction identifier="bleeding" strength="33" />
       </Attack>
       <!-- One shot to the head will down -->
-	  <!--
+      <!--
       <StatusEffect type="OnImpact" target="Limb">
         <Conditional LimbType="Head" />
         <Affliction identifier="gunshotwound" strength="25" />
@@ -413,7 +412,7 @@
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,1" />
       <Attack structuredamage="1" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
         <!--Affliction identifier="gunshotwound" strength="16" /-->
-		<Affliction identifier="gunshotwound" strength="28" />
+        <Affliction identifier="gunshotwound" strength="28" />
         <Affliction identifier="bleeding" strength="6" />
       </Attack>
       <!-- does more bleeding when a limb is shot -->
@@ -498,7 +497,7 @@
       <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" targetitemcomponent="LightComponent" />
     </Throwable>
   </Item>
-  <Item name="" description="" identifier="WR_signalflare" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative,flare" impactsoundtag="impact_soft" impacttolerance="0" >
+  <Item name="" description="" identifier="WR_signalflare" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative,flare" impactsoundtag="impact_soft" impacttolerance="0">
     <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="768,128,64,64" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="124,25,18,10" depth="0.55" origin="0.5,0.5" />
     <Body width="20" height="15" gravityscale="0.1" lineardamping="0.75" density="10" />
@@ -507,11 +506,10 @@
     </Fabricate>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="false">
-      <StatusEffect type="OnActive" targettype="This" >
-		<Use />
+      <StatusEffect type="OnActive" targettype="This">
+        <Use />
       </StatusEffect>
-      <StatusEffect type="OnUse" targettype="this" noninteractable="true" >
-      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="this" noninteractable="true"></StatusEffect>
       <StatusEffect type="OnUse" targettype="this" delay="5">
         <LuaHook name="WR.artillery.xmlhook" item="WR_shell" count="10" interval="0.5" />
       </StatusEffect>
@@ -551,9 +549,82 @@
       </StatusEffect>
       <RequiredItems items="flare" type="Contained" msg="ItemMsgAmmoRequired" />
     </RangedWeapon>
-    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" ShowContainedStateIndicator="false" spawnwithid="WR_signalflare" >
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" ShowContainedStateIndicator="false" spawnwithid="WR_signalflare">
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
       <Containable items="flare" />
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="WR_launchgrenade" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="1" tags="smallitem,grenade" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="64,192,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="369,24,100,21" depth="0.55" origin="0.5,0.5" />
+    <Body width="100" height="20" density="30" AngularDamping="10" />
+    <Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="3" />
+    </Fabricate>
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="0.0" sticktocharacters="false">
+      <Attack structuredamage="40" penetration="1" severlimbsprobability="5">
+        <Affliction identifier="explosiondamage" strength="50" />
+      </Attack>
+      <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnImpact" range="6000" selectionmode="All" />
+      <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnImpact" range="6000" />
+      <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="6000" />
+        <ParticleEmitter particle="spark" AngleMin="0" AngleMax="360" VelocityMin="1000" VelocityMax="2000" ScaleMultiplier="1,2" ParticleAmount="75" ColorMultiplier="255,255,255,255" />
+        <ParticleEmitter particle="explosionfire" AngleMax="360" VelocityMin="20" VelocityMax="200" ScaleMultiplier="0.3,0.3" ParticleAmount="1" ColorMultiplier="200,200,200,255" Velocity="20" />
+        <ParticleEmitter particle="explosionsmoke" AngleMax="360" VelocityMin="80" VelocityMax="200" ScaleMax="1" ScaleMultiplier="1.5,1" ParticleAmount="5" ColorMultiplier="150,150,150,255" Velocity="40" />
+        <Explosion range="300.0" ballastfloradamage="100" structuredamage="200" levelwalldamage="140" itemdamage="0" force="5" severlimbsprobability="0.5" smoke="false" flames="false" sparks="false">
+          <Affliction identifier="explosiondamage" strength="150" />
+          <Affliction identifier="bleeding" strength="150" />
+          <Affliction identifier="bleeding" strength="50" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="7" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+	    <Remove />
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" Offset="12000,0" forceplaysounds="true">
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" FrequencyMultiplier="1.25" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" FrequencyMultiplier="1.25" />
+      </StatusEffect>
+	  <StatusEffect type="OnBroken" Offset="-12000,0" forceplaysounds="true">
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" FrequencyMultiplier="1.25" />
+		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" FrequencyMultiplier="1.25" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" targetidentifiers="WR_sandbag,door,windoweddoor,hatch,ductblock" Condition="0" setvalue="true" />
+    </Projectile>
+  </Item>
+  <!-- need to add a sound for chargeup and balance/test -->
+  <Item name="" identifier="WR_mortar" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" rotation="90" sourcerect="215,51,130,25" depth="0.55" origin="0.5,0.5" />
+    <Body width="125" height="25" density="25" />
+	<Fabricate suitablefabricators="stratshop,factory" requiredtime="5">
+      <RequiredItem identifier="WR_currency" amount="7" />
+    </Fabricate>
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="20,-40" aimpos="20,-40" handle1="-33,0" handle2="26,0" holdangle="30" aimangle="45" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Mortar Worn" rotation="90" texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="215,51,130,25" canbehiddenbyotherwearables="false" depth="0.6" limb="Torso" depthlimb="LeftArm" scale="0.5" origin="0.5,2" />
+    </Wearable>
+    <RangedWeapon launchimpulse="20.0" barrelpos="65,0" reload="0.8" spread="15" unskilledspread="15" combatPriority="75" drawhudwhenequipped="true" crosshairscale="0.2" maxchargetime="0.75" ChargeSoundWindupPitchSlide="1,0.85">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="0.6" />
+      <ParticleEmitter particle="explosionsmoke" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="0.6" />
+      <Sound file="Content/Items/Weapons/GrenadeLauncherShot1.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/GrenadeLauncherShot2.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/GrenadeLauncherShot3.ogg" type="OnUse" range="1000" />
+	  <ChargeSound file="%ModDir:Warfare General%/Sounds/MortarPrep.ogg" range="750" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="2" shockwave="false" smoke="false" flames="false" flash="true" sparks="false" underwaterbubble="false" applyfireeffects="false" camerashake="6.0" />
+      </StatusEffect>
+	  <StatusEffect type="OnUse" target="Character" >
+	    <LuaHook name="WR.mortarpenalty.xmlhook" />
+	  </StatusEffect>
+      <RequiredItems items="grenade" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+      <Containable items="grenade" hide="true" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="448,448,64,64" origin="0.5,0.5" />
     </ItemContainer>
   </Item>
   <!-- Explosives End -->
@@ -675,4 +746,18 @@
     </ItemComponent>
   </Item>
   <!-- Shell Prefabs End -->
+  <!-- WIP: grenade launcher item for rifles, for now we'll just allow rifle grenades to be put on rifles without an attactment -->
+  <!-- add discription changes to rifle for telling of this feature -->
+  <!--
+  <Item name="Rifle grenade lancher" identifier="WR_riflegrenadelauncher" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,grenadelauncher" Scale="0.5" impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Sprites/Items/Inventory Icons.png" sourcerect="0,192,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Sprites/Items/Weapons.png" sourcerect="369,0,67,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="72" height="40" density="25" />
+    <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect"></Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" ShowContainedStateIndicator="false" containedspritedepth="0.54">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <Containable items="grenade" itempos="23,1" hide="false" />
+    </ItemContainer>
+  </Item>
+  -->
 </Items>

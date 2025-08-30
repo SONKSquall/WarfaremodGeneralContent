@@ -30,6 +30,10 @@
 <entitydescription.WR_shotgunround>Large caliber buckshot shell, only used in shotguns.</entitydescription.WR_shotgunround>
 <entityname.WR_smallroundmag20>Submachine gun maganize</entityname.WR_smallroundmag20>
 <entitydescription.WR_smallroundmag20>A box mag designed for holding 20 pistol cartridges for use in submachine guns.</entitydescription.WR_smallroundmag20>
+<entityname.WR_launchgrenade>General Explosive Munition</entityname.WR_launchgrenade>
+<entitydescription.WR_launchgrenade>Self propelled bomb for use in mortars and grenade launchers.</entitydescription.WR_launchgrenade>
+<entityname.WR_mortar>Mortar</entityname.WR_mortar>
+<entitydescription.WR_mortar>Long metal tube designed for indirect fire of shells. Uses General Explosive Munitions. Hurts user when firing at angles below 30~ degrees.</entitydescription.WR_mortar>
   <!-- Weapon End -->
   <!-- Tools Start -->
 <entityname.WR_trenchingtool>Entrenching Tool</entityname.WR_trenchingtool>
@@ -190,6 +194,10 @@
 <entitydescription.WR_headsetcrate>Produces 6 headsets.</entitydescription.WR_headsetcrate>
 <entityname.WR_flamethrowercrate>Production Crate (Flamethrower)</entityname.WR_flamethrowercrate>
 <entitydescription.WR_flamethrowercrate>Produces 2 flamethrowers. Deposit in a locker to retrieve items.</entitydescription.WR_flamethrowercrate>
+<entityname.WR_launchgrenadecrate>Production Crate (General Explosive Munition)</entityname.WR_launchgrenadecrate>
+<entitydescription.WR_launchgrenadecrate>Produces 3 GEMs. Deposit in a locker to retrieve items.</entitydescription.WR_launchgrenadecrate>
+<entityname.WR_launchgrenadecrate>Production Crate (Mortar)</entityname.WR_launchgrenadecrate>
+<entitydescription.WR_launchgrenadecrate>Produces a mortar. Deposit in a locker to retrieve item.</entitydescription.WR_launchgrenadecrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>

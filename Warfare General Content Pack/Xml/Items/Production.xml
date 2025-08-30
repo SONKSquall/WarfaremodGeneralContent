@@ -296,6 +296,26 @@
       </StatusEffect>
 	</ItemComponent>
   </Item>
+  <Item name="" identifier="WR_launchgrenadecrate" variantof="WR_productioncrate" Health="2">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_explosivematerial" amount="1" />
+    </Fabricate>
+	<ItemComponent>
+	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+        <LuaHook name="WR.productionCrate.xmlhook" />
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
+  <Item name="" identifier="WR_mortarcrate" variantof="WR_productioncrate" Health="2">
+    <Fabricate suitablefabricators="factory" requiredtime="30">
+      <RequiredItem identifier="WR_basicmaterial" amount="3" />
+    </Fabricate>
+	<ItemComponent>
+	  <StatusEffect type="OnContained" target="This" Interval="0.1" disableDeltaTime="true">
+        <LuaHook name="WR.productionCrate.xmlhook" />
+      </StatusEffect>
+	</ItemComponent>
+  </Item>
   <!-- Coalition Start -->
   <Item name="" identifier="WR_coalitionshellcrate" tags="smallitem,crate,railgunammo" variantof="WR_productioncrate" Health="6">
     <Fabricate suitablefabricators="factory" requiredtime="30" requiresrecipe="true">
