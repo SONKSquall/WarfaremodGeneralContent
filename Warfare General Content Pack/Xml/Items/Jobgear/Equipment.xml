@@ -87,6 +87,10 @@
         <Conditional hasstatustag="renegade" TargetContainer="true" />
       </StatusEffect>
       <StatusEffect type="OnBroken" targettype="This" targetitemcomponent="WifiComponent" LinkToChat="false"></StatusEffect>
+	  <StatusEffect type="OnActive" targettype="This" AllowWhenBroken="true" CheckConditionalAlways="true" >
+		<Conditional Condition="eq 0" />
+		<Sound file="%ModDir%/Sounds/OffHook.ogg" range="200" dontmuffle="true" loop="true" volume="0.75" />
+	  </StatusEffect>
     </Holdable>
   </Item>
   <Item name="" identifier="WR_stretcher" category="Medical" tags="mediumitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">

@@ -550,72 +550,6 @@ Hook.Add("WR.artillery.xmlhook", "WR.artillery", function(effect, deltaTime, ite
     end
 end)
 
-WR.radioChannels = {
-    coalitionteam = 1,
-    renegadeteam = 2,
-    neutral = 0
-}
-
-function WR.thinkFunctions.setRadios()
-    if WR.tick % 6 ~= 0 then return end
-
-    for client in Client.ClientList do
-        if client.Character and not client.Character.GetEquippedItem("WR_cuffs") then
-            local channel = WR.radioChannels[client.Character.JobIdentifier.value]
-            local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag"), client.Character.GetEquippedItem("WR_largeradio")}
-            for item in items do
-                local wifi = item.GetComponentString("WifiComponent")
-                wifi.Channel = channel
-
-                local property = wifi.SerializableProperties[Identifier("Channel")]
-                Networking.CreateEntityEvent(item, Item.ChangePropertyEventData(property, wifi))
-            end
-        end
-    end
-end
-
-WR.staticRadioAreas = {}
-
-function WR.roundStartFunctions.staticRadioArea()
-    WR.staticRadioAreas = {}
-
-    local areas = WR.getAreas(function(item) return item.HasTag("wr_radioarea") or item.HasTag("wr_objective") end)
-    for area in areas do
-        WR.staticRadioAreas[area] = area.WorldRect
-    end
-end
-
-function WR.radioAreas()
-    local largeRadios = Util.GetItemsById("WR_largeradio") or {}
-
-    local size = 500
-    for item in largeRadios do
-        WR.staticRadioAreas[item] = WR.staticRadioAreas[item] or Rectangle(0,0,size*2,size*2)
-        WR.staticRadioAreas[item].X, WR.staticRadioAreas[item].Y = item.WorldPosition.X - size,item.WorldPosition.Y + size
-    end
-    return WR.staticRadioAreas
-end
-
-function WR.thinkFunctions.staticRadio()
-    if WR.tick % 6 ~= 0 then return end
-    local radioRects = WR.radioAreas()
-
-    for client in Client.ClientList do
-        if client.Character then
-            local item = client.Character.GetEquippedItem("WR_dogtag")
-            if item then
-                item.Condition = 10
-                for rect in radioRects do
-                    if WR.isPointInRect(client.Character.WorldPosition,rect) then
-                        item.Condition = 100
-                        break
-                    end
-                end
-            end
-        end
-    end
-end
-
 do
 
 local hitsThisTick = {}
@@ -847,5 +781,144 @@ do
             end
         end
     end
+
+end
+
+WR.radioChannels = {
+    coalitionteam = 1,
+    renegadeteam = 2,
+    neutral = 0
+}
+
+function WR.thinkFunctions.setRadios()
+    if WR.tick % 6 ~= 0 then return end
+
+    for client in Client.ClientList do
+        if client.Character and not client.Character.GetEquippedItem("WR_cuffs") then
+            local channel = WR.radioChannels[client.Character.JobIdentifier.value]
+            local items = {client.Character.GetEquippedItem("WR_radio"), client.Character.GetEquippedItem("WR_dogtag"), client.Character.GetEquippedItem("WR_largeradio")}
+            for item in items do
+                local wifi = item.GetComponentString("WifiComponent")
+                wifi.Channel = channel
+
+                local property = wifi.SerializableProperties[Identifier("Channel")]
+                Networking.CreateEntityEvent(item, Item.ChangePropertyEventData(property, wifi))
+            end
+        end
+    end
+end
+
+WR.staticRadioAreas = {}
+
+function WR.roundStartFunctions.staticRadioArea()
+    WR.staticRadioAreas = {}
+
+    local areas = WR.getAreas(function(item) return item.HasTag("wr_radioarea") or item.HasTag("wr_objective") end)
+    for area in areas do
+        WR.staticRadioAreas[area] = area.WorldRect
+    end
+end
+
+function WR.radioAreas()
+    local largeRadios = Util.GetItemsById("WR_largeradio") or {}
+
+    local size = 500
+    for item in largeRadios do
+        WR.staticRadioAreas[item] = WR.staticRadioAreas[item] or Rectangle(0,0,size*2,size*2)
+        WR.staticRadioAreas[item].X, WR.staticRadioAreas[item].Y = item.WorldPosition.X - size,item.WorldPosition.Y + size
+    end
+    return WR.staticRadioAreas
+end
+
+function WR.thinkFunctions.updateStaticRadio()
+    if WR.tick % 6 ~= 0 then return end
+
+    WR.radioAreas()
+end
+
+function WR.thinkFunctions.staticRadio()
+    if WR.tick % 6 ~= 0 then return end
+
+    for client in Client.ClientList do
+        if client.Character then
+            local item = client.Character.GetEquippedItem("WR_dogtag")
+            if item then
+                item.Condition = 10
+                if WR.isWithinStaticRadio(client.Character.WorldPosition) then
+                    item.Condition = 100
+                    break
+                end
+            end
+        end
+    end
+end
+
+function WR.isWithinStaticRadio(pos)
+    for rect in WR.staticRadioAreas do
+        if WR.isPointInRect(pos,rect) then
+            return true
+        end
+    end
+    return false
+end
+
+do
+
+    local set = {
+        WR_radio = true,
+        WR_largeradio = true
+    }
+
+    local pickupTimeout = WR.createSingleRoundTable()
+    local hangupTimeout = WR.createSingleRoundTable()
+
+    local function hasRadio(character)
+        for identifier in pairs(set) do
+            if character.GetEquippedItem(identifier) then
+                return true
+            end
+        end
+        return false
+    end
+
+    local function handler(item,afflictionId)
+        local sourceOwner = item.GetRootInventoryOwner()
+
+        -- characters can have multiple radios so we insure each character only gets alerted once
+        local alertedCharacters = {}
+
+        for radio in item.GetComponentString("WifiComponent").GetReceiversInRange() do
+            local owner = radio.Item.GetRootInventoryOwner()
+
+            if owner ~= radio.Item and sourceOwner ~= owner and not alertedCharacters[owner] and LuaUserData.IsTargetType(owner, "Barotrauma.Character") then
+                alertedCharacters[owner] = true
+
+                if WR.isWithinStaticRadio(owner.WorldPosition) or hasRadio(owner) then
+                    WR.GiveAfflictionCharacter(owner,afflictionId,100)
+                end
+            end
+        end
+    end
+
+    function WR.equipItemFunctions.WR_radio(item)
+        local sourceOwner = item.GetRootInventoryOwner()
+        if pickupTimeout[sourceOwner] and Timer.GetTime() - pickupTimeout[sourceOwner] < 1 then return end
+        pickupTimeout[sourceOwner] = Timer.GetTime()
+
+        handler(item,"WR_radiopickupsound")
+    end
+
+    -- unequip hook does not work so this is a workaround
+    Hook.Add("item.drop", "WR.radioHangup", function(item, character)
+        -- for some reason if theres a character then the item owns itself
+        if character then return end
+        if not set[WR.id(item)] then return end
+
+        local sourceOwner = item.GetRootInventoryOwner()
+        if hangupTimeout[sourceOwner] and Timer.GetTime() - hangupTimeout[sourceOwner] < 1 then return end
+        hangupTimeout[sourceOwner] = Timer.GetTime()
+
+        handler(item,"WR_radiohangupsound")
+    end)
 
 end

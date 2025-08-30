@@ -490,3 +490,24 @@ function WR.getAllInventoryItemsRecursive(inventory,t)
     end
     return items
 end
+
+function WR.GetEquippedItems(character,identifiers)
+    local items = {}
+    for identifier in pairs(identifiers) do
+        if character.GetEquippedItem(identifier) then
+            items[character.GetEquippedItem(identifier)] = true
+        end
+    end
+    return items
+end
+
+function WR.createSingleRoundTable()
+    local t = {}
+    local index = "resetSingleRoundTable" .. math.random(1000,9999)
+    WR.roundEndFunctions[index] = function()
+        for k in pairs(t) do
+            t[k] = nil
+        end
+    end
+    return t
+end

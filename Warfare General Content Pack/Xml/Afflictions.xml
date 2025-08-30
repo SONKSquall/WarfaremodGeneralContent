@@ -136,6 +136,32 @@
   
   <Affliction
     name=""
+    identifier="WR_radiopickupsound"
+	Duration="0.1"
+    ShowIconThreshold="1000" >
+    <Effect>
+	  <StatusEffect target="Character" forceplaysounds="false" comparison="and" CheckConditionalAlways="true">
+	    <Conditional isLocalPlayer="true" />
+	    <Sound file="%ModDir%/Sounds/CallIn.ogg" dontmuffle="true" selectionmode="random" />
+	  </StatusEffect>
+    </Effect>
+  </Affliction>
+  
+  <Affliction
+    name=""
+    identifier="WR_radiohangupsound"
+	Duration="0.1"
+    ShowIconThreshold="1000" >
+    <Effect>
+	  <StatusEffect target="Character" forceplaysounds="false" comparison="and" CheckConditionalAlways="true">
+	    <Conditional isLocalPlayer="true" />
+		<Sound file="%ModDir%/Sounds/HangUp.ogg" dontmuffle="true" selectionmode="random" />
+	  </StatusEffect>
+    </Effect>
+  </Affliction>
+  
+  <Affliction
+    name=""
     identifier="WR_stabilize"
     description=""
     type=""
