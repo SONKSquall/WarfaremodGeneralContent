@@ -39,7 +39,7 @@ end
 -- removes pows and places their items in a footlocker
 local function powhandle(targets,picker)
     local frendlyteam = WR.id(picker,{"Info","Job"})
-    local shop = WR.data["userdata."..WR.teamKeys[frendlyteam].."shop"]
+    local shop = WR.getRandomCoinDrop(frendlyteam)
     local capturecount = 0
     for character in targets do
         if WR.IsEnemyPOW(character, frendlyteam) == true then

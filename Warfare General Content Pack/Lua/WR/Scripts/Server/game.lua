@@ -151,6 +151,11 @@ function WR.roundEndFunctions.data()
     WR.data.reset()
 end
 
+WR.shops = {
+    coalitionteam = {},
+    renegadeteam = {}
+}
+
 function WR.roundStartFunctions.main()
     if WR.tickmax == 0 then WR.tickmax = 30*60*60 end
     WR.Game.ending = false
@@ -165,12 +170,23 @@ function WR.roundStartFunctions.main()
     Game.ServerSettings.ForcePropertyUpdate()
 
     -- shops
+
+    WR.shops = {
+        coalitionteam = {},
+        renegadeteam = {}
+    }
+
     for item in Item.ItemList do
         if item.HasTag("coindropoff") then
             local shopteam = WR.getStringVariables(item.Tags)["team"]
-            shopteam = WR.teamKeys[shopteam] -- remove bogus teams
-            if shopteam then
-                WR.data["userdata."..shopteam.."shop"] = item
+            if WR.defender(shopteam) then
+                table.insert(WR.shops[shopteam],item)
+            end
+        end
+        if string.find(item.Tags,"coindropoff:") then
+            local shopteam = WR.getStringVariables(item.Tags)["coindropoff"]
+            if WR.defender(shopteam) then
+                table.insert(WR.shops[shopteam],item)
             end
         end
     end

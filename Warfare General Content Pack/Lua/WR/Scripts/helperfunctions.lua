@@ -528,3 +528,9 @@ function WR.createSingleRoundTable()
     end
     return t
 end
+
+function WR.getRandomCoinDrop(teamID)
+    if not WR.defender(teamID) then return end
+    local teamShops = WR.shops[teamID]
+    return teamShops[math.random(#teamShops)]
+end
