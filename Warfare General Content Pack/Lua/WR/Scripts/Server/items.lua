@@ -507,6 +507,8 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
 
+-- just doing this with xml now, less buggy
+--[[
 Hook.Add("character.created", "WR.recipes", function(character)
     Timer.Wait(function()
         if character.JobIdentifier == "coalitionteam" then
@@ -518,6 +520,7 @@ Hook.Add("character.created", "WR.recipes", function(character)
         print("has renegade = ",character.HasTalent("WR_renegaderecipes"))
     end,1000)
 end)
+]]
 
 Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition, element)
     local pingEveryone = element.GetAttributeBool("global",false)

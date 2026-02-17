@@ -118,6 +118,9 @@
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="This" setvalue="true" NonPlayerTeamInteractable="True" />
+	  <StatusEffect type="OnWearing" target="Character" interval="1" >
+	    <GiveTalentInfo talentidentifiers="WR_renegaderecipes" />
+	  </StatusEffect>
     </ItemComponent>
   </Item>
   <Item name="" identifier="WR_renegadearmor" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_heavy" spritecolor="200,200,200,255" health="200" >

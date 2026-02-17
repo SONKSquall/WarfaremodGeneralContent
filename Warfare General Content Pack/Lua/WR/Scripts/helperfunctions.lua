@@ -338,10 +338,12 @@ end
 
 do
 
-    local set = {
+    --[[
+    local set = { 
         renegadeteam = "WR_renegaderecipes",
         coalitionteam = "WR_coalitionrecipes"
     }
+    ]]
 
     function WR.spawnHuman(client,job,pos)
 
@@ -361,10 +363,11 @@ do
             client.SetClientCharacter(character)
         end
 
-        print(WR.id(job))
+        --[[
         if set[WR.id(job)] then
             character.GiveTalent(set[WR.id(job)])
         end
+        ]]
 
         character.GiveJobItems(false)
 
