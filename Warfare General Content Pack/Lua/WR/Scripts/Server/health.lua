@@ -97,6 +97,10 @@ end, Hook.HookMethodType.Before)
 WR.fallingPlayers = {}
 WR.fallingHeight = Vector2(0,2)
 
+WR.fallDamageMultiplier = 0.5
+WR.fallDamageCap = 75
+WR.fallDamageMinDisplacement = 300
+
 function WR.thinkFunctions.fallDamage()
     if WR.tick % 6 ~= 0 then return end
 
@@ -108,9 +112,9 @@ function WR.thinkFunctions.fallDamage()
                 WR.fallingPlayers[char] = WR.fallingPlayers[char] or {char.WorldPosition,WR.tick}
             elseif WR.fallingPlayers[char] then
                 local displacement = WR.fallingPlayers[char][1].Y - char.WorldPosition.Y
-                if canDamage and displacement > 300 and WR.tick - WR.fallingPlayers[char][2] > 30 then
-                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(75,((displacement / 100)^2)/2),LimbType.RightFoot)
-                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(75,((displacement / 100)^2)/2),LimbType.LeftFoot)
+                if canDamage and displacement > WR.fallDamageMinDisplacement and WR.tick - WR.fallingPlayers[char][2] > 30 then
+                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(WR.fallDamageCap,((displacement / 100)^2)*WR.fallDamageMultiplier),LimbType.RightFoot)
+                    WR.GiveAfflictionCharacter(char,"blunttrauma",math.min(WR.fallDamageCap,((displacement / 100)^2)*WR.fallDamageMultiplier),LimbType.LeftFoot)
                     WR.GiveAfflictionCharacter(char,"WR_falldamagesound",100)
                 end
                 WR.fallingPlayers[char] = nil
