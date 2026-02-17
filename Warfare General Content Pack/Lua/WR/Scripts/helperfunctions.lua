@@ -227,7 +227,7 @@ function WR.stringKeyVar(s)
 end
 
 function WR.getStringVariables(s)
-    if not s then return end
+    if not s then return {} end
     local input = WR.Set.new(WR.stringSplit(s))
     local output = {}
     for k in pairs(input) do
