@@ -27,6 +27,7 @@ Hook.add("roundStart", "WR.GameStart", function()
 
     Submarine.LockX = true
     Submarine.LockY = true
+    WR.tick = 0
     for func in WR.roundStartFunctions do
         func()
     end

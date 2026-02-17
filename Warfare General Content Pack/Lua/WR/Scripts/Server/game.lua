@@ -152,7 +152,6 @@ function WR.roundEndFunctions.data()
 end
 
 function WR.roundStartFunctions.main()
-    WR.tick = 0
     if WR.tickmax == 0 then WR.tickmax = 30*60*60 end
     WR.Game.ending = false
     WR.Game.winner = ""
