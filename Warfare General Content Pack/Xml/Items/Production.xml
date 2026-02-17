@@ -39,12 +39,16 @@
     <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
     <ItemContainer capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" uilabel="" allowuioverlap="true" />
   </Item>
-  <Item name="" identifier="WR_oredrill" tags="" category="Machine" linkable="true" allowedlinks="" description="" scale="0.5">
+  <Item name="" identifier="WR_oredrill" tags="" category="Machine" linkable="true" allowedlinks="WR_oredrill" description="" scale="0.5">
 	<Sprite texture="%ModDir%/Sprites/Items/Townfabricator.png" sourcerect="399,0,113,378" depth="0.8" origin="0.5,0.5" />
     <DecorativeSprite name="Ore drill bit" texture="%ModDir%/Sprites/Items/Townfabricator.png" depth="0.83" sourcerect="366,0,30,256" origin="0.5,0.25" offset="0,65" offsetanim="Sine" offsetanimspeed="0.4" />
-    <ItemContainer capacity="1" maxstacksize="4" canbeselected="true" hideitems="true" >
-	  <StatusEffect type="Always" target="this" >
-	    <sound file="%ModDir%/Sounds/Industrial.ogg" range="1000.0" volume="0.75" />
+	<Body radius="50" bodytype="Static" />
+    <ItemContainer capacity="1" maxstacksize="32" canbeselected="true" hideitems="true" >
+	  <StatusEffect type="Always" target="this" allowwhenbroken="true" >
+	    <sound file="%ModDir%/Sounds/Industrial.ogg" range="1000.0" volume="0.75" loop="true" />
+	  </StatusEffect>
+	  <StatusEffect type="OnBroken" target="this" condition="100" setvalue="true" >
+	    <SpawnItem identifiers="WR_ore" spawnposition="ThisInventory" />
 	  </StatusEffect>
 	  <GuiFrame relativesize="0.1,0.1" anchor="Center" ScaleBasis="BothWidth" style="ItemUI" />
       <Containable items="ore" />

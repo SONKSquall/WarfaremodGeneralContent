@@ -80,20 +80,6 @@ function WR.thinkFunctions.winner()
 
 end
 
-function WR.thinkFunctions.ore()
-    -- 1~ ore per player every 3 minutes
-    if WR.tick % math.floor(WR.Lerp(WR.InvLerp(#Client.ClientList,16,0),1800,10800)) == 0 then
-        for drillTable in WR.data["userdata.drills"] do
-            local drill = drillTable[math.random(1,#drillTable)]
-            if drill then
-                if not drill.OwnInventory.IsFull(true) then
-                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab"WR_ore", drill.OwnInventory, nil, nil, nil)
-                end
-            end
-        end
-    end
-end
-
 function WR.thinkFunctions.calculateFrontLine()
 
     if WR.tick % 60 == 0 then
