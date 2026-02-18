@@ -227,7 +227,7 @@ function WR.stringKeyVar(s)
 end
 
 function WR.getStringVariables(s)
-    if not s then return end
+    if not s then return {} end
     local input = WR.Set.new(WR.stringSplit(s))
     local output = {}
     for k in pairs(input) do
@@ -338,10 +338,12 @@ end
 
 do
 
-    local set = {
+    --[[
+    local set = { 
         renegadeteam = "WR_renegaderecipes",
         coalitionteam = "WR_coalitionrecipes"
     }
+    ]]
 
     function WR.spawnHuman(client,job,pos)
 
@@ -361,10 +363,11 @@ do
             client.SetClientCharacter(character)
         end
 
-        print(WR.id(job))
+        --[[
         if set[WR.id(job)] then
             character.GiveTalent(set[WR.id(job)])
         end
+        ]]
 
         character.GiveJobItems(false)
 
@@ -524,4 +527,10 @@ function WR.createSingleRoundTable()
         end
     end
     return t
+end
+
+function WR.getRandomCoinDrop(teamID)
+    if not WR.defender(teamID) then return end
+    local teamShops = WR.shops[teamID]
+    return teamShops[math.random(#teamShops)]
 end

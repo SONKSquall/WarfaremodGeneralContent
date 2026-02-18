@@ -186,15 +186,44 @@ function WR.characterDamageFunctions.armorDamage(charHealth, attackResult, hitLi
     end
 end
 
-function WR.roundStartFunctions.ore()
+WR.drills = {}
 
+function WR.roundStartFunctions.ore()
+    WR.drills = {}
     if Util.GetItemsById("WR_oredrill") then
-        for drill in Util.GetItemsById("WR_oredrill") do
-            local drillID = WR.getStringVariables(drill.Tags).id
-            if drillID then
-                WR.data["userdata.drills."..drillID] = table.insert(WR.data["userdata.drills."..drillID] or {},drill)
+        for item in Util.GetItemsById("WR_oredrill") do
+            local tags = WR.getStringVariables(item.Tags)
+
+            if tags.interval then
+                local drillInfo = {
+                    time = WR.tick + 600, -- ore doesn't spawn instantly, takes ten seconds from round start
+                    maxInterval = tags.interval,
+                    minInterval = tags.minInterval or tags.interval / 2,
+                    lerpByPlayerCount = (tags.lerpByPlayerCount == true),
+                    items = {item}
+                }
+
+                for linked in item.linkedTo do
+                    table.insert(drillInfo.items,linked)
+                end
+
+                table.insert(WR.drills,drillInfo)
+            end
+        end
+    end
+end
+
+function WR.thinkFunctions.ore()
+    for tbl in WR.drills do
+        if tbl.time <= WR.tick then
+            local item = tbl.items[math.random(1,#tbl.items)]
+            item.Condition = 0
+            WR.spawn(ItemPrefab.GetItemPrefab"WR_miningdrill_sfx",item.WorldPosition,nil)
+
+            if tbl.lerpByPlayerCount then
+                tbl.time = WR.tick + WR.Lerp(WR.InvLerp(#Client.ClientList,0,Game.ServerSettings.MaxPlayers),tbl.maxInterval,tbl.minInterval) * 60
             else
-                WR.data["userdata.drills.unassigned"] = table.insert(WR.data["userdata.drills.unassigned"] or {},drill)
+                tbl.time = WR.tick + tbl.maxInterval * 60
             end
         end
     end
@@ -478,6 +507,8 @@ Hook.Add("WR.defenseBuilt.xmlhook", "WR.defenseBuilt", function(effect, deltaTim
     Entity.Spawner.AddItemToSpawnQueue(prefab, spawnPos, nil, nil, nil)
 end)
 
+-- just doing this with xml now, less buggy
+--[[
 Hook.Add("character.created", "WR.recipes", function(character)
     Timer.Wait(function()
         if character.JobIdentifier == "coalitionteam" then
@@ -489,6 +520,7 @@ Hook.Add("character.created", "WR.recipes", function(character)
         print("has renegade = ",character.HasTalent("WR_renegaderecipes"))
     end,1000)
 end)
+]]
 
 Hook.Add("WR.transmit.xmlhook", "WR.transmit", function(effect, deltaTime, item, targets, worldPosition, element)
     local pingEveryone = element.GetAttributeBool("global",false)

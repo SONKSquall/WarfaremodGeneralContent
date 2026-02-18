@@ -70,7 +70,7 @@ function WR.thinkFunctions.winner()
                     end
                 end
                 if not defender then
-                    WR.Game.winner = WR.teamKeys[obj.attacker]
+                    WR.Game.winner = WR.attacker(obj.defender)
                     WR.Game.endGame()
                     return
                 end
@@ -80,29 +80,15 @@ function WR.thinkFunctions.winner()
 
 end
 
-function WR.thinkFunctions.ore()
-    -- 1~ ore per player every 3 minutes
-    if WR.tick % math.floor(WR.Lerp(WR.InvLerp(#Client.ClientList,16,0),1800,10800)) == 0 then
-        for drillTable in WR.data["userdata.drills"] do
-            local drill = drillTable[math.random(1,#drillTable)]
-            if drill then
-                if not drill.OwnInventory.IsFull(true) then
-                    Entity.Spawner.AddItemToSpawnQueue(ItemPrefab.GetItemPrefab"WR_ore", drill.OwnInventory, nil, nil, nil)
-                end
-            end
-        end
-    end
-end
-
 function WR.thinkFunctions.calculateFrontLine()
-
+    if not WR.spawnPositions.renegadeteam or WR.spawnPositions.coalitionteam then return end
     if WR.tick % 60 == 0 then
         local xCords = {}
         local yCords = {}
         local whights = {}
         for char in Character.CharacterList do
-            if WR.teamKeys[char.JobIdentifier.value] then
-                local id = char.JobIdentifier.value
+            if WR.id(char,{"Info","Job"}) then
+                local id = WR.id(char,{"Info","Job"})
                 table.insert(xCords,char.WorldPosition.x)
                 table.insert(yCords,char.WorldPosition.y)
                 -- players who are further away from their spawn will have a greater affect on the front line position
@@ -131,8 +117,8 @@ function WR.createEndMessage()
     if WR.Game.winner == "" then return "Stalemate." end
 
     local winner = WR.Game.winner
-    local loser = WR.teamLoser[winner]
-    return WR.teamWinner[WR.Game.winner] .. " " .. WR.getVictoryType(WR.data["teams."..loser..".deaths"] / WR.data["teams."..winner..".deaths"])
+    local loser = WR.attacker(WR.Game.winner)
+    return WR.teamWinner[winner] .. " " .. WR.getVictoryType(WR.data["teams."..loser..".deaths"] / WR.data["teams."..winner..".deaths"])
 end
 
 function WR.getVictoryType(ratio)
@@ -165,8 +151,12 @@ function WR.roundEndFunctions.data()
     WR.data.reset()
 end
 
+WR.shops = {
+    coalitionteam = {},
+    renegadeteam = {}
+}
+
 function WR.roundStartFunctions.main()
-    WR.tick = 0
     if WR.tickmax == 0 then WR.tickmax = 30*60*60 end
     WR.Game.ending = false
     WR.Game.winner = ""
@@ -180,12 +170,23 @@ function WR.roundStartFunctions.main()
     Game.ServerSettings.ForcePropertyUpdate()
 
     -- shops
+
+    WR.shops = {
+        coalitionteam = {},
+        renegadeteam = {}
+    }
+
     for item in Item.ItemList do
         if item.HasTag("coindropoff") then
             local shopteam = WR.getStringVariables(item.Tags)["team"]
-            shopteam = WR.teamKeys[shopteam] -- remove bogus teams
-            if shopteam then
-                WR.data["userdata."..shopteam.."shop"] = item
+            if WR.defender(shopteam) then
+                table.insert(WR.shops[shopteam],item)
+            end
+        end
+        if string.find(item.Tags,"coindropoff:") then
+            local shopteam = WR.getStringVariables(item.Tags)["coindropoff"]
+            if WR.defender(shopteam) then
+                table.insert(WR.shops[shopteam],item)
             end
         end
     end
