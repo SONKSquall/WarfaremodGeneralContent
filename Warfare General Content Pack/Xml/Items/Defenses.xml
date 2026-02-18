@@ -184,4 +184,11 @@
       <RequiredItem items="digable" type="Equipped" />
     </Repairable>
   </Item>
+  
+  <Item identifier="WR_destructionpoint" NonInteractable="true" allowedlinks="inner" hideinmenus="false" damagedbyexplosions="false" >
+    <Sprite texture="Content/Map/LargeInsideWalls.png" sourcerect="640,1024,96,420" depth="0.79"/>
+    <BrokenSprite texture="Content/Map/LargeInsideWalls.png" sourcerect="640,1542,96,420" depth="0.79" maxcondition="20"/>
+    <Body bodytype="Static" width="96" height="420"/>
+    <InheritConditionFromLinkedWall />
+  </Item>
 </Items>
