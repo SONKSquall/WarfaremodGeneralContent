@@ -48,7 +48,11 @@ Hook.add("think", "WR.think", function()
 
     if not Game.RoundStarted then return end
 
-    WR.tick = WR.tick+1
+    if WR.tick == nil then
+        WR.tick = 0
+    else
+        WR.tick = WR.tick + 1
+    end
 
     for func in WR.thinkFunctions do
         func()
