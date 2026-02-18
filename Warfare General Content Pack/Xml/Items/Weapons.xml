@@ -15,12 +15,12 @@
       <Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="6000" />
       <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
       <!-- distant sounds -->
-      <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant1.ogg" type="OnUse" range="4000" volume="0.8" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="-8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant1.ogg" type="OnUse" range="4000" volume="0.8" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant2.ogg" type="OnUse" range="4000" volume="0.8" />
         <Sound file="%ModDir:Warfare General%/Sounds/RevolverDistant3.ogg" type="OnUse" range="4000" volume="0.8" />
@@ -102,7 +102,7 @@
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="mgmuzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" colormultiplier="255,255,255,255" />
       <ParticleEmitter particle="steamspray" AngleMin="35" AngleMax="-35" VelocityMin="30" VelocityMax="125" ScaleMultiplier="0.5,0.5" colormultiplier="255,255,255,150" particleamount="1" Angle="35" Velocity="30" />
-      <StatusEffect type="OnUse" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
         <Sound file="%ModDir%/Sounds/Machinegunshot1.ogg" type="OnUse" range="6000" Volume="2" selectionmode="Random" />
         <Sound file="%ModDir%/Sounds/Machinegunshot2.ogg" type="OnUse" range="6000" Volume="2" />
         <Sound file="%ModDir%/Sounds/Machinegunshot3.ogg" type="OnUse" range="6000" Volume="2" />
@@ -110,15 +110,15 @@
         <Sound file="%ModDir%/Sounds/Machinegunshot5.ogg" type="OnUse" range="6000" Volume="2" />
         <Sound file="%ModDir%/Sounds/Machinegunshot6.ogg" type="OnUse" range="6000" Volume="2" />
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="12000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="12000,0" forceplaysounds="true">
         <!-- <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant1.ogg" type="OnUse" range="8000" volume="1" selectionmode="random" /> -->
         <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="-12000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="-12000,0" forceplaysounds="true">
         <!-- <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant1.ogg" type="OnUse" range="8000" volume="1" selectionmode="random" /> -->
         <Sound file="%ModDir:Warfare General%/Sounds/MachinegunDistant2.ogg" type="OnUse" range="8000" volume="1" />
       </StatusEffect>
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnUse" target="This">
         <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="-80" anglemax="-100" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
         <Explosion range="180.0" force="0.75" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="7.0" />
       </StatusEffect>
@@ -215,7 +215,7 @@
       <Sound file="Content/Items/Weapons/WEAPON_rifleShot1.ogg" type="OnUse" range="6000" selectionmode="Random" />
       <Sound file="Content/Items/Weapons/WEAPON_rifleShot2.ogg" type="OnUse" range="6000" />
       <Sound file="Content/Items/Weapons/WEAPON_rifleShot3.ogg" type="OnUse" range="6000" />
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnUse" target="This">
         <Explosion range="150.0" force="1.0" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="2.0" />
       </StatusEffect>
       <StatusEffect type="OnUse" delay="0.5" target="This" checkconditionalalways="true" condition="90" setvalue="true">
@@ -234,11 +234,11 @@
         <Conditional Condition="gt 0" />
         <!-- fixs reloading -->
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="10500,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="10500,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant1.ogg" type="OnUse" range="6000" volume="1" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="-10500,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="-10500,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant1.ogg" type="OnUse" range="6000" volume="1" selectionmode="Random" />
         <Sound file="%ModDir:Warfare General%/Sounds/RifleDistant2.ogg" type="OnUse" range="6000" volume="1" />
       </StatusEffect>
@@ -274,15 +274,15 @@
       <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="6000" />
       <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="6000" />
       <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="6000" />
-      <StatusEffect type="OnUse" Offset="8000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="0.75" />
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
       </StatusEffect>
-      <StatusEffect type="OnUse" Offset="-8000,0" forceplaysounds="true">
+      <StatusEffect type="OnUse" target="This" Offset="-8000,0" forceplaysounds="true">
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant1.ogg" type="OnUse" range="4000" selectionmode="Random" volume="0.75" />
         <Sound file="%ModDir:Warfare General%/Sounds/SmgDistant2.ogg" type="OnUse" range="4000" volume="0.75" />
       </StatusEffect>
-      <StatusEffect type="OnUse">
+      <StatusEffect type="OnUse" target="This">
         <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
         <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
       </StatusEffect>
@@ -583,11 +583,11 @@
       <StatusEffect type="OnBroken" target="This">
 	    <Remove />
       </StatusEffect>
-	  <StatusEffect type="OnBroken" Offset="12000,0" forceplaysounds="true">
+	  <StatusEffect type="OnBroken" target="This" Offset="12000,0" forceplaysounds="true">
 		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" FrequencyMultiplier="1.25" />
 		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" FrequencyMultiplier="1.25" />
       </StatusEffect>
-	  <StatusEffect type="OnBroken" Offset="-12000,0" forceplaysounds="true">
+	  <StatusEffect type="OnBroken" target="This" Offset="-12000,0" forceplaysounds="true">
 		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant1.ogg" range="8000" volume="1.5" selectionmode="Random" FrequencyMultiplier="1.25" />
 		<Sound file="%ModDir:Warfare General%/Sounds/GrenadeDistant2.ogg" range="8000" volume="1.5" FrequencyMultiplier="1.25" />
       </StatusEffect>

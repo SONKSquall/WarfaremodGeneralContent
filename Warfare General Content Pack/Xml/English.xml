@@ -196,8 +196,8 @@
 <entitydescription.WR_flamethrowercrate>Produces 2 flamethrowers. Deposit in a locker to retrieve items.</entitydescription.WR_flamethrowercrate>
 <entityname.WR_launchgrenadecrate>Production Crate (General Explosive Munition)</entityname.WR_launchgrenadecrate>
 <entitydescription.WR_launchgrenadecrate>Produces 3 GEMs. Deposit in a locker to retrieve items.</entitydescription.WR_launchgrenadecrate>
-<entityname.WR_launchgrenadecrate>Production Crate (Mortar)</entityname.WR_launchgrenadecrate>
-<entitydescription.WR_launchgrenadecrate>Produces a mortar. Deposit in a locker to retrieve item.</entitydescription.WR_launchgrenadecrate>
+<entityname.WR_mortarcrate>Production Crate (Mortar)</entityname.WR_mortarcrate>
+<entitydescription.WR_mortarcrate>Produces a mortar. Deposit in a locker to retrieve item.</entitydescription.WR_mortarcrate>
 
 <entityname.WR_coalitionshellcrate>Production Crate (Artillery Shell)</entityname.WR_coalitionshellcrate>
 <entitydescription.WR_coalitionshellcrate>Produces 6 large caliber shells. Deposit in a shelf to retrieve items.</entitydescription.WR_coalitionshellcrate>

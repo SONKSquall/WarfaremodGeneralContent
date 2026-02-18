@@ -1,15 +1,5 @@
 if not Game.IsMultiplayer or (Game.IsMultiplayer and CLIENT) then return end
 
--- use instances to prevent the server from modifying classes     <- the most cursed text ever written
-WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
-
-require"WR.Scripts.Server.hooks"
-require"WR.Scripts.Server.items"
-require"WR.Scripts.Server.weapons"
-require"WR.Scripts.Server.objective"
-require"WR.Scripts.Server.respawn"
-require"WR.Scripts.Server.map"
-
 WR.frontLinePos = Vector2(0,0)
 WR.spawnPositions = {}
 WR.Game = {}
@@ -21,6 +11,16 @@ WR.tickmax = 30*60*60
 WR.extensions = {
     WR.artillery
 }
+
+-- use instances to prevent the server from modifying classes     <- the most cursed text ever written
+WR.artillery = (require"WR.Scripts.Server.Extensions.artillery".new())
+
+require"WR.Scripts.Server.hooks"
+require"WR.Scripts.Server.items"
+require"WR.Scripts.Server.weapons"
+require"WR.Scripts.Server.objective"
+require"WR.Scripts.Server.respawn"
+require"WR.Scripts.Server.map"
 
 --[[
 function WR.thinkFunctions.main()

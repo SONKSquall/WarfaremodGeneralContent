@@ -1000,3 +1000,14 @@ Hook.Add("WR.mortarpenalty.xmlhook", "WR.mortarpenalty", function(effect, deltaT
         end)
     end
 end)
+
+-- stands up fallen sandbags when picking them up
+Hook.Patch("Barotrauma.Items.Components.Pickable", "Pick", function(instance, ptable)
+    local item = instance.Item
+    if item.Prefab.Identifier ~= 'WR_sandbag' then return end
+
+    if math.abs(math.sin(item.body.Rotation)) > 0.2 then
+        item.SetTransform(item.SimPosition, 0)
+        item.body.FarseerBody.Awake = true
+    end
+end, Hook.HookMethodType.Before)
