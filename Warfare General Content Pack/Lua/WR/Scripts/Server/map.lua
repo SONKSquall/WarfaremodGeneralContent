@@ -85,15 +85,47 @@ WR.objectives = {}
 
 function WR.roundStartFunctions.objectives()
     WR.objectives = {}
-    for area in WR.getAreas(function(item) return item.HasTag("wr_objective") end) do
-        local tags = WR.getStringVariables(area.tags)
-        table.insert(WR.objectives,
-        {
-            attacker = WR.attacker(tags.team or tags.defender) or "renegadeteam",
-            defender = WR.defender(tags.team or tags.defender) or "coalitionteam",
-            rect = area.WorldRect,
-            captured = false
-        })
+    for item in WR.getAreas(function(item)
+        return string.find(item.Tags,"objective:") ~= nil or item.HasTag("wr_objective")
+    end) do
+        local tags = WR.getStringVariables(item.tags)
+
+        local objectiveInfo = {
+            defender = WR.defender(tags.objective or tags.team or tags.defender) or "coalitionteam",
+            captured = false,
+            items = {item}
+        }
+
+        for linked in item.linkedTo do
+            if linked.WorldRect then
+                table.insert(objectiveInfo.items,linked)
+            end
+        end
+
+        table.insert(WR.objectives,objectiveInfo)
+    end
+end
+
+function WR.thinkFunctions.objective()
+
+    if WR.tick % 6 ~= 0 then return end
+
+    for tbl in WR.objectives do
+        local enemyPresent = false
+        for client in Client.ClientList do
+            for item in tbl.items do
+                if client.Character and WR.isPointInRect(client.Character.WorldPosition, item.rect) then
+                    if not (client.Character.IsUnconscious or WR.IsEnemyPOW(client.Character, tbl.defender)) and WR.id(client,{"Character","Info","Job"}) ~= tbl.defender then
+                        enemyPresent = true
+                        break
+                    end
+                end
+            end
+            if enemyPresent then break end
+        end
+
+
+        tbl.captured = enemyPresent
     end
 end
 

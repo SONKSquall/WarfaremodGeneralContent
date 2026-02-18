@@ -70,7 +70,7 @@ function WR.thinkFunctions.winner()
                     end
                 end
                 if not defender then
-                    WR.Game.winner = WR.teamKeys[obj.attacker]
+                    WR.Game.winner = WR.attacker(obj.defender)
                     WR.Game.endGame()
                     return
                 end
