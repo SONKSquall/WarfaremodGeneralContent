@@ -81,14 +81,14 @@ function WR.thinkFunctions.winner()
 end
 
 function WR.thinkFunctions.calculateFrontLine()
-
+    if not WR.spawnPositions.renegadeteam or WR.spawnPositions.coalitionteam then return end
     if WR.tick % 60 == 0 then
         local xCords = {}
         local yCords = {}
         local whights = {}
         for char in Character.CharacterList do
-            if WR.teamKeys[char.JobIdentifier.value] then
-                local id = char.JobIdentifier.value
+            if WR.id(char,{"Info","Job"}) then
+                local id = WR.id(char,{"Info","Job"})
                 table.insert(xCords,char.WorldPosition.x)
                 table.insert(yCords,char.WorldPosition.y)
                 -- players who are further away from their spawn will have a greater affect on the front line position
